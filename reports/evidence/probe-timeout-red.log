@@ -1,0 +1,35 @@
+F                                                                        [100%]
+=================================== FAILURES ===================================
+____________ test_timeout_marker_stays_within_combined_output_limit ____________
+
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x11014cf50>
+
+    def test_timeout_marker_stays_within_combined_output_limit(monkeypatch):
+        def full(*args, **kwargs):
+            kwargs["stdout"].write(b"x" * 32768)
+            kwargs["stderr"].write(b"y" * 32768)
+            class Process:
+                pid = 999999999
+                returncode = -9
+                def wait(self, timeout=None):
+                    if timeout is not None:
+                        raise subprocess.TimeoutExpired("docker", timeout)
+                    return -9
+            return Process()
+        monkeypatch.setattr(subprocess, "Popen", full)
+        result = ProbeRunner().run(("docker", "--context", "default", "compose", "version", "--short"), timeout_s=.01)
+>       assert len(result.stdout.encode()) + len(result.stderr.encode()) <= 65536
+E       AssertionError: assert (32768 + 32784) <= 65536
+E        +  where 32768 = len(b'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx...xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx')
+E        +    where b'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx...xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx' = <built-in method encode of str object at 0x118028000>()
+E        +      where <built-in method encode of str object at 0x118028000> = 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx...xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx'.encode
+E        +        where 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx...xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx' = ProbeResult(argv=('docker', '--context', 'default', 'compose', 'version', '--short'), returncode=None, stdout='xxxxxxx...timed out', timed_out=True, observed_at=datetime.datetime(2026, 10, 6, 7, 2, 43, 860753, tzinfo=datetime.timezone.utc)).stdout
+E        +  and   32784 = len(b'yyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy...yyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy\nprobe timed out')
+E        +    where b'yyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy...yyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy\nprobe timed out' = <built-in method encode of str object at 0x118048000>()
+E        +      where <built-in method encode of str object at 0x118048000> = 'yyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy...yyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy\nprobe timed out'.encode
+E        +        where 'yyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy...yyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy\nprobe timed out' = ProbeResult(argv=('docker', '--context', 'default', 'compose', 'version', '--short'), returncode=None, stdout='xxxxxxx...timed out', timed_out=True, observed_at=datetime.datetime(2026, 10, 6, 7, 2, 43, 860753, tzinfo=datetime.timezone.utc)).stderr
+
+tests/test_process.py:86: AssertionError
+=========================== short test summary info ============================
+FAILED tests/test_process.py::test_timeout_marker_stays_within_combined_output_limit
+1 failed in 0.03s

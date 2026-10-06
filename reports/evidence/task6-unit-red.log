@@ -1,0 +1,197 @@
+
+> d1env-frontend@0.1.0 test
+> vitest --run
+
+
+ RUN  v5.0.3 [LOCAL_PATH]
+
+ ❯ tests/unit/App.test.tsx (7 tests | 7 failed) 7040ms
+   ❯ 中文向导与证据边界 (7)
+     × 五步可导航、每个视图保留 MOCK，真实选项禁用并解释能力证据 1016ms
+     × 服务端缺失遥测保持 UNKNOWN 和未知，不显示正常或虚构百分比 1004ms
+     × 引导令牌在网络前从 fragment 清除，业务写入携带 CSRF 且不信任浏览器 HostFacts 1003ms
+     × 连续点击只提交一个作业，结果明确限定为 mock 1003ms
+     × 服务端阻塞计划时不能执行，显示错误码和下一步操作 1004ms
+     × 失败后的显式重试使用新幂等键，不复用旧失败作业 1005ms
+     × 刷新恢复现有作业并以纯文本显示故障证据，重试使用新幂等键 1004ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 7 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  tests/unit/App.test.tsx > 中文向导与证据边界 > 五步可导航、每个视图保留 MOCK，真实选项禁用并解释能力证据
+TestingLibraryElementError: Unable to find role="button" and name "下一步：机器人配置"
+
+Ignored nodes: comments, script, style
+[36m<body>[39m
+  [36m<div />[39m
+[36m</body>[39m
+
+Ignored nodes: comments, script, style
+[36m<body>[39m
+  [36m<div />[39m
+[36m</body>[39m
+ ❯ waitForWrapper node_modules/@testing-library/dom/dist/wait-for.js:163:27
+ ❯ node_modules/@testing-library/dom/dist/query-helpers.js:86:33
+ ❯ tests/unit/App.test.tsx:46:18
+     44|     const user = userEvent.setup();
+     45|     render(<App />);
+     46|     await screen.findByRole('button', { name: '下一步：机器人配置' });
+       |                  ^
+     47|     expect(screen.getByRole('button', { name: /真实机器人只读/ })).toBeDisabl…
+     48|     for (const name of ['使用方式', '机器人配置', '执行电脑', '部署预览', '运行与结果']) {
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/7]⎯
+
+ FAIL  tests/unit/App.test.tsx > 中文向导与证据边界 > 服务端缺失遥测保持 UNKNOWN 和未知，不显示正常或虚构百分比
+TestingLibraryElementError: Unable to find role="button" and name "3 执行电脑"
+
+Ignored nodes: comments, script, style
+[36m<body>[39m
+  [36m<div />[39m
+[36m</body>[39m
+
+Ignored nodes: comments, script, style
+[36m<body>[39m
+  [36m<div />[39m
+[36m</body>[39m
+ ❯ waitForWrapper node_modules/@testing-library/dom/dist/wait-for.js:163:27
+ ❯ node_modules/@testing-library/dom/dist/query-helpers.js:86:33
+ ❯ tests/unit/App.test.tsx:62:35
+     60|     const user = userEvent.setup();
+     61|     render(<App />);
+     62|     await user.click(await screen.findByRole('button', { name: '3 执行电脑…
+       |                                   ^
+     63|     expect(await screen.findByTestId('battery-value')).toHaveTextConte…
+     64|     expect(screen.getByTestId('pose-value')).toHaveTextContent('未知');
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/7]⎯
+
+ FAIL  tests/unit/App.test.tsx > 中文向导与证据边界 > 引导令牌在网络前从 fragment 清除，业务写入携带 CSRF 且不信任浏览器 HostFacts
+TestingLibraryElementError: Unable to find role="button" and name "下一步：机器人配置"
+
+Ignored nodes: comments, script, style
+[36m<body>[39m
+  [36m<div />[39m
+[36m</body>[39m
+
+Ignored nodes: comments, script, style
+[36m<body>[39m
+  [36m<div />[39m
+[36m</body>[39m
+ ❯ waitForWrapper node_modules/@testing-library/dom/dist/wait-for.js:163:27
+ ❯ node_modules/@testing-library/dom/dist/query-helpers.js:86:33
+ ❯ toPreview tests/unit/App.test.tsx:36:33
+     34|   const user = userEvent.setup();
+     35|   render(<App />);
+     36|   await user.click(await screen.findByRole('button', { name: '下一步：机器人配…
+       |                                 ^
+     37|   await user.click(screen.getByRole('button', { name: '下一步：执行电脑' }));
+     38|   await user.click(await screen.findByRole('button', { name: '下一步：部署预览…
+ ❯ tests/unit/App.test.tsx:74:24
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/7]⎯
+
+ FAIL  tests/unit/App.test.tsx > 中文向导与证据边界 > 连续点击只提交一个作业，结果明确限定为 mock
+TestingLibraryElementError: Unable to find role="button" and name "下一步：机器人配置"
+
+Ignored nodes: comments, script, style
+[36m<body>[39m
+  [36m<div />[39m
+[36m</body>[39m
+
+Ignored nodes: comments, script, style
+[36m<body>[39m
+  [36m<div />[39m
+[36m</body>[39m
+ ❯ waitForWrapper node_modules/@testing-library/dom/dist/wait-for.js:163:27
+ ❯ node_modules/@testing-library/dom/dist/query-helpers.js:86:33
+ ❯ toPreview tests/unit/App.test.tsx:36:33
+     34|   const user = userEvent.setup();
+     35|   render(<App />);
+     36|   await user.click(await screen.findByRole('button', { name: '下一步：机器人配…
+       |                                 ^
+     37|   await user.click(screen.getByRole('button', { name: '下一步：执行电脑' }));
+     38|   await user.click(await screen.findByRole('button', { name: '下一步：部署预览…
+ ❯ tests/unit/App.test.tsx:89:11
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/7]⎯
+
+ FAIL  tests/unit/App.test.tsx > 中文向导与证据边界 > 服务端阻塞计划时不能执行，显示错误码和下一步操作
+TestingLibraryElementError: Unable to find role="button" and name "下一步：机器人配置"
+
+Ignored nodes: comments, script, style
+[36m<body>[39m
+  [36m<div />[39m
+[36m</body>[39m
+
+Ignored nodes: comments, script, style
+[36m<body>[39m
+  [36m<div />[39m
+[36m</body>[39m
+ ❯ waitForWrapper node_modules/@testing-library/dom/dist/wait-for.js:163:27
+ ❯ node_modules/@testing-library/dom/dist/query-helpers.js:86:33
+ ❯ toPreview tests/unit/App.test.tsx:36:33
+     34|   const user = userEvent.setup();
+     35|   render(<App />);
+     36|   await user.click(await screen.findByRole('button', { name: '下一步：机器人配…
+       |                                 ^
+     37|   await user.click(screen.getByRole('button', { name: '下一步：执行电脑' }));
+     38|   await user.click(await screen.findByRole('button', { name: '下一步：部署预览…
+ ❯ tests/unit/App.test.tsx:101:11
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[5/7]⎯
+
+ FAIL  tests/unit/App.test.tsx > 中文向导与证据边界 > 失败后的显式重试使用新幂等键，不复用旧失败作业
+TestingLibraryElementError: Unable to find role="button" and name "下一步：机器人配置"
+
+Ignored nodes: comments, script, style
+[36m<body>[39m
+  [36m<div />[39m
+[36m</body>[39m
+
+Ignored nodes: comments, script, style
+[36m<body>[39m
+  [36m<div />[39m
+[36m</body>[39m
+ ❯ waitForWrapper node_modules/@testing-library/dom/dist/wait-for.js:163:27
+ ❯ node_modules/@testing-library/dom/dist/query-helpers.js:86:33
+ ❯ toPreview tests/unit/App.test.tsx:36:33
+     34|   const user = userEvent.setup();
+     35|   render(<App />);
+     36|   await user.click(await screen.findByRole('button', { name: '下一步：机器人配…
+       |                                 ^
+     37|   await user.click(screen.getByRole('button', { name: '下一步：执行电脑' }));
+     38|   await user.click(await screen.findByRole('button', { name: '下一步：部署预览…
+ ❯ tests/unit/App.test.tsx:111:24
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[6/7]⎯
+
+ FAIL  tests/unit/App.test.tsx > 中文向导与证据边界 > 刷新恢复现有作业并以纯文本显示故障证据，重试使用新幂等键
+TestingLibraryElementError: Unable to find an element with the text: <script>window.__d1env_injected=true</script>. This could be because the text is broken up by multiple elements. In this case, you can provide a function for your text matcher to make your matcher more flexible.
+
+Ignored nodes: comments, script, style
+[36m<body>[39m
+  [36m<div />[39m
+[36m</body>[39m
+
+Ignored nodes: comments, script, style
+[36m<body>[39m
+  [36m<div />[39m
+[36m</body>[39m
+ ❯ waitForWrapper node_modules/@testing-library/dom/dist/wait-for.js:163:27
+ ❯ node_modules/@testing-library/dom/dist/query-helpers.js:86:33
+ ❯ tests/unit/App.test.tsx:126:25
+    124|     const user = userEvent.setup();
+    125|     render(<App />);
+    126|     expect(await screen.findByText(maliciousMessage)).toBeVisible();
+       |                         ^
+    127|     expect(document.querySelector('script')).toBeNull();
+    128|     expect(screen.getByText('MOCK_VERIFY_FAILED')).toBeVisible();
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[7/7]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  7 failed (7)
+   Start at  14:44:50
+   Duration  7.70s (tests 93%, environment 5%, setup 1%, transform 1%, import 1%)
+

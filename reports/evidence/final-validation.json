@@ -1,0 +1,120 @@
+{
+  "date": "2026-10-06",
+  "scope": "M0-M2 software/MOCK",
+  "python_distinct_tests": 90,
+  "checks": [
+    {
+      "command": "work/venv310/bin/python -m pytest -q",
+      "exit_code": 0,
+      "passed": 90,
+      "failed": 0,
+      "skipped": 0,
+      "log": "final-python310.log"
+    },
+    {
+      "command": ".venv/bin/python -m pytest -q",
+      "exit_code": 0,
+      "passed": 90,
+      "failed": 0,
+      "skipped": 0,
+      "log": "final-python312.log"
+    },
+    {
+      "command": ".venv/bin/ruff check src tests",
+      "exit_code": 0,
+      "log": "final-ruff.log"
+    },
+    {
+      "command": ".venv/bin/mypy src/d1env",
+      "exit_code": 0,
+      "log": "final-mypy.log"
+    },
+    {
+      "command": "npm ci",
+      "cwd": "frontend",
+      "exit_code": 0,
+      "log": "final-npm-ci.log"
+    },
+    {
+      "command": "npm run test -- --run",
+      "cwd": "frontend",
+      "exit_code": 0,
+      "passed": 12,
+      "failed": 0,
+      "skipped": 0,
+      "log": "final-frontend-unit.log"
+    },
+    {
+      "command": "npm run build",
+      "cwd": "frontend",
+      "exit_code": 0,
+      "log": "final-frontend-build.log"
+    },
+    {
+      "command": "npm audit",
+      "cwd": "frontend",
+      "exit_code": 0,
+      "reported_vulnerabilities": 0,
+      "log": "final-frontend-audit.log"
+    },
+    {
+      "command": "D1ENV_E2E_TOKEN_FILE=<private-file> D1ENV_E2E_URL=http://127.0.0.1:8765 npx playwright test",
+      "cwd": "frontend",
+      "exit_code": 0,
+      "passed": 1,
+      "failed": 0,
+      "skipped": 0,
+      "log": "task6-e2e.log"
+    },
+    {
+      "command": "python3 work/evidence/task0_validate.py",
+      "exit_code": 0,
+      "source_repos": 6,
+      "recomputed_file_hashes": 83,
+      "negative_cases_rejected": 8,
+      "log": "m0-final-validation.log"
+    },
+    {
+      "command": ".venv/bin/d1env doctor",
+      "exit_code": 0,
+      "check_statuses": {
+        "PASS": 3,
+        "WARN": 1,
+        "SKIPPED": 2,
+        "UNKNOWN": 1
+      },
+      "log": "doctor-local.json"
+    },
+    {
+      "command": ".venv/bin/d1env plan --profile unknown --mode real_readonly",
+      "exit_code": 1,
+      "expected": "PROFILE_UNVERIFIED",
+      "log": "cli-real-blocked.json"
+    },
+    {
+      "command": "./scripts/start-demo.sh",
+      "termination_exit_code": 130,
+      "smoke_result": "PASS",
+      "interrupted_by_operator": true,
+      "http_root": 200,
+      "http_unauth_catalog": 401,
+      "independent_window": true,
+      "fragment_cleared": true,
+      "log": "demo-launch.log"
+    }
+  ],
+  "not_run_acceptance": [
+    "A13",
+    "A14",
+    "A15",
+    "A16",
+    "A17",
+    "A18",
+    "A19",
+    "A20",
+    "A21",
+    "A22",
+    "A23",
+    "A24"
+  ]
+}

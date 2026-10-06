@@ -1,0 +1,1856 @@
+{
+  "Catalog": {
+    "$defs": {
+      "ArtifactRef": {
+        "additionalProperties": false,
+        "properties": {
+          "kind": {
+            "enum": [
+              "mock",
+              "registry",
+              "local_build"
+            ],
+            "title": "Kind",
+            "type": "string"
+          },
+          "source": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "title": "Source"
+          },
+          "architecture": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "title": "Architecture"
+          },
+          "immutable_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "title": "Immutable Id"
+          }
+        },
+        "required": [
+          "kind"
+        ],
+        "title": "ArtifactRef",
+        "type": "object"
+      },
+      "Capability": {
+        "additionalProperties": false,
+        "properties": {
+          "declared_by_vendor": {
+            "default": false,
+            "title": "Declared By Vendor",
+            "type": "boolean"
+          },
+          "status": {
+            "default": "not_implemented",
+            "enum": [
+              "not_implemented",
+              "documented",
+              "implemented",
+              "integration_verified",
+              "hardware_verified"
+            ],
+            "title": "Status",
+            "type": "string"
+          },
+          "evidence_refs": {
+            "items": {
+              "type": "string"
+            },
+            "title": "Evidence Refs",
+            "type": "array"
+          },
+          "reason": {
+            "title": "Reason",
+            "type": "string"
+          }
+        },
+        "required": [
+          "reason"
+        ],
+        "title": "Capability",
+        "type": "object"
+      },
+      "Profile": {
+        "additionalProperties": false,
+        "properties": {
+          "schema_version": {
+            "const": 1,
+            "default": 1,
+            "title": "Schema Version",
+            "type": "integer"
+          },
+          "profile_id": {
+            "pattern": "^[a-z0-9][a-z0-9_-]{0,63}$",
+            "title": "Profile Id",
+            "type": "string"
+          },
+          "name": {
+            "title": "Name",
+            "type": "string"
+          },
+          "kind": {
+            "enum": [
+              "mock",
+              "hardware"
+            ],
+            "title": "Kind",
+            "type": "string"
+          },
+          "profile_revision": {
+            "title": "Profile Revision",
+            "type": "string"
+          },
+          "vendor": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Vendor"
+          },
+          "sdk_family": {
+            "anyOf": [
+              {
+                "enum": [
+                  "edu_ultra_zsl_1",
+                  "edu_ultra_zsl_1w",
+                  "maxpro_legacy"
+                ],
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Sdk Family"
+          },
+          "variant": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Variant"
+          },
+          "architectures": {
+            "items": {
+              "enum": [
+                "x86_64",
+                "aarch64"
+              ],
+              "type": "string"
+            },
+            "title": "Architectures",
+            "type": "array"
+          },
+          "runtime_requirements": {
+            "$ref": "#/$defs/RuntimeRequirements"
+          },
+          "firmware_rules": {
+            "anyOf": [
+              {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "title": "Firmware Rules"
+          },
+          "capabilities": {
+            "additionalProperties": {
+              "$ref": "#/$defs/Capability"
+            },
+            "title": "Capabilities",
+            "type": "object"
+          },
+          "sensor_contract": {
+            "items": {
+              "type": "string"
+            },
+            "title": "Sensor Contract",
+            "type": "array"
+          },
+          "network_requirements": {
+            "items": {
+              "enum": [
+                "none",
+                "documented_unverified"
+              ],
+              "type": "string"
+            },
+            "title": "Network Requirements",
+            "type": "array"
+          },
+          "artifact_requirements": {
+            "items": {
+              "$ref": "#/$defs/ArtifactRef"
+            },
+            "title": "Artifact Requirements",
+            "type": "array"
+          },
+          "evidence_refs": {
+            "items": {
+              "type": "string"
+            },
+            "title": "Evidence Refs",
+            "type": "array"
+          },
+          "unverified_reason": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "title": "Unverified Reason"
+          }
+        },
+        "required": [
+          "profile_id",
+          "name",
+          "kind",
+          "profile_revision",
+          "vendor",
+          "sdk_family",
+          "variant",
+          "architectures",
+          "runtime_requirements",
+          "capabilities",
+          "network_requirements"
+        ],
+        "title": "Profile",
+        "type": "object"
+      },
+      "RuntimeRequirements": {
+        "additionalProperties": false,
+        "properties": {
+          "os_name": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "title": "Os Name"
+          },
+          "os_version": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "title": "Os Version"
+          },
+          "gpu_required": {
+            "default": false,
+            "title": "Gpu Required",
+            "type": "boolean"
+          },
+          "min_disk_bytes": {
+            "default": 104857600,
+            "minimum": 0,
+            "title": "Min Disk Bytes",
+            "type": "integer"
+          }
+        },
+        "title": "RuntimeRequirements",
+        "type": "object"
+      }
+    },
+    "additionalProperties": false,
+    "properties": {
+      "schema_version": {
+        "const": 1,
+        "default": 1,
+        "title": "Schema Version",
+        "type": "integer"
+      },
+      "profiles": {
+        "items": {
+          "$ref": "#/$defs/Profile"
+        },
+        "title": "Profiles",
+        "type": "array"
+      }
+    },
+    "required": [
+      "profiles"
+    ],
+    "title": "Catalog",
+    "type": "object"
+  },
+  "Profile": {
+    "$defs": {
+      "ArtifactRef": {
+        "additionalProperties": false,
+        "properties": {
+          "kind": {
+            "enum": [
+              "mock",
+              "registry",
+              "local_build"
+            ],
+            "title": "Kind",
+            "type": "string"
+          },
+          "source": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "title": "Source"
+          },
+          "architecture": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "title": "Architecture"
+          },
+          "immutable_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "title": "Immutable Id"
+          }
+        },
+        "required": [
+          "kind"
+        ],
+        "title": "ArtifactRef",
+        "type": "object"
+      },
+      "Capability": {
+        "additionalProperties": false,
+        "properties": {
+          "declared_by_vendor": {
+            "default": false,
+            "title": "Declared By Vendor",
+            "type": "boolean"
+          },
+          "status": {
+            "default": "not_implemented",
+            "enum": [
+              "not_implemented",
+              "documented",
+              "implemented",
+              "integration_verified",
+              "hardware_verified"
+            ],
+            "title": "Status",
+            "type": "string"
+          },
+          "evidence_refs": {
+            "items": {
+              "type": "string"
+            },
+            "title": "Evidence Refs",
+            "type": "array"
+          },
+          "reason": {
+            "title": "Reason",
+            "type": "string"
+          }
+        },
+        "required": [
+          "reason"
+        ],
+        "title": "Capability",
+        "type": "object"
+      },
+      "RuntimeRequirements": {
+        "additionalProperties": false,
+        "properties": {
+          "os_name": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "title": "Os Name"
+          },
+          "os_version": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "title": "Os Version"
+          },
+          "gpu_required": {
+            "default": false,
+            "title": "Gpu Required",
+            "type": "boolean"
+          },
+          "min_disk_bytes": {
+            "default": 104857600,
+            "minimum": 0,
+            "title": "Min Disk Bytes",
+            "type": "integer"
+          }
+        },
+        "title": "RuntimeRequirements",
+        "type": "object"
+      }
+    },
+    "additionalProperties": false,
+    "properties": {
+      "schema_version": {
+        "const": 1,
+        "default": 1,
+        "title": "Schema Version",
+        "type": "integer"
+      },
+      "profile_id": {
+        "pattern": "^[a-z0-9][a-z0-9_-]{0,63}$",
+        "title": "Profile Id",
+        "type": "string"
+      },
+      "name": {
+        "title": "Name",
+        "type": "string"
+      },
+      "kind": {
+        "enum": [
+          "mock",
+          "hardware"
+        ],
+        "title": "Kind",
+        "type": "string"
+      },
+      "profile_revision": {
+        "title": "Profile Revision",
+        "type": "string"
+      },
+      "vendor": {
+        "anyOf": [
+          {
+            "type": "string"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "title": "Vendor"
+      },
+      "sdk_family": {
+        "anyOf": [
+          {
+            "enum": [
+              "edu_ultra_zsl_1",
+              "edu_ultra_zsl_1w",
+              "maxpro_legacy"
+            ],
+            "type": "string"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "title": "Sdk Family"
+      },
+      "variant": {
+        "anyOf": [
+          {
+            "type": "string"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "title": "Variant"
+      },
+      "architectures": {
+        "items": {
+          "enum": [
+            "x86_64",
+            "aarch64"
+          ],
+          "type": "string"
+        },
+        "title": "Architectures",
+        "type": "array"
+      },
+      "runtime_requirements": {
+        "$ref": "#/$defs/RuntimeRequirements"
+      },
+      "firmware_rules": {
+        "anyOf": [
+          {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "default": null,
+        "title": "Firmware Rules"
+      },
+      "capabilities": {
+        "additionalProperties": {
+          "$ref": "#/$defs/Capability"
+        },
+        "title": "Capabilities",
+        "type": "object"
+      },
+      "sensor_contract": {
+        "items": {
+          "type": "string"
+        },
+        "title": "Sensor Contract",
+        "type": "array"
+      },
+      "network_requirements": {
+        "items": {
+          "enum": [
+            "none",
+            "documented_unverified"
+          ],
+          "type": "string"
+        },
+        "title": "Network Requirements",
+        "type": "array"
+      },
+      "artifact_requirements": {
+        "items": {
+          "$ref": "#/$defs/ArtifactRef"
+        },
+        "title": "Artifact Requirements",
+        "type": "array"
+      },
+      "evidence_refs": {
+        "items": {
+          "type": "string"
+        },
+        "title": "Evidence Refs",
+        "type": "array"
+      },
+      "unverified_reason": {
+        "anyOf": [
+          {
+            "type": "string"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "default": null,
+        "title": "Unverified Reason"
+      }
+    },
+    "required": [
+      "profile_id",
+      "name",
+      "kind",
+      "profile_revision",
+      "vendor",
+      "sdk_family",
+      "variant",
+      "architectures",
+      "runtime_requirements",
+      "capabilities",
+      "network_requirements"
+    ],
+    "title": "Profile",
+    "type": "object"
+  },
+  "DeploymentRequest": {
+    "additionalProperties": false,
+    "properties": {
+      "mode": {
+        "default": "mock",
+        "enum": [
+          "mock",
+          "real_readonly"
+        ],
+        "title": "Mode",
+        "type": "string"
+      },
+      "profile_id": {
+        "default": "demo",
+        "pattern": "^[a-z0-9][a-z0-9_-]{0,63}$",
+        "title": "Profile Id",
+        "type": "string"
+      },
+      "target_id": {
+        "const": "local",
+        "default": "local",
+        "title": "Target Id",
+        "type": "string"
+      },
+      "task": {
+        "default": "demo",
+        "enum": [
+          "demo",
+          "diagnostics"
+        ],
+        "title": "Task",
+        "type": "string"
+      },
+      "demo_scenario": {
+        "default": "success",
+        "enum": [
+          "success",
+          "verify_failure"
+        ],
+        "title": "Demo Scenario",
+        "type": "string"
+      }
+    },
+    "title": "DeploymentRequest",
+    "type": "object"
+  },
+  "HostFacts": {
+    "additionalProperties": false,
+    "properties": {
+      "target_id": {
+        "const": "local",
+        "default": "local",
+        "title": "Target Id",
+        "type": "string"
+      },
+      "os_name": {
+        "anyOf": [
+          {
+            "type": "string"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "title": "Os Name"
+      },
+      "os_version": {
+        "anyOf": [
+          {
+            "type": "string"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "title": "Os Version"
+      },
+      "architecture": {
+        "anyOf": [
+          {
+            "type": "string"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "title": "Architecture"
+      },
+      "docker_available": {
+        "anyOf": [
+          {
+            "type": "boolean"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "title": "Docker Available"
+      },
+      "docker_accessible": {
+        "anyOf": [
+          {
+            "type": "boolean"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "title": "Docker Accessible"
+      },
+      "compose_available": {
+        "anyOf": [
+          {
+            "type": "boolean"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "title": "Compose Available"
+      },
+      "disk_free_bytes": {
+        "anyOf": [
+          {
+            "type": "integer"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "title": "Disk Free Bytes"
+      },
+      "gpu_available": {
+        "anyOf": [
+          {
+            "type": "boolean"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "title": "Gpu Available"
+      },
+      "checked_at": {
+        "format": "date-time",
+        "title": "Checked At",
+        "type": "string"
+      },
+      "docker_error": {
+        "anyOf": [
+          {
+            "enum": [
+              "missing",
+              "daemon_stopped",
+              "permission_denied",
+              "timeout",
+              "unknown"
+            ],
+            "type": "string"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "default": null,
+        "title": "Docker Error"
+      },
+      "interfaces": {
+        "items": {
+          "type": "string"
+        },
+        "title": "Interfaces",
+        "type": "array"
+      }
+    },
+    "required": [
+      "os_name",
+      "os_version",
+      "architecture",
+      "docker_available",
+      "docker_accessible",
+      "compose_available",
+      "disk_free_bytes",
+      "gpu_available",
+      "checked_at"
+    ],
+    "title": "HostFacts",
+    "type": "object"
+  },
+  "CheckResult": {
+    "$defs": {
+      "JsonValue": {}
+    },
+    "additionalProperties": false,
+    "properties": {
+      "code": {
+        "title": "Code",
+        "type": "string"
+      },
+      "status": {
+        "enum": [
+          "PASS",
+          "WARN",
+          "FAIL",
+          "UNKNOWN",
+          "SKIPPED"
+        ],
+        "title": "Status",
+        "type": "string"
+      },
+      "reason": {
+        "title": "Reason",
+        "type": "string"
+      },
+      "remediation": {
+        "title": "Remediation",
+        "type": "string"
+      },
+      "origin": {
+        "enum": [
+          "mock",
+          "local_probe",
+          "docker",
+          "sdk",
+          "operator"
+        ],
+        "title": "Origin",
+        "type": "string"
+      },
+      "observed_at": {
+        "format": "date-time",
+        "title": "Observed At",
+        "type": "string"
+      },
+      "evidence": {
+        "additionalProperties": {
+          "$ref": "#/$defs/JsonValue"
+        },
+        "title": "Evidence",
+        "type": "object"
+      }
+    },
+    "required": [
+      "code",
+      "status",
+      "reason",
+      "remediation",
+      "origin",
+      "observed_at"
+    ],
+    "title": "CheckResult",
+    "type": "object"
+  },
+  "PlanResolution": {
+    "$defs": {
+      "Blocker": {
+        "additionalProperties": false,
+        "properties": {
+          "code": {
+            "title": "Code",
+            "type": "string"
+          },
+          "message": {
+            "title": "Message",
+            "type": "string"
+          },
+          "remediation": {
+            "title": "Remediation",
+            "type": "string"
+          },
+          "field": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "title": "Field"
+          }
+        },
+        "required": [
+          "code",
+          "message",
+          "remediation"
+        ],
+        "title": "Blocker",
+        "type": "object"
+      },
+      "DeploymentPlan": {
+        "additionalProperties": false,
+        "properties": {
+          "plan_id": {
+            "title": "Plan Id",
+            "type": "string"
+          },
+          "mode": {
+            "enum": [
+              "mock",
+              "real_readonly"
+            ],
+            "title": "Mode",
+            "type": "string"
+          },
+          "target_id": {
+            "const": "local",
+            "title": "Target Id",
+            "type": "string"
+          },
+          "profile_id": {
+            "title": "Profile Id",
+            "type": "string"
+          },
+          "operations": {
+            "items": {
+              "$ref": "#/$defs/Operation"
+            },
+            "title": "Operations",
+            "type": "array"
+          },
+          "required_evidence": {
+            "items": {
+              "type": "string"
+            },
+            "title": "Required Evidence",
+            "type": "array"
+          },
+          "verified_scope": {
+            "const": "mock",
+            "title": "Verified Scope",
+            "type": "string"
+          },
+          "profile_revision": {
+            "title": "Profile Revision",
+            "type": "string"
+          },
+          "config_digest": {
+            "title": "Config Digest",
+            "type": "string"
+          },
+          "request": {
+            "$ref": "#/$defs/DeploymentRequest"
+          },
+          "download_bytes": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "title": "Download Bytes"
+          },
+          "directories": {
+            "default": [
+              "项目内的 MOCK 作业目录"
+            ],
+            "items": {
+              "type": "string"
+            },
+            "title": "Directories",
+            "type": "array"
+          },
+          "services": {
+            "default": [
+              "MOCK 演示 worker"
+            ],
+            "items": {
+              "type": "string"
+            },
+            "title": "Services",
+            "type": "array"
+          },
+          "permissions": {
+            "default": [
+              "仅写项目任务数据库与 MOCK 资源"
+            ],
+            "items": {
+              "type": "string"
+            },
+            "title": "Permissions",
+            "type": "array"
+          },
+          "network": {
+            "const": "none",
+            "default": "none",
+            "title": "Network",
+            "type": "string"
+          }
+        },
+        "required": [
+          "plan_id",
+          "mode",
+          "target_id",
+          "profile_id",
+          "operations",
+          "required_evidence",
+          "verified_scope",
+          "profile_revision",
+          "config_digest"
+        ],
+        "title": "DeploymentPlan",
+        "type": "object"
+      },
+      "DeploymentRequest": {
+        "additionalProperties": false,
+        "properties": {
+          "mode": {
+            "default": "mock",
+            "enum": [
+              "mock",
+              "real_readonly"
+            ],
+            "title": "Mode",
+            "type": "string"
+          },
+          "profile_id": {
+            "default": "demo",
+            "pattern": "^[a-z0-9][a-z0-9_-]{0,63}$",
+            "title": "Profile Id",
+            "type": "string"
+          },
+          "target_id": {
+            "const": "local",
+            "default": "local",
+            "title": "Target Id",
+            "type": "string"
+          },
+          "task": {
+            "default": "demo",
+            "enum": [
+              "demo",
+              "diagnostics"
+            ],
+            "title": "Task",
+            "type": "string"
+          },
+          "demo_scenario": {
+            "default": "success",
+            "enum": [
+              "success",
+              "verify_failure"
+            ],
+            "title": "Demo Scenario",
+            "type": "string"
+          }
+        },
+        "title": "DeploymentRequest",
+        "type": "object"
+      },
+      "Operation": {
+        "additionalProperties": false,
+        "properties": {
+          "operation_id": {
+            "title": "Operation Id",
+            "type": "string"
+          },
+          "kind": {
+            "const": "mock_step",
+            "default": "mock_step",
+            "title": "Kind",
+            "type": "string"
+          },
+          "label": {
+            "title": "Label",
+            "type": "string"
+          },
+          "timeout_s": {
+            "default": 5.0,
+            "exclusiveMinimum": 0,
+            "maximum": 60,
+            "title": "Timeout S",
+            "type": "number"
+          },
+          "reversible": {
+            "default": true,
+            "title": "Reversible",
+            "type": "boolean"
+          },
+          "required_evidence": {
+            "default": [],
+            "items": {
+              "type": "string"
+            },
+            "title": "Required Evidence",
+            "type": "array"
+          }
+        },
+        "required": [
+          "operation_id",
+          "label"
+        ],
+        "title": "Operation",
+        "type": "object"
+      }
+    },
+    "additionalProperties": false,
+    "properties": {
+      "plan": {
+        "anyOf": [
+          {
+            "$ref": "#/$defs/DeploymentPlan"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "default": null
+      },
+      "blockers": {
+        "items": {
+          "$ref": "#/$defs/Blocker"
+        },
+        "title": "Blockers",
+        "type": "array"
+      }
+    },
+    "title": "PlanResolution",
+    "type": "object"
+  },
+  "DeploymentPlan": {
+    "$defs": {
+      "DeploymentRequest": {
+        "additionalProperties": false,
+        "properties": {
+          "mode": {
+            "default": "mock",
+            "enum": [
+              "mock",
+              "real_readonly"
+            ],
+            "title": "Mode",
+            "type": "string"
+          },
+          "profile_id": {
+            "default": "demo",
+            "pattern": "^[a-z0-9][a-z0-9_-]{0,63}$",
+            "title": "Profile Id",
+            "type": "string"
+          },
+          "target_id": {
+            "const": "local",
+            "default": "local",
+            "title": "Target Id",
+            "type": "string"
+          },
+          "task": {
+            "default": "demo",
+            "enum": [
+              "demo",
+              "diagnostics"
+            ],
+            "title": "Task",
+            "type": "string"
+          },
+          "demo_scenario": {
+            "default": "success",
+            "enum": [
+              "success",
+              "verify_failure"
+            ],
+            "title": "Demo Scenario",
+            "type": "string"
+          }
+        },
+        "title": "DeploymentRequest",
+        "type": "object"
+      },
+      "Operation": {
+        "additionalProperties": false,
+        "properties": {
+          "operation_id": {
+            "title": "Operation Id",
+            "type": "string"
+          },
+          "kind": {
+            "const": "mock_step",
+            "default": "mock_step",
+            "title": "Kind",
+            "type": "string"
+          },
+          "label": {
+            "title": "Label",
+            "type": "string"
+          },
+          "timeout_s": {
+            "default": 5.0,
+            "exclusiveMinimum": 0,
+            "maximum": 60,
+            "title": "Timeout S",
+            "type": "number"
+          },
+          "reversible": {
+            "default": true,
+            "title": "Reversible",
+            "type": "boolean"
+          },
+          "required_evidence": {
+            "default": [],
+            "items": {
+              "type": "string"
+            },
+            "title": "Required Evidence",
+            "type": "array"
+          }
+        },
+        "required": [
+          "operation_id",
+          "label"
+        ],
+        "title": "Operation",
+        "type": "object"
+      }
+    },
+    "additionalProperties": false,
+    "properties": {
+      "plan_id": {
+        "title": "Plan Id",
+        "type": "string"
+      },
+      "mode": {
+        "enum": [
+          "mock",
+          "real_readonly"
+        ],
+        "title": "Mode",
+        "type": "string"
+      },
+      "target_id": {
+        "const": "local",
+        "title": "Target Id",
+        "type": "string"
+      },
+      "profile_id": {
+        "title": "Profile Id",
+        "type": "string"
+      },
+      "operations": {
+        "items": {
+          "$ref": "#/$defs/Operation"
+        },
+        "title": "Operations",
+        "type": "array"
+      },
+      "required_evidence": {
+        "items": {
+          "type": "string"
+        },
+        "title": "Required Evidence",
+        "type": "array"
+      },
+      "verified_scope": {
+        "const": "mock",
+        "title": "Verified Scope",
+        "type": "string"
+      },
+      "profile_revision": {
+        "title": "Profile Revision",
+        "type": "string"
+      },
+      "config_digest": {
+        "title": "Config Digest",
+        "type": "string"
+      },
+      "request": {
+        "$ref": "#/$defs/DeploymentRequest"
+      },
+      "download_bytes": {
+        "anyOf": [
+          {
+            "type": "integer"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "default": null,
+        "title": "Download Bytes"
+      },
+      "directories": {
+        "default": [
+          "项目内的 MOCK 作业目录"
+        ],
+        "items": {
+          "type": "string"
+        },
+        "title": "Directories",
+        "type": "array"
+      },
+      "services": {
+        "default": [
+          "MOCK 演示 worker"
+        ],
+        "items": {
+          "type": "string"
+        },
+        "title": "Services",
+        "type": "array"
+      },
+      "permissions": {
+        "default": [
+          "仅写项目任务数据库与 MOCK 资源"
+        ],
+        "items": {
+          "type": "string"
+        },
+        "title": "Permissions",
+        "type": "array"
+      },
+      "network": {
+        "const": "none",
+        "default": "none",
+        "title": "Network",
+        "type": "string"
+      }
+    },
+    "required": [
+      "plan_id",
+      "mode",
+      "target_id",
+      "profile_id",
+      "operations",
+      "required_evidence",
+      "verified_scope",
+      "profile_revision",
+      "config_digest"
+    ],
+    "title": "DeploymentPlan",
+    "type": "object"
+  },
+  "Operation": {
+    "additionalProperties": false,
+    "properties": {
+      "operation_id": {
+        "title": "Operation Id",
+        "type": "string"
+      },
+      "kind": {
+        "const": "mock_step",
+        "default": "mock_step",
+        "title": "Kind",
+        "type": "string"
+      },
+      "label": {
+        "title": "Label",
+        "type": "string"
+      },
+      "timeout_s": {
+        "default": 5.0,
+        "exclusiveMinimum": 0,
+        "maximum": 60,
+        "title": "Timeout S",
+        "type": "number"
+      },
+      "reversible": {
+        "default": true,
+        "title": "Reversible",
+        "type": "boolean"
+      },
+      "required_evidence": {
+        "default": [],
+        "items": {
+          "type": "string"
+        },
+        "title": "Required Evidence",
+        "type": "array"
+      }
+    },
+    "required": [
+      "operation_id",
+      "label"
+    ],
+    "title": "Operation",
+    "type": "object"
+  },
+  "OperationResult": {
+    "$defs": {
+      "JsonValue": {}
+    },
+    "additionalProperties": false,
+    "properties": {
+      "operation_id": {
+        "title": "Operation Id",
+        "type": "string"
+      },
+      "status": {
+        "enum": [
+          "succeeded",
+          "failed",
+          "cancelled"
+        ],
+        "title": "Status",
+        "type": "string"
+      },
+      "origin": {
+        "const": "mock",
+        "default": "mock",
+        "title": "Origin",
+        "type": "string"
+      },
+      "evidence": {
+        "additionalProperties": {
+          "$ref": "#/$defs/JsonValue"
+        },
+        "title": "Evidence",
+        "type": "object"
+      },
+      "error_code": {
+        "anyOf": [
+          {
+            "type": "string"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "default": null,
+        "title": "Error Code"
+      },
+      "message": {
+        "title": "Message",
+        "type": "string"
+      },
+      "resource_ids": {
+        "items": {
+          "type": "string"
+        },
+        "title": "Resource Ids",
+        "type": "array"
+      }
+    },
+    "required": [
+      "operation_id",
+      "status",
+      "message"
+    ],
+    "title": "OperationResult",
+    "type": "object"
+  },
+  "JobSnapshot": {
+    "additionalProperties": false,
+    "properties": {
+      "job_id": {
+        "title": "Job Id",
+        "type": "string"
+      },
+      "plan_id": {
+        "title": "Plan Id",
+        "type": "string"
+      },
+      "target_id": {
+        "const": "local",
+        "title": "Target Id",
+        "type": "string"
+      },
+      "mode": {
+        "enum": [
+          "mock",
+          "real_readonly"
+        ],
+        "title": "Mode",
+        "type": "string"
+      },
+      "state": {
+        "enum": [
+          "PLANNED",
+          "PREFLIGHT",
+          "ACQUIRING",
+          "CONFIGURING",
+          "STARTING",
+          "VERIFYING",
+          "SUCCEEDED",
+          "BLOCKED",
+          "FAILED",
+          "CANCELLED",
+          "INTERRUPTED"
+        ],
+        "title": "State",
+        "type": "string"
+      },
+      "verified_scope": {
+        "const": "mock",
+        "title": "Verified Scope",
+        "type": "string"
+      },
+      "current_operation_id": {
+        "anyOf": [
+          {
+            "type": "string"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "default": null,
+        "title": "Current Operation Id"
+      },
+      "created_at": {
+        "format": "date-time",
+        "title": "Created At",
+        "type": "string"
+      },
+      "updated_at": {
+        "format": "date-time",
+        "title": "Updated At",
+        "type": "string"
+      },
+      "error_code": {
+        "anyOf": [
+          {
+            "type": "string"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "default": null,
+        "title": "Error Code"
+      }
+    },
+    "required": [
+      "job_id",
+      "plan_id",
+      "target_id",
+      "mode",
+      "state",
+      "verified_scope",
+      "created_at",
+      "updated_at"
+    ],
+    "title": "JobSnapshot",
+    "type": "object"
+  },
+  "JobEvent": {
+    "$defs": {
+      "JsonValue": {}
+    },
+    "additionalProperties": false,
+    "properties": {
+      "job_id": {
+        "title": "Job Id",
+        "type": "string"
+      },
+      "seq": {
+        "minimum": 1,
+        "title": "Seq",
+        "type": "integer"
+      },
+      "timestamp": {
+        "format": "date-time",
+        "title": "Timestamp",
+        "type": "string"
+      },
+      "event_type": {
+        "title": "Event Type",
+        "type": "string"
+      },
+      "operation_id": {
+        "anyOf": [
+          {
+            "type": "string"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "default": null,
+        "title": "Operation Id"
+      },
+      "mode": {
+        "enum": [
+          "mock",
+          "real_readonly"
+        ],
+        "title": "Mode",
+        "type": "string"
+      },
+      "origin": {
+        "const": "mock",
+        "title": "Origin",
+        "type": "string"
+      },
+      "message": {
+        "title": "Message",
+        "type": "string"
+      },
+      "evidence": {
+        "additionalProperties": {
+          "$ref": "#/$defs/JsonValue"
+        },
+        "title": "Evidence",
+        "type": "object"
+      }
+    },
+    "required": [
+      "job_id",
+      "seq",
+      "timestamp",
+      "event_type",
+      "mode",
+      "origin",
+      "message"
+    ],
+    "title": "JobEvent",
+    "type": "object"
+  },
+  "ProbeResult": {
+    "additionalProperties": false,
+    "properties": {
+      "argv": {
+        "items": {
+          "type": "string"
+        },
+        "title": "Argv",
+        "type": "array"
+      },
+      "returncode": {
+        "anyOf": [
+          {
+            "type": "integer"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "title": "Returncode"
+      },
+      "stdout": {
+        "title": "Stdout",
+        "type": "string"
+      },
+      "stderr": {
+        "title": "Stderr",
+        "type": "string"
+      },
+      "timed_out": {
+        "title": "Timed Out",
+        "type": "boolean"
+      },
+      "observed_at": {
+        "format": "date-time",
+        "title": "Observed At",
+        "type": "string"
+      }
+    },
+    "required": [
+      "argv",
+      "returncode",
+      "stdout",
+      "stderr",
+      "timed_out",
+      "observed_at"
+    ],
+    "title": "ProbeResult",
+    "type": "object"
+  },
+  "DiagnosticReport": {
+    "$defs": {
+      "JsonValue": {}
+    },
+    "additionalProperties": false,
+    "properties": {
+      "schema_version": {
+        "const": 1,
+        "default": 1,
+        "title": "Schema Version",
+        "type": "integer"
+      },
+      "mode": {
+        "enum": [
+          "mock",
+          "real_readonly"
+        ],
+        "title": "Mode",
+        "type": "string"
+      },
+      "verified_scope": {
+        "const": "mock",
+        "title": "Verified Scope",
+        "type": "string"
+      },
+      "job": {
+        "additionalProperties": {
+          "$ref": "#/$defs/JsonValue"
+        },
+        "title": "Job",
+        "type": "object"
+      },
+      "checks": {
+        "items": {
+          "additionalProperties": {
+            "$ref": "#/$defs/JsonValue"
+          },
+          "type": "object"
+        },
+        "title": "Checks",
+        "type": "array"
+      },
+      "events": {
+        "items": {
+          "additionalProperties": {
+            "$ref": "#/$defs/JsonValue"
+          },
+          "type": "object"
+        },
+        "title": "Events",
+        "type": "array"
+      },
+      "source_locks": {
+        "additionalProperties": {
+          "$ref": "#/$defs/JsonValue"
+        },
+        "title": "Source Locks",
+        "type": "object"
+      },
+      "unverified_items": {
+        "items": {
+          "type": "string"
+        },
+        "title": "Unverified Items",
+        "type": "array"
+      },
+      "redactions": {
+        "items": {
+          "type": "string"
+        },
+        "title": "Redactions",
+        "type": "array"
+      }
+    },
+    "required": [
+      "mode",
+      "verified_scope",
+      "job",
+      "checks",
+      "events",
+      "source_locks",
+      "unverified_items",
+      "redactions"
+    ],
+    "title": "DiagnosticReport",
+    "type": "object"
+  },
+  "Telemetry": {
+    "additionalProperties": false,
+    "properties": {
+      "status": {
+        "default": "UNKNOWN",
+        "enum": [
+          "PASS",
+          "WARN",
+          "FAIL",
+          "UNKNOWN",
+          "SKIPPED"
+        ],
+        "title": "Status",
+        "type": "string"
+      },
+      "battery_percent": {
+        "anyOf": [
+          {
+            "maximum": 100,
+            "minimum": 0,
+            "type": "number"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "default": null,
+        "title": "Battery Percent"
+      },
+      "pose": {
+        "anyOf": [
+          {
+            "items": {
+              "type": "number"
+            },
+            "type": "array"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "default": null,
+        "title": "Pose"
+      },
+      "observed_at": {
+        "anyOf": [
+          {
+            "format": "date-time",
+            "type": "string"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "default": null,
+        "title": "Observed At"
+      },
+      "origin": {
+        "anyOf": [
+          {
+            "enum": [
+              "mock",
+              "local_probe",
+              "docker",
+              "sdk",
+              "operator"
+            ],
+            "type": "string"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "default": null,
+        "title": "Origin"
+      }
+    },
+    "title": "Telemetry",
+    "type": "object"
+  }
+}

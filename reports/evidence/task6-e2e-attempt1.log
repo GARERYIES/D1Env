@@ -1,0 +1,36 @@
+
+Running 1 test using 1 worker
+
+(node:38091) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  1 tests/e2e/wizard.spec.ts:4:1 › 真实本地 API：MOCK 成功、重复点击、刷新、故障证据与报告导出 (3.7s)
+
+
+  1) tests/e2e/wizard.spec.ts:4:1 › 真实本地 API：MOCK 成功、重复点击、刷新、故障证据与报告导出 ─────────────────────────────
+
+    Error: expect(locator).toBeVisible() failed
+
+    Locator: getByText('演示流程完成（MOCK），未部署真机')
+    Expected: visible
+    Error: strict mode violation: getByText('演示流程完成（MOCK），未部署真机') resolved to 2 elements:
+        1) <h1>演示流程完成（MOCK），未部署真机</h1> aka getByRole('heading', { name: '演示流程完成（MOCK），未部署真机' })
+        2) <p class="event-message">演示流程完成（MOCK），未部署真机。</p> aka getByText('演示流程完成（MOCK），未部署真机。')
+
+    Call log:
+      - Expect "toBeVisible" getByText('演示流程完成（MOCK），未部署真机') with timeout 10000ms
+      - waiting for getByText('演示流程完成（MOCK），未部署真机')
+
+
+      29 |     (button as HTMLButtonElement).click();
+      30 |   });
+    > 31 |   await expect(page.getByText('演示流程完成（MOCK），未部署真机')).toBeVisible();
+         |                                                      ^
+      32 |   expect(submissionCount).toBe(1);
+      33 |   const firstJob = await page.getByTestId('job-id').innerText();
+      34 |   await page.screenshot({ path: 'test-results/task6-mock-success.png', fullPage: true });
+        at [LOCAL_PATH]
+
+    Error Context: test-results/wizard-真实本地-API：MOCK-成功、重复点击、刷新、故障证据与报告导出/error-context.md
+
+  1 failed
+    tests/e2e/wizard.spec.ts:4:1 › 真实本地 API：MOCK 成功、重复点击、刷新、故障证据与报告导出 ──────────────────────────────

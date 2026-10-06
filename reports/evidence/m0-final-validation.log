@@ -1,0 +1,9 @@
+PASS schema and lock; 6 repositories; 83 recomputed file SHA-256 hashes; 8 negative cases rejected
+PASS zero commit rejected
+PASS placeholder file hash rejected
+PASS null commit without reason rejected
+PASS absolute path rejected
+PASS parent traversal rejected
+PASS extra execution field rejected
+PASS production usable claim rejected
+PASS unknown version without reason rejected

@@ -1,0 +1,37 @@
+FFF.                                                                     [100%]
+=================================== FAILURES ===================================
+___________ test_unlocked_real_artifact_identifiers_rejected[latest] ___________
+
+identifier = 'latest'
+
+    @pytest.mark.parametrize("identifier", ["latest", "sha256:" + "0"*64, "sha256:placeholder"])
+    def test_unlocked_real_artifact_identifiers_rejected(identifier):
+>       with pytest.raises(ValidationError):
+E       Failed: DID NOT RAISE ValidationError
+
+tests/test_artifacts.py:9: Failed
+_ test_unlocked_real_artifact_identifiers_rejected[sha256:0000000000000000000000000000000000000000000000000000000000000000] _
+
+identifier = 'sha256:0000000000000000000000000000000000000000000000000000000000000000'
+
+    @pytest.mark.parametrize("identifier", ["latest", "sha256:" + "0"*64, "sha256:placeholder"])
+    def test_unlocked_real_artifact_identifiers_rejected(identifier):
+>       with pytest.raises(ValidationError):
+E       Failed: DID NOT RAISE ValidationError
+
+tests/test_artifacts.py:9: Failed
+_____ test_unlocked_real_artifact_identifiers_rejected[sha256:placeholder] _____
+
+identifier = 'sha256:placeholder'
+
+    @pytest.mark.parametrize("identifier", ["latest", "sha256:" + "0"*64, "sha256:placeholder"])
+    def test_unlocked_real_artifact_identifiers_rejected(identifier):
+>       with pytest.raises(ValidationError):
+E       Failed: DID NOT RAISE ValidationError
+
+tests/test_artifacts.py:9: Failed
+=========================== short test summary info ============================
+FAILED tests/test_artifacts.py::test_unlocked_real_artifact_identifiers_rejected[latest]
+FAILED tests/test_artifacts.py::test_unlocked_real_artifact_identifiers_rejected[sha256:0000000000000000000000000000000000000000000000000000000000000000]
+FAILED tests/test_artifacts.py::test_unlocked_real_artifact_identifiers_rejected[sha256:placeholder]
+3 failed, 1 passed in 0.03s

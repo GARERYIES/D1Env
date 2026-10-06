@@ -1,0 +1,17 @@
+schema_version: 1
+profile_id: unknown
+name: 我不确定型号
+kind: hardware
+profile_revision: unverified-1
+vendor: null
+sdk_family: null
+variant: null
+architectures: []
+runtime_requirements:
+  gpu_required: false
+capabilities:
+  readonly:
+    status: not_implemented
+    reason: 型号未确认，请核对铭牌和厂商固件说明
+network_requirements: [none]
+unverified_reason: 未知型号不能映射 SDK；禁止真实部署

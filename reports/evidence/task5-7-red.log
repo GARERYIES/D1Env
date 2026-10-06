@@ -1,0 +1,38 @@
+
+==================================== ERRORS ====================================
+____________________ ERROR collecting tests/test_reports.py ____________________
+ImportError while importing test module '[LOCAL_PATH]'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/importlib/__init__.py:90: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+tests/test_reports.py:2: in <module>
+    from d1env.reports import build_report, markdown_report
+E   ModuleNotFoundError: No module named 'd1env.reports'
+____________________ ERROR collecting tests/test_service.py ____________________
+ImportError while importing test module '[LOCAL_PATH]'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/importlib/__init__.py:90: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+tests/test_service.py:6: in <module>
+    from d1env.service import ApplicationService
+E   ModuleNotFoundError: No module named 'd1env.service'
+______________________ ERROR collecting tests/test_cli.py ______________________
+ImportError while importing test module '[LOCAL_PATH]'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/importlib/__init__.py:90: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+tests/test_cli.py:5: in <module>
+    from d1env.cli import app
+E   ModuleNotFoundError: No module named 'd1env.cli'
+=========================== short test summary info ============================
+ERROR tests/test_reports.py
+ERROR tests/test_service.py
+ERROR tests/test_cli.py
+!!!!!!!!!!!!!!!!!!! Interrupted: 3 errors during collection !!!!!!!!!!!!!!!!!!!!
+3 errors in 0.17s

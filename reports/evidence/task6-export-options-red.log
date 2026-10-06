@@ -1,0 +1,965 @@
+
+> d1env-frontend@0.1.0 test
+> vitest --run
+
+
+ RUN  v5.0.3 [LOCAL_PATH]
+
+ ❯ tests/unit/App.test.tsx (11 tests | 2 failed) 2097ms
+   ❯ 中文向导与证据边界 (11)
+     × 取消仅提交当前作业的取消请求，终态停止显示取消按钮 113ms
+     × 导出默认遮盖用户标识，用户可选择保留 IP 与序列号，凭据始终去敏 1078ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  tests/unit/App.test.tsx > 中文向导与证据边界 > 取消仅提交当前作业的取消请求，终态停止显示取消按钮
+Error: expect(element).not.toHaveTextContent()
+
+Expected element not to have text content:
+  ✓
+Received:
+  ✓
+ ❯ tests/unit/App.test.tsx:129:58
+    127|     expect(await screen.findByTestId('job-state')).toHaveTextContent('…
+    128|     expect(screen.queryByRole('button', { name: '取消本次演示' })).not.toBeI…
+    129|     expect(document.querySelector('.result-symbol')).not.toHaveTextCon…
+       |                                                          ^
+    130|     expect(calls.filter((call) => call.path === '/api/jobs/job-1/cance…
+    131|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/2]⎯
+
+ FAIL  tests/unit/App.test.tsx > 中文向导与证据边界 > 导出默认遮盖用户标识，用户可选择保留 IP 与序列号，凭据始终去敏
+TestingLibraryElementError: Unable to find role="checkbox" and name "遮盖 IP / 序列号"
+
+Ignored nodes: comments, script, style
+[36m<body>[39m
+  [36m<div>[39m
+    [36m<div[39m
+      [33mclass[39m=[32m"app-shell"[39m
+    [36m>[39m
+      [36m<header[39m
+        [33mclass[39m=[32m"app-header"[39m
+      [36m>[39m
+        [36m<a[39m
+          [33maria-label[39m=[32m"D1Env 首页"[39m
+          [33mclass[39m=[32m"brand"[39m
+          [33mhref[39m=[32m"/"[39m
+        [36m>[39m
+          [36m<span[39m
+            [33maria-hidden[39m=[32m"true"[39m
+            [33mclass[39m=[32m"brand-mark"[39m
+          [36m>[39m
+            [0mD1[0m
+          [36m</span>[39m
+          [36m<span>[39m
+            [0mD1Env[0m
+            [36m<small>[39m
+              [0m机器人环境工作台[0m
+            [36m</small>[39m
+          [36m</span>[39m
+        [36m</a>[39m
+        [36m<div[39m
+          [33mclass[39m=[32m"header-right"[39m
+        [36m>[39m
+          [36m<span[39m
+            [33mclass[39m=[32m"local-label"[39m
+          [36m>[39m
+            [36m<i />[39m
+            [0m 本地工作台[0m
+          [36m</span>[39m
+          [36m<span[39m
+            [33mclass[39m=[32m"release-tag"[39m
+          [36m>[39m
+            [0mM0–M2 · 软件演示[0m
+          [36m</span>[39m
+        [36m</div>[39m
+      [36m</header>[39m
+      [36m<div[39m
+        [33mclass[39m=[32m"mock-banner"[39m
+        [33mdata-testid[39m=[32m"mock-watermark"[39m
+      [36m>[39m
+        [36m<span>[39m
+          [0mMOCK · 演示模式[0m
+        [36m</span>[39m
+        [36m<p>[39m
+          [0m当前为软件演示，无真实容器部署，未连接机器人。[0m
+        [36m</p>[39m
+        [36m<strong>[39m
+          [0m运动权限：未启用[0m
+        [36m</strong>[39m
+      [36m</div>[39m
+      [36m<div[39m
+        [33mclass[39m=[32m"workspace-title"[39m
+      [36m>[39m
+        [36m<div>[39m
+          [36m<span[39m
+            [33mclass[39m=[32m"eyebrow"[39m
+          [36m>[39m
+            [0mD1 ENVIRONMENT / FOUNDATION[0m
+          [36m</span>[39m
+          [36m<h2>[39m
+            [0m把每一步，部署得明白。[0m
+          [36m</h2>[39m
+        [36m</div>[39m
+        [36m<span[39m
+          [33mclass[39m=[32m"workspace-version"[39m
+        [36m>[39m
+          [0m中文向导 [0m
+          [36m<b>[39m
+            [0m01[0m
+          [36m</b>[39m
+        [36m</span>[39m
+      [36m</div>[39m
+      [36m<nav[39m
+        [33maria-label[39m=[32m"部署向导步骤"[39m
+        [33mclass[39m=[32m"wizard-steps"[39m
+      [36m>[39m
+        [36m<button[39m
+          [33maria-label[39m=[32m"1 使用方式"[39m
+          [33mtype[39m=[32m"button"[39m
+        [36m>[39m
+          [36m<span[39m
+            [33mclass[39m=[32m"step-number"[39m
+          [36m>[39m
+            [0m01[0m
+          [36m</span>[39m
+          [36m<span>[39m
+            [0m使用方式[0m
+          [36m</span>[39m
+        [36m</button>[39m
+        [36m<button[39m
+          [33maria-label[39m=[32m"2 机器人配置"[39m
+          [33mtype[39m=[32m"button"[39m
+        [36m>[39m
+          [36m<span[39m
+            [33mclass[39m=[32m"step-number"[39m
+          [36m>[39m
+            [0m02[0m
+          [36m</span>[39m
+          [36m<span>[39m
+            [0m机器人配置[0m
+          [36m</span>[39m
+        [36m</button>[39m
+        [36m<button[39m
+          [33maria-label[39m=[32m"3 执行电脑"[39m
+          [33mtype[39m=[32m"button"[39m
+        [36m>[39m
+          [36m<span[39m
+            [33mclass[39m=[32m"step-number"[39m
+          [36m>[39m
+            [0m03[0m
+          [36m</span>[39m
+          [36m<span>[39m
+            [0m执行电脑[0m
+          [36m</span>[39m
+        [36m</button>[39m
+        [36m<button[39m
+          [33maria-label[39m=[32m"4 部署预览"[39m
+          [33mtype[39m=[32m"button"[39m
+        [36m>[39m
+          [36m<span[39m
+            [33mclass[39m=[32m"step-number"[39m
+          [36m>[39m
+            [0m04[0m
+          [36m</span>[39m
+          [36m<span>[39m
+            [0m部署预览[0m
+          [36m</span>[39m
+        [36m</button>[39m
+        [36m<button[39m
+          [33maria-current[39m=[32m"step"[39m
+          [33maria-label[39m=[32m"5 运行与结果"[39m
+          [33mtype[39m=[32m"button"[39m
+        [36m>[39m
+          [36m<span[39m
+            [33mclass[39m=[32m"step-number"[39m
+          [36m>[39m
+            [0m05[0m
+          [36m</span>[39m
+          [36m<span>[39m
+            [0m运行与结果[0m
+          [36m</span>[39m
+        [36m</button>[39m
+      [36m</nav>[39m
+      [36m<div[39m
+        [33mclass[39m=[32m"workspace-grid"[39m
+      [36m>[39m
+        [36m<main[39m
+          [33mclass[39m=[32m"main-panel"[39m
+        [36m>[39m
+          [36m<div[39m
+            [33mclass[39m=[32m"page-heading"[39m
+          [36m>[39m
+            [36m<span[39m
+              [33mclass[39m=[32m"eyebrow"[39m
+            [36m>[39m
+              [0m05 / 结果[0m
+            [36m</span>[39m
+            [36m<h1>[39m
+              [0m演示流程完成（MOCK），未部署真机[0m
+            [36m</h1>[39m
+            [36m<p>[39m
+              [0m状态来自服务端持久化作业。刷新页面可恢复同一任务。[0m
+            [36m</p>[39m
+          [36m</div>[39m
+          [36m<div[39m
+            [33mclass[39m=[32m"job-summary "[39m
+          [36m>[39m
+            [36m<span[39m
+              [33maria-hidden[39m=[32m"true"[39m
+              [33mclass[39m=[32m"result-symbol"[39m
+            [36m>[39m
+              [0m✓[0m
+            [36m</span>[39m
+            [36m<div>[39m
+              [36m<div[39m
+                [33mclass[39m=[32m"section-row"[39m
+              [36m>[39m
+                [36m<strong[39m
+                  [33mdata-testid[39m=[32m"job-state"[39m
+                [36m>[39m
+                  [0mSUCCEEDED[0m
+                [36m</strong>[39m
+                [36m<span[39m
+                  [33mclass[39m=[32m"tag mock-tag"[39m
+                [36m>[39m
+                  [0mMOCK[0m
+                  [0m / [0m
+                  [0mmock[0m
+                [36m</span>[39m
+              [36m</div>[39m
+              [36m<p>[39m
+                [0m作业 [0m
+                [36m<span[39m
+                  [33mclass[39m=[32m"mono"[39m
+                  [33mdata-testid[39m=[32m"job-id"[39m
+                [36m>[39m
+                  [0mjob-1[0m
+                [36m</span>[39m
+              [36m</p>[39m
+              [36m<small>[39m
+                [0m最后观测：[0m
+                [0m2026-10-06T08:00:00Z[0m
+              [36m</small>[39m
+            [36m</div>[39m
+          [36m</div>[39m
+          [36m<div[39m
+            [33mclass[39m=[32m"result-proof-grid"[39m
+          [36m>[39m
+            [36m<div>[39m
+              [36m<span>[39m
+                [0m演示执行[0m
+              [36m</span>[39m
+              [36m<strong>[39m
+                [0mSUCCEEDED[0m
+              [36m</strong>[39m
+            [36m</div>[39m
+            [36m<div>[39m
+              [36m<span>[39m
+                [0m真实 Docker[0m
+              [36m</span>[39m
+              [36m<strong>[39m
+                [0m未验证[0m
+              [36m</strong>[39m
+            [36m</div>[39m
+            [36m<div>[39m
+              [36m<span>[39m
+                [0m真机数据[0m
+              [36m</span>[39m
+              [36m<strong>[39m
+                [0mUNKNOWN[0m
+              [36m</strong>[39m
+            [36m</div>[39m
+            [36m<div>[39m
+              [36m<span>[39m
+                [0m运动权限[0m
+              [36m</span>[39m
+              [36m<strong>[39m
+                [0m未启用[0m
+              [36m</strong>[39m
+            [36m</div>[39m
+          [36m</div>[39m
+          [36m<section[39m
+            [33mclass[39m=[32m"job-events"[39m
+          [36m>[39m
+            [36m<div[39m
+              [33mclass[39m=[32m"section-row"[39m
+            [36m>[39m
+              [36m<h2>[39m
+                [0m步骤与观测证据[0m
+              [36m</h2>[39m
+              [36m<span[39m
+                [33mclass[39m=[32m"tag neutral-tag"[39m
+              [36m>[39m
+                [0m0[0m
+                [0m 条事件[0m
+              [36m</span>[39m
+            [36m</div>[39m
+            [36m<p[39m
+              [33mclass[39m=[32m"muted"[39m
+            [36m>[39m
+              [0m等待服务端事件，没有观测时不会推断成功。[0m
+            [36m</p>[39m
+          [36m</section>[39m
+          [36m<div[39m
+            [33mclass[39m=[32m"job-actions"[39m
+          [36m>[39m
+            [36m<button[39m
+              [33mclass[39m=[32m"secondary"[39m
+              [33mtype[39m=[32m"button"[39m
+            [36m>[39m
+              [0m新建演示[0m
+            [36m</button>[39m
+            [36m<button[39m
+              [33mclass[39m=[32m"secondary"[39m
+              [33mtype[39m=[32m"button"[39m
+            [36m>[39m
+              [0m生成去敏诊断报告[0m
+            [36m</button>[39m
+          [36m</div>[39m
+          [36m<p[39m
+            [33mclass[39m=[32m"muted"[39m
+          [36m>[39m
+            [0m取消只清理本作业拥有的演示资源。软件停止请求不等于硬件急停。[0m
+          [36m</p>[39m
+        [36m</main>[39m
+        [36m<aside[39m
+          [33maria-label[39m=[32m"状态与证据"[39m
+          [33mclass[39m=[32m"evidence-panel"[39m
+        [36m>[39m
+          [36m<div[39m
+            [33mclass[39m=[32m"aside-heading"[39m
+          [36m>[39m
+            [36m<span[39m
+              [33mclass[39m=[32m"eyebrow"[39m
+            [36m>[39m
+              [0mSTATUS & EVIDENCE[0m
+            [36m</span>[39m
+            [36m<h2>[39m
+              [0m每一步，都有依据[0m
+            [36m</h2>[39m
+          [36m</div>[39m
+          [36m<div[39m
+            [33mclass[39m=[32m"scope-card"[39m
+          [36m>[39m
+            [36m<span[39m
+              [33mclass[39m=[32m"tag mock-tag"[39m
+            [36m>[39m
+              [0mMOCK[0m
+            [36m</span>[39m
+            [36m<p>[39m
+              [0m当前验证范围[0m
+            [36m</p>[39m
+            [36m<strong[39m
+              [33mdata-testid[39m=[32m"verified-scope"[39m
+            [36m>[39m
+              [0mmock[0m
+            [36m</strong>[39m
+            [36m<small>[39m
+              [0m软件演示结果不代表 Docker 或真机验证。[0m
+            [36m</small>[39m
+          [36m</div>[39m
+          [36m<section[39m
+            [33mclass[39m=[32m"evidence-section"[39m
+          [36m>[39m
+            [36m<div[39m
+              [33mclass[39m=[32m"section-row"[39m
+            [36m>[39m
+              [36m<h3>[39m
+                [0m真机遥测[0m
+              [36m</h3>[39m
+              [36m<span[39m
+                [33mclass[39m=[32m"tag unknown-tag"[39m
+                [33mdata-testid[39m=[32m"telemetry-state"[39m
+              [36m>[39m
+                [0mUNKNOWN[0m
+              [36m</span>[39m
+            [36m</div>[39m
+            [36m<div[39m
+              [33mclass[39m=[32m"telemetry-grid"[39m
+            [36m>[39m
+              [36m<div>[39m
+                [36m<span>[39m
+                  [0m电量[0m
+                [36m</span>[39m
+                [36m<strong[39m
+                  [33mdata-testid[39m=[32m"battery-value"[39m
+                [36m>[39m
+                  [0m未知 [0m
+                  [36m<small>[39m
+                    [0mnull[0m
+                  [36m</small>[39m
+                [36m</strong>[39m
+              [36m</div>[39m
+              [36m<div>[39m
+                [36m<span>[39m
+                  [0m姿态[0m
+                [36m</span>[39m
+                [36m<strong[39m
+                  [33mdata-testid[39m=[32m"pose-value"[39m
+                [36m>[39m
+                  [0m未知 [0m
+                  [36m<small>[39m
+                    [0mnull[0m
+                  [36m</small>[39m
+                [36m</strong>[39m
+              [36m</div>[39m
+            [36m</div>[39m
+            [36m<p[39m
+              [33mclass[39m=[32m"muted"[39m
+            [36m>[39m
+              [0m未连接机器人。缺失观测保持 null，不判断为正常。[0m
+            [36m</p>[39m
+            [36m<button[39m
+              [33mclass[39m=[32m"motion-disabled"[39m
+              [33mdisabled[39m=[32m""[39m
+              [33mtype[39m=[32m"button"[39m
+            [36m>[39m
+              [0m运动控制未启用[0m
+            [36m</button>[39m
+          [36m</section>[39m
+          [36m<section[39m
+            [33mclass[39m=[32m"evidence-section"[39m
+          [36m>[39m
+            [36m<div[39m
+              [33mclass[39m=[32m"section-row"[39m
+            [36m>[39m
+              [36m<h3>[39m
+                [0m电脑检测[0m
+              [36m</h3>[39m
+              [36m<span[39m
+                [33mclass[39m=[32m"tag neutral-tag"[39m
+              [36m>[39m
+                [0m真实只读[0m
+              [36m</span>[39m
+            [36m</div>[39m
+            [36m<p[39m
+              [33mclass[39m=[32m"muted"[39m
+            [36m>[39m
+              [0m来源：local_probe · 后端本机观测[0m
+            [36m</p>[39m
+            [36m<ul[39m
+              [33mclass[39m=[32m"evidence-checks"[39m
+            [36m>[39m
+              [36m<li>[39m
+                [36m<span[39m
+                  [33mclass[39m=[32m"tiny-status status-warn"[39m
+                [36m>[39m
+                  [0mWARN[0m
+                [36m</span>[39m
+                [36m<span>[39m
+                  [0m未找到 Docker；MOCK 不需要 Docker[0m
+                [36m</span>[39m
+              [36m</li>[39m
+            [36m</ul>[39m
+          [36m</section>[39m
+          [36m<div[39m
+            [33mclass[39m=[32m"boundary-note"[39m
+          [36m>[39m
+            [36m<span[39m
+              [33maria-hidden[39m=[32m"true"[39m
+            [36m>[39m
+              [0m↳[0m
+            [36m</span>[39m
+            [36m<p>[39m
+              [0m本轮只到 M2[0m
+              [36m<br />[39m
+              [36m<small>[39m
+                [0m无 SDK、无容器操作、无运动指令[0m
+              [36m</small>[39m
+            [36m</p>[39m
+          [36m</div>[39m
+        [36m</aside>[39m
+      [36m</div>[39m
+      [36m<footer[39m
+        [33mclass[39m=[32m"app-footer"[39m
+      [36m>[39m
+        [36m<span>[39m
+          [0mD1Env / Foundation[0m
+        [36m</span>[39m
+        [36m<span>[39m
+          [0m依据可查 · 范围明确 · 默认只读[0m
+        [36m</span>[39m
+        [36m<span>[39m
+          [0mMOCK ≠ 真机验证[0m
+        [36m</span>[39m
+      [36m</footer>[39m
+    [36m</div>[39m
+  [36m</div>[39m
+[36m</body>[39m
+
+Ignored nodes: comments, script, style
+[36m<body>[39m
+  [36m<div>[39m
+    [36m<div[39m
+      [33mclass[39m=[32m"app-shell"[39m
+    [36m>[39m
+      [36m<header[39m
+        [33mclass[39m=[32m"app-header"[39m
+      [36m>[39m
+        [36m<a[39m
+          [33maria-label[39m=[32m"D1Env 首页"[39m
+          [33mclass[39m=[32m"brand"[39m
+          [33mhref[39m=[32m"/"[39m
+        [36m>[39m
+          [36m<span[39m
+            [33maria-hidden[39m=[32m"true"[39m
+            [33mclass[39m=[32m"brand-mark"[39m
+          [36m>[39m
+            [0mD1[0m
+          [36m</span>[39m
+          [36m<span>[39m
+            [0mD1Env[0m
+            [36m<small>[39m
+              [0m机器人环境工作台[0m
+            [36m</small>[39m
+          [36m</span>[39m
+        [36m</a>[39m
+        [36m<div[39m
+          [33mclass[39m=[32m"header-right"[39m
+        [36m>[39m
+          [36m<span[39m
+            [33mclass[39m=[32m"local-label"[39m
+          [36m>[39m
+            [36m<i />[39m
+            [0m 本地工作台[0m
+          [36m</span>[39m
+          [36m<span[39m
+            [33mclass[39m=[32m"release-tag"[39m
+          [36m>[39m
+            [0mM0–M2 · 软件演示[0m
+          [36m</span>[39m
+        [36m</div>[39m
+      [36m</header>[39m
+      [36m<div[39m
+        [33mclass[39m=[32m"mock-banner"[39m
+        [33mdata-testid[39m=[32m"mock-watermark"[39m
+      [36m>[39m
+        [36m<span>[39m
+          [0mMOCK · 演示模式[0m
+        [36m</span>[39m
+        [36m<p>[39m
+          [0m当前为软件演示，无真实容器部署，未连接机器人。[0m
+        [36m</p>[39m
+        [36m<strong>[39m
+          [0m运动权限：未启用[0m
+        [36m</strong>[39m
+      [36m</div>[39m
+      [36m<div[39m
+        [33mclass[39m=[32m"workspace-title"[39m
+      [36m>[39m
+        [36m<div>[39m
+          [36m<span[39m
+            [33mclass[39m=[32m"eyebrow"[39m
+          [36m>[39m
+            [0mD1 ENVIRONMENT / FOUNDATION[0m
+          [36m</span>[39m
+          [36m<h2>[39m
+            [0m把每一步，部署得明白。[0m
+          [36m</h2>[39m
+        [36m</div>[39m
+        [36m<span[39m
+          [33mclass[39m=[32m"workspace-version"[39m
+        [36m>[39m
+          [0m中文向导 [0m
+          [36m<b>[39m
+            [0m01[0m
+          [36m</b>[39m
+        [36m</span>[39m
+      [36m</div>[39m
+      [36m<nav[39m
+        [33maria-label[39m=[32m"部署向导步骤"[39m
+        [33mclass[39m=[32m"wizard-steps"[39m
+      [36m>[39m
+        [36m<button[39m
+          [33maria-label[39m=[32m"1 使用方式"[39m
+          [33mtype[39m=[32m"button"[39m
+        [36m>[39m
+          [36m<span[39m
+            [33mclass[39m=[32m"step-number"[39m
+          [36m>[39m
+            [0m01[0m
+          [36m</span>[39m
+          [36m<span>[39m
+            [0m使用方式[0m
+          [36m</span>[39m
+        [36m</button>[39m
+        [36m<button[39m
+          [33maria-label[39m=[32m"2 机器人配置"[39m
+          [33mtype[39m=[32m"button"[39m
+        [36m>[39m
+          [36m<span[39m
+            [33mclass[39m=[32m"step-number"[39m
+          [36m>[39m
+            [0m02[0m
+          [36m</span>[39m
+          [36m<span>[39m
+            [0m机器人配置[0m
+          [36m</span>[39m
+        [36m</button>[39m
+        [36m<button[39m
+          [33maria-label[39m=[32m"3 执行电脑"[39m
+          [33mtype[39m=[32m"button"[39m
+        [36m>[39m
+          [36m<span[39m
+            [33mclass[39m=[32m"step-number"[39m
+          [36m>[39m
+            [0m03[0m
+          [36m</span>[39m
+          [36m<span>[39m
+            [0m执行电脑[0m
+          [36m</span>[39m
+        [36m</button>[39m
+        [36m<button[39m
+          [33maria-label[39m=[32m"4 部署预览"[39m
+          [33mtype[39m=[32m"button"[39m
+        [36m>[39m
+          [36m<span[39m
+            [33mclass[39m=[32m"step-number"[39m
+          [36m>[39m
+            [0m04[0m
+          [36m</span>[39m
+          [36m<span>[39m
+            [0m部署预览[0m
+          [36m</span>[39m
+        [36m</button>[39m
+        [36m<button[39m
+          [33maria-current[39m=[32m"step"[39m
+          [33maria-label[39m=[32m"5 运行与结果"[39m
+          [33mtype[39m=[32m"button"[39m
+        [36m>[39m
+          [36m<span[39m
+            [33mclass[39m=[32m"step-number"[39m
+          [36m>[39m
+            [0m05[0m
+          [36m</span>[39m
+          [36m<span>[39m
+            [0m运行与结果[0m
+          [36m</span>[39m
+        [36m</button>[39m
+      [36m</nav>[39m
+      [36m<div[39m
+        [33mclass[39m=[32m"workspace-grid"[39m
+      [36m>[39m
+        [36m<main[39m
+          [33mclass[39m=[32m"main-panel"[39m
+        [36m>[39m
+          [36m<div[39m
+            [33mclass[39m=[32m"page-heading"[39m
+          [36m>[39m
+            [36m<span[39m
+              [33mclass[39m=[32m"eyebrow"[39m
+            [36m>[39m
+              [0m05 / 结果[0m
+            [36m</span>[39m
+            [36m<h1>[39m
+              [0m演示流程完成（MOCK），未部署真机[0m
+            [36m</h1>[39m
+            [36m<p>[39m
+              [0m状态来自服务端持久化作业。刷新页面可恢复同一任务。[0m
+            [36m</p>[39m
+          [36m</div>[39m
+          [36m<div[39m
+            [33mclass[39m=[32m"job-summary "[39m
+          [36m>[39m
+            [36m<span[39m
+              [33maria-hidden[39m=[32m"true"[39m
+              [33mclass[39m=[32m"result-symbol"[39m
+            [36m>[39m
+              [0m✓[0m
+            [36m</span>[39m
+            [36m<div>[39m
+              [36m<div[39m
+                [33mclass[39m=[32m"section-row"[39m
+              [36m>[39m
+                [36m<strong[39m
+                  [33mdata-testid[39m=[32m"job-state"[39m
+                [36m>[39m
+                  [0mSUCCEEDED[0m
+                [36m</strong>[39m
+                [36m<span[39m
+                  [33mclass[39m=[32m"tag mock-tag"[39m
+                [36m>[39m
+                  [0mMOCK[0m
+                  [0m / [0m
+                  [0mmock[0m
+                [36m</span>[39m
+              [36m</div>[39m
+              [36m<p>[39m
+                [0m作业 [0m
+                [36m<span[39m
+                  [33mclass[39m=[32m"mono"[39m
+                  [33mdata-testid[39m=[32m"job-id"[39m
+                [36m>[39m
+                  [0mjob-1[0m
+                [36m</span>[39m
+              [36m</p>[39m
+              [36m<small>[39m
+                [0m最后观测：[0m
+                [0m2026-10-06T08:00:00Z[0m
+              [36m</small>[39m
+            [36m</div>[39m
+          [36m</div>[39m
+          [36m<div[39m
+            [33mclass[39m=[32m"result-proof-grid"[39m
+          [36m>[39m
+            [36m<div>[39m
+              [36m<span>[39m
+                [0m演示执行[0m
+              [36m</span>[39m
+              [36m<strong>[39m
+                [0mSUCCEEDED[0m
+              [36m</strong>[39m
+            [36m</div>[39m
+            [36m<div>[39m
+              [36m<span>[39m
+                [0m真实 Docker[0m
+              [36m</span>[39m
+              [36m<strong>[39m
+                [0m未验证[0m
+              [36m</strong>[39m
+            [36m</div>[39m
+            [36m<div>[39m
+              [36m<span>[39m
+                [0m真机数据[0m
+              [36m</span>[39m
+              [36m<strong>[39m
+                [0mUNKNOWN[0m
+              [36m</strong>[39m
+            [36m</div>[39m
+            [36m<div>[39m
+              [36m<span>[39m
+                [0m运动权限[0m
+              [36m</span>[39m
+              [36m<strong>[39m
+                [0m未启用[0m
+              [36m</strong>[39m
+            [36m</div>[39m
+          [36m</div>[39m
+          [36m<section[39m
+            [33mclass[39m=[32m"job-events"[39m
+          [36m>[39m
+            [36m<div[39m
+              [33mclass[39m=[32m"section-row"[39m
+            [36m>[39m
+              [36m<h2>[39m
+                [0m步骤与观测证据[0m
+              [36m</h2>[39m
+              [36m<span[39m
+                [33mclass[39m=[32m"tag neutral-tag"[39m
+              [36m>[39m
+                [0m0[0m
+                [0m 条事件[0m
+              [36m</span>[39m
+            [36m</div>[39m
+            [36m<p[39m
+              [33mclass[39m=[32m"muted"[39m
+            [36m>[39m
+              [0m等待服务端事件，没有观测时不会推断成功。[0m
+            [36m</p>[39m
+          [36m</section>[39m
+          [36m<div[39m
+            [33mclass[39m=[32m"job-actions"[39m
+          [36m>[39m
+            [36m<button[39m
+              [33mclass[39m=[32m"secondary"[39m
+              [33mtype[39m=[32m"button"[39m
+            [36m>[39m
+              [0m新建演示[0m
+            [36m</button>[39m
+            [36m<button[39m
+              [33mclass[39m=[32m"secondary"[39m
+              [33mtype[39m=[32m"button"[39m
+            [36m>[39m
+              [0m生成去敏诊断报告[0m
+            [36m</button>[39m
+          [36m</div>[39m
+          [36m<p[39m
+            [33mclass[39m=[32m"muted"[39m
+          [36m>[39m
+            [0m取消只清理本作业拥有的演示资源。软件停止请求不等于硬件急停。[0m
+          [36m</p>[39m
+        [36m</main>[39m
+        [36m<aside[39m
+          [33maria-label[39m=[32m"状态与证据"[39m
+          [33mclass[39m=[32m"evidence-panel"[39m
+        [36m>[39m
+          [36m<div[39m
+            [33mclass[39m=[32m"aside-heading"[39m
+          [36m>[39m
+            [36m<span[39m
+              [33mclass[39m=[32m"eyebrow"[39m
+            [36m>[39m
+              [0mSTATUS & EVIDENCE[0m
+            [36m</span>[39m
+            [36m<h2>[39m
+              [0m每一步，都有依据[0m
+            [36m</h2>[39m
+          [36m</div>[39m
+          [36m<div[39m
+            [33mclass[39m=[32m"scope-card"[39m
+          [36m>[39m
+            [36m<span[39m
+              [33mclass[39m=[32m"tag mock-tag"[39m
+            [36m>[39m
+              [0mMOCK[0m
+            [36m</span>[39m
+            [36m<p>[39m
+              [0m当前验证范围[0m
+            [36m</p>[39m
+            [36m<strong[39m
+              [33mdata-testid[39m=[32m"verified-scope"[39m
+            [36m>[39m
+              [0mmock[0m
+            [36m</strong>[39m
+            [36m<small>[39m
+              [0m软件演示结果不代表 Docker 或真机验证。[0m
+            [36m</small>[39m
+          [36m</div>[39m
+          [36m<section[39m
+            [33mclass[39m=[32m"evidence-section"[39m
+          [36m>[39m
+            [36m<div[39m
+              [33mclass[39m=[32m"section-row"[39m
+            [36m>[39m
+              [36m<h3>[39m
+                [0m真机遥测[0m
+              [36m</h3>[39m
+              [36m<span[39m
+                [33mclass[39m=[32m"tag unknown-tag"[39m
+                [33mdata-testid[39m=[32m"telemetry-state"[39m
+              [36m>[39m
+                [0mUNKNOWN[0m
+              [36m</span>[39m
+            [36m</div>[39m
+            [36m<div[39m
+              [33mclass[39m=[32m"telemetry-grid"[39m
+            [36m>[39m
+              [36m<div>[39m
+                [36m<span>[39m
+                  [0m电量[0m
+                [36m</span>[39m
+                [36m<strong[39m
+                  [33mdata-testid[39m=[32m"battery-value"[39m
+                [36m>[39m
+                  [0m未知 [0m
+                  [36m<small>[39m
+                    [0mnull[0m
+                  [36m</small>[39m
+                [36m</strong>[39m
+              [36m</div>[39m
+              [36m<div>[39m
+                [36m<span>[39m
+                  [0m姿态[0m
+                [36m</span>[39m
+                [36m<strong[39m
+                  [33mdata-testid[39m=[32m"pose-value"[39m
+                [36m>[39m
+                  [0m未知 [0m
+                  [36m<small>[39m
+                    [0mnull[0m
+                  [36m</small>[39m
+                [36m</strong>[39m
+              [36m</div>[39m
+            [36m</div>[39m
+            [36m<p[39m
+              [33mclass[39m=[32m"muted"[39m
+            [36m>[39m
+              [0m未连接机器人。缺失观测保持 null，不判断为正常。[0m
+            [36m</p>[39m
+            [36m<button[39m
+              [33mclass[39m=[32m"motion-disabled"[39m
+              [33mdisabled[39m=[32m""[39m
+              [33mtype[39m=[32m"button"[39m
+            [36m>[39m
+              [0m运动控制未启用[0m
+            [36m</button>[39m
+          [36m</section>[39m
+          [36m<section[39m
+            [33mclass[39m=[32m"evidence-section"[39m
+          [36m>[39m
+            [36m<div[39m
+              [33mclass[39m=[32m"section-row"[39m
+            [36m>[39m
+              [36m<h3>[39m
+                [0m电脑检测[0m
+              [36m</h3>[39m
+              [36m<span[39m
+                [33mclass[39m=[32m"tag neutral-tag"[39m
+              [36m>[39m
+                [0m真实只读[0m
+              [36m</span>[39m
+            [36m</div>[39m
+            [36m<p[39m
+              [33mclass[39m=[32m"muted"[39m
+            [36m>[39m
+              [0m来源：local_probe · 后端本机观测[0m
+            [36m</p>[39m
+            [36m<ul[39m
+              [33mclass[39m=[32m"evidence-checks"[39m
+            [36m>[39m
+              [36m<li>[39m
+                [36m<span[39m
+                  [33mclass[39m=[32m"tiny-status status-warn"[39m
+                [36m>[39m
+                  [0mWARN[0m
+                [36m</span>[39m
+                [36m<span>[39m
+                  [0m未找到 Docker；MOCK 不需要 Docker[0m
+                [36m</span>[39m
+              [36m</li>[39m
+            [36m</ul>[39m
+          [36m</section>[39m
+          [36m<div[39m
+            [33mclass[39m=[32m"boundary-note"[39m
+          [36m>[39m
+            [36m<span[39m
+              [33maria-hidden[39m=[32m"true"[39m
+            [36m>[39m
+              [0m↳[0m
+            [36m</span>[39m
+            [36m<p>[39m
+              [0m本轮只到 M2[0m
+              [36m<br />[39m
+              [36m<small>[39m
+                [0m无 SDK、无容器操作、无运动指令[0m
+              [36m</small>[39m
+            [36m</p>[39m
+          [36m</div>[39m
+        [36m</aside>[39m
+      [36m</div>[39m
+      [36m<footer[39m
+        [33mclass[39m=[32m"app-footer"[39m
+      [36m>[39m
+        [36m<span>[39m
+          [0mD1Env / Foundation[0m
+        [36m</span>[39m
+        [36m<span>[39m
+          [0m依据可查 · 范围明确 · 默认只读[0m
+        [36m</span>[39m
+        [36m<span>[39m
+          [0mMOCK ≠ 真机验证[0m
+        [36m</span>[39m
+      [36m</footer>[39m
+    [36m</div>[39m
+  [36m</div>[39m
+[36m</body>[39m
+ ❯ waitForWrapper node_modules/@testing-library/dom/dist/wait-for.js:163:27
+ ❯ node_modules/@testing-library/dom/dist/query-helpers.js:86:33
+ ❯ tests/unit/App.test.tsx:169:31
+    167|     const user = await toPreview();
+    168|     await user.click(screen.getByRole('button', { name: '开始 MOCK 演示' }…
+    169|     const mask = await screen.findByRole('checkbox', { name: '遮盖 IP / …
+       |                               ^
+    170|     expect(mask).toBeChecked();
+    171|     await user.click(mask);
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/2]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  2 failed | 9 passed (11)
+   Start at  14:58:29
+   Duration  4.14s (tests 52%, environment 34%, transform 7%, setup 4%, import 3%)
+

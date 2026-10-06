@@ -1,0 +1,168 @@
+{
+  "facts": {
+    "target_id": "local",
+    "os_name": "Darwin",
+    "os_version": "26.6.2",
+    "architecture": "aarch64",
+    "docker_available": true,
+    "docker_accessible": true,
+    "compose_available": true,
+    "disk_free_bytes": 154786877440,
+    "gpu_available": null,
+    "checked_at": "2026-10-06T06:47:44.151169Z",
+    "docker_error": null,
+    "interfaces": [
+      "lo0",
+      "gif0",
+      "stf0",
+      "anpi0",
+      "anpi1",
+      "en2",
+      "en3",
+      "en1",
+      "en4",
+      "bridge0",
+      "utun0",
+      "utun1",
+      "utun2",
+      "utun3",
+      "utun4",
+      "utun5",
+      "utun6",
+      "utun7",
+      "utun8",
+      "utun9",
+      "utun11",
+      "utun12",
+      "utun13",
+      "ap1",
+      "en0",
+      "awdl0",
+      "llw0",
+      "utun14",
+      "utun10"
+    ]
+  },
+  "checks": [
+    {
+      "code": "PLATFORM",
+      "status": "WARN",
+      "reason": "当前平台仅用于界面、计划与 MOCK 开发",
+      "remediation": "真实部署后续需经验证的 Ubuntu 22.04 x86_64；本轮只运行演示",
+      "origin": "local_probe",
+      "observed_at": "2026-10-06T06:47:44.151169Z",
+      "evidence": {
+        "os": "Darwin",
+        "version": "26.6.2",
+        "architecture": "aarch64"
+      }
+    },
+    {
+      "code": "DOCKER",
+      "status": "PASS",
+      "reason": "本地默认上下文只读检测通过",
+      "remediation": "检查本地 Docker 安装、服务及权限；本工具不会改权限或启动 daemon",
+      "origin": "local_probe",
+      "observed_at": "2026-10-06T06:47:44.151169Z",
+      "evidence": {
+        "available": true,
+        "accessible": true,
+        "error": null,
+        "context": "default (local only)"
+      }
+    },
+    {
+      "code": "COMPOSE",
+      "status": "PASS",
+      "reason": "Compose 版本只读检测通过",
+      "remediation": "MOCK 不需要 Compose；真实容器验证在 M3",
+      "origin": "local_probe",
+      "observed_at": "2026-10-06T06:47:44.151169Z",
+      "evidence": {
+        "available": true
+      }
+    },
+    {
+      "code": "DISK",
+      "status": "PASS",
+      "reason": "本地项目可用磁盘检查（软件阈值 100 MiB）",
+      "remediation": "确认项目磁盘空间；不自动清理数据",
+      "origin": "local_probe",
+      "observed_at": "2026-10-06T06:47:44.151169Z",
+      "evidence": {
+        "free_bytes": 154786877440
+      }
+    },
+    {
+      "code": "GPU",
+      "status": "SKIPPED",
+      "reason": "CPU 演示与基础诊断不需要 GPU",
+      "remediation": "无需为本轮安装显卡驱动",
+      "origin": "local_probe",
+      "observed_at": "2026-10-06T06:47:44.151169Z",
+      "evidence": {
+        "available": null
+      }
+    },
+    {
+      "code": "NETWORK",
+      "status": "SKIPPED",
+      "reason": "只枚举本机接口，不探测任何机器人或远端",
+      "remediation": "本轮无需配置网卡",
+      "origin": "local_probe",
+      "observed_at": "2026-10-06T06:47:44.151169Z",
+      "evidence": {
+        "interfaces": [
+          "lo0",
+          "gif0",
+          "stf0",
+          "anpi0",
+          "anpi1",
+          "en2",
+          "en3",
+          "en1",
+          "en4",
+          "bridge0",
+          "utun0",
+          "utun1",
+          "utun2",
+          "utun3",
+          "utun4",
+          "utun5",
+          "utun6",
+          "utun7",
+          "utun8",
+          "utun9",
+          "utun11",
+          "utun12",
+          "utun13",
+          "ap1",
+          "en0",
+          "awdl0",
+          "llw0",
+          "utun14",
+          "utun10"
+        ]
+      }
+    },
+    {
+      "code": "ROBOT",
+      "status": "UNKNOWN",
+      "reason": "未连接机器人，未取得电量、姿态或传感器数据",
+      "remediation": "真实只读适配属于 M4；不要用演示结果判断真机状态",
+      "origin": "local_probe",
+      "observed_at": "2026-10-06T06:47:44.151169Z",
+      "evidence": {
+        "battery_percent": null,
+        "pose": null
+      }
+    }
+  ],
+  "telemetry": {
+    "status": "UNKNOWN",
+    "battery_percent": null,
+    "pose": null,
+    "observed_at": null,
+    "origin": null
+  }
+}

@@ -1,0 +1,28 @@
+schema_version: 1
+profile_id: edu-zsl-1w
+name: D1 轮足候选
+kind: hardware
+profile_revision: documented-2026-10-06
+vendor: AgibotTech
+sdk_family: edu_ultra_zsl_1w
+variant: ZSL-1w
+architectures: [x86_64, aarch64]
+runtime_requirements:
+  os_name: Linux
+  os_version: '22.04'
+  gpu_required: false
+capabilities:
+  readonly:
+    declared_by_vendor: true
+    status: documented
+    evidence_refs: [S16]
+    reason: 高层接口有文档，适配器尚未实现；不能使用 LowLevel
+  mapping:
+    status: not_implemented
+    reason: 尚未接入真实传感器
+  navigation:
+    status: not_implemented
+    reason: 本轮未实现导航或运动
+network_requirements: [documented_unverified]
+evidence_refs: [S13, S14, S16, S17]
+unverified_reason: 固件范围、工件、ABI 与遥测语义未验证；禁止真实部署

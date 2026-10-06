@@ -1,0 +1,27 @@
+F                                                                        [100%]
+=================================== FAILURES ===================================
+____________ test_malformed_utf8_cannot_expand_output_beyond_limit _____________
+
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x107b4cc50>
+
+    def test_malformed_utf8_cannot_expand_output_beyond_limit(monkeypatch):
+        def invalid(*args, **kwargs):
+            kwargs["stdout"].write(b"\xff" * 100000)
+            class Process:
+                returncode = 0
+                def wait(self, timeout=None):
+                    return 0
+            return Process()
+        monkeypatch.setattr(subprocess,"Popen",invalid)
+        result = ProbeRunner().run(("docker", "--context", "default", "info", "--format", "{{json .ServerVersion}}"))
+>       assert len(result.stdout.encode()) <= 32768
+E       AssertionError: assert 98244 <= 32768
+E        +  where 98244 = len(b'\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\xef\xbf...f\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\n[TRUNCATED]')
+E        +    where b'\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\xef\xbf...f\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\n[TRUNCATED]' = <built-in method encode of str object at 0x128168000>()
+E        +      where <built-in method encode of str object at 0x128168000> = '���������������������������������������������������������������������������������������������������������������������...���������������������������������������������������������������������������������������������������������\n[TRUNCATED]'.encode
+E        +        where '���������������������������������������������������������������������������������������������������������������������...���������������������������������������������������������������������������������������������������������\n[TRUNCATED]' = ProbeResult(argv=('docker', '--context', 'default', 'info', '--format', '{{json .ServerVersion}}'), returncode=0, stdo...tderr='', timed_out=False, observed_at=datetime.datetime(2026, 10, 6, 6, 55, 55, 397026, tzinfo=datetime.timezone.utc)).stdout
+
+tests/test_process.py:68: AssertionError
+=========================== short test summary info ============================
+FAILED tests/test_process.py::test_malformed_utf8_cannot_expand_output_beyond_limit
+1 failed, 7 deselected in 0.04s

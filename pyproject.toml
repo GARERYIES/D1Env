@@ -1,0 +1,33 @@
+[build-system]
+requires = ["hatchling==1.27.0"]
+build-backend = "hatchling.build"
+
+[project]
+name = "d1env"
+version = "0.1.0"
+description = "D1Env M0-M2: local Chinese MOCK deployment wizard"
+requires-python = ">=3.10"
+dependencies = ["fastapi", "pydantic>=2,<3", "PyYAML", "typer", "uvicorn"]
+
+[project.scripts]
+d1env = "d1env.cli:app"
+
+[dependency-groups]
+dev = ["pytest", "httpx", "httpx2", "ruff", "mypy", "types-PyYAML", "jsonschema"]
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/d1env"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]
+
+[tool.ruff]
+target-version = "py310"
+line-length = 100
+
+[tool.mypy]
+python_version = "3.10"
+strict = true
+packages = ["d1env"]
+mypy_path = "src"

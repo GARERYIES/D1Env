@@ -1,0 +1,24 @@
+.....FF                                                                  [100%]
+=================================== FAILURES ===================================
+____________ test_boolean_strings_cannot_change_profile_permissions ____________
+
+    def test_boolean_strings_cannot_change_profile_permissions():
+        raw = load_catalog(ROOT / "profiles").profiles[0].model_dump()
+        raw["runtime_requirements"]["gpu_required"] = "false"
+>       with pytest.raises(ValidationError):
+E       Failed: DID NOT RAISE ValidationError
+
+tests/test_catalog.py:62: Failed
+_____________ test_unobserved_or_stale_telemetry_cannot_claim_pass _____________
+
+    def test_unobserved_or_stale_telemetry_cannot_claim_pass():
+        from datetime import timedelta
+        from d1env.models import utcnow
+>       with pytest.raises(ValidationError):
+E       Failed: DID NOT RAISE ValidationError
+
+tests/test_catalog.py:69: Failed
+=========================== short test summary info ============================
+FAILED tests/test_catalog.py::test_boolean_strings_cannot_change_profile_permissions
+FAILED tests/test_catalog.py::test_unobserved_or_stale_telemetry_cannot_claim_pass
+2 failed, 5 passed in 0.08s

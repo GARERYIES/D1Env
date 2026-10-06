@@ -1,0 +1,16 @@
+
+==================================== ERRORS ====================================
+____________________ ERROR collecting tests/test_catalog.py ____________________
+ImportError while importing test module '[LOCAL_PATH]'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/importlib/__init__.py:90: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+tests/test_catalog.py:6: in <module>
+    from d1env.catalog import load_catalog, validate_profile
+E   ModuleNotFoundError: No module named 'd1env'
+=========================== short test summary info ============================
+ERROR tests/test_catalog.py
+!!!!!!!!!!!!!!!!!!!! Interrupted: 1 error during collection !!!!!!!!!!!!!!!!!!!!
+1 error in 0.12s

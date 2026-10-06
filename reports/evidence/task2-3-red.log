@@ -1,0 +1,38 @@
+
+==================================== ERRORS ====================================
+____________________ ERROR collecting tests/test_doctor.py _____________________
+ImportError while importing test module '[LOCAL_PATH]'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/importlib/__init__.py:90: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+tests/test_doctor.py:3: in <module>
+    from d1env.doctor import diagnose, inspect_host
+E   ModuleNotFoundError: No module named 'd1env.doctor'
+____________________ ERROR collecting tests/test_process.py ____________________
+ImportError while importing test module '[LOCAL_PATH]'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/importlib/__init__.py:90: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+tests/test_process.py:5: in <module>
+    from d1env.process import ProbeRunner
+E   ModuleNotFoundError: No module named 'd1env.process'
+____________________ ERROR collecting tests/test_planner.py ____________________
+ImportError while importing test module '[LOCAL_PATH]'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/importlib/__init__.py:90: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+tests/test_planner.py:6: in <module>
+    from d1env.planner import resolve
+E   ModuleNotFoundError: No module named 'd1env.planner'
+=========================== short test summary info ============================
+ERROR tests/test_doctor.py
+ERROR tests/test_process.py
+ERROR tests/test_planner.py
+!!!!!!!!!!!!!!!!!!! Interrupted: 3 errors during collection !!!!!!!!!!!!!!!!!!!!
+3 errors in 0.25s

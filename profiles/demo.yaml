@@ -1,0 +1,17 @@
+schema_version: 1
+profile_id: demo
+name: 软件演示 · MOCK
+kind: mock
+profile_revision: foundation-1
+vendor: null
+sdk_family: null
+variant: null
+architectures: [x86_64, aarch64]
+runtime_requirements:
+  gpu_required: false
+capabilities:
+  demo:
+    status: implemented
+    reason: 仅演示软件任务，不创建容器或连接机器人
+network_requirements: [none]
+evidence_refs: [M2]

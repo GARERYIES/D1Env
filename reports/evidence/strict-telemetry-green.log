@@ -1,0 +1,19 @@
+......F                                                                  [100%]
+=================================== FAILURES ===================================
+_____________ test_unobserved_or_stale_telemetry_cannot_claim_pass _____________
+
+    def test_unobserved_or_stale_telemetry_cannot_claim_pass():
+        from datetime import timedelta
+        from d1env.models import utcnow
+        with pytest.raises(ValidationError):
+            Telemetry(status="PASS",battery_percent=82)
+        with pytest.raises(ValidationError):
+            Telemetry(status="PASS",battery_percent=82,observed_at=utcnow()-timedelta(hours=1),origin="sdk")
+>       raw["schema_version"] = 1
+        ^^^
+E       NameError: name 'raw' is not defined
+
+tests/test_catalog.py:73: NameError
+=========================== short test summary info ============================
+FAILED tests/test_catalog.py::test_unobserved_or_stale_telemetry_cannot_claim_pass
+1 failed, 6 passed in 0.08s

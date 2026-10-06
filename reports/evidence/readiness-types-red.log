@@ -1,0 +1,100 @@
+FFFF                                                                     [100%]
+=================================== FAILURES ===================================
+_____________ test_readiness_requires_literal_boolean_true[false] ______________
+
+tmp_path = PosixPath('[LOCAL_TMP_PATH]')
+malformed = 'false'
+
+    @pytest.mark.parametrize("malformed", ["false", 1, {}, []])
+    def test_readiness_requires_literal_boolean_true(tmp_path, malformed):
+        class MalformedReady(MockExecutor):
+            def execute(self, operation, context):
+                result = super().execute(operation, context)
+                if operation.operation_id == "verify":
+                    return result.model_copy(update={"evidence":{"mock_ready":malformed}})
+                return result
+        store = Store(tmp_path / "jobs.sqlite3")
+        engine = JobEngine(store, tmp_path / "resources", MalformedReady(delay_s=0))
+        job = engine.submit(plan(), "malformed-evidence")
+>       assert wait_done(engine, job.job_id).state == "FAILED"
+E       AssertionError: assert 'SUCCEEDED' == 'FAILED'
+E         
+E         - FAILED
+E         + SUCCEEDED
+
+tests/test_jobs.py:248: AssertionError
+_______________ test_readiness_requires_literal_boolean_true[1] ________________
+
+tmp_path = PosixPath('[LOCAL_TMP_PATH]')
+malformed = 1
+
+    @pytest.mark.parametrize("malformed", ["false", 1, {}, []])
+    def test_readiness_requires_literal_boolean_true(tmp_path, malformed):
+        class MalformedReady(MockExecutor):
+            def execute(self, operation, context):
+                result = super().execute(operation, context)
+                if operation.operation_id == "verify":
+                    return result.model_copy(update={"evidence":{"mock_ready":malformed}})
+                return result
+        store = Store(tmp_path / "jobs.sqlite3")
+        engine = JobEngine(store, tmp_path / "resources", MalformedReady(delay_s=0))
+        job = engine.submit(plan(), "malformed-evidence")
+>       assert wait_done(engine, job.job_id).state == "FAILED"
+E       AssertionError: assert 'SUCCEEDED' == 'FAILED'
+E         
+E         - FAILED
+E         + SUCCEEDED
+
+tests/test_jobs.py:248: AssertionError
+___________ test_readiness_requires_literal_boolean_true[malformed2] ___________
+
+tmp_path = PosixPath('[LOCAL_TMP_PATH]')
+malformed = {}
+
+    @pytest.mark.parametrize("malformed", ["false", 1, {}, []])
+    def test_readiness_requires_literal_boolean_true(tmp_path, malformed):
+        class MalformedReady(MockExecutor):
+            def execute(self, operation, context):
+                result = super().execute(operation, context)
+                if operation.operation_id == "verify":
+                    return result.model_copy(update={"evidence":{"mock_ready":malformed}})
+                return result
+        store = Store(tmp_path / "jobs.sqlite3")
+        engine = JobEngine(store, tmp_path / "resources", MalformedReady(delay_s=0))
+        job = engine.submit(plan(), "malformed-evidence")
+>       assert wait_done(engine, job.job_id).state == "FAILED"
+E       AssertionError: assert 'SUCCEEDED' == 'FAILED'
+E         
+E         - FAILED
+E         + SUCCEEDED
+
+tests/test_jobs.py:248: AssertionError
+___________ test_readiness_requires_literal_boolean_true[malformed3] ___________
+
+tmp_path = PosixPath('[LOCAL_TMP_PATH]')
+malformed = []
+
+    @pytest.mark.parametrize("malformed", ["false", 1, {}, []])
+    def test_readiness_requires_literal_boolean_true(tmp_path, malformed):
+        class MalformedReady(MockExecutor):
+            def execute(self, operation, context):
+                result = super().execute(operation, context)
+                if operation.operation_id == "verify":
+                    return result.model_copy(update={"evidence":{"mock_ready":malformed}})
+                return result
+        store = Store(tmp_path / "jobs.sqlite3")
+        engine = JobEngine(store, tmp_path / "resources", MalformedReady(delay_s=0))
+        job = engine.submit(plan(), "malformed-evidence")
+>       assert wait_done(engine, job.job_id).state == "FAILED"
+E       AssertionError: assert 'SUCCEEDED' == 'FAILED'
+E         
+E         - FAILED
+E         + SUCCEEDED
+
+tests/test_jobs.py:248: AssertionError
+=========================== short test summary info ============================
+FAILED tests/test_jobs.py::test_readiness_requires_literal_boolean_true[false]
+FAILED tests/test_jobs.py::test_readiness_requires_literal_boolean_true[1] - ...
+FAILED tests/test_jobs.py::test_readiness_requires_literal_boolean_true[malformed2]
+FAILED tests/test_jobs.py::test_readiness_requires_literal_boolean_true[malformed3]
+4 failed, 19 deselected in 0.29s

@@ -1,0 +1,13 @@
+F                                                                        [100%]
+=================================== FAILURES ===================================
+__________ test_null_or_nonfinite_samples_cannot_be_normal_telemetry ___________
+
+    def test_null_or_nonfinite_samples_cannot_be_normal_telemetry():
+        from d1env.models import utcnow
+>       with pytest.raises(ValidationError):
+E       Failed: DID NOT RAISE ValidationError
+
+tests/test_catalog.py:82: Failed
+=========================== short test summary info ============================
+FAILED tests/test_catalog.py::test_null_or_nonfinite_samples_cannot_be_normal_telemetry
+1 failed, 7 deselected in 0.05s

@@ -1,0 +1,36 @@
+
+Running 1 test using 1 worker
+
+(node:38930) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  1 tests/e2e/wizard.spec.ts:4:1 › 真实本地 API：MOCK 成功、重复点击、刷新、故障证据与报告导出 (4.9s)
+
+
+  1) tests/e2e/wizard.spec.ts:4:1 › 真实本地 API：MOCK 成功、重复点击、刷新、故障证据与报告导出 ─────────────────────────────
+
+    Error: expect(locator).toBeVisible() failed
+
+    Locator: getByText(/MOCK 故障注入：就绪检查失败；证据：<script>window.__d1env_injected=true<\/script>/)
+    Expected: visible
+    Error: strict mode violation: getByText(/MOCK 故障注入：就绪检查失败；证据：<script>window.__d1env_injected=true<\/script>/) resolved to 2 elements:
+        1) <p class="event-message">MOCK 故障注入：就绪检查失败；证据：<script>window.__d1env_inject…</p> aka getByText('MOCK 故障注入：就绪检查失败；证据：<script>').first()
+        2) <p class="event-message">MOCK 故障注入：就绪检查失败；证据：<script>window.__d1env_inject…</p> aka getByText('MOCK 故障注入：就绪检查失败；证据：<script>').nth(1)
+
+    Call log:
+      - Expect "toBeVisible" getByText(/MOCK 故障注入：就绪检查失败；证据：<script>window.__d1env_injected=true<\/script>/) with timeout 10000ms
+      - waiting for getByText(/MOCK 故障注入：就绪检查失败；证据：<script>window.__d1env_injected=true<\/script>/)
+
+
+      45 |   await expect(page.getByTestId('job-state')).toContainText('FAILED');
+      46 |   await expect(page.getByText('MOCK_READINESS_FAILED', { exact: true }).first()).toBeVisible();
+    > 47 |   await expect(page.getByText(/MOCK 故障注入：就绪检查失败；证据：<script>window.__d1env_injected=true<\/script>/)).toBeVisible();
+         |                                                                                                      ^
+      48 |   expect(await page.evaluate(() => '__d1env_injected' in window)).toBe(false);
+      49 |   await expect(page.getByTestId('mock-watermark')).toContainText('MOCK');
+      50 |   await page.screenshot({ path: 'test-results/task6-mock-failure.png', fullPage: true });
+        at [LOCAL_PATH]
+
+    Error Context: test-results/wizard-真实本地-API：MOCK-成功、重复点击、刷新、故障证据与报告导出/error-context.md
+
+  1 failed
+    tests/e2e/wizard.spec.ts:4:1 › 真实本地 API：MOCK 成功、重复点击、刷新、故障证据与报告导出 ──────────────────────────────

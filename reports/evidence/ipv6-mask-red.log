@@ -1,0 +1,21 @@
+F                                                                        [100%]
+=================================== FAILURES ===================================
+________ test_ipv6_text_mask_covers_brackets_zone_and_mapped_addresses _________
+
+    def test_ipv6_text_mask_covers_brackets_zone_and_mapped_addresses():
+        from d1env.reports import redact
+        text = "MOCK evidence [[IP]], ip=[IP] mapped=[IP]; permission denied. version=1.2.3"
+        masked = redact(text, True, set())
+        assert isinstance(masked, str)
+        for address in ["[IP]", "[IP]", "en0", "::ffff:", "[IP]"]:
+>           assert address not in masked
+E           AssertionError: assert '[IP]' not in 'MOCK eviden...ersion=1.2.3'
+E             
+E             '[IP]' is contained here:
+E               MOCK evidence [[IP]], ip=[IP] mapped=::ffff:[IP]; permission denied. version=1.2.3
+E             ?                +++++++++++
+
+tests/test_reports.py:63: AssertionError
+=========================== short test summary info ============================
+FAILED tests/test_reports.py::test_ipv6_text_mask_covers_brackets_zone_and_mapped_addresses
+1 failed in 0.03s

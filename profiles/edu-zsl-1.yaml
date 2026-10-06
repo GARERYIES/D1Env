@@ -1,0 +1,28 @@
+schema_version: 1
+profile_id: edu-zsl-1
+name: D1 点足候选
+kind: hardware
+profile_revision: documented-2026-10-06
+vendor: AgibotTech
+sdk_family: edu_ultra_zsl_1
+variant: ZSL-1
+architectures: [x86_64, aarch64]
+runtime_requirements:
+  os_name: Linux
+  os_version: '22.04'
+  gpu_required: false
+capabilities:
+  readonly:
+    declared_by_vendor: true
+    status: documented
+    evidence_refs: [S15]
+    reason: 高层签名有文档，适配器尚未实现
+  mapping:
+    status: not_implemented
+    reason: 尚未接入真实传感器
+  navigation:
+    status: not_implemented
+    reason: 本轮未实现导航或运动
+network_requirements: [documented_unverified]
+evidence_refs: [S13, S14, S15, S17]
+unverified_reason: 固件范围、工件、ABI 与遥测语义未验证；禁止真实部署

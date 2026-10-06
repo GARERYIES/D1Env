@@ -1,0 +1,35 @@
+
+> d1env-frontend@0.1.0 test
+> vitest --run
+
+
+ RUN  v5.0.3 [LOCAL_PATH]
+
+ ❯ tests/unit/App.test.tsx (12 tests | 1 failed) 1160ms
+   ❯ 中文向导与证据边界 (12)
+     × 恢复中断的作业后重试原始计划，不把故障计划改成默认成功场景 43ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  tests/unit/App.test.tsx > 中文向导与证据边界 > 恢复中断的作业后重试原始计划，不把故障计划改成默认成功场景
+AssertionError: expected 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa…' to be 'saved-fault-injection-plan' // Object.is equality
+
+Expected: "saved-fault-injection-plan"
+Received: "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+
+ ❯ tests/unit/App.test.tsx:128:63
+    126|     await waitFor(() => expect(calls.filter((call) => call.path === '/…
+    127|     const submitted = calls.find((call) => call.path === '/api/jobs');
+    128|     expect(JSON.parse(String(submitted?.init?.body)).plan_id).toBe('sa…
+       |                                                               ^
+    129|     expect(calls.filter((call) => call.path === '/api/plans')).toHaveL…
+    130|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  1 failed | 11 passed (12)
+   Start at  15:02:18
+   Duration  1.99s (tests 62%, environment 22%, setup 7%, transform 6%, import 3%)
+

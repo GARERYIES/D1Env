@@ -1,0 +1,11 @@
+{
+  "plan": null,
+  "blockers": [
+    {
+      "code": "PROFILE_UNVERIFIED",
+      "message": "型号未确认，禁止映射到任何真实 SDK",
+      "remediation": "选择 MOCK 演示；真实适配需后续来源、工件及集成证据",
+      "field": "profile_id"
+    }
+  ]
+}

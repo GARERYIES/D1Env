@@ -1,0 +1,28 @@
+schema_version: 1
+profile_id: maxpro
+name: D1 MaxPro 候选
+kind: hardware
+profile_revision: documented-2026-10-06
+vendor: AgibotTech
+sdk_family: maxpro_legacy
+variant: MaxPro
+architectures: [x86_64, aarch64]
+runtime_requirements:
+  os_name: Linux
+  os_version: '20.04'
+  gpu_required: false
+capabilities:
+  readonly:
+    declared_by_vendor: true
+    status: documented
+    evidence_refs: [S18]
+    reason: 高层 SDK 不需要 ROS1，ABI 与适配器尚未验证
+  mapping:
+    status: not_implemented
+    reason: 尚未接入真实传感器
+  navigation:
+    status: not_implemented
+    reason: 本轮未实现导航或运动
+network_requirements: [documented_unverified]
+evidence_refs: [S18]
+unverified_reason: 官方环境候选与首版 Ubuntu 22.04 的 ABI 兼容未验证；禁止真实部署

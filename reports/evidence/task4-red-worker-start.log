@@ -1,0 +1,36 @@
+F                                                                        [100%]
+=================================== FAILURES ===================================
+____ test_worker_start_failure_is_persisted_interrupted_and_releases_target ____
+
+tmp_path = PosixPath('[LOCAL_TMP_PATH]')
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x104f76c60>
+
+    def test_worker_start_failure_is_persisted_interrupted_and_releases_target(tmp_path, monkeypatch):
+        import threading
+    
+        engine, store = make_engine(tmp_path)
+        original_start = threading.Thread.start
+    
+        def refuse_start(self):
+            raise RuntimeError("thread resources unavailable")
+    
+        monkeypatch.setattr(threading.Thread, "start", refuse_start)
+        with pytest.raises(JobConflict) as error:
+>           engine.submit(plan(), "start-failed")
+
+tests/test_jobs.py:325: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+src/d1env/jobs/engine.py:124: in submit
+    worker.start()
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <Thread(d1env-mock-90c3828757294c62bf8657ac548bf8da, initial daemon)>
+
+    def refuse_start(self):
+>       raise RuntimeError("thread resources unavailable")
+E       RuntimeError: thread resources unavailable
+
+tests/test_jobs.py:321: RuntimeError
+=========================== short test summary info ============================
+FAILED tests/test_jobs.py::test_worker_start_failure_is_persisted_interrupted_and_releases_target
+1 failed in 0.11s

@@ -1,0 +1,12 @@
+{
+  "job_id": "0a1046551c714b329ef62814e7bad8b6",
+  "plan_id": "1d23de2ac71ed42bdd0a4f138f8edaefa8cd225b2d2f636162b449857379799e",
+  "target_id": "local",
+  "mode": "mock",
+  "state": "FAILED",
+  "verified_scope": "mock",
+  "current_operation_id": "verify_failure",
+  "created_at": "2026-10-06T07:04:03.172982Z",
+  "updated_at": "2026-10-06T07:04:04.718607Z",
+  "error_code": "MOCK_READINESS_FAILED"
+}

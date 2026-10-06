@@ -1,0 +1,773 @@
+{
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": {
+      "const": 1
+    },
+    "scope": {
+      "const": "static_source_audit"
+    },
+    "production_usable": {
+      "const": false
+    },
+    "observed_at": {
+      "type": "string",
+      "format": "date-time",
+      "pattern": "(Z|\\+00:00)$"
+    },
+    "repositories": {
+      "type": "array",
+      "minItems": 5,
+      "items": {
+        "$ref": "#/$defs/repository"
+      }
+    },
+    "limitations": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "uniqueItems": true
+    },
+    "evidence_logs": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string",
+        "pattern": "^(?!/)(?!.*\\\\)(?!.*(?:^|/)\\.\\.?(/|$))(?!.*//).+$"
+      },
+      "uniqueItems": true
+    }
+  },
+  "required": [
+    "schema_version",
+    "scope",
+    "production_usable",
+    "observed_at",
+    "repositories",
+    "limitations",
+    "evidence_logs"
+  ],
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:d1env:upstream-lock:v1",
+  "title": "D1Env upstream static evidence lock",
+  "$defs": {
+    "repository": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "repository": {
+          "type": "string",
+          "format": "uri",
+          "pattern": "^https://github\\.com/[^/]+/[^/]+\\.git$"
+        },
+        "checkout_ref": {
+          "type": "string",
+          "minLength": 1
+        },
+        "commit_sha": {
+          "anyOf": [
+            {
+              "type": "string",
+              "pattern": "^(?!0{40}$)[0-9a-f]{40}$"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "observed_at": {
+          "type": "string",
+          "format": "date-time",
+          "pattern": "(Z|\\+00:00)$"
+        },
+        "reference_directory": {
+          "type": "string",
+          "pattern": "^(?!/)(?!.*\\\\)(?!.*(?:^|/)\\.\\.?(/|$))(?!.*//).+$"
+        },
+        "source_ids": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^S[0-9]{2}$"
+          },
+          "uniqueItems": true
+        },
+        "paths": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^(?!/)(?!.*\\\\)(?!.*(?:^|/)\\.\\.?(/|$))(?!.*//).+$"
+          },
+          "uniqueItems": true
+        },
+        "file_hashes": {
+          "type": "object",
+          "propertyNames": {
+            "type": "string",
+            "pattern": "^(?!/)(?!.*\\\\)(?!.*(?:^|/)\\.\\.?(/|$))(?!.*//).+$"
+          },
+          "additionalProperties": {
+            "type": "string",
+            "pattern": "^(?!0{64}$)[0-9a-f]{64}$"
+          }
+        },
+        "license_path": {
+          "anyOf": [
+            {
+              "type": "string",
+              "pattern": "^(?!/)(?!.*\\\\)(?!.*(?:^|/)\\.\\.?(/|$))(?!.*//).+$"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "license_identifier": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "retrieval_status": {
+          "enum": [
+            "retrieved",
+            "partial",
+            "blocked"
+          ]
+        },
+        "blocked_reasons": {
+          "type": "object",
+          "propertyNames": {
+            "type": "string",
+            "minLength": 1
+          },
+          "additionalProperties": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "available_tags": {
+          "anyOf": [
+            {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "minLength": 1
+              },
+              "uniqueItems": true
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "git_refs_query_status": {
+          "enum": [
+            "retrieved",
+            "blocked"
+          ]
+        },
+        "available_releases": {
+          "anyOf": [
+            {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                  "tag_name": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "html_url": {
+                    "type": "string",
+                    "format": "uri",
+                    "pattern": "^https://github.com/"
+                  }
+                },
+                "required": [
+                  "tag_name",
+                  "html_url"
+                ]
+              },
+              "uniqueItems": true
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "releases_query_status": {
+          "enum": [
+            "retrieved",
+            "blocked"
+          ]
+        },
+        "binary_metadata": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/binary"
+          }
+        },
+        "transitive_dependency_audit": {
+          "const": "not_completed"
+        },
+        "hardware_status": {
+          "const": "not_implemented"
+        },
+        "evidence_logs": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "pattern": "^(?!/)(?!.*\\\\)(?!.*(?:^|/)\\.\\.?(/|$))(?!.*//).+$"
+          },
+          "uniqueItems": true
+        }
+      },
+      "required": [
+        "id",
+        "repository",
+        "checkout_ref",
+        "commit_sha",
+        "observed_at",
+        "reference_directory",
+        "source_ids",
+        "paths",
+        "file_hashes",
+        "license_path",
+        "license_identifier",
+        "retrieval_status",
+        "blocked_reasons",
+        "available_tags",
+        "git_refs_query_status",
+        "available_releases",
+        "releases_query_status",
+        "binary_metadata",
+        "transitive_dependency_audit",
+        "hardware_status",
+        "evidence_logs"
+      ],
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "commit_sha": {
+                "type": "null"
+              }
+            },
+            "required": [
+              "commit_sha"
+            ]
+          },
+          "then": {
+            "properties": {
+              "blocked_reasons": {
+                "required": [
+                  "commit_sha"
+                ]
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "license_path": {
+                "type": "null"
+              }
+            },
+            "required": [
+              "license_path"
+            ]
+          },
+          "then": {
+            "properties": {
+              "blocked_reasons": {
+                "required": [
+                  "license_path"
+                ]
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "license_identifier": {
+                "type": "null"
+              }
+            },
+            "required": [
+              "license_identifier"
+            ]
+          },
+          "then": {
+            "properties": {
+              "blocked_reasons": {
+                "required": [
+                  "license_identifier"
+                ]
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "available_tags": {
+                "type": "null"
+              }
+            },
+            "required": [
+              "available_tags"
+            ]
+          },
+          "then": {
+            "properties": {
+              "blocked_reasons": {
+                "required": [
+                  "available_tags"
+                ]
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "available_releases": {
+                "type": "null"
+              }
+            },
+            "required": [
+              "available_releases"
+            ]
+          },
+          "then": {
+            "properties": {
+              "blocked_reasons": {
+                "required": [
+                  "available_releases"
+                ]
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "commit_sha": {
+                "type": "null"
+              }
+            },
+            "required": [
+              "commit_sha"
+            ]
+          },
+          "then": {
+            "properties": {
+              "retrieval_status": {
+                "const": "blocked"
+              },
+              "paths": {
+                "maxItems": 0
+              },
+              "file_hashes": {
+                "maxProperties": 0
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "retrieval_status": {
+                "const": "retrieved"
+              }
+            },
+            "required": [
+              "retrieval_status"
+            ]
+          },
+          "then": {
+            "properties": {
+              "commit_sha": {
+                "type": "string",
+                "pattern": "^(?!0{40}$)[0-9a-f]{40}$"
+              },
+              "license_path": {
+                "type": "string",
+                "pattern": "^(?!/)(?!.*\\\\)(?!.*(?:^|/)\\.\\.?(/|$))(?!.*//).+$"
+              },
+              "license_identifier": {
+                "type": "string",
+                "minLength": 1
+              },
+              "paths": {
+                "minItems": 1
+              },
+              "blocked_reasons": {
+                "maxProperties": 0
+              }
+            }
+          }
+        }
+      ]
+    },
+    "binary": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "path": {
+          "type": "string",
+          "pattern": "^(?!/)(?!.*\\\\)(?!.*(?:^|/)\\.\\.?(/|$))(?!.*//).+$"
+        },
+        "git_blob_sha": {
+          "type": "string",
+          "pattern": "^(?!0{40}$)[0-9a-f]{40}$"
+        },
+        "size_bytes": {
+          "anyOf": [
+            {
+              "type": "integer",
+              "minimum": 1
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "sha256": {
+          "anyOf": [
+            {
+              "type": "string",
+              "pattern": "^(?!0{64}$)[0-9a-f]{64}$"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "retrieval_status": {
+          "enum": [
+            "static_inspected",
+            "metadata_only",
+            "blocked"
+          ]
+        },
+        "declared_architecture": {
+          "type": "string",
+          "minLength": 1
+        },
+        "verified_architecture": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "file_format": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "dynamic_dependencies": {
+          "anyOf": [
+            {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "minLength": 1
+              },
+              "uniqueItems": true
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "abi_symbol_versions": {
+          "anyOf": [
+            {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "minLength": 1
+              },
+              "uniqueItems": true
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "sdk_version": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "blocked_reasons": {
+          "type": "object",
+          "propertyNames": {
+            "type": "string",
+            "minLength": 1
+          },
+          "additionalProperties": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "evidence_logs": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "pattern": "^(?!/)(?!.*\\\\)(?!.*(?:^|/)\\.\\.?(/|$))(?!.*//).+$"
+          },
+          "uniqueItems": true
+        }
+      },
+      "required": [
+        "path",
+        "git_blob_sha",
+        "size_bytes",
+        "sha256",
+        "retrieval_status",
+        "declared_architecture",
+        "verified_architecture",
+        "file_format",
+        "dynamic_dependencies",
+        "abi_symbol_versions",
+        "sdk_version",
+        "blocked_reasons",
+        "evidence_logs"
+      ],
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "size_bytes": {
+                "type": "null"
+              }
+            },
+            "required": [
+              "size_bytes"
+            ]
+          },
+          "then": {
+            "properties": {
+              "blocked_reasons": {
+                "required": [
+                  "size_bytes"
+                ]
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "sha256": {
+                "type": "null"
+              }
+            },
+            "required": [
+              "sha256"
+            ]
+          },
+          "then": {
+            "properties": {
+              "blocked_reasons": {
+                "required": [
+                  "sha256"
+                ]
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "verified_architecture": {
+                "type": "null"
+              }
+            },
+            "required": [
+              "verified_architecture"
+            ]
+          },
+          "then": {
+            "properties": {
+              "blocked_reasons": {
+                "required": [
+                  "verified_architecture"
+                ]
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "file_format": {
+                "type": "null"
+              }
+            },
+            "required": [
+              "file_format"
+            ]
+          },
+          "then": {
+            "properties": {
+              "blocked_reasons": {
+                "required": [
+                  "file_format"
+                ]
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "dynamic_dependencies": {
+                "type": "null"
+              }
+            },
+            "required": [
+              "dynamic_dependencies"
+            ]
+          },
+          "then": {
+            "properties": {
+              "blocked_reasons": {
+                "required": [
+                  "dynamic_dependencies"
+                ]
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "abi_symbol_versions": {
+                "type": "null"
+              }
+            },
+            "required": [
+              "abi_symbol_versions"
+            ]
+          },
+          "then": {
+            "properties": {
+              "blocked_reasons": {
+                "required": [
+                  "abi_symbol_versions"
+                ]
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "sdk_version": {
+                "type": "null"
+              }
+            },
+            "required": [
+              "sdk_version"
+            ]
+          },
+          "then": {
+            "properties": {
+              "blocked_reasons": {
+                "required": [
+                  "sdk_version"
+                ]
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "retrieval_status": {
+                "const": "static_inspected"
+              }
+            },
+            "required": [
+              "retrieval_status"
+            ]
+          },
+          "then": {
+            "properties": {
+              "size_bytes": {
+                "type": "integer",
+                "minimum": 1
+              },
+              "sha256": {
+                "type": "string",
+                "pattern": "^(?!0{64}$)[0-9a-f]{64}$"
+              },
+              "verified_architecture": {
+                "type": "string",
+                "minLength": 1
+              },
+              "file_format": {
+                "type": "string",
+                "minLength": 1
+              },
+              "dynamic_dependencies": {
+                "type": "array",
+                "minItems": 1,
+                "items": {
+                  "type": "string",
+                  "minLength": 1
+                }
+              },
+              "abi_symbol_versions": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "minLength": 1
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}
