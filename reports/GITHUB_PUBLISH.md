@@ -2,9 +2,9 @@
 
 日期：2026-10-06。用户明确授权将 D1Env 上传 GitHub；这替代原轮次“未授权推送”的限制，不授权 M3、SDK 或机器人操作。
 
-## 待上传结果
+## 发布安排
 
-计划位置：`GARERYIES/D1Env`。未指定可见性时使用 private；最终仓库/提交/Release 后状态由上传完成记录确认。
+位置：`GARERYIES/D1Env`。未指定可见性时使用 private；下方记录实际仓库/提交/Release 后状态。
 
 ## 已验证源码上传
 
@@ -14,6 +14,15 @@
 - 发布副本为本交付中的 D1Env-GitHub 目录；只有它配置了 GitHub origin。原 d1env-foundation 研发仓库没有指向该远端，避免后续误推旧历史。
 - 首次新历史已逐 blob 检查；凭据/个人路径命中为 0。旧失败日志去敏后仍保留原失败原因与断言，不把失败改成 PASS。
 - 编译前端通过单独标识为 MOCK 的 prerelease 附件交付；GitHub 自动生成的 source zip 仍不含 frontend/dist。
+
+## 已验证预览附件
+
+- [v0.1.0-mock-m2](https://github.com/GARERYIES/D1Env/releases/tag/v0.1.0-mock-m2) 已发布为 prerelease，draft=false，未标为正式 latest。
+- Release 固定提交：`644ec07375b2840bf86912c3373a7089846957a5`；该 clean main 的 3 个提交、141 个 tracked 文件经独立发布审查通过。
+- 附件 `D1Env-M0-M2.zip`：1,278,562 字节；144 个交付文件＋manifest；另附 SHA-256 校验文件。
+- ZIP SHA-256：`4e1073a76632fd6a1e76110271f24f80a6c70bb1e18ac34f7f0db77cda1295d3`。GitHub assets API 的 digest 与实际重新下载后的 SHA-256 均一致，下载和 ZIP 完整性验证退出 0。
+- 所有 manifest 文件集/大小/摘要和执行权限已核对，实际第三方许可全文完整保留。新仓库完整历史、输出目录和 ZIP 无原测试 token、个人路径/用户名或确认凭据；不含 SDK、ELF/Mach-O。
+- 发布后本文件的状态更新属于文档提交，不改变固定 Release 的代码/manifest 提交。实际 post-state 验证副本在交付 outputs/github-publication-verification.json。
 
 发布使用只含当前清理后文件的新 Git 历史，保留本地 d1env-foundation 原研发历史。发布前发现并清理 1 枚 pytest 失败输出中的测试 CSRF 值与 5 处本地临时路径；普通清理提交不消除旧 blob，原历史不会上传。源码、日志、README、锁定依赖、报告和 MOCK 截图可上传；不含参考 checkout、厂商 SDK/二进制、凭据、运行数据库、虚拟环境或 node_modules。
 
