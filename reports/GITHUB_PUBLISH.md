@@ -6,6 +6,15 @@
 
 计划位置：`GARERYIES/D1Env`。未指定可见性时使用 private；最终仓库/提交/Release 后状态由上传完成记录确认。
 
+## 已验证源码上传
+
+- 仓库：[GARERYIES/D1Env](https://github.com/GARERYIES/D1Env)，实际 visibility=PRIVATE，默认分支 main。
+- 首次源码上传提交：`a4dbe38ca839341f7ac25ce9a42e1187224024ee`；实际 `git ls-remote origin refs/heads/main` 与发布副本 HEAD 完全一致。
+- `gh repo create ... --private` 和干净发布副本的 `git push -u origin main` 均退出 0；远端 README contents API 核对成功。
+- 发布副本为本交付中的 D1Env-GitHub 目录；只有它配置了 GitHub origin。原 d1env-foundation 研发仓库没有指向该远端，避免后续误推旧历史。
+- 首次新历史已逐 blob 检查；凭据/个人路径命中为 0。旧失败日志去敏后仍保留原失败原因与断言，不把失败改成 PASS。
+- 编译前端通过单独标识为 MOCK 的 prerelease 附件交付；GitHub 自动生成的 source zip 仍不含 frontend/dist。
+
 发布使用只含当前清理后文件的新 Git 历史，保留本地 d1env-foundation 原研发历史。发布前发现并清理 1 枚 pytest 失败输出中的测试 CSRF 值与 5 处本地临时路径；普通清理提交不消除旧 blob，原历史不会上传。源码、日志、README、锁定依赖、报告和 MOCK 截图可上传；不含参考 checkout、厂商 SDK/二进制、凭据、运行数据库、虚拟环境或 node_modules。
 
 ## Linux 能否开箱即用
