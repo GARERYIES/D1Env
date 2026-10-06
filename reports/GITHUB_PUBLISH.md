@@ -30,3 +30,4 @@
 - ZIP 静态内容检查通过：已构建前端存在、启动文件可执行，无 SDK、数据库或临时凭据文件。
 - 文档补充不更改产品行为；沿用 M2 的 90 Python、12 UI、1 E2E 的 macOS 实测证据，不重新将它们算作 Linux PASS。
 - 尚未运行 Linux 主机、Docker 生命周期、SDK、机器人、网络/固件修改或运动。
+- 预构建前端补充实际 React 19.1.1、ReactDOM 19.1.1、scheduler 0.26.0 的 MIT 文本及 Vite 8.3.3 包中的许可全文；见 THIRD_PARTY_NOTICES.md。没有替项目选择整体许可证，完整 SBOM 仍未完成。
