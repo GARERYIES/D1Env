@@ -1,0 +1,67 @@
+{
+  "exit_code": 0,
+  "verified_at_utc": "2026-10-07T12:08:06.273774+00:00",
+  "repository": {
+    "url": "https://github.com/GARERYIES/D1Env",
+    "visibility": "PRIVATE",
+    "default_branch": "main",
+    "description": "A profile-driven environment manager for D1 robotics development, with a Chinese web UI, Docker lifecycle orchestration and scoped ROS software checks. Apple Silicon preview.",
+    "topics": [
+      "deployment",
+      "docker",
+      "environment-management",
+      "fastapi",
+      "robotics",
+      "ros2",
+      "typescript"
+    ]
+  },
+  "main_at_verification": "0ca407e8c94964118090a009b167a831fd543fd1",
+  "product_source_commit": "0ca407e8c94964118090a009b167a831fd543fd1",
+  "release": {
+    "id": 405702291,
+    "tag_name": "v0.3.0-software-candidate",
+    "target_commitish": "0ca407e8c94964118090a009b167a831fd543fd1",
+    "draft": false,
+    "prerelease": true,
+    "html_url": "https://github.com/GARERYIES/D1Env/releases/tag/v0.3.0-software-candidate",
+    "published_at": "2026-10-07T12:07:54Z"
+  },
+  "assets": [
+    {
+      "id": 618535104,
+      "name": "D1Env-0.3.0-macos-aarch64.tar.gz",
+      "size": 167626300,
+      "state": "uploaded",
+      "digest": "sha256:e2866d49ff3e795ede21f6350a8edca97987e37fc26320fb542fb8859daff6ad",
+      "browser_download_url": "https://github.com/GARERYIES/D1Env/releases/download/v0.3.0-software-candidate/D1Env-0.3.0-macos-aarch64.tar.gz"
+    },
+    {
+      "id": 618535103,
+      "name": "SHA256SUMS.txt",
+      "size": 99,
+      "state": "uploaded",
+      "digest": "sha256:1325ad342c722e9f929581d9c81ce721049fc219d3bfad072e5b52fc09e37d88",
+      "browser_download_url": "https://github.com/GARERYIES/D1Env/releases/download/v0.3.0-software-candidate/SHA256SUMS.txt"
+    },
+    {
+      "id": 618535101,
+      "name": "START-HERE.md",
+      "size": 2229,
+      "state": "uploaded",
+      "digest": "sha256:5529ca170a831f1e4df26360f930b5778bf08d7044ae89de779210f2c9b67a2a",
+      "browser_download_url": "https://github.com/GARERYIES/D1Env/releases/download/v0.3.0-software-candidate/START-HERE.md"
+    }
+  ],
+  "download_verified": true,
+  "manifest_entries_verified": 2356,
+  "old_m2": {
+    "release_id": 404907306,
+    "tag_sha": "644ec07375b2840bf86912c3373a7089846957a5",
+    "zip_id": 615965775,
+    "zip_size_bytes": 1278562,
+    "zip_digest": "sha256:4e1073a76632fd6a1e76110271f24f80a6c70bb1e18ac34f7f0db77cda1295d3",
+    "unchanged": true
+  },
+  "new_linux_first_install_or_robot_tests_run": false
+}

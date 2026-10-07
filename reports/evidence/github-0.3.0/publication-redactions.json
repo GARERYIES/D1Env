@@ -1,0 +1,60 @@
+{
+  "applied": true,
+  "redactions": [
+    {
+      "path": "reports/evidence/m3-setup/cancel-race-red.log",
+      "counts": {
+        "mac_tmp": 4
+      }
+    },
+    {
+      "path": "reports/evidence/m3-setup/desktop-bypass-red.log",
+      "counts": {
+        "mac_tmp": 2
+      }
+    },
+    {
+      "path": "reports/evidence/m3-setup/entry-toctou-red.log",
+      "counts": {
+        "mac_tmp": 1
+      }
+    },
+    {
+      "path": "reports/evidence/m3-setup/native-handoff-red.log",
+      "counts": {
+        "mac_tmp": 6
+      }
+    },
+    {
+      "path": "reports/evidence/m3-setup/recovery-review-red.log",
+      "counts": {
+        "mac_tmp": 1
+      }
+    },
+    {
+      "path": "reports/evidence/m3-setup/root-contract-red.log",
+      "counts": {
+        "csrf_header": 2,
+        "mac_tmp": 1
+      }
+    },
+    {
+      "path": "reports/evidence/m3-setup/runtime-api-red.log",
+      "counts": {
+        "csrf_header": 5
+      }
+    },
+    {
+      "path": "reports/evidence/m3-setup/signature-concurrent-red.log",
+      "counts": {
+        "mac_tmp": 1
+      }
+    }
+  ],
+  "index_updates": [
+    {
+      "path": "reports/evidence/m3-setup/INDEX.json",
+      "rows": 8
+    }
+  ]
+}

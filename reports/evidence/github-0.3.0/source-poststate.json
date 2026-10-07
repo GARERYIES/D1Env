@@ -1,0 +1,46 @@
+{
+  "date": "2026-10-07",
+  "exit_code": 0,
+  "repository": {
+    "defaultBranchRef": {
+      "name": "main"
+    },
+    "description": "A profile-driven environment manager for D1 robotics development, with a Chinese web UI, Docker lifecycle orchestration and scoped ROS software checks. Apple Silicon preview.",
+    "nameWithOwner": "GARERYIES/D1Env",
+    "repositoryTopics": [
+      {
+        "name": "deployment"
+      },
+      {
+        "name": "docker"
+      },
+      {
+        "name": "environment-management"
+      },
+      {
+        "name": "fastapi"
+      },
+      {
+        "name": "robotics"
+      },
+      {
+        "name": "ros2"
+      },
+      {
+        "name": "typescript"
+      }
+    ],
+    "url": "https://github.com/GARERYIES/D1Env",
+    "visibility": "PRIVATE"
+  },
+  "remote_main_commit": "0ca407e8c94964118090a009b167a831fd543fd1",
+  "verified_remote_files": [
+    "README.md",
+    "START_HERE.md",
+    "pyproject.toml",
+    "reports/screenshots/m3-setup/m3-ui-software-success-viewport.png"
+  ],
+  "all_reachable_publication_blobs_scanned": 473,
+  "high_confidence_credential_or_personal_path_matches": 0,
+  "development_history_uploaded": false
+}

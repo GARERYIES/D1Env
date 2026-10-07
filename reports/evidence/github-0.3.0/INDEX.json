@@ -1,0 +1,44 @@
+{
+  "schema_version": 1,
+  "scope": "GitHub 0.3.0 source, description and software candidate publication only",
+  "source_commit": "0ca407e8c94964118090a009b167a831fd543fd1",
+  "release_tag": "v0.3.0-software-candidate",
+  "new_linux_first_install_or_robot_tests_run": false,
+  "files": [
+    {
+      "path": "content-scan.json",
+      "size_bytes": 286,
+      "sha256": "de12befa6af778101771e357a54f2e3843606ab50a112acac507cf997f1cb3c9"
+    },
+    {
+      "path": "download-verification.json",
+      "size_bytes": 439,
+      "sha256": "0e9c31aa1336a3a62488c0371d33240f98ffd7d3b4ef8ba4f001ea06e57a3c61"
+    },
+    {
+      "path": "final-audit.md",
+      "size_bytes": 3114,
+      "sha256": "175577dbf1e65ee0cb172683643aa4547157575c45d80c63580134b60953c96d"
+    },
+    {
+      "path": "preflight.json",
+      "size_bytes": 320,
+      "sha256": "725899152cffc6ad32e877b5350f9ae0cc2917f2fe2c24562abed68c7a063d10"
+    },
+    {
+      "path": "publication-redactions.json",
+      "size_bytes": 1188,
+      "sha256": "8c3429fbd40359143bf4e697a60bf249c72f89b40ba13129b9102720e085bd0d"
+    },
+    {
+      "path": "published-poststate.json",
+      "size_bytes": 2489,
+      "sha256": "1a7766610165b85abcb9bd94457d4f54651ff6a398e4cce7a66fcdef08ad83a6"
+    },
+    {
+      "path": "source-poststate.json",
+      "size_bytes": 1171,
+      "sha256": "11e8b21042e3050f84d0d2e0a34d43bc5e81746f9e571676804f61f1b0aa1bc1"
+    }
+  ]
+}

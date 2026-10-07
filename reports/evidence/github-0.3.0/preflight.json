@@ -1,0 +1,11 @@
+{
+  "exit_code": 0,
+  "readme_entry_links_exist": true,
+  "publication_indexes_valid": true,
+  "redacted_index_entries": 8,
+  "product_and_tests_exact_source_match": true,
+  "protected_files": 115,
+  "archive_sha256_verified": true,
+  "package_python_modules_match_clean_export": 29,
+  "residual_redactions_needed": 0
+}

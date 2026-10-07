@@ -1,0 +1,9 @@
+{
+  "exit_code": 0,
+  "current_files_scanned": 481,
+  "reachable_historical_blobs_scanned": 143,
+  "high_confidence_secret_or_personal_path_matches": 0,
+  "github_markdown_render_succeeded": true,
+  "main_readme_sections_present": true,
+  "actual_screenshot_reference_rendered": true
+}
