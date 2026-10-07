@@ -1,0 +1,28 @@
+Executable=/Applications/Docker.app/Contents/MacOS/com.docker.backend
+Identifier=com.docker.docker
+Format=app bundle with Mach-O thin (arm64)
+CodeDirectory v=20500 size=1695677 flags=0x10000(runtime) hashes=52979+7 location=embedded
+VersionPlatform=1
+VersionMin=917504
+VersionSDK=918784
+Hash type=sha256 size=32
+CandidateCDHash sha256=892bd6201fce844ef218ed2a284fae3878a1fa36
+CandidateCDHashFull sha256=892bd6201fce844ef218ed2a284fae3878a1fa36cfce1ce2bab26472099f35c6
+Hash choices=sha256
+CMSDigest=892bd6201fce844ef218ed2a284fae3878a1fa36cfce1ce2bab26472099f35c6
+CMSDigestType=2
+Executable Segment base=0
+Executable Segment limit=136249344
+Executable Segment flags=0x1
+Page size=4096
+CDHash=892bd6201fce844ef218ed2a284fae3878a1fa36
+Signature size=8969
+Authority=Developer ID Application: Docker Inc (9BNSXJN65R)
+Authority=Developer ID Certification Authority
+Authority=Apple Root CA
+Timestamp=Jun 26, 2026 at 21:57:03
+Info.plist entries=31
+TeamIdentifier=9BNSXJN65R
+Runtime Version=14.5.0
+Sealed Resources version=2 rules=13 files=87
+Internal requirements count=1 size=180

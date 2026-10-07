@@ -1,0 +1,144 @@
+..FFFF.                                                                  [100%]
+=================================== FAILURES ===================================
+______ test_verified_official_runtime_source_builds_a_relocated_candidate ______
+
+tmp_path = PosixPath('[PRIVATE_TEMP_PATH]')
+
+    def test_verified_official_runtime_source_builds_a_relocated_candidate(tmp_path):
+        wheel = ROOT / "work/m3-dist/d1env-0.2.0-py3-none-any.whl"
+        requirements = ROOT / "work/m3-runtime-requirements.txt"
+        if sys.platform != "darwin" or not all(path.exists() for path in
+                (OFFICIAL_RUNTIME, OFFICIAL_ARCHIVE, SOURCE_LOCK, wheel, requirements)):
+            pytest.skip("官方原生 Mac 来源工件缺失；来源/搬迁集成未验证")
+        output = tmp_path / "official-candidate.tar.gz"
+        built = subprocess.run([
+            sys.executable, str(SCRIPT), "--portable", "--runtime", str(OFFICIAL_RUNTIME),
+            "--runtime-source-archive", str(OFFICIAL_ARCHIVE), "--runtime-provenance-json", str(SOURCE_LOCK),
+            "--wheel", str(wheel), "--requirements", str(requirements), "--platform", "macos",
+            "--architecture", "aarch64", "--output", str(output),
+        ], capture_output=True, text=True, timeout=180, check=False)
+>       assert built.returncode == 0, built.stderr
+E       AssertionError: usage: build-release.py [-h] [--source-root SOURCE_ROOT] --output OUTPUT
+E                                 [--bundle-id BUNDLE_ID] [--portable]
+E                                 [--runtime RUNTIME] [--wheel WHEEL]
+E                                 [--requirements REQUIREMENTS] [--uv UV]
+E                                 [--cache-dir CACHE_DIR] [--allow-downloads]
+E                                 [--platform {macos,linux}]
+E                                 [--architecture {aarch64,x86_64}]
+E         build-release.py: error: unrecognized arguments: --runtime-source-archive [LOCAL_PATH] --runtime-provenance-json [LOCAL_PATH]
+E         
+E       assert 2 == 0
+E        +  where 2 = CompletedProcess(args=['[LOCAL_PATH]').returncode
+
+tests/test_release_builder.py:166: AssertionError
+_ test_source_provenance_rejects_modified_inputs_before_executing_runtime[archive_hash] _
+
+tmp_path = PosixPath('[PRIVATE_TEMP_PATH]')
+changed = 'archive_hash'
+
+    @pytest.mark.parametrize("changed", ["archive_hash", "archive_size", "runtime_tree"])
+    def test_source_provenance_rejects_modified_inputs_before_executing_runtime(tmp_path, changed):
+        import shutil
+        wheel = ROOT / "work/m3-dist/d1env-0.2.0-py3-none-any.whl"
+        requirements = ROOT / "work/m3-runtime-requirements.txt"
+        if not all(path.exists() for path in (OFFICIAL_RUNTIME, OFFICIAL_ARCHIVE, SOURCE_LOCK, wheel, requirements)):
+            pytest.skip("来源锁回归需实际源归档/运行时；未验证")
+        record = json.loads(SOURCE_LOCK.read_text())
+        runtime = OFFICIAL_RUNTIME
+        marker = tmp_path / "executed-unverified-interpreter"
+        if changed == "archive_hash":
+            record["download_archive_sha256"] = "1" * 64
+        elif changed == "archive_size":
+            record["download_archive_size_bytes"] += 1
+        else:
+            runtime = tmp_path / "modified-runtime"
+            shutil.copytree(OFFICIAL_RUNTIME, runtime, symlinks=True)
+            (runtime / "bin/python3.10").write_text(f"#!/bin/sh\ntouch '{marker}'\n")
+        provenance = tmp_path / "source.json"
+        provenance.write_text(json.dumps(record))
+        result = subprocess.run([
+            sys.executable, str(SCRIPT), "--portable", "--runtime", str(runtime),
+            "--runtime-source-archive", str(OFFICIAL_ARCHIVE), "--runtime-provenance-json", str(provenance),
+            "--wheel", str(wheel), "--requirements", str(requirements), "--output", str(tmp_path / "never.tar.gz"),
+        ], capture_output=True, text=True, timeout=20, check=False)
+>       assert result.returncode == 1
+E       AssertionError: assert 2 == 1
+E        +  where 2 = CompletedProcess(args=['[LOCAL_PATH]').returncode
+
+tests/test_release_builder.py:203: AssertionError
+_ test_source_provenance_rejects_modified_inputs_before_executing_runtime[archive_size] _
+
+tmp_path = PosixPath('[PRIVATE_TEMP_PATH]')
+changed = 'archive_size'
+
+    @pytest.mark.parametrize("changed", ["archive_hash", "archive_size", "runtime_tree"])
+    def test_source_provenance_rejects_modified_inputs_before_executing_runtime(tmp_path, changed):
+        import shutil
+        wheel = ROOT / "work/m3-dist/d1env-0.2.0-py3-none-any.whl"
+        requirements = ROOT / "work/m3-runtime-requirements.txt"
+        if not all(path.exists() for path in (OFFICIAL_RUNTIME, OFFICIAL_ARCHIVE, SOURCE_LOCK, wheel, requirements)):
+            pytest.skip("来源锁回归需实际源归档/运行时；未验证")
+        record = json.loads(SOURCE_LOCK.read_text())
+        runtime = OFFICIAL_RUNTIME
+        marker = tmp_path / "executed-unverified-interpreter"
+        if changed == "archive_hash":
+            record["download_archive_sha256"] = "1" * 64
+        elif changed == "archive_size":
+            record["download_archive_size_bytes"] += 1
+        else:
+            runtime = tmp_path / "modified-runtime"
+            shutil.copytree(OFFICIAL_RUNTIME, runtime, symlinks=True)
+            (runtime / "bin/python3.10").write_text(f"#!/bin/sh\ntouch '{marker}'\n")
+        provenance = tmp_path / "source.json"
+        provenance.write_text(json.dumps(record))
+        result = subprocess.run([
+            sys.executable, str(SCRIPT), "--portable", "--runtime", str(runtime),
+            "--runtime-source-archive", str(OFFICIAL_ARCHIVE), "--runtime-provenance-json", str(provenance),
+            "--wheel", str(wheel), "--requirements", str(requirements), "--output", str(tmp_path / "never.tar.gz"),
+        ], capture_output=True, text=True, timeout=20, check=False)
+>       assert result.returncode == 1
+E       AssertionError: assert 2 == 1
+E        +  where 2 = CompletedProcess(args=['[LOCAL_PATH]').returncode
+
+tests/test_release_builder.py:203: AssertionError
+_ test_source_provenance_rejects_modified_inputs_before_executing_runtime[runtime_tree] _
+
+tmp_path = PosixPath('[PRIVATE_TEMP_PATH]')
+changed = 'runtime_tree'
+
+    @pytest.mark.parametrize("changed", ["archive_hash", "archive_size", "runtime_tree"])
+    def test_source_provenance_rejects_modified_inputs_before_executing_runtime(tmp_path, changed):
+        import shutil
+        wheel = ROOT / "work/m3-dist/d1env-0.2.0-py3-none-any.whl"
+        requirements = ROOT / "work/m3-runtime-requirements.txt"
+        if not all(path.exists() for path in (OFFICIAL_RUNTIME, OFFICIAL_ARCHIVE, SOURCE_LOCK, wheel, requirements)):
+            pytest.skip("来源锁回归需实际源归档/运行时；未验证")
+        record = json.loads(SOURCE_LOCK.read_text())
+        runtime = OFFICIAL_RUNTIME
+        marker = tmp_path / "executed-unverified-interpreter"
+        if changed == "archive_hash":
+            record["download_archive_sha256"] = "1" * 64
+        elif changed == "archive_size":
+            record["download_archive_size_bytes"] += 1
+        else:
+            runtime = tmp_path / "modified-runtime"
+            shutil.copytree(OFFICIAL_RUNTIME, runtime, symlinks=True)
+            (runtime / "bin/python3.10").write_text(f"#!/bin/sh\ntouch '{marker}'\n")
+        provenance = tmp_path / "source.json"
+        provenance.write_text(json.dumps(record))
+        result = subprocess.run([
+            sys.executable, str(SCRIPT), "--portable", "--runtime", str(runtime),
+            "--runtime-source-archive", str(OFFICIAL_ARCHIVE), "--runtime-provenance-json", str(provenance),
+            "--wheel", str(wheel), "--requirements", str(requirements), "--output", str(tmp_path / "never.tar.gz"),
+        ], capture_output=True, text=True, timeout=20, check=False)
+>       assert result.returncode == 1
+E       AssertionError: assert 2 == 1
+E        +  where 2 = CompletedProcess(args=['[LOCAL_PATH]').returncode
+
+tests/test_release_builder.py:203: AssertionError
+=========================== short test summary info ============================
+FAILED tests/test_release_builder.py::test_verified_official_runtime_source_builds_a_relocated_candidate
+FAILED tests/test_release_builder.py::test_source_provenance_rejects_modified_inputs_before_executing_runtime[archive_hash]
+FAILED tests/test_release_builder.py::test_source_provenance_rejects_modified_inputs_before_executing_runtime[archive_size]
+FAILED tests/test_release_builder.py::test_source_provenance_rejects_modified_inputs_before_executing_runtime[runtime_tree]
+4 failed, 3 passed in 15.22s

@@ -1,0 +1,303 @@
+{
+  "origin": "docker",
+  "mode": "software_test",
+  "verified_scope": "software",
+  "image_id": "sha256:52f259d5fa38acb3fd2018e1601593fc0f6ad1a85c8a968032695f9c15771a2c",
+  "checks": [
+    {
+      "same_name_external_preserved": true,
+      "start": {
+        "operation_id": "start",
+        "status": "failed",
+        "origin": "docker",
+        "evidence": {
+          "foreign_resource_id": "ba9527e5cf90dfc7d9089bad7f2d74621c0a0e647a991758c77501378764f402"
+        },
+        "error_code": "DOCKER_RESOURCE_CONFLICT",
+        "message": "启动失败：同名 Docker 对象已存在但没有本次创建记录；请保留并核对外部资源。",
+        "resource_ids": []
+      },
+      "fixture_id": "ba9527e5cf90dfc7d9089bad7f2d74621c0a0e647a991758c77501378764f402"
+    },
+    {
+      "foreign_endpoint_preserved": true,
+      "fixture_id": "2b12d5c4a52db77c2370e503bc7edd5dcd3aac1717c9f27f316a6034f94cdac8",
+      "network_id": "b813433e1db535760d804970af6a9a59eb95ac8866b8b7beb6cd7ffc43118407",
+      "removed_ids": [
+        "652fb0c8718b02c00a3a3efb259b88f2edee87f26b15b94e33b30658418c431e",
+        "7ba4d1a2206b37ca3d676170bb93e49ecec7b1fe826a3d56f94dac4e7867687d"
+      ],
+      "inventory": {
+        "mode": "software_test",
+        "origin": "docker",
+        "verified_scope": "software",
+        "resources": [
+          {
+            "id": "652fb0c8718b02c00a3a3efb259b88f2edee87f26b15b94e33b30658418c431e",
+            "kind": "container",
+            "role": "pub",
+            "present": false,
+            "owned": false,
+            "tracked": true,
+            "preserved": false,
+            "preserved_reason": null
+          },
+          {
+            "id": "7ba4d1a2206b37ca3d676170bb93e49ecec7b1fe826a3d56f94dac4e7867687d",
+            "kind": "container",
+            "role": "sub",
+            "present": false,
+            "owned": false,
+            "tracked": true,
+            "preserved": false,
+            "preserved_reason": null
+          },
+          {
+            "id": "b813433e1db535760d804970af6a9a59eb95ac8866b8b7beb6cd7ffc43118407",
+            "kind": "network",
+            "role": "network",
+            "present": true,
+            "owned": true,
+            "tracked": true,
+            "preserved": true,
+            "preserved_reason": "foreign_or_unknown_network_endpoints"
+          }
+        ],
+        "untracked_resources": [],
+        "inventory_complete": true,
+        "remaining_owned": [
+          {
+            "id": "b813433e1db535760d804970af6a9a59eb95ac8866b8b7beb6cd7ffc43118407",
+            "kind": "network",
+            "role": "network",
+            "present": true,
+            "owned": true,
+            "tracked": true,
+            "preserved": true,
+            "preserved_reason": "foreign_or_unknown_network_endpoints"
+          }
+        ],
+        "preserved_resources": [
+          {
+            "id": "b813433e1db535760d804970af6a9a59eb95ac8866b8b7beb6cd7ffc43118407",
+            "kind": "network",
+            "role": "network",
+            "present": true,
+            "owned": true,
+            "tracked": true,
+            "preserved": true,
+            "preserved_reason": "foreign_or_unknown_network_endpoints"
+          }
+        ]
+      }
+    }
+  ],
+  "image_preserved": true,
+  "exit_code": 0,
+  "commands": [
+    {
+      "argv": [
+        "docker",
+        "--context",
+        "default",
+        "create",
+        "--name",
+        "d1env-d4700b52e519457db0e86d16b716930b-pub",
+        "--label",
+        "io.d1env.test.fixture=532c4b2792dd43c5ae28746b5be22309",
+        "--label",
+        "io.d1env.project=d1env-ownership-test",
+        "--network",
+        "none",
+        "--user",
+        "10001:10001",
+        "--read-only",
+        "--cap-drop",
+        "ALL",
+        "--security-opt",
+        "no-new-privileges:true",
+        "--cpus",
+        "0.5",
+        "--memory",
+        "256m",
+        "--pids-limit",
+        "128",
+        "--tmpfs",
+        "/tmp:rw,nosuid,nodev,noexec,size=64m,uid=10001,gid=10001,mode=1770",
+        "--env",
+        "D1ENV_RUN_ID=d4700b52e519457db0e86d16b716930b",
+        "--env",
+        "HOME=/tmp",
+        "--env",
+        "ROS_LOG_DIR=/tmp/ros-logs",
+        "sha256:52f259d5fa38acb3fd2018e1601593fc0f6ad1a85c8a968032695f9c15771a2c",
+        "idle"
+      ],
+      "exit_code": 0,
+      "stdout": "ba9527e5cf90dfc7d9089bad7f2d74621c0a0e647a991758c77501378764f402\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "docker",
+        "--context",
+        "default",
+        "container",
+        "inspect",
+        "ba9527e5cf90dfc7d9089bad7f2d74621c0a0e647a991758c77501378764f402"
+      ],
+      "exit_code": 0,
+      "stdout": "[\n    {\n        \"Id\": \"ba9527e5cf90dfc7d9089bad7f2d74621c0a0e647a991758c77501378764f402\",\n        \"Created\": \"2026-10-06T18:19:43.380764254Z\",\n        \"Path\": \"/opt/d1env/entrypoint.sh\",\n        \"Args\": [\n            \"idle\"\n        ],\n        \"State\": {\n            \"Status\": \"created\",\n            \"Running\": false,\n            \"Paused\": false,\n            \"Restarting\": false,\n            \"OOMKilled\": false,\n            \"Dead\": false,\n            \"Pid\": 0,\n            \"ExitCode\": 0,\n            \"Error\": \"\",\n            \"StartedAt\": \"0001-01-01T00:00:00Z\",\n            \"FinishedAt\": \"0001-01-01T00:00:00Z\"\n        },\n        \"Image\": \"sha256:52f259d5fa38acb3fd2018e1601593fc0f6ad1a85c8a968032695f9c15771a2c\",\n        \"ResolvConfPath\": \"\",\n        \"HostnamePath\": \"\",\n        \"HostsPath\": \"\",\n        \"LogPath\": \"\",\n        \"Name\": \"/d1env-d4700b52e519457db0e86d16b716930b-pub\",\n        \"RestartCount\": 0,\n        \"Driver\": \"overlayfs\",\n        \"Platform\": \"linux\",\n        \"MountLabel\": \"\",\n        \"ProcessLabel\": \"\",\n        \"AppArmorProfile\": \"\",\n        \"ExecIDs\": null,\n        \"HostConfig\": {\n            \"Binds\": null,\n            \"ContainerIDFile\": \"\",\n            \"LogConfig\": {\n                \"Type\": \"json-file\",\n                \"Config\": {}\n            },\n            \"NetworkMode\": \"none\",\n            \"PortBindings\": {},\n            \"RestartPolicy\": {\n                \"Name\": \"no\",\n                \"MaximumRetryCount\": 0\n            },\n            \"AutoRemove\": false,\n            \"VolumeDriver\": \"\",\n            \"VolumesFrom\": null,\n            \"ConsoleSize\": [\n                0,\n                0\n            ],\n            \"CapAdd\": null,\n            \"CapDrop\": [\n                \"ALL\"\n            ],\n            \"CgroupnsMode\": \"private\",\n            \"Dns\": null,\n            \"DnsOptions\": [],\n            \"DnsSearch\": [],\n            \"ExtraHosts\": null,\n            \"GroupAdd\": null,\n            \"IpcMode\": \"private\",\n            \"Cgroup\": \"\",\n            \"Links\": null,\n            \"OomScoreAdj\": 0,\n            \"PidMode\": \"\",\n            \"Privileged\": false,\n            \"PublishAllPorts\": false,\n            \"ReadonlyRootfs\": true,\n            \"SecurityOpt\": [\n                \"no-new-privileges:true\"\n            ],\n            \"Tmpfs\": {\n                \"/tmp\": \"rw,nosuid,nodev,noexec,size=64m,uid=10001,gid=10001,mode=1770\"\n            },\n            \"UTSMode\": \"\",\n            \"UsernsMode\": \"\",\n            \"ShmSize\": 67108864,\n            \"Runtime\": \"runc\",\n            \"Isolation\": \"\",\n            \"CpuShares\": 0,\n            \"Memory\": 268435456,\n            \"NanoCpus\": 500000000,\n            \"CgroupParent\": \"\",\n            \"BlkioWeight\": 0,\n            \"BlkioWeightDevice\": [],\n            \"BlkioDeviceReadBps\": [],\n            \"BlkioDeviceWriteBps\": [],\n            \"BlkioDeviceReadIOps\": [],\n            \"BlkioDeviceWriteIOps\": [],\n            \"CpuPeriod\": 0,\n            \"CpuQuota\": 0,\n            \"CpuRealtimePeriod\": 0,\n            \"CpuRealtimeRuntime\": 0,\n            \"CpusetCpus\": \"\",\n            \"CpusetMems\": \"\",\n            \"Devices\": [],\n            \"DeviceCgroupRules\": null,\n            \"DeviceRequests\": null,\n            \"MemoryReservation\": 0,\n            \"MemorySwap\": 536870912,\n            \"MemorySwappiness\": null,\n            \"OomKillDisable\": false,\n            \"PidsLimit\": 128,\n            \"Ulimits\": [],\n            \"CpuCount\": 0,\n            \"CpuPercent\": 0,\n            \"IOMaximumIOps\": 0,\n            \"IOMaximumBandwidth\": 0,\n            \"MaskedPaths\": [\n                \"/proc/acpi\",\n                \"/proc/asound\",\n                \"/proc/interrupts\",\n                \"/proc/kcore\",\n                \"/proc/keys\",\n                \"/proc/latency_stats\",\n                \"/proc/sched_debug\",\n                \"/proc/scsi\",\n                \"/proc/timer_list\",\n                \"/proc/timer_stats\",\n                \"/sys/devices/virtual/powercap\",\n                \"/sys/firmware\"\n            ],\n            \"ReadonlyPaths\": [\n                \"/proc/bus\",\n                \"/proc/fs\",\n                \"/proc/irq\",\n                \"/proc/sys\",\n                \"/proc/sysrq-trigger\"\n            ]\n        },\n        \"Storage\": {\n            \"RootFS\": {\n                \"Snapshot\": {\n                    \"Name\": \"overlayfs\"\n                }\n            }\n        },\n        \"Mounts\": [],\n        \"Config\": {\n            \"Hostname\": \"ba9527e5cf90\",\n            \"Domainname\": \"\",\n            \"User\": \"10001:10001\",\n            \"AttachStdin\": false,\n            \"AttachStdout\": true,\n            \"AttachStderr\": true,\n            \"Tty\": false,\n            \"OpenStdin\": false,\n            \"StdinOnce\": false,\n            \"Env\": [\n                \"D1ENV_RUN_ID=d4700b52e519457db0e86d16b716930b\",\n                \"HOME=/tmp\",\n                \"ROS_LOG_DIR=/tmp/ros-logs\",\n                \"PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin\",\n                \"LANG=C.UTF-8\",\n                \"LC_ALL=C.UTF-8\",\n                \"ROS_DISTRO=humble\",\n                \"PYTHONDONTWRITEBYTECODE=1\",\n                \"PYTHONUNBUFFERED=1\"\n            ],\n            \"Cmd\": [\n                \"idle\"\n            ],\n            \"Image\": \"sha256:52f259d5fa38acb3fd2018e1601593fc0f6ad1a85c8a968032695f9c15771a2c\",\n            \"Volumes\": null,\n            \"WorkingDir\": \"\",\n            \"Entrypoint\": [\n                \"/opt/d1env/entrypoint.sh\"\n            ],\n            \"Labels\": {\n                \"io.d1env.kind\": \"ros-probe\",\n                \"io.d1env.project\": \"d1env-ownership-test\",\n                \"io.d1env.source\": \"d1env/ros-probe\",\n                \"io.d1env.test.fixture\": \"532c4b2792dd43c5ae28746b5be22309\",\n                \"org.opencontainers.image.description\": \"D1Env CPU ROS communication software probe; no robot interface\",\n                \"org.opencontainers.image.version\": \"22.04\"\n            },\n            \"StopTimeout\": 1\n        },\n        \"NetworkSettings\": {\n            \"SandboxID\": \"\",\n            \"SandboxKey\": \"\",\n            \"Ports\": {},\n            \"Networks\": {\n                \"none\": {\n                    \"IPAMConfig\": null,\n                    \"Links\": null,\n                    \"Aliases\": null,\n                    \"DriverOpts\": null,\n                    \"GwPriority\": 0,\n                    \"NetworkID\": \"\",\n                    \"EndpointID\": \"\",\n                    \"Gateway\": \"\",\n                    \"IPAddress\": \"\",\n                    \"MacAddress\": \"\",\n                    \"IPPrefixLen\": 0,\n                    \"IPv6Gateway\": \"\",\n                    \"GlobalIPv6Address\": \"\",\n                    \"GlobalIPv6PrefixLen\": 0,\n                    \"DNSNames\": null\n                }\n            }\n        },\n        \"ImageManifestDescriptor\": {\n            \"mediaType\": \"application/vnd.oci.image.manifest.v1+json\",\n            \"digest\": \"sha256:de539eab9fcd31710ad7c0767d63657d1c5a4698fa15a08e0a131bcd27e8c8a5\",\n            \"size\": 1627,\n            \"platform\": {\n                \"architecture\": \"arm64\",\n                \"os\": \"linux\"\n            }\n        }\n    }\n]\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "docker",
+        "--context",
+        "default",
+        "container",
+        "inspect",
+        "ba9527e5cf90dfc7d9089bad7f2d74621c0a0e647a991758c77501378764f402"
+      ],
+      "exit_code": 0,
+      "stdout": "[\n    {\n        \"Id\": \"ba9527e5cf90dfc7d9089bad7f2d74621c0a0e647a991758c77501378764f402\",\n        \"Created\": \"2026-10-06T18:19:43.380764254Z\",\n        \"Path\": \"/opt/d1env/entrypoint.sh\",\n        \"Args\": [\n            \"idle\"\n        ],\n        \"State\": {\n            \"Status\": \"created\",\n            \"Running\": false,\n            \"Paused\": false,\n            \"Restarting\": false,\n            \"OOMKilled\": false,\n            \"Dead\": false,\n            \"Pid\": 0,\n            \"ExitCode\": 0,\n            \"Error\": \"\",\n            \"StartedAt\": \"0001-01-01T00:00:00Z\",\n            \"FinishedAt\": \"0001-01-01T00:00:00Z\"\n        },\n        \"Image\": \"sha256:52f259d5fa38acb3fd2018e1601593fc0f6ad1a85c8a968032695f9c15771a2c\",\n        \"ResolvConfPath\": \"\",\n        \"HostnamePath\": \"\",\n        \"HostsPath\": \"\",\n        \"LogPath\": \"\",\n        \"Name\": \"/d1env-d4700b52e519457db0e86d16b716930b-pub\",\n        \"RestartCount\": 0,\n        \"Driver\": \"overlayfs\",\n        \"Platform\": \"linux\",\n        \"MountLabel\": \"\",\n        \"ProcessLabel\": \"\",\n        \"AppArmorProfile\": \"\",\n        \"ExecIDs\": null,\n        \"HostConfig\": {\n            \"Binds\": null,\n            \"ContainerIDFile\": \"\",\n            \"LogConfig\": {\n                \"Type\": \"json-file\",\n                \"Config\": {}\n            },\n            \"NetworkMode\": \"none\",\n            \"PortBindings\": {},\n            \"RestartPolicy\": {\n                \"Name\": \"no\",\n                \"MaximumRetryCount\": 0\n            },\n            \"AutoRemove\": false,\n            \"VolumeDriver\": \"\",\n            \"VolumesFrom\": null,\n            \"ConsoleSize\": [\n                0,\n                0\n            ],\n            \"CapAdd\": null,\n            \"CapDrop\": [\n                \"ALL\"\n            ],\n            \"CgroupnsMode\": \"private\",\n            \"Dns\": null,\n            \"DnsOptions\": [],\n            \"DnsSearch\": [],\n            \"ExtraHosts\": null,\n            \"GroupAdd\": null,\n            \"IpcMode\": \"private\",\n            \"Cgroup\": \"\",\n            \"Links\": null,\n            \"OomScoreAdj\": 0,\n            \"PidMode\": \"\",\n            \"Privileged\": false,\n            \"PublishAllPorts\": false,\n            \"ReadonlyRootfs\": true,\n            \"SecurityOpt\": [\n                \"no-new-privileges:true\"\n            ],\n            \"Tmpfs\": {\n                \"/tmp\": \"rw,nosuid,nodev,noexec,size=64m,uid=10001,gid=10001,mode=1770\"\n            },\n            \"UTSMode\": \"\",\n            \"UsernsMode\": \"\",\n            \"ShmSize\": 67108864,\n            \"Runtime\": \"runc\",\n            \"Isolation\": \"\",\n            \"CpuShares\": 0,\n            \"Memory\": 268435456,\n            \"NanoCpus\": 500000000,\n            \"CgroupParent\": \"\",\n            \"BlkioWeight\": 0,\n            \"BlkioWeightDevice\": [],\n            \"BlkioDeviceReadBps\": [],\n            \"BlkioDeviceWriteBps\": [],\n            \"BlkioDeviceReadIOps\": [],\n            \"BlkioDeviceWriteIOps\": [],\n            \"CpuPeriod\": 0,\n            \"CpuQuota\": 0,\n            \"CpuRealtimePeriod\": 0,\n            \"CpuRealtimeRuntime\": 0,\n            \"CpusetCpus\": \"\",\n            \"CpusetMems\": \"\",\n            \"Devices\": [],\n            \"DeviceCgroupRules\": null,\n            \"DeviceRequests\": null,\n            \"MemoryReservation\": 0,\n            \"MemorySwap\": 536870912,\n            \"MemorySwappiness\": null,\n            \"OomKillDisable\": false,\n            \"PidsLimit\": 128,\n            \"Ulimits\": [],\n            \"CpuCount\": 0,\n            \"CpuPercent\": 0,\n            \"IOMaximumIOps\": 0,\n            \"IOMaximumBandwidth\": 0,\n            \"MaskedPaths\": [\n                \"/proc/acpi\",\n                \"/proc/asound\",\n                \"/proc/interrupts\",\n                \"/proc/kcore\",\n                \"/proc/keys\",\n                \"/proc/latency_stats\",\n                \"/proc/sched_debug\",\n                \"/proc/scsi\",\n                \"/proc/timer_list\",\n                \"/proc/timer_stats\",\n                \"/sys/devices/virtual/powercap\",\n                \"/sys/firmware\"\n            ],\n            \"ReadonlyPaths\": [\n                \"/proc/bus\",\n                \"/proc/fs\",\n                \"/proc/irq\",\n                \"/proc/sys\",\n                \"/proc/sysrq-trigger\"\n            ]\n        },\n        \"Storage\": {\n            \"RootFS\": {\n                \"Snapshot\": {\n                    \"Name\": \"overlayfs\"\n                }\n            }\n        },\n        \"Mounts\": [],\n        \"Config\": {\n            \"Hostname\": \"ba9527e5cf90\",\n            \"Domainname\": \"\",\n            \"User\": \"10001:10001\",\n            \"AttachStdin\": false,\n            \"AttachStdout\": true,\n            \"AttachStderr\": true,\n            \"Tty\": false,\n            \"OpenStdin\": false,\n            \"StdinOnce\": false,\n            \"Env\": [\n                \"D1ENV_RUN_ID=d4700b52e519457db0e86d16b716930b\",\n                \"HOME=/tmp\",\n                \"ROS_LOG_DIR=/tmp/ros-logs\",\n                \"PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin\",\n                \"LANG=C.UTF-8\",\n                \"LC_ALL=C.UTF-8\",\n                \"ROS_DISTRO=humble\",\n                \"PYTHONDONTWRITEBYTECODE=1\",\n                \"PYTHONUNBUFFERED=1\"\n            ],\n            \"Cmd\": [\n                \"idle\"\n            ],\n            \"Image\": \"sha256:52f259d5fa38acb3fd2018e1601593fc0f6ad1a85c8a968032695f9c15771a2c\",\n            \"Volumes\": null,\n            \"WorkingDir\": \"\",\n            \"Entrypoint\": [\n                \"/opt/d1env/entrypoint.sh\"\n            ],\n            \"Labels\": {\n                \"io.d1env.kind\": \"ros-probe\",\n                \"io.d1env.project\": \"d1env-ownership-test\",\n                \"io.d1env.source\": \"d1env/ros-probe\",\n                \"io.d1env.test.fixture\": \"532c4b2792dd43c5ae28746b5be22309\",\n                \"org.opencontainers.image.description\": \"D1Env CPU ROS communication software probe; no robot interface\",\n                \"org.opencontainers.image.version\": \"22.04\"\n            },\n            \"StopTimeout\": 1\n        },\n        \"NetworkSettings\": {\n            \"SandboxID\": \"\",\n            \"SandboxKey\": \"\",\n            \"Ports\": {},\n            \"Networks\": {\n                \"none\": {\n                    \"IPAMConfig\": null,\n                    \"Links\": null,\n                    \"Aliases\": null,\n                    \"DriverOpts\": null,\n                    \"GwPriority\": 0,\n                    \"NetworkID\": \"\",\n                    \"EndpointID\": \"\",\n                    \"Gateway\": \"\",\n                    \"IPAddress\": \"\",\n                    \"MacAddress\": \"\",\n                    \"IPPrefixLen\": 0,\n                    \"IPv6Gateway\": \"\",\n                    \"GlobalIPv6Address\": \"\",\n                    \"GlobalIPv6PrefixLen\": 0,\n                    \"DNSNames\": null\n                }\n            }\n        },\n        \"ImageManifestDescriptor\": {\n            \"mediaType\": \"application/vnd.oci.image.manifest.v1+json\",\n            \"digest\": \"sha256:de539eab9fcd31710ad7c0767d63657d1c5a4698fa15a08e0a131bcd27e8c8a5\",\n            \"size\": 1627,\n            \"platform\": {\n                \"architecture\": \"arm64\",\n                \"os\": \"linux\"\n            }\n        }\n    }\n]\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "docker",
+        "--context",
+        "default",
+        "container",
+        "rm",
+        "ba9527e5cf90dfc7d9089bad7f2d74621c0a0e647a991758c77501378764f402"
+      ],
+      "exit_code": 0,
+      "stdout": "ba9527e5cf90dfc7d9089bad7f2d74621c0a0e647a991758c77501378764f402\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "docker",
+        "--context",
+        "default",
+        "run",
+        "--detach",
+        "--name",
+        "d1env-ownership-fixture-4ea4d53bf52e4f4e9c47d2af9c7cb66d",
+        "--label",
+        "io.d1env.test.fixture=59b60a5173e94581b6f5277593c426a3",
+        "--label",
+        "io.d1env.project=d1env-ownership-test",
+        "--network",
+        "b813433e1db535760d804970af6a9a59eb95ac8866b8b7beb6cd7ffc43118407",
+        "--user",
+        "10001:10001",
+        "--read-only",
+        "--cap-drop",
+        "ALL",
+        "--security-opt",
+        "no-new-privileges:true",
+        "--cpus",
+        "0.5",
+        "--memory",
+        "256m",
+        "--pids-limit",
+        "128",
+        "--tmpfs",
+        "/tmp:rw,nosuid,nodev,noexec,size=64m,uid=10001,gid=10001,mode=1770",
+        "--env",
+        "D1ENV_RUN_ID=863aef6ed3084fa29b6c2652579cf2fd",
+        "--env",
+        "HOME=/tmp",
+        "--env",
+        "ROS_LOG_DIR=/tmp/ros-logs",
+        "sha256:52f259d5fa38acb3fd2018e1601593fc0f6ad1a85c8a968032695f9c15771a2c",
+        "idle"
+      ],
+      "exit_code": 0,
+      "stdout": "2b12d5c4a52db77c2370e503bc7edd5dcd3aac1717c9f27f316a6034f94cdac8\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "docker",
+        "--context",
+        "default",
+        "container",
+        "inspect",
+        "2b12d5c4a52db77c2370e503bc7edd5dcd3aac1717c9f27f316a6034f94cdac8"
+      ],
+      "exit_code": 0,
+      "stdout": "[\n    {\n        \"Id\": \"2b12d5c4a52db77c2370e503bc7edd5dcd3aac1717c9f27f316a6034f94cdac8\",\n        \"Created\": \"2026-10-06T18:19:45.54300013Z\",\n        \"Path\": \"/opt/d1env/entrypoint.sh\",\n        \"Args\": [\n            \"idle\"\n        ],\n        \"State\": {\n            \"Status\": \"running\",\n            \"Running\": true,\n            \"Paused\": false,\n            \"Restarting\": false,\n            \"OOMKilled\": false,\n            \"Dead\": false,\n            \"Pid\": 66158,\n            \"ExitCode\": 0,\n            \"Error\": \"\",\n            \"StartedAt\": \"2026-10-06T18:19:45.578306297Z\",\n            \"FinishedAt\": \"0001-01-01T00:00:00Z\"\n        },\n        \"Image\": \"sha256:52f259d5fa38acb3fd2018e1601593fc0f6ad1a85c8a968032695f9c15771a2c\",\n        \"ResolvConfPath\": \"/var/lib/docker/containers/2b12d5c4a52db77c2370e503bc7edd5dcd3aac1717c9f27f316a6034f94cdac8/resolv.conf\",\n        \"HostnamePath\": \"/var/lib/docker/containers/2b12d5c4a52db77c2370e503bc7edd5dcd3aac1717c9f27f316a6034f94cdac8/hostname\",\n        \"HostsPath\": \"/var/lib/docker/containers/2b12d5c4a52db77c2370e503bc7edd5dcd3aac1717c9f27f316a6034f94cdac8/hosts\",\n        \"LogPath\": \"/var/lib/docker/containers/2b12d5c4a52db77c2370e503bc7edd5dcd3aac1717c9f27f316a6034f94cdac8/2b12d5c4a52db77c2370e503bc7edd5dcd3aac1717c9f27f316a6034f94cdac8-json.log\",\n        \"Name\": \"/d1env-ownership-fixture-4ea4d53bf52e4f4e9c47d2af9c7cb66d\",\n        \"RestartCount\": 0,\n        \"Driver\": \"overlayfs\",\n        \"Platform\": \"linux\",\n        \"MountLabel\": \"\",\n        \"ProcessLabel\": \"\",\n        \"AppArmorProfile\": \"\",\n        \"ExecIDs\": null,\n        \"HostConfig\": {\n            \"Binds\": null,\n            \"ContainerIDFile\": \"\",\n            \"LogConfig\": {\n                \"Type\": \"json-file\",\n                \"Config\": {}\n            },\n            \"NetworkMode\": \"b813433e1db535760d804970af6a9a59eb95ac8866b8b7beb6cd7ffc43118407\",\n            \"PortBindings\": {},\n            \"RestartPolicy\": {\n                \"Name\": \"no\",\n                \"MaximumRetryCount\": 0\n            },\n            \"AutoRemove\": false,\n            \"VolumeDriver\": \"\",\n            \"VolumesFrom\": null,\n            \"ConsoleSize\": [\n                0,\n                0\n            ],\n            \"CapAdd\": null,\n            \"CapDrop\": [\n                \"ALL\"\n            ],\n            \"CgroupnsMode\": \"private\",\n            \"Dns\": null,\n            \"DnsOptions\": [],\n            \"DnsSearch\": [],\n            \"ExtraHosts\": null,\n            \"GroupAdd\": null,\n            \"IpcMode\": \"private\",\n            \"Cgroup\": \"\",\n            \"Links\": null,\n            \"OomScoreAdj\": 0,\n            \"PidMode\": \"\",\n            \"Privileged\": false,\n            \"PublishAllPorts\": false,\n            \"ReadonlyRootfs\": true,\n            \"SecurityOpt\": [\n                \"no-new-privileges:true\"\n            ],\n            \"Tmpfs\": {\n                \"/tmp\": \"rw,nosuid,nodev,noexec,size=64m,uid=10001,gid=10001,mode=1770\"\n            },\n            \"UTSMode\": \"\",\n            \"UsernsMode\": \"\",\n            \"ShmSize\": 67108864,\n            \"Runtime\": \"runc\",\n            \"Isolation\": \"\",\n            \"CpuShares\": 0,\n            \"Memory\": 268435456,\n            \"NanoCpus\": 500000000,\n            \"CgroupParent\": \"\",\n            \"BlkioWeight\": 0,\n            \"BlkioWeightDevice\": [],\n            \"BlkioDeviceReadBps\": [],\n            \"BlkioDeviceWriteBps\": [],\n            \"BlkioDeviceReadIOps\": [],\n            \"BlkioDeviceWriteIOps\": [],\n            \"CpuPeriod\": 0,\n            \"CpuQuota\": 0,\n            \"CpuRealtimePeriod\": 0,\n            \"CpuRealtimeRuntime\": 0,\n            \"CpusetCpus\": \"\",\n            \"CpusetMems\": \"\",\n            \"Devices\": [],\n            \"DeviceCgroupRules\": null,\n            \"DeviceRequests\": null,\n            \"MemoryReservation\": 0,\n            \"MemorySwap\": 536870912,\n            \"MemorySwappiness\": null,\n            \"OomKillDisable\": null,\n            \"PidsLimit\": 128,\n            \"Ulimits\": [],\n            \"CpuCount\": 0,\n            \"CpuPercent\": 0,\n            \"IOMaximumIOps\": 0,\n            \"IOMaximumBandwidth\": 0,\n            \"MaskedPaths\": [\n                \"/proc/acpi\",\n                \"/proc/asound\",\n                \"/proc/interrupts\",\n                \"/proc/kcore\",\n                \"/proc/keys\",\n                \"/proc/latency_stats\",\n                \"/proc/sched_debug\",\n                \"/proc/scsi\",\n                \"/proc/timer_list\",\n                \"/proc/timer_stats\",\n                \"/sys/devices/virtual/powercap\",\n                \"/sys/firmware\"\n            ],\n            \"ReadonlyPaths\": [\n                \"/proc/bus\",\n                \"/proc/fs\",\n                \"/proc/irq\",\n                \"/proc/sys\",\n                \"/proc/sysrq-trigger\"\n            ]\n        },\n        \"Storage\": {\n            \"RootFS\": {\n                \"Snapshot\": {\n                    \"Name\": \"overlayfs\"\n                }\n            }\n        },\n        \"Mounts\": [],\n        \"Config\": {\n            \"Hostname\": \"2b12d5c4a52d\",\n            \"Domainname\": \"\",\n            \"User\": \"10001:10001\",\n            \"AttachStdin\": false,\n            \"AttachStdout\": false,\n            \"AttachStderr\": false,\n            \"Tty\": false,\n            \"OpenStdin\": false,\n            \"StdinOnce\": false,\n            \"Env\": [\n                \"D1ENV_RUN_ID=863aef6ed3084fa29b6c2652579cf2fd\",\n                \"HOME=/tmp\",\n                \"ROS_LOG_DIR=/tmp/ros-logs\",\n                \"PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin\",\n                \"LANG=C.UTF-8\",\n                \"LC_ALL=C.UTF-8\",\n                \"ROS_DISTRO=humble\",\n                \"PYTHONDONTWRITEBYTECODE=1\",\n                \"PYTHONUNBUFFERED=1\"\n            ],\n            \"Cmd\": [\n                \"idle\"\n            ],\n            \"Image\": \"sha256:52f259d5fa38acb3fd2018e1601593fc0f6ad1a85c8a968032695f9c15771a2c\",\n            \"Volumes\": null,\n            \"WorkingDir\": \"\",\n            \"Entrypoint\": [\n                \"/opt/d1env/entrypoint.sh\"\n            ],\n            \"Labels\": {\n                \"io.d1env.kind\": \"ros-probe\",\n                \"io.d1env.project\": \"d1env-ownership-test\",\n                \"io.d1env.source\": \"d1env/ros-probe\",\n                \"io.d1env.test.fixture\": \"59b60a5173e94581b6f5277593c426a3\",\n                \"org.opencontainers.image.description\": \"D1Env CPU ROS communication software probe; no robot interface\",\n                \"org.opencontainers.image.version\": \"22.04\"\n            },\n            \"StopTimeout\": 1\n        },\n        \"NetworkSettings\": {\n            \"SandboxID\": \"c180840a1ae28d7c02e015fe86b790d6f1323e7da5fa4679ab458786fd804327\",\n            \"SandboxKey\": \"/var/run/docker/netns/c180840a1ae2\",\n            \"Ports\": {},\n            \"Networks\": {\n                \"d1env-863aef6ed3084fa29b6c2652579cf2fd-network\": {\n                    \"IPAMConfig\": null,\n                    \"Links\": null,\n                    \"Aliases\": null,\n                    \"DriverOpts\": null,\n                    \"GwPriority\": 0,\n                    \"NetworkID\": \"b813433e1db535760d804970af6a9a59eb95ac8866b8b7beb6cd7ffc43118407\",\n                    \"EndpointID\": \"cf69eb2a7234965330d2d4d13bd6a7c42819d408ec4669a6113a8abc6f4c772f\",\n                    \"Gateway\": \"\",\n                    \"IPAddress\": \"[IP]\",\n                    \"MacAddress\": \"e6:8f:e9:b0:66:a7\",\n                    \"IPPrefixLen\": 16,\n                    \"IPv6Gateway\": \"\",\n                    \"GlobalIPv6Address\": \"\",\n                    \"GlobalIPv6PrefixLen\": 0,\n                    \"DNSNames\": [\n                        \"d1env-ownership-fixture-4ea4d53bf52e4f4e9c47d2af9c7cb66d\",\n                        \"2b12d5c4a52d\"\n                    ]\n                }\n            }\n        },\n        \"ImageManifestDescriptor\": {\n            \"mediaType\": \"application/vnd.oci.image.manifest.v1+json\",\n            \"digest\": \"sha256:de539eab9fcd31710ad7c0767d63657d1c5a4698fa15a08e0a131bcd27e8c8a5\",\n            \"size\": 1627,\n            \"platform\": {\n                \"architecture\": \"arm64\",\n                \"os\": \"linux\"\n            }\n        }\n    }\n]\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "docker",
+        "--context",
+        "default",
+        "container",
+        "inspect",
+        "2b12d5c4a52db77c2370e503bc7edd5dcd3aac1717c9f27f316a6034f94cdac8"
+      ],
+      "exit_code": 0,
+      "stdout": "[\n    {\n        \"Id\": \"2b12d5c4a52db77c2370e503bc7edd5dcd3aac1717c9f27f316a6034f94cdac8\",\n        \"Created\": \"2026-10-06T18:19:45.54300013Z\",\n        \"Path\": \"/opt/d1env/entrypoint.sh\",\n        \"Args\": [\n            \"idle\"\n        ],\n        \"State\": {\n            \"Status\": \"running\",\n            \"Running\": true,\n            \"Paused\": false,\n            \"Restarting\": false,\n            \"OOMKilled\": false,\n            \"Dead\": false,\n            \"Pid\": 66158,\n            \"ExitCode\": 0,\n            \"Error\": \"\",\n            \"StartedAt\": \"2026-10-06T18:19:45.578306297Z\",\n            \"FinishedAt\": \"0001-01-01T00:00:00Z\"\n        },\n        \"Image\": \"sha256:52f259d5fa38acb3fd2018e1601593fc0f6ad1a85c8a968032695f9c15771a2c\",\n        \"ResolvConfPath\": \"/var/lib/docker/containers/2b12d5c4a52db77c2370e503bc7edd5dcd3aac1717c9f27f316a6034f94cdac8/resolv.conf\",\n        \"HostnamePath\": \"/var/lib/docker/containers/2b12d5c4a52db77c2370e503bc7edd5dcd3aac1717c9f27f316a6034f94cdac8/hostname\",\n        \"HostsPath\": \"/var/lib/docker/containers/2b12d5c4a52db77c2370e503bc7edd5dcd3aac1717c9f27f316a6034f94cdac8/hosts\",\n        \"LogPath\": \"/var/lib/docker/containers/2b12d5c4a52db77c2370e503bc7edd5dcd3aac1717c9f27f316a6034f94cdac8/2b12d5c4a52db77c2370e503bc7edd5dcd3aac1717c9f27f316a6034f94cdac8-json.log\",\n        \"Name\": \"/d1env-ownership-fixture-4ea4d53bf52e4f4e9c47d2af9c7cb66d\",\n        \"RestartCount\": 0,\n        \"Driver\": \"overlayfs\",\n        \"Platform\": \"linux\",\n        \"MountLabel\": \"\",\n        \"ProcessLabel\": \"\",\n        \"AppArmorProfile\": \"\",\n        \"ExecIDs\": null,\n        \"HostConfig\": {\n            \"Binds\": null,\n            \"ContainerIDFile\": \"\",\n            \"LogConfig\": {\n                \"Type\": \"json-file\",\n                \"Config\": {}\n            },\n            \"NetworkMode\": \"b813433e1db535760d804970af6a9a59eb95ac8866b8b7beb6cd7ffc43118407\",\n            \"PortBindings\": {},\n            \"RestartPolicy\": {\n                \"Name\": \"no\",\n                \"MaximumRetryCount\": 0\n            },\n            \"AutoRemove\": false,\n            \"VolumeDriver\": \"\",\n            \"VolumesFrom\": null,\n            \"ConsoleSize\": [\n                0,\n                0\n            ],\n            \"CapAdd\": null,\n            \"CapDrop\": [\n                \"ALL\"\n            ],\n            \"CgroupnsMode\": \"private\",\n            \"Dns\": null,\n            \"DnsOptions\": [],\n            \"DnsSearch\": [],\n            \"ExtraHosts\": null,\n            \"GroupAdd\": null,\n            \"IpcMode\": \"private\",\n            \"Cgroup\": \"\",\n            \"Links\": null,\n            \"OomScoreAdj\": 0,\n            \"PidMode\": \"\",\n            \"Privileged\": false,\n            \"PublishAllPorts\": false,\n            \"ReadonlyRootfs\": true,\n            \"SecurityOpt\": [\n                \"no-new-privileges:true\"\n            ],\n            \"Tmpfs\": {\n                \"/tmp\": \"rw,nosuid,nodev,noexec,size=64m,uid=10001,gid=10001,mode=1770\"\n            },\n            \"UTSMode\": \"\",\n            \"UsernsMode\": \"\",\n            \"ShmSize\": 67108864,\n            \"Runtime\": \"runc\",\n            \"Isolation\": \"\",\n            \"CpuShares\": 0,\n            \"Memory\": 268435456,\n            \"NanoCpus\": 500000000,\n            \"CgroupParent\": \"\",\n            \"BlkioWeight\": 0,\n            \"BlkioWeightDevice\": [],\n            \"BlkioDeviceReadBps\": [],\n            \"BlkioDeviceWriteBps\": [],\n            \"BlkioDeviceReadIOps\": [],\n            \"BlkioDeviceWriteIOps\": [],\n            \"CpuPeriod\": 0,\n            \"CpuQuota\": 0,\n            \"CpuRealtimePeriod\": 0,\n            \"CpuRealtimeRuntime\": 0,\n            \"CpusetCpus\": \"\",\n            \"CpusetMems\": \"\",\n            \"Devices\": [],\n            \"DeviceCgroupRules\": null,\n            \"DeviceRequests\": null,\n            \"MemoryReservation\": 0,\n            \"MemorySwap\": 536870912,\n            \"MemorySwappiness\": null,\n            \"OomKillDisable\": null,\n            \"PidsLimit\": 128,\n            \"Ulimits\": [],\n            \"CpuCount\": 0,\n            \"CpuPercent\": 0,\n            \"IOMaximumIOps\": 0,\n            \"IOMaximumBandwidth\": 0,\n            \"MaskedPaths\": [\n                \"/proc/acpi\",\n                \"/proc/asound\",\n                \"/proc/interrupts\",\n                \"/proc/kcore\",\n                \"/proc/keys\",\n                \"/proc/latency_stats\",\n                \"/proc/sched_debug\",\n                \"/proc/scsi\",\n                \"/proc/timer_list\",\n                \"/proc/timer_stats\",\n                \"/sys/devices/virtual/powercap\",\n                \"/sys/firmware\"\n            ],\n            \"ReadonlyPaths\": [\n                \"/proc/bus\",\n                \"/proc/fs\",\n                \"/proc/irq\",\n                \"/proc/sys\",\n                \"/proc/sysrq-trigger\"\n            ]\n        },\n        \"Storage\": {\n            \"RootFS\": {\n                \"Snapshot\": {\n                    \"Name\": \"overlayfs\"\n                }\n            }\n        },\n        \"Mounts\": [],\n        \"Config\": {\n            \"Hostname\": \"2b12d5c4a52d\",\n            \"Domainname\": \"\",\n            \"User\": \"10001:10001\",\n            \"AttachStdin\": false,\n            \"AttachStdout\": false,\n            \"AttachStderr\": false,\n            \"Tty\": false,\n            \"OpenStdin\": false,\n            \"StdinOnce\": false,\n            \"Env\": [\n                \"D1ENV_RUN_ID=863aef6ed3084fa29b6c2652579cf2fd\",\n                \"HOME=/tmp\",\n                \"ROS_LOG_DIR=/tmp/ros-logs\",\n                \"PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin\",\n                \"LANG=C.UTF-8\",\n                \"LC_ALL=C.UTF-8\",\n                \"ROS_DISTRO=humble\",\n                \"PYTHONDONTWRITEBYTECODE=1\",\n                \"PYTHONUNBUFFERED=1\"\n            ],\n            \"Cmd\": [\n                \"idle\"\n            ],\n            \"Image\": \"sha256:52f259d5fa38acb3fd2018e1601593fc0f6ad1a85c8a968032695f9c15771a2c\",\n            \"Volumes\": null,\n            \"WorkingDir\": \"\",\n            \"Entrypoint\": [\n                \"/opt/d1env/entrypoint.sh\"\n            ],\n            \"Labels\": {\n                \"io.d1env.kind\": \"ros-probe\",\n                \"io.d1env.project\": \"d1env-ownership-test\",\n                \"io.d1env.source\": \"d1env/ros-probe\",\n                \"io.d1env.test.fixture\": \"59b60a5173e94581b6f5277593c426a3\",\n                \"org.opencontainers.image.description\": \"D1Env CPU ROS communication software probe; no robot interface\",\n                \"org.opencontainers.image.version\": \"22.04\"\n            },\n            \"StopTimeout\": 1\n        },\n        \"NetworkSettings\": {\n            \"SandboxID\": \"c180840a1ae28d7c02e015fe86b790d6f1323e7da5fa4679ab458786fd804327\",\n            \"SandboxKey\": \"/var/run/docker/netns/c180840a1ae2\",\n            \"Ports\": {},\n            \"Networks\": {\n                \"d1env-863aef6ed3084fa29b6c2652579cf2fd-network\": {\n                    \"IPAMConfig\": null,\n                    \"Links\": null,\n                    \"Aliases\": null,\n                    \"DriverOpts\": null,\n                    \"GwPriority\": 0,\n                    \"NetworkID\": \"b813433e1db535760d804970af6a9a59eb95ac8866b8b7beb6cd7ffc43118407\",\n                    \"EndpointID\": \"cf69eb2a7234965330d2d4d13bd6a7c42819d408ec4669a6113a8abc6f4c772f\",\n                    \"Gateway\": \"\",\n                    \"IPAddress\": \"[IP]\",\n                    \"MacAddress\": \"e6:8f:e9:b0:66:a7\",\n                    \"IPPrefixLen\": 16,\n                    \"IPv6Gateway\": \"\",\n                    \"GlobalIPv6Address\": \"\",\n                    \"GlobalIPv6PrefixLen\": 0,\n                    \"DNSNames\": [\n                        \"d1env-ownership-fixture-4ea4d53bf52e4f4e9c47d2af9c7cb66d\",\n                        \"2b12d5c4a52d\"\n                    ]\n                }\n            }\n        },\n        \"ImageManifestDescriptor\": {\n            \"mediaType\": \"application/vnd.oci.image.manifest.v1+json\",\n            \"digest\": \"sha256:de539eab9fcd31710ad7c0767d63657d1c5a4698fa15a08e0a131bcd27e8c8a5\",\n            \"size\": 1627,\n            \"platform\": {\n                \"architecture\": \"arm64\",\n                \"os\": \"linux\"\n            }\n        }\n    }\n]\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "docker",
+        "--context",
+        "default",
+        "container",
+        "stop",
+        "--time",
+        "3",
+        "2b12d5c4a52db77c2370e503bc7edd5dcd3aac1717c9f27f316a6034f94cdac8"
+      ],
+      "exit_code": 0,
+      "stdout": "Flag --time has been deprecated, use --timeout instead\n2b12d5c4a52db77c2370e503bc7edd5dcd3aac1717c9f27f316a6034f94cdac8\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "docker",
+        "--context",
+        "default",
+        "container",
+        "inspect",
+        "2b12d5c4a52db77c2370e503bc7edd5dcd3aac1717c9f27f316a6034f94cdac8"
+      ],
+      "exit_code": 0,
+      "stdout": "[\n    {\n        \"Id\": \"2b12d5c4a52db77c2370e503bc7edd5dcd3aac1717c9f27f316a6034f94cdac8\",\n        \"Created\": \"2026-10-06T18:19:45.54300013Z\",\n        \"Path\": \"/opt/d1env/entrypoint.sh\",\n        \"Args\": [\n            \"idle\"\n        ],\n        \"State\": {\n            \"Status\": \"exited\",\n            \"Running\": false,\n            \"Paused\": false,\n            \"Restarting\": false,\n            \"OOMKilled\": false,\n            \"Dead\": false,\n            \"Pid\": 0,\n            \"ExitCode\": 137,\n            \"Error\": \"\",\n            \"StartedAt\": \"2026-10-06T18:19:45.578306297Z\",\n            \"FinishedAt\": \"2026-10-06T18:19:49.529115466Z\"\n        },\n        \"Image\": \"sha256:52f259d5fa38acb3fd2018e1601593fc0f6ad1a85c8a968032695f9c15771a2c\",\n        \"ResolvConfPath\": \"/var/lib/docker/containers/2b12d5c4a52db77c2370e503bc7edd5dcd3aac1717c9f27f316a6034f94cdac8/resolv.conf\",\n        \"HostnamePath\": \"/var/lib/docker/containers/2b12d5c4a52db77c2370e503bc7edd5dcd3aac1717c9f27f316a6034f94cdac8/hostname\",\n        \"HostsPath\": \"/var/lib/docker/containers/2b12d5c4a52db77c2370e503bc7edd5dcd3aac1717c9f27f316a6034f94cdac8/hosts\",\n        \"LogPath\": \"/var/lib/docker/containers/2b12d5c4a52db77c2370e503bc7edd5dcd3aac1717c9f27f316a6034f94cdac8/2b12d5c4a52db77c2370e503bc7edd5dcd3aac1717c9f27f316a6034f94cdac8-json.log\",\n        \"Name\": \"/d1env-ownership-fixture-4ea4d53bf52e4f4e9c47d2af9c7cb66d\",\n        \"RestartCount\": 0,\n        \"Driver\": \"overlayfs\",\n        \"Platform\": \"linux\",\n        \"MountLabel\": \"\",\n        \"ProcessLabel\": \"\",\n        \"AppArmorProfile\": \"\",\n        \"ExecIDs\": null,\n        \"HostConfig\": {\n            \"Binds\": null,\n            \"ContainerIDFile\": \"\",\n            \"LogConfig\": {\n                \"Type\": \"json-file\",\n                \"Config\": {}\n            },\n            \"NetworkMode\": \"b813433e1db535760d804970af6a9a59eb95ac8866b8b7beb6cd7ffc43118407\",\n            \"PortBindings\": {},\n            \"RestartPolicy\": {\n                \"Name\": \"no\",\n                \"MaximumRetryCount\": 0\n            },\n            \"AutoRemove\": false,\n            \"VolumeDriver\": \"\",\n            \"VolumesFrom\": null,\n            \"ConsoleSize\": [\n                0,\n                0\n            ],\n            \"CapAdd\": null,\n            \"CapDrop\": [\n                \"ALL\"\n            ],\n            \"CgroupnsMode\": \"private\",\n            \"Dns\": null,\n            \"DnsOptions\": [],\n            \"DnsSearch\": [],\n            \"ExtraHosts\": null,\n            \"GroupAdd\": null,\n            \"IpcMode\": \"private\",\n            \"Cgroup\": \"\",\n            \"Links\": null,\n            \"OomScoreAdj\": 0,\n            \"PidMode\": \"\",\n            \"Privileged\": false,\n            \"PublishAllPorts\": false,\n            \"ReadonlyRootfs\": true,\n            \"SecurityOpt\": [\n                \"no-new-privileges:true\"\n            ],\n            \"Tmpfs\": {\n                \"/tmp\": \"rw,nosuid,nodev,noexec,size=64m,uid=10001,gid=10001,mode=1770\"\n            },\n            \"UTSMode\": \"\",\n            \"UsernsMode\": \"\",\n            \"ShmSize\": 67108864,\n            \"Runtime\": \"runc\",\n            \"Isolation\": \"\",\n            \"CpuShares\": 0,\n            \"Memory\": 268435456,\n            \"NanoCpus\": 500000000,\n            \"CgroupParent\": \"\",\n            \"BlkioWeight\": 0,\n            \"BlkioWeightDevice\": [],\n            \"BlkioDeviceReadBps\": [],\n            \"BlkioDeviceWriteBps\": [],\n            \"BlkioDeviceReadIOps\": [],\n            \"BlkioDeviceWriteIOps\": [],\n            \"CpuPeriod\": 0,\n            \"CpuQuota\": 0,\n            \"CpuRealtimePeriod\": 0,\n            \"CpuRealtimeRuntime\": 0,\n            \"CpusetCpus\": \"\",\n            \"CpusetMems\": \"\",\n            \"Devices\": [],\n            \"DeviceCgroupRules\": null,\n            \"DeviceRequests\": null,\n            \"MemoryReservation\": 0,\n            \"MemorySwap\": 536870912,\n            \"MemorySwappiness\": null,\n            \"OomKillDisable\": null,\n            \"PidsLimit\": 128,\n            \"Ulimits\": [],\n            \"CpuCount\": 0,\n            \"CpuPercent\": 0,\n            \"IOMaximumIOps\": 0,\n            \"IOMaximumBandwidth\": 0,\n            \"MaskedPaths\": [\n                \"/proc/acpi\",\n                \"/proc/asound\",\n                \"/proc/interrupts\",\n                \"/proc/kcore\",\n                \"/proc/keys\",\n                \"/proc/latency_stats\",\n                \"/proc/sched_debug\",\n                \"/proc/scsi\",\n                \"/proc/timer_list\",\n                \"/proc/timer_stats\",\n                \"/sys/devices/virtual/powercap\",\n                \"/sys/firmware\"\n            ],\n            \"ReadonlyPaths\": [\n                \"/proc/bus\",\n                \"/proc/fs\",\n                \"/proc/irq\",\n                \"/proc/sys\",\n                \"/proc/sysrq-trigger\"\n            ]\n        },\n        \"Storage\": {\n            \"RootFS\": {\n                \"Snapshot\": {\n                    \"Name\": \"overlayfs\"\n                }\n            }\n        },\n        \"Mounts\": [],\n        \"Config\": {\n            \"Hostname\": \"2b12d5c4a52d\",\n            \"Domainname\": \"\",\n            \"User\": \"10001:10001\",\n            \"AttachStdin\": false,\n            \"AttachStdout\": false,\n            \"AttachStderr\": false,\n            \"Tty\": false,\n            \"OpenStdin\": false,\n            \"StdinOnce\": false,\n            \"Env\": [\n                \"D1ENV_RUN_ID=863aef6ed3084fa29b6c2652579cf2fd\",\n                \"HOME=/tmp\",\n                \"ROS_LOG_DIR=/tmp/ros-logs\",\n                \"PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin\",\n                \"LANG=C.UTF-8\",\n                \"LC_ALL=C.UTF-8\",\n                \"ROS_DISTRO=humble\",\n                \"PYTHONDONTWRITEBYTECODE=1\",\n                \"PYTHONUNBUFFERED=1\"\n            ],\n            \"Cmd\": [\n                \"idle\"\n            ],\n            \"Image\": \"sha256:52f259d5fa38acb3fd2018e1601593fc0f6ad1a85c8a968032695f9c15771a2c\",\n            \"Volumes\": null,\n            \"WorkingDir\": \"\",\n            \"Entrypoint\": [\n                \"/opt/d1env/entrypoint.sh\"\n            ],\n            \"Labels\": {\n                \"io.d1env.kind\": \"ros-probe\",\n                \"io.d1env.project\": \"d1env-ownership-test\",\n                \"io.d1env.source\": \"d1env/ros-probe\",\n                \"io.d1env.test.fixture\": \"59b60a5173e94581b6f5277593c426a3\",\n                \"org.opencontainers.image.description\": \"D1Env CPU ROS communication software probe; no robot interface\",\n                \"org.opencontainers.image.version\": \"22.04\"\n            },\n            \"StopTimeout\": 1\n        },\n        \"NetworkSettings\": {\n            \"SandboxID\": \"\",\n            \"SandboxKey\": \"\",\n            \"Ports\": {},\n            \"Networks\": {\n                \"d1env-863aef6ed3084fa29b6c2652579cf2fd-network\": {\n                    \"IPAMConfig\": null,\n                    \"Links\": null,\n                    \"Aliases\": null,\n                    \"DriverOpts\": null,\n                    \"GwPriority\": 0,\n                    \"NetworkID\": \"b813433e1db535760d804970af6a9a59eb95ac8866b8b7beb6cd7ffc43118407\",\n                    \"EndpointID\": \"\",\n                    \"Gateway\": \"\",\n                    \"IPAddress\": \"\",\n                    \"MacAddress\": \"\",\n                    \"IPPrefixLen\": 0,\n                    \"IPv6Gateway\": \"\",\n                    \"GlobalIPv6Address\": \"\",\n                    \"GlobalIPv6PrefixLen\": 0,\n                    \"DNSNames\": [\n                        \"d1env-ownership-fixture-4ea4d53bf52e4f4e9c47d2af9c7cb66d\",\n                        \"2b12d5c4a52d\"\n                    ]\n                }\n            }\n        },\n        \"ImageManifestDescriptor\": {\n            \"mediaType\": \"application/vnd.oci.image.manifest.v1+json\",\n            \"digest\": \"sha256:de539eab9fcd31710ad7c0767d63657d1c5a4698fa15a08e0a131bcd27e8c8a5\",\n            \"size\": 1627,\n            \"platform\": {\n                \"architecture\": \"arm64\",\n                \"os\": \"linux\"\n            }\n        }\n    }\n]\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "docker",
+        "--context",
+        "default",
+        "container",
+        "rm",
+        "2b12d5c4a52db77c2370e503bc7edd5dcd3aac1717c9f27f316a6034f94cdac8"
+      ],
+      "exit_code": 0,
+      "stdout": "2b12d5c4a52db77c2370e503bc7edd5dcd3aac1717c9f27f316a6034f94cdac8\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "docker",
+        "--context",
+        "default",
+        "image",
+        "inspect",
+        "sha256:52f259d5fa38acb3fd2018e1601593fc0f6ad1a85c8a968032695f9c15771a2c"
+      ],
+      "exit_code": 0,
+      "stdout": "[\n    {\n        \"Id\": \"sha256:52f259d5fa38acb3fd2018e1601593fc0f6ad1a85c8a968032695f9c15771a2c\",\n        \"RepoTags\": [\n            \"d1env/ros-probe:m3-20261007-aarch64\"\n        ],\n        \"RepoDigests\": [\n            \"d1env/ros-probe@sha256:52f259d5fa38acb3fd2018e1601593fc0f6ad1a85c8a968032695f9c15771a2c\"\n        ],\n        \"Comment\": \"buildkit.dockerfile.v0\",\n        \"Created\": \"2026-10-06T18:14:06.309478959Z\",\n        \"Config\": {\n            \"User\": \"10001:10001\",\n            \"Env\": [\n                \"PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin\",\n                \"LANG=C.UTF-8\",\n                \"LC_ALL=C.UTF-8\",\n                \"ROS_DISTRO=humble\",\n                \"HOME=/tmp\",\n                \"ROS_LOG_DIR=/tmp/roslogs\",\n                \"PYTHONDONTWRITEBYTECODE=1\",\n                \"PYTHONUNBUFFERED=1\"\n            ],\n            \"Entrypoint\": [\n                \"/opt/d1env/entrypoint.sh\"\n            ],\n            \"Cmd\": [\n                \"idle\"\n            ],\n            \"Labels\": {\n                \"io.d1env.kind\": \"ros-probe\",\n                \"io.d1env.project\": \"d1env\",\n                \"io.d1env.source\": \"d1env/ros-probe\",\n                \"org.opencontainers.image.description\": \"D1Env CPU ROS communication software probe; no robot interface\",\n                \"org.opencontainers.image.version\": \"22.04\"\n            },\n            \"ArgsEscaped\": true\n        },\n        \"Architecture\": \"arm64\",\n        \"Os\": \"linux\",\n        \"Size\": 140544227,\n        \"RootFS\": {\n            \"Type\": \"layers\",\n            \"Layers\": [\n                \"sha256:244b24abb260690ae90ebdff115f11f95949aba6794a095c369c95b0dffebbea\",\n                \"sha256:9fe0667d7446883175a90ad9d8f9afe55b95de7518da59e1e37f2eb9f7a1ac47\",\n                \"sha256:d28c44bbd18ca4fed7abfd16d67637490e5b63eccfc4f680b51585e1f92fce2d\",\n                \"sha256:c587b6093c9be1dc630ede9e5796e4cd6b62bcce2b77fd0d5058cf23e0301591\",\n                \"sha256:fb4775f51fcbc0815a96f8c0516bfd44203c756e8b34b2244aba6a1596b0fa6e\",\n                \"sha256:9b28b503a5ee4d9f881cf05cc265edf93ccab45b533aaa4819fe39f4017244b5\",\n                \"sha256:66cc4b3e4aff755c2c82ef20a1094358f75b5487ce051d2f321c32b91561e2d6\"\n            ]\n        },\n        \"Metadata\": {\n            \"LastTagTime\": \"2026-10-06T18:14:06.360968751Z\"\n        },\n        \"Descriptor\": {\n            \"mediaType\": \"application/vnd.oci.image.index.v1+json\",\n            \"digest\": \"sha256:52f259d5fa38acb3fd2018e1601593fc0f6ad1a85c8a968032695f9c15771a2c\",\n            \"size\": 856\n        },\n        \"Identity\": {\n            \"Build\": [\n                {\n                    \"Ref\": \"elkob44xrxcj4yhdqrkhpvi2y\",\n                    \"CreatedAt\": \"2026-10-06T18:14:06.376254668Z\"\n                }\n            ]\n        }\n    }\n]\n",
+      "stderr": ""
+    }
+  ]
+}

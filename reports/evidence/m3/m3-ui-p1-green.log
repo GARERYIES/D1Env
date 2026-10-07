@@ -1,0 +1,15 @@
+
+> d1env-frontend@0.1.0 test
+> vitest --run
+
+
+ RUN  v5.0.3 [LOCAL_PATH]
+
+
+ Test Files  2 passed (2)
+      Tests  29 passed (29)
+   Start at  02:23:49
+   Duration  2.19s (tests 63%, environment 18%, transform 9%, setup 7%, import 3%)
+
+
+EXIT_CODE=0

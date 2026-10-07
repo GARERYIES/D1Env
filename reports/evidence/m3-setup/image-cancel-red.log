@@ -1,0 +1,16 @@
+FF                                                                       [100%]
+=================================== FAILURES ===================================
+__________ test_automatic_import_receives_task_cancellation_predicate __________
+tests/test_runtime_api.py:131: in test_automatic_import_receives_task_cancellation_predicate
+    service.import_ros_image(tmp_path / 'fixed-bundle.tar', is_cancelled=predicate)
+E   TypeError: ApplicationService.import_ros_image() got an unexpected keyword argument 'is_cancelled'
+_________ test_cancel_is_passed_to_active_automatic_image_preparation __________
+tests/test_setup_cancel_races.py:46: in test_cancel_is_passed_to_active_automatic_image_preparation
+    assert entered.wait(3)
+E   assert False
+E    +  where False = wait(3)
+E    +    where wait = <threading.Event at 0x1069610d0: unset>.wait
+=========================== short test summary info ============================
+FAILED tests/test_runtime_api.py::test_automatic_import_receives_task_cancellation_predicate
+FAILED tests/test_setup_cancel_races.py::test_cancel_is_passed_to_active_automatic_image_preparation
+2 failed in 3.14s

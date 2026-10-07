@@ -1,0 +1,13 @@
+{
+  "images_containers_networks_all_preserved": true,
+  "counts": {
+    "image": 12,
+    "container": 10,
+    "network": 6
+  },
+  "owned_test_resources_cleaned": true,
+  "servers_stopped": true,
+  "bootstrap_private_files_removed": true,
+  "latest_ui_evidence": "ui-e2e-native-handoff-packaged.log",
+  "source_commit": "c4bd2f9094fc7f8340b7e7c7653de25457c20714"
+}

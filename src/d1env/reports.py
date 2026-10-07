@@ -69,7 +69,10 @@ def build_report(job: JobSnapshot, checks: list[CheckResult], events: list[JobEv
         checks=[cast(dict[str, JsonValue], redact(c.model_dump(mode="json"), mask_identifiers, redactions)) for c in checks],
         events=[cast(dict[str, JsonValue], redact(e.model_dump(mode="json"), mask_identifiers, redactions)) for e in events],
         source_locks=cast(dict[str, JsonValue], redact(source_locks, mask_identifiers, redactions)),
-        unverified_items=["M3 真实 Docker 生命周期与安装包未验证", "M4 厂商 SDK 与真机遥测未验证",
+        unverified_items=["M3 全新 Ubuntu 22.04 x86_64 安装与桌面入口未验证",
+                          *( ["该作业仅为 MOCK，未部署真实容器"] if job.mode == "mock" else
+                             ["该作业仅验证 Docker/ROS 软件测试，不能证明 D1 功能或安装包已完成"]),
+                          "M4 厂商 SDK 与真机遥测未验证",
                           "M5 传感器、建图与导航未验证", "M6 运动与硬件停止行为未验证"],
         redactions=sorted(redactions),
     )
@@ -79,7 +82,9 @@ def markdown_report(report: DiagnosticReport) -> str:
     body = json.dumps(report.model_dump(mode="json"), ensure_ascii=False, indent=2)
     # Any hostile fence remains inside a four-backtick block after escaping backticks.
     body = body.replace("`", "\\u0060")
-    return ("# D1Env 诊断报告 · MOCK\n\n演示软件流程证据，未部署真机。"
+    label = "MOCK" if report.mode == "mock" else "真实软件测试"
+    description = "演示软件流程证据，未部署真机。" if report.mode == "mock" else "Docker/ROS 软件通信测试证据，未连接真机。"
+    return (f"# D1Env 诊断报告 · {label}\n\n{description}"
             f"\n\n模式：{report.mode}；验证范围：{report.verified_scope}\n\n"
             "真实主机观测的来源为 local_probe；它不提高作业验证范围。\n\n"
             f"```json\n{body}\n```\n")

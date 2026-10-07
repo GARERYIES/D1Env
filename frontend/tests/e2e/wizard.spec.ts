@@ -1,10 +1,7 @@
-import { expect, test } from '@playwright/test';
+import { expect, test } from './fixtures';
 import { readFile } from 'node:fs/promises';
 
 test('真实本地 API：MOCK 成功、重复点击、刷新、故障证据与报告导出', async ({ page }) => {
-  const tokenFile = process.env.D1ENV_E2E_TOKEN_FILE;
-  if (!tokenFile) throw new Error('缺少本地 E2E 引导文件；此测试未验证，不可计为通过');
-  const token = (await readFile(tokenFile, 'utf8')).trim();
   let submissionCount = 0;
   const keys: string[] = [];
   const planIds: string[] = [];
@@ -15,7 +12,7 @@ test('真实本地 API：MOCK 成功、重复点击、刷新、故障证据与�
       planIds.push((request.postDataJSON() as { plan_id: string }).plan_id);
     }
   });
-  await page.goto(`/#bootstrap=${encodeURIComponent(token)}`);
+  await page.goto('/');
   await expect(page.getByRole('button', { name: '下一步：机器人配置' })).toBeEnabled();
   expect(new URL(page.url()).hash).toBe('');
   await expect(page.getByTestId('mock-watermark')).toContainText('MOCK');
@@ -34,8 +31,8 @@ test('真实本地 API：MOCK 成功、重复点击、刷新、故障证据与�
   expect(submissionCount).toBe(1);
   const firstJob = await page.getByTestId('job-id').innerText();
   await page.evaluate(() => window.scrollTo(0, 0));
-  await page.screenshot({ path: 'test-results/task6-mock-success.png', fullPage: true });
-  await page.screenshot({ path: 'test-results/task6-mock-success-viewport.png', fullPage: false });
+  await page.screenshot({ path: 'test-results/m3-ui-mock-success.png', fullPage: true });
+  await page.screenshot({ path: 'test-results/m3-ui-mock-success-viewport.png', fullPage: false });
   await page.reload();
   await expect(page.getByTestId('job-id')).toHaveText(firstJob);
   await expect(page.getByRole('heading', { name: '演示流程完成（MOCK），未部署真机', exact: true })).toBeVisible();
@@ -51,8 +48,8 @@ test('真实本地 API：MOCK 成功、重复点击、刷新、故障证据与�
   expect(await page.evaluate(() => '__d1env_injected' in window)).toBe(false);
   await expect(page.getByTestId('mock-watermark')).toContainText('MOCK');
   await page.evaluate(() => window.scrollTo(0, 0));
-  await page.screenshot({ path: 'test-results/task6-mock-failure.png', fullPage: true });
-  await page.screenshot({ path: 'test-results/task6-mock-failure-viewport.png', fullPage: false });
+  await page.screenshot({ path: 'test-results/m3-ui-mock-failure.png', fullPage: true });
+  await page.screenshot({ path: 'test-results/m3-ui-mock-failure-viewport.png', fullPage: false });
   const failedJob = await page.getByTestId('job-id').innerText();
   await page.reload();
   await expect(page.getByTestId('job-id')).toHaveText(failedJob);

@@ -1,0 +1,16 @@
+
+> d1env-frontend@0.1.0 build
+> tsc -b && vite build
+
+vite v8.3.3 building client environment for production...
+transforming...
+✓ 27 modules transformed.
+rendering chunks...
+computing gzip size...
+dist/index.html                   0.46 kB │ gzip:  0.32 kB
+dist/assets/index-CsVQZVa-.css   19.59 kB │ gzip:  5.01 kB
+dist/assets/index-C-cow56Y.js   232.59 kB │ gzip: 72.46 kB
+
+✓ built in 127ms
+
+EXIT_CODE=0

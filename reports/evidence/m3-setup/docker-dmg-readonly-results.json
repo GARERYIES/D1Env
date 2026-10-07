@@ -1,0 +1,18 @@
+{
+  "status": "verified",
+  "actual_size_bytes": 575775824,
+  "actual_sha256": "41d0e5c61327a877f229a1e1158d056d37f003902189fd5e0ba8629619c1819f",
+  "app_version": "4.80.0",
+  "app_build": "232116",
+  "bundle_id": "com.docker.docker",
+  "minimum_macos": "14.0",
+  "team_id": "9BNSXJN65R",
+  "architecture": "arm64",
+  "app_explicit_codesign_exit_code": 0,
+  "app_gatekeeper_exit_code": 0,
+  "dmg_stapler_exit_code": 0,
+  "installer_run": false,
+  "docker_app_started": false,
+  "containers_created": false,
+  "scope": "Official DMG source and read-only validation only; not fresh install."
+}

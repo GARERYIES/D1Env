@@ -1,0 +1,12 @@
+success preflight succeeded None
+success acquire succeeded None
+success configure succeeded None
+success start succeeded None
+success verify succeeded None
+actual evidence: work/evidence/m3-docker-real/650592d73fa948189a65adcba0c46a4e/actual-lifecycle.json
+no_publisher preflight succeeded None
+no_publisher acquire succeeded None
+no_publisher configure succeeded None
+no_publisher start succeeded None
+no_publisher verify failed ROS_PROBE_NOT_READY
+actual evidence: work/evidence/m3-docker-real/7ea0303ffcca49fdb9b7e741ea8c699b/actual-lifecycle.json

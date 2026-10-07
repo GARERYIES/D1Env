@@ -1,0 +1,31 @@
+FF                                                                       [100%]
+=================================== FAILURES ===================================
+_________ test_mac_cli_without_known_desktop_is_explicitly_unverified __________
+
+tmp_path = PosixPath('<REDACTED_TEMP_DIR>')
+
+    def test_mac_cli_without_known_desktop_is_explicitly_unverified(tmp_path):
+        from d1env.docker.endpoint import resolve_endpoint
+>       with pytest.raises(ValueError, match="DOCKER_APP_UNVERIFIED"):
+E       Failed: DID NOT RAISE ValueError
+
+tests/test_docker_endpoint.py:10: Failed
+____ test_mac_path_and_legacy_regular_file_cannot_bypass_official_signature ____
+
+tmp_path = PosixPath('<REDACTED_TEMP_DIR>')
+
+    def test_mac_path_and_legacy_regular_file_cannot_bypass_official_signature(tmp_path):
+        from d1env.docker.endpoint import resolve_endpoint
+        app = signed_fixture(tmp_path)
+        legacy = tmp_path / 'legacy.sock'
+        legacy.touch()
+        def reject(path):
+            raise ValueError('SIGNATURE_REJECTED')
+>       with pytest.raises(ValueError, match='SIGNATURE_REJECTED'):
+E       Failed: DID NOT RAISE ValueError
+
+tests/test_docker_endpoint.py:215: Failed
+=========================== short test summary info ============================
+FAILED tests/test_docker_endpoint.py::test_mac_cli_without_known_desktop_is_explicitly_unverified
+FAILED tests/test_docker_endpoint.py::test_mac_path_and_legacy_regular_file_cannot_bypass_official_signature
+2 failed in 0.06s

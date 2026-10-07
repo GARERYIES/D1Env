@@ -1,0 +1,145 @@
+{
+  "scope": "mock_and_sqlite_diagnostics",
+  "source_modified_by_diagnostic": false,
+  "docker_or_sdk_invoked": false,
+  "baseline": {
+    "argv": [
+      ".venv/bin/python",
+      "work/evidence/m3-store-aux-stress.py"
+    ],
+    "command_exit_code": 0,
+    "first_phase": {
+      "name": "store_short_connection_close",
+      "duration_s": 8,
+      "threads": 4,
+      "thread_results": [
+        {
+          "attempts": 10485,
+          "failures": 26,
+          "error_counts": {
+            "ValueError:STATE_FILE_UNSAFE": 26
+          }
+        },
+        {
+          "attempts": 10557,
+          "failures": 34,
+          "error_counts": {
+            "ValueError:STATE_FILE_UNSAFE": 34
+          }
+        },
+        {
+          "attempts": 10949,
+          "failures": 22,
+          "error_counts": {
+            "ValueError:STATE_FILE_UNSAFE": 22
+          }
+        },
+        {
+          "attempts": 10444,
+          "failures": 32,
+          "error_counts": {
+            "ValueError:STATE_FILE_UNSAFE": 32
+          }
+        }
+      ],
+      "attempts": 42435,
+      "failures": 114
+    },
+    "observed_basenames": [
+      "jobs.sqlite3-shm",
+      "jobs.sqlite3-wal"
+    ],
+    "captured_observations": 50,
+    "immediate_missing_count": 47,
+    "immediate_safe_recreated_count": 3,
+    "later_phases_held_an_accidental_anchor_connection": true
+  },
+  "fixed": {
+    "argv": [
+      ".venv/bin/python",
+      "work/evidence/m3-store-aux-fixed-green.py"
+    ],
+    "command_exit_code": 0,
+    "compiled_validation_lstat_sites": 2,
+    "phases": [
+      {
+        "name": "store_short_connection_close",
+        "duration_s": 8,
+        "threads": 4,
+        "thread_results": [
+          {
+            "attempts": 9166,
+            "failures": 0,
+            "error_counts": {}
+          },
+          {
+            "attempts": 9442,
+            "failures": 0,
+            "error_counts": {}
+          },
+          {
+            "attempts": 9297,
+            "failures": 0,
+            "error_counts": {}
+          },
+          {
+            "attempts": 9150,
+            "failures": 0,
+            "error_counts": {}
+          }
+        ],
+        "attempts": 37055,
+        "failures": 0
+      },
+      {
+        "name": "raw_writer_close_and_original_validation",
+        "duration_s": 2,
+        "threads": 3,
+        "thread_results": [
+          {
+            "attempts": 1100,
+            "failures": 0,
+            "error_counts": {}
+          },
+          {
+            "attempts": 34731,
+            "failures": 0,
+            "error_counts": {}
+          },
+          {
+            "attempts": 33786,
+            "failures": 0,
+            "error_counts": {}
+          }
+        ],
+        "attempts": 69617,
+        "failures": 0
+      },
+      {
+        "name": "real_mock_worker_and_original_store_readers",
+        "duration_s": 8,
+        "threads": 2,
+        "thread_results": [
+          {
+            "attempts": 13569,
+            "failures": 0,
+            "error_counts": {}
+          },
+          {
+            "attempts": 10234,
+            "failures": 0,
+            "error_counts": {}
+          }
+        ],
+        "attempts": 23803,
+        "failures": 0
+      }
+    ],
+    "mock_final_state": "FAILED",
+    "mock_error_code": "READINESS_EVIDENCE_MISSING",
+    "captured_transient_nlink_zero_observations": 128,
+    "false_rejection_count": 0,
+    "no_persistent_anchor_connection": true
+  },
+  "result": "confirmed_transient_WAL_SHM_unlink_race_and_verified_bounded_root_fix"
+}

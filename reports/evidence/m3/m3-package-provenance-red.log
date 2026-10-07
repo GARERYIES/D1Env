@@ -1,0 +1,107 @@
+.F.                                                                      [100%]
+=================================== FAILURES ===================================
+_ test_real_portable_runtime_moves_and_reads_its_packaged_assets_without_dev_tools _
+
+tmp_path = PosixPath('[PRIVATE_TEMP_PATH]')
+
+    def test_real_portable_runtime_moves_and_reads_its_packaged_assets_without_dev_tools(tmp_path):
+        runtime = Path(os.environ.get("D1ENV_RELEASE_RUNTIME", str(
+            ROOT / "work/python/cpython-3.10.20-macos-aarch64-none")))
+        wheel = Path(os.environ.get("D1ENV_RELEASE_WHEEL", str(
+            ROOT / "work/m3-dist/d1env-0.2.0-py3-none-any.whl")))
+        requirements = Path(os.environ.get("D1ENV_RELEASE_REQUIREMENTS", str(
+            ROOT / "work/m3-runtime-requirements.txt")))
+        if not all(path.exists() for path in (runtime, wheel, requirements)):
+            pytest.skip("真实发行集成需完整 native CPython、实际项目 wheel 与锁定 requirements；未验证")
+        if "macos" in runtime.name and sys.platform != "darwin":
+            pytest.skip("现有 runtime 是 Mac 候选，不能用它伪造 Linux 发行验证")
+        output = tmp_path / "candidate.tar.gz"
+        native = "macos" if sys.platform == "darwin" else "linux"
+        architecture = {"arm64": "aarch64", "AMD64": "x86_64"}.get(platform.machine(), platform.machine())
+        built = subprocess.run([
+            sys.executable, str(SCRIPT), "--portable", "--runtime", str(runtime),
+            "--wheel", str(wheel), "--requirements", str(requirements),
+            "--platform", native, "--architecture", architecture, "--output", str(output),
+        ], env={**os.environ, "HTTPS_PROXY": "http://[IP]:1",
+                "HTTP_PROXY": "http://[IP]:1", "ALL_PROXY": "http://[IP]:1",
+                "NO_PROXY": ""}, capture_output=True, text=True, timeout=180, check=False)
+        assert built.returncode == 0, built.stderr
+        metadata = json.loads(built.stdout)
+        assert metadata["self_contained_runtime"] is True
+        assert metadata["platform"] == native
+        assert metadata["architecture"] == architecture
+        assert metadata["sha256"] == hashlib.sha256(output.read_bytes()).hexdigest()
+        moved = tmp_path / "移动 后的位置"
+        moved.mkdir()
+        with tarfile.open(output, "r:gz") as archive:
+            archive.extractall(moved, filter="data")
+        bundle = moved / metadata["bundle_directory"]
+        launcher = bundle / "d1env.sh"
+        state = tmp_path / "independent-state"
+        env = {**os.environ, "PATH": "", "D1ENV_STATE_DIR": str(state)}
+        env.pop("D1ENV_ASSETS_DIR", None)
+        help_result = subprocess.run([str(launcher), "--help"], cwd=moved, env=env,
+                                     capture_output=True, text=True, timeout=15, check=False)
+        assert help_result.returncode == 0, help_result.stderr
+        assert "D1Env" in help_result.stdout
+        python = bundle / "runtime/bin/python3.10"
+        script = "from d1env.runtime import resolve_runtime_paths; import json; p=resolve_runtime_paths(); print(json.dumps({'assets':str(p.assets_dir),'state':str(p.state_dir),'html':(p.assets_dir/'frontend/dist/index.html').read_text()}))"
+        result = subprocess.run([str(python), "-I", "-B", "-c", script], cwd=moved, env=env,
+                                capture_output=True, text=True, timeout=15, check=False)
+        assert result.returncode == 0, result.stderr
+        resolved = json.loads(result.stdout)
+        assert Path(resolved["assets"]).is_relative_to(bundle)
+        assert Path(resolved["state"]) == state
+        assert "D1Env" in resolved["html"]
+        doctor = subprocess.run([str(launcher), "doctor"], cwd=moved, env=env,
+                                capture_output=True, text=True, timeout=20, check=False)
+        assert doctor.returncode in (0, 1), doctor.stderr
+        diagnosed = json.loads(doctor.stdout)
+        assert diagnosed["telemetry"]["status"] == "UNKNOWN"
+        assert next(check for check in diagnosed["checks"] if check["code"] == "ROBOT")["status"] == "UNKNOWN"
+        assert doctor.returncode == int(any(check["status"] == "FAIL" for check in diagnosed["checks"]))
+        with socket.socket() as available:
+            available.bind(("[IP]", 0))
+            port = available.getsockname()[1]
+        server = subprocess.Popen([str(launcher), "ui", "--demo", "--no-browser", "--port", str(port)],
+                                  cwd=moved, env=env, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
+        opener = urllib.request.build_opener(urllib.request.ProxyHandler({}))
+        base = f"http://[IP]:{port}"
+        try:
+            deadline = time.monotonic() + 10
+            while True:
+                try:
+                    with opener.open(base, timeout=1) as response:
+                        html = response.read().decode()
+                    break
+                except urllib.error.URLError:
+                    assert server.poll() is None, server.communicate(timeout=1)
+                    assert time.monotonic() < deadline, "便携包本地服务未启动"
+                    time.sleep(.05)
+            assert html == resolved["html"]
+            static_path = re.search(r'src="(/assets/[^"]+\.js)"', html)
+            assert static_path is not None
+            with opener.open(base + static_path.group(1), timeout=2) as response:
+                assert len(response.read()) > 100
+            with pytest.raises(urllib.error.HTTPError) as rejected:
+                opener.open(base + "/api/catalog", timeout=2)
+            assert rejected.value.code == 401
+            request = urllib.request.Request(base, headers={"Host": "attacker.invalid"})
+            with pytest.raises(urllib.error.HTTPError) as rejected:
+                opener.open(request, timeout=2)
+            assert rejected.value.code == 403
+        finally:
+            server.terminate()
+            server.communicate(timeout=10)
+        manifest = json.loads((bundle / "D1ENV-RELEASE.json").read_text())
+        assert manifest["runtime"]["python_version"].startswith("3.10.")
+        assert manifest["wheel_sha256"] == hashlib.sha256(wheel.read_bytes()).hexdigest()
+        assert manifest["build_dependency_source"] == "hash_locked_cache"
+>       assert manifest["runtime_provenance"]["status"] == "blocked"
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       KeyError: 'runtime_provenance'
+
+tests/test_release_builder.py:132: KeyError
+=========================== short test summary info ============================
+FAILED tests/test_release_builder.py::test_real_portable_runtime_moves_and_reads_its_packaged_assets_without_dev_tools
+1 failed, 2 passed in 13.54s

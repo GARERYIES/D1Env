@@ -1,0 +1,129 @@
+.........FFFFF..                                                         [100%]
+=================================== FAILURES ===================================
+_ test_service_image_observation_never_reports_unverified_image_ready[wrong_id] _
+
+service = <d1env.service.ApplicationService object at 0x1059dbd10>
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x1059db2c0>
+mutation = 'wrong_id'
+
+    @pytest.mark.parametrize('mutation', ['wrong_id', 'wrong_arch', 'wrong_source', 'timeout', 'malformed'])
+    def test_service_image_observation_never_reports_unverified_image_ready(service, monkeypatch, mutation):
+        import json
+        from d1env.docker.client import DockerCommand
+        metadata = service.ros_image_metadata()['trusted_bundle']
+        item = {'Id': metadata['image_id'], 'Architecture': 'arm64',
+                'Config': {'Labels': {'io.d1env.source': metadata['source']}}}
+        if mutation == 'wrong_id':
+            item['Id'] = 'sha256:' + '0' * 64
+        if mutation == 'wrong_arch':
+            item['Architecture'] = 'amd64'
+        if mutation == 'wrong_source':
+            item['Config']['Labels']['io.d1env.source'] = 'untrusted/image'
+>       observed = DockerCommand(0, 'malformed' if mutation == 'malformed' else json.dumps([item]), '',
+                                 timed_out=mutation == 'timeout')
+E       TypeError: DockerCommand.__init__() missing 1 required positional argument: 'stderr'
+
+tests/test_runtime_api.py:101: TypeError
+_ test_service_image_observation_never_reports_unverified_image_ready[wrong_arch] _
+
+service = <d1env.service.ApplicationService object at 0x1059c4da0>
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x1059c4bc0>
+mutation = 'wrong_arch'
+
+    @pytest.mark.parametrize('mutation', ['wrong_id', 'wrong_arch', 'wrong_source', 'timeout', 'malformed'])
+    def test_service_image_observation_never_reports_unverified_image_ready(service, monkeypatch, mutation):
+        import json
+        from d1env.docker.client import DockerCommand
+        metadata = service.ros_image_metadata()['trusted_bundle']
+        item = {'Id': metadata['image_id'], 'Architecture': 'arm64',
+                'Config': {'Labels': {'io.d1env.source': metadata['source']}}}
+        if mutation == 'wrong_id':
+            item['Id'] = 'sha256:' + '0' * 64
+        if mutation == 'wrong_arch':
+            item['Architecture'] = 'amd64'
+        if mutation == 'wrong_source':
+            item['Config']['Labels']['io.d1env.source'] = 'untrusted/image'
+>       observed = DockerCommand(0, 'malformed' if mutation == 'malformed' else json.dumps([item]), '',
+                                 timed_out=mutation == 'timeout')
+E       TypeError: DockerCommand.__init__() missing 1 required positional argument: 'stderr'
+
+tests/test_runtime_api.py:101: TypeError
+_ test_service_image_observation_never_reports_unverified_image_ready[wrong_source] _
+
+service = <d1env.service.ApplicationService object at 0x1059c5a90>
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x1059c4890>
+mutation = 'wrong_source'
+
+    @pytest.mark.parametrize('mutation', ['wrong_id', 'wrong_arch', 'wrong_source', 'timeout', 'malformed'])
+    def test_service_image_observation_never_reports_unverified_image_ready(service, monkeypatch, mutation):
+        import json
+        from d1env.docker.client import DockerCommand
+        metadata = service.ros_image_metadata()['trusted_bundle']
+        item = {'Id': metadata['image_id'], 'Architecture': 'arm64',
+                'Config': {'Labels': {'io.d1env.source': metadata['source']}}}
+        if mutation == 'wrong_id':
+            item['Id'] = 'sha256:' + '0' * 64
+        if mutation == 'wrong_arch':
+            item['Architecture'] = 'amd64'
+        if mutation == 'wrong_source':
+            item['Config']['Labels']['io.d1env.source'] = 'untrusted/image'
+>       observed = DockerCommand(0, 'malformed' if mutation == 'malformed' else json.dumps([item]), '',
+                                 timed_out=mutation == 'timeout')
+E       TypeError: DockerCommand.__init__() missing 1 required positional argument: 'stderr'
+
+tests/test_runtime_api.py:101: TypeError
+_ test_service_image_observation_never_reports_unverified_image_ready[timeout] _
+
+service = <d1env.service.ApplicationService object at 0x1059c46b0>
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x1059c5e20>
+mutation = 'timeout'
+
+    @pytest.mark.parametrize('mutation', ['wrong_id', 'wrong_arch', 'wrong_source', 'timeout', 'malformed'])
+    def test_service_image_observation_never_reports_unverified_image_ready(service, monkeypatch, mutation):
+        import json
+        from d1env.docker.client import DockerCommand
+        metadata = service.ros_image_metadata()['trusted_bundle']
+        item = {'Id': metadata['image_id'], 'Architecture': 'arm64',
+                'Config': {'Labels': {'io.d1env.source': metadata['source']}}}
+        if mutation == 'wrong_id':
+            item['Id'] = 'sha256:' + '0' * 64
+        if mutation == 'wrong_arch':
+            item['Architecture'] = 'amd64'
+        if mutation == 'wrong_source':
+            item['Config']['Labels']['io.d1env.source'] = 'untrusted/image'
+>       observed = DockerCommand(0, 'malformed' if mutation == 'malformed' else json.dumps([item]), '',
+                                 timed_out=mutation == 'timeout')
+E       TypeError: DockerCommand.__init__() missing 1 required positional argument: 'stderr'
+
+tests/test_runtime_api.py:101: TypeError
+_ test_service_image_observation_never_reports_unverified_image_ready[malformed] _
+
+service = <d1env.service.ApplicationService object at 0x1059c5d60>
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x1059c7290>
+mutation = 'malformed'
+
+    @pytest.mark.parametrize('mutation', ['wrong_id', 'wrong_arch', 'wrong_source', 'timeout', 'malformed'])
+    def test_service_image_observation_never_reports_unverified_image_ready(service, monkeypatch, mutation):
+        import json
+        from d1env.docker.client import DockerCommand
+        metadata = service.ros_image_metadata()['trusted_bundle']
+        item = {'Id': metadata['image_id'], 'Architecture': 'arm64',
+                'Config': {'Labels': {'io.d1env.source': metadata['source']}}}
+        if mutation == 'wrong_id':
+            item['Id'] = 'sha256:' + '0' * 64
+        if mutation == 'wrong_arch':
+            item['Architecture'] = 'amd64'
+        if mutation == 'wrong_source':
+            item['Config']['Labels']['io.d1env.source'] = 'untrusted/image'
+>       observed = DockerCommand(0, 'malformed' if mutation == 'malformed' else json.dumps([item]), '',
+                                 timed_out=mutation == 'timeout')
+E       TypeError: DockerCommand.__init__() missing 1 required positional argument: 'stderr'
+
+tests/test_runtime_api.py:101: TypeError
+=========================== short test summary info ============================
+FAILED tests/test_runtime_api.py::test_service_image_observation_never_reports_unverified_image_ready[wrong_id]
+FAILED tests/test_runtime_api.py::test_service_image_observation_never_reports_unverified_image_ready[wrong_arch]
+FAILED tests/test_runtime_api.py::test_service_image_observation_never_reports_unverified_image_ready[wrong_source]
+FAILED tests/test_runtime_api.py::test_service_image_observation_never_reports_unverified_image_ready[timeout]
+FAILED tests/test_runtime_api.py::test_service_image_observation_never_reports_unverified_image_ready[malformed]
+5 failed, 11 passed in 0.57s

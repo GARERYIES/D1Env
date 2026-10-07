@@ -4,8 +4,8 @@ build-backend = "hatchling.build"
 
 [project]
 name = "d1env"
-version = "0.1.0"
-description = "D1Env M0-M2: local Chinese MOCK deployment wizard"
+version = "0.3.0"
+description = "D1Env: local Chinese wizard with scoped Docker/ROS software deployment"
 requires-python = ">=3.10"
 dependencies = ["fastapi", "pydantic>=2,<3", "PyYAML", "typer", "uvicorn"]
 
@@ -17,6 +17,14 @@ dev = ["pytest", "httpx", "httpx2", "ruff", "mypy", "types-PyYAML", "jsonschema"
 
 [tool.hatch.build.targets.wheel]
 packages = ["src/d1env"]
+
+[tool.hatch.build.targets.wheel.force-include]
+"profiles" = "d1env/_assets/profiles"
+"frontend/dist" = "d1env/_assets/frontend/dist"
+"docs/research/UPSTREAM_LOCK.json" = "d1env/_assets/docs/research/UPSTREAM_LOCK.json"
+"docs/build" = "d1env/_assets/docs/build"
+"THIRD_PARTY_NOTICES.md" = "d1env/_assets/THIRD_PARTY_NOTICES.md"
+"licenses" = "d1env/_assets/licenses"
 
 [tool.pytest.ini_options]
 pythonpath = ["src"]

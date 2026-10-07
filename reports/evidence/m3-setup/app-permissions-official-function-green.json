@@ -1,0 +1,12 @@
+{
+  "version": "4.80.0",
+  "build": "232116",
+  "executable": "com.docker.backend",
+  "permission_tree_verified": true,
+  "app_entries_checked": 706,
+  "security_metadata_sha256": "120069eabe47d39e1d99b298a4f3d7781d49f8e33b33108baed0bc4fcef50545",
+  "scope": "readonly_app_metadata",
+  "binary_executed": false,
+  "docker_started": false,
+  "host_permissions_changed": false
+}

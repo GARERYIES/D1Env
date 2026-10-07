@@ -1,0 +1,27 @@
+I001 [*] Import block is un-sorted or un-formatted
+  --> tests/test_release_ros_bundle.py:3:1
+   |
+ 1 |   """Pure-file checks for the optional trusted ROS payload; no Docker calls."""
+ 2 |
+ 3 | / import hashlib
+ 4 | | import importlib.util
+ 5 | | import json
+ 6 | | import os
+ 7 | | import stat
+ 8 | | import subprocess
+ 9 | | import sys
+10 | | from pathlib import Path
+11 | |
+12 | | import pytest
+13 | |
+14 | | from d1env.runtime import resolve_runtime_paths, validate_assets_dir
+   | |____________________________________________________________________^
+help: Organize imports
+   |
+15 |
+   -
+16 | SCRIPT = Path(__file__).resolve().parents[1] / "scripts/build-release.py"
+   |
+
+Found 1 error.
+[*] 1 fixable with the `--fix` option.

@@ -1,0 +1,13 @@
+
+> d1env-frontend@0.1.0 test
+> vitest --run
+
+
+ RUN  v5.0.3 <workspace>/frontend
+
+
+ Test Files  4 passed (4)
+      Tests  55 passed (55)
+   Start at  12:59:15
+   Duration  1.71s (tests 64%, environment 22%, setup 7%, transform 6%, import 2%)
+

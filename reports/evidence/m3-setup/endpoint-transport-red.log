@@ -1,0 +1,10 @@
+.......F                                                                 [100%]
+=================================== FAILURES ===================================
+______ test_docker_execution_and_readonly_probe_share_the_verified_entry _______
+tests/test_docker_endpoint.py:102: in test_docker_execution_and_readonly_probe_share_the_verified_entry
+    assert payload["argv"][:2] == list(endpoint.prefix[1:])
+           ^^^^^^^^^^^^^^^
+E   KeyError: 'argv'
+=========================== short test summary info ============================
+FAILED tests/test_docker_endpoint.py::test_docker_execution_and_readonly_probe_share_the_verified_entry
+1 failed, 7 passed in 0.67s

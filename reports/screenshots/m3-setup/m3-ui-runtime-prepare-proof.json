@@ -1,0 +1,45 @@
+{
+  "source": "actual_local_api_and_browser",
+  "scope": "runtime_environment",
+  "task_id": "2971900888534a549aba8de57d87d9f2",
+  "state": "SUCCEEDED",
+  "stage": "complete",
+  "environment_ready": true,
+  "existing_docker_only": true,
+  "existing_locked_image_only": true,
+  "native_install_or_start_stages": [],
+  "stage_records": [
+    {
+      "state": "RUNNING",
+      "stage": "detect"
+    },
+    {
+      "state": "RUNNING",
+      "stage": "import_image"
+    },
+    {
+      "state": "SUCCEEDED",
+      "stage": "complete"
+    }
+  ],
+  "image_preparation": {
+    "artifact_ready": true,
+    "image_id": "sha256:52f259d5fa38acb3fd2018e1601593fc0f6ad1a85c8a968032695f9c15771a2c",
+    "architecture": "aarch64",
+    "source": "d1env/ros-probe",
+    "origin": "docker",
+    "status": "reused"
+  },
+  "prepare_posts": 1,
+  "continue_posts": 0,
+  "deployment_posts_during_preparation": 0,
+  "refresh_repeated_prepare": false,
+  "robot_telemetry": "UNKNOWN",
+  "robot_functions_verified": false,
+  "unverified": [
+    "首次下载与原生安装/许可/系统授权",
+    "未安装 Docker 的新电脑",
+    "Linux 与 Intel Mac",
+    "D1 SDK/真机/运动"
+  ]
+}

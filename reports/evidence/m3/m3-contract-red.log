@@ -1,0 +1,16 @@
+F                                                                        [100%]
+=================================== FAILURES ===================================
+_________ test_published_contract_schemas_match_current_runtime_models _________
+tests/test_contract_schema.py:11: in test_published_contract_schemas_match_current_runtime_models
+    assert published == expected
+E   AssertionError: assert {'Catalog': {...s', ...}, ...} == {'Catalog': {...s', ...}, ...}
+E     
+E     Omitting 3 identical items, use -vv to show
+E     Differing items:
+E     {'DeploymentRequest': {'additionalProperties': False, 'properties': {'mode': {'default': 'mock', 'enum': ['mock', 'rea...m': ['demo', 'diagnostics'], 'title': 'Task', 'type': 'string'}, ...}, 'title': 'DeploymentRequest', 'type': 'object'}} != {'DeploymentRequest': {'additionalProperties': False, 'properties': {'mode': {'default': 'mock', 'enum': ['mock', 'sof...'diagnostics', 'ros_probe'], 'title': 'Task', 'type': 'string'}, ...}, 'title': 'DeploymentRequest', 'type': 'object'}}
+E     {'OperationResult': {'$defs': {'J...
+E     
+E     ...Full output truncated (11 lines hidden), use '-vv' to show
+=========================== short test summary info ============================
+FAILED tests/test_contract_schema.py::test_published_contract_schemas_match_current_runtime_models
+1 failed in 0.04s

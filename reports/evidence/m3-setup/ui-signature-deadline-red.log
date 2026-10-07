@@ -1,0 +1,37 @@
+
+> d1env-frontend@0.1.0 test
+> vitest --run tests/unit/RuntimeTimeout.test.ts
+
+
+ RUN  v5.0.3 <workspace>/frontend
+
+ ❯ tests/unit/RuntimeTimeout.test.ts (1 test | 1 failed) 6ms
+   × 首次入口的有限签名核验允许超过五秒，仍有九十秒请求上限 6ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  tests/unit/RuntimeTimeout.test.ts > 首次入口的有限签名核验允许超过五秒，仍有九十秒请求上限
+AssertionError: expected true to be false // Object.is equality
+
+- Expected
++ Received
+
+- false
++ true
+
+ ❯ tests/unit/RuntimeTimeout.test.ts:13:19
+     11|   const observation = new D1EnvApi().runtimeStatus().catch(() => null);
+     12|   await vi.advanceTimersByTimeAsync(6000);
+     13|   expect(aborted).toBe(false);
+       |                   ^
+     14|   await vi.advanceTimersByTimeAsync(90000);
+     15|   await observation;
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  1 failed (1)
+   Start at  12:58:47
+   Duration  351ms (environment 67%, setup 25%, transform 5%, tests 2%, worker 1%)
+

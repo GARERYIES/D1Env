@@ -1,0 +1,104 @@
+{
+  "schema_version": 1,
+  "filename": "d1env-ros-probe-m3-aarch64.tar",
+  "sha256": "8da67f547b7885be741f8fbf0b2fd06f989cec0e2b7ed41d4a24c2adaf2414df",
+  "size_bytes": 140574720,
+  "source": "d1env/ros-probe",
+  "image_id": "sha256:52f259d5fa38acb3fd2018e1601593fc0f6ad1a85c8a968032695f9c15771a2c",
+  "architecture": "aarch64",
+  "manifest": {
+    "schema_version": 1,
+    "kind": "d1env_ros_image",
+    "source": "d1env/ros-probe",
+    "architecture": "aarch64",
+    "image_id": "sha256:52f259d5fa38acb3fd2018e1601593fc0f6ad1a85c8a968032695f9c15771a2c",
+    "image_archive": {
+      "path": "payload/image.tar",
+      "sha256": "e4dc5b64caa6d61ab02f1c4c545a10593fdbdf72a3f3c54ef574c604d7a5d467",
+      "size_bytes": 140562432
+    }
+  },
+  "generation": {
+    "commands": [
+      {
+        "command": [
+          "docker",
+          "--context",
+          "default",
+          "image",
+          "save",
+          "--output",
+          "work/evidence/m3-docker-offline-build-final/image.tar",
+          "sha256:52f259d5fa38acb3fd2018e1601593fc0f6ad1a85c8a968032695f9c15771a2c"
+        ],
+        "exit_code": 0,
+        "stdout": "",
+        "stderr": "",
+        "image_id": "sha256:52f259d5fa38acb3fd2018e1601593fc0f6ad1a85c8a968032695f9c15771a2c"
+      },
+      {
+        "command": [
+          ".venv/bin/python",
+          "work/evidence/m3-docker-build-offline.py"
+        ],
+        "exit_code": 0
+      }
+    ],
+    "image_save_by_immutable_id": true,
+    "registry_published": false,
+    "bundle_relative_path": "outputs/D1Env-M3/d1env-ros-probe-m3-aarch64.tar"
+  },
+  "verification": {
+    "scope": "software",
+    "origin": "docker",
+    "host": "macOS Docker Desktop Linux aarch64",
+    "docker_load_exit_code": 0,
+    "import_status": "imported",
+    "repeat_import_status": "reused",
+    "repeat_import_did_not_load_again": true,
+    "actual_load_with_expected_image_already_present": true,
+    "all_preexisting_image_bindings_preserved": true,
+    "private_staging_cleaned": true,
+    "lifecycle_success": "PASS",
+    "no_publisher_labelled_failure": "PASS",
+    "repeated_start_same_resource_ids": "PASS",
+    "owned_stop_cleanup": "PASS",
+    "foreign_name_and_endpoint_preserved": "PASS",
+    "unit_tests_passed": 62,
+    "unit_tests_failed": 0,
+    "ruff_exit_code": 0,
+    "mypy_exit_code": 0,
+    "evidence": [
+      {
+        "path": "work/evidence/m3-docker-real-import.json",
+        "sha256": "e69aa982a760fc8288a3bafaeca15232edfa7e845296b84a0f403640ed8c17f4"
+      },
+      {
+        "path": "work/evidence/m3-docker-real-ownership.json",
+        "sha256": "ccaf2c53817c6e803acc7fd217d969d53319cf59c513dc92c2b15cf4e33fea13"
+      },
+      {
+        "path": "work/evidence/m3-docker-real/650592d73fa948189a65adcba0c46a4e/actual-lifecycle.json",
+        "sha256": "6eaec941b6a39fd1bb62fa18646757f8bbe8479c705c07dc1b0b2cd0e637a92a"
+      },
+      {
+        "path": "work/evidence/m3-docker-real/7ea0303ffcca49fdb9b7e741ea8c699b/actual-lifecycle.json",
+        "sha256": "473c69dc375c595011b41393320c0d78b7bd47338235caa206920c1f5fc1c468"
+      },
+      {
+        "path": "work/evidence/m3-docker-final-static.json",
+        "sha256": "f22ee8afd19c233d16d4a56254deacb9e41ea63f409bf1483bf0eeb9b1cf8f77"
+      },
+      {
+        "path": "work/evidence/m3-docker-final-green.log",
+        "sha256": "b80b88369eca76d183fe7797eeacbeb592be97f0edcac582c504a27cd949ef85"
+      }
+    ],
+    "not_run": [
+      "import into empty Docker daemon",
+      "native Ubuntu x86_64 Docker integration",
+      "manufacturer SDK",
+      "robot connection, telemetry, motion or emergency stop"
+    ]
+  }
+}

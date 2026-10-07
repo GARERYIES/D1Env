@@ -1,0 +1,55 @@
+B018 Found useless expression. Either assign it to a variable or remove it.
+  --> src/d1env/web/app.py:55:9
+   |
+53 |         service.engine.reconcile_on_startup()
+54 |         # Initialize/recover private setup state at startup; later GETs stay read-only.
+55 |         service.runtime_setup
+   |         ^^^^^^^^^^^^^^^^^^^^^
+56 |         yield
+   |
+
+I001 [*] Import block is un-sorted or un-formatted
+  --> tests/test_release_ros_bundle.py:3:1
+   |
+ 1 |   """Pure-file checks for the optional trusted ROS payload; no Docker calls."""
+ 2 |
+ 3 | / import hashlib
+ 4 | | import importlib.util
+ 5 | | import json
+ 6 | | import os
+ 7 | | import stat
+ 8 | | import subprocess
+ 9 | | import sys
+10 | | from pathlib import Path
+11 | |
+12 | | import pytest
+13 | |
+14 | | from d1env.runtime import resolve_runtime_paths, validate_assets_dir
+   | |____________________________________________________________________^
+help: Organize imports
+   |
+15 |
+   -
+16 | SCRIPT = Path(__file__).resolve().parents[1] / "scripts/build-release.py"
+   |
+
+I001 [*] Import block is un-sorted or un-formatted
+  --> tests/test_runtime_api.py:90:5
+   |
+88 |   @pytest.mark.parametrize('mutation', ['wrong_id', 'wrong_arch', 'wrong_source', 'timeout', 'malformed', 'matching'])
+89 |   def test_service_image_observation_never_reports_unverified_image_ready(service, monkeypatch, mutation):
+90 | /     import json
+91 | |     from d1env.docker.client import DockerCommand
+   | |_________________________________________________^
+92 |       metadata = service.ros_image_metadata()['trusted_bundle']
+93 |       item = {'Id': metadata['image_id'], 'Architecture': 'arm64',
+   |
+help: Organize imports
+   |
+90 |     import json
+91 +
+92 |     from d1env.docker.client import DockerCommand
+   |
+
+Found 3 errors.
+[*] 2 fixable with the `--fix` option.

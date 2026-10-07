@@ -1,0 +1,50 @@
+FFFFF..F                                                                 [100%]
+=================================== FAILURES ===================================
+_______ test_prepare_routes_use_shared_manager_without_install_arguments _______
+tests/test_runtime_api.py:38: in test_prepare_routes_use_shared_manager_without_install_arguments
+    assert client.get("/api/runtime/status").json()["environment_ready"] is None
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E   KeyError: 'environment_ready'
+______ test_prepare_rejects_injected_install_source_or_command[payload0] _______
+tests/test_runtime_api.py:57: in test_prepare_rejects_injected_install_source_or_command
+    assert client.post("/api/runtime/prepare", headers=headers, json=payload).status_code == 422
+E   AssertionError: assert 404 == 422
+E    +  where 404 = <Response [404 Not Found]>.status_code
+E    +    where <Response [404 Not Found]> = post('/api/runtime/prepare', headers={'Origin': 'http://127.0.0.1:8765', 'X-CSRF-Token': '<REDACTED_TEST_CSRF>'}, json={'request_key': 'request-123', 'url': 'https://evil.invalid/install'})
+E    +      where post = <starlette.testclient.TestClient object at 0x107d1ea20>.post
+______ test_prepare_rejects_injected_install_source_or_command[payload1] _______
+tests/test_runtime_api.py:57: in test_prepare_rejects_injected_install_source_or_command
+    assert client.post("/api/runtime/prepare", headers=headers, json=payload).status_code == 422
+E   AssertionError: assert 404 == 422
+E    +  where 404 = <Response [404 Not Found]>.status_code
+E    +    where <Response [404 Not Found]> = post('/api/runtime/prepare', headers={'Origin': 'http://127.0.0.1:8765', 'X-CSRF-Token': '<REDACTED_TEST_CSRF>'}, json={'request_key': 'request-123', 'path': '/Applications/user.app'})
+E    +      where post = <starlette.testclient.TestClient object at 0x107da8f20>.post
+______ test_prepare_rejects_injected_install_source_or_command[payload2] _______
+tests/test_runtime_api.py:57: in test_prepare_rejects_injected_install_source_or_command
+    assert client.post("/api/runtime/prepare", headers=headers, json=payload).status_code == 422
+E   AssertionError: assert 404 == 422
+E    +  where 404 = <Response [404 Not Found]>.status_code
+E    +    where <Response [404 Not Found]> = post('/api/runtime/prepare', headers={'Origin': 'http://127.0.0.1:8765', 'X-CSRF-Token': '<REDACTED_TEST_CSRF>'}, json={'request_key': 'request-123', 'command': 'sudo curl | sh'})
+E    +      where post = <starlette.testclient.TestClient object at 0x107e13f80>.post
+______ test_prepare_rejects_injected_install_source_or_command[payload3] _______
+tests/test_runtime_api.py:57: in test_prepare_rejects_injected_install_source_or_command
+    assert client.post("/api/runtime/prepare", headers=headers, json=payload).status_code == 422
+E   AssertionError: assert 404 == 422
+E    +  where 404 = <Response [404 Not Found]>.status_code
+E    +    where <Response [404 Not Found]> = post('/api/runtime/prepare', headers={'Origin': 'http://127.0.0.1:8765', 'X-CSRF-Token': '<REDACTED_TEST_CSRF>'}, json={'request_key': 'bad;key'})
+E    +      where post = <starlette.testclient.TestClient object at 0x107e2acc0>.post
+________________ test_continue_only_accepts_fixed_user_actions _________________
+tests/test_runtime_api.py:77: in test_continue_only_accepts_fixed_user_actions
+    assert client.post(f"/api/runtime/tasks/{'a'*32}/continue", headers=headers, json=payload).status_code == 422
+E   AssertionError: assert 404 == 422
+E    +  where 404 = <Response [404 Not Found]>.status_code
+E    +    where <Response [404 Not Found]> = post('/api/runtime/tasks/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/continue', headers={'Origin': 'http://127.0.0.1:8765', 'X-CSRF-Token': '<REDACTED_TEST_CSRF>'}, json={'action': 'install-anything'})
+E    +      where post = <starlette.testclient.TestClient object at 0x107ea1790>.post
+=========================== short test summary info ============================
+FAILED tests/test_runtime_api.py::test_prepare_routes_use_shared_manager_without_install_arguments
+FAILED tests/test_runtime_api.py::test_prepare_rejects_injected_install_source_or_command[payload0]
+FAILED tests/test_runtime_api.py::test_prepare_rejects_injected_install_source_or_command[payload1]
+FAILED tests/test_runtime_api.py::test_prepare_rejects_injected_install_source_or_command[payload2]
+FAILED tests/test_runtime_api.py::test_prepare_rejects_injected_install_source_or_command[payload3]
+FAILED tests/test_runtime_api.py::test_continue_only_accepts_fixed_user_actions
+6 failed, 2 passed in 0.28s

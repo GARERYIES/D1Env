@@ -1,0 +1,19 @@
+FFF                                                                      [100%]
+=================================== FAILURES ===================================
+_ test_unsupported_platform_cannot_prepare_through_direct_api_even_with_ready_docker[platform0] _
+tests/test_setup_manager.py:340: in test_unsupported_platform_cannot_prepare_through_direct_api_even_with_ready_docker
+    assert observed['environment_ready'] is not True
+E   assert True is not True
+_ test_unsupported_platform_cannot_prepare_through_direct_api_even_with_ready_docker[platform1] _
+tests/test_setup_manager.py:340: in test_unsupported_platform_cannot_prepare_through_direct_api_even_with_ready_docker
+    assert observed['environment_ready'] is not True
+E   assert True is not True
+_ test_unsupported_platform_cannot_prepare_through_direct_api_even_with_ready_docker[platform2] _
+tests/test_setup_manager.py:340: in test_unsupported_platform_cannot_prepare_through_direct_api_even_with_ready_docker
+    assert observed['environment_ready'] is not True
+E   assert True is not True
+=========================== short test summary info ============================
+FAILED tests/test_setup_manager.py::test_unsupported_platform_cannot_prepare_through_direct_api_even_with_ready_docker[platform0]
+FAILED tests/test_setup_manager.py::test_unsupported_platform_cannot_prepare_through_direct_api_even_with_ready_docker[platform1]
+FAILED tests/test_setup_manager.py::test_unsupported_platform_cannot_prepare_through_direct_api_even_with_ready_docker[platform2]
+3 failed in 0.09s

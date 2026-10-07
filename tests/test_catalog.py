@@ -29,7 +29,8 @@ def test_missing_telemetry_stays_unknown():
 
 def test_catalog_never_promotes_hardware_capabilities():
     catalog = load_catalog(ROOT / "profiles")
-    assert len(catalog.profiles) == 5
+    assert {"demo", "edu-zsl-1", "edu-zsl-1w", "maxpro", "unknown"} <= {
+        profile.profile_id for profile in catalog.profiles}
     mock = next(p for p in catalog.profiles if p.profile_id == "demo")
     assert mock.kind == "mock" and mock.sdk_family is None
     for profile in catalog.profiles:

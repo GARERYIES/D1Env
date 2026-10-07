@@ -1,0 +1,438 @@
+{
+  "schema_version": 1,
+  "kind": "d1env_docker_desktop_installer",
+  "retrieval_status": "verified",
+  "platform": "macos",
+  "architecture": "aarch64",
+  "version": "4.80.0",
+  "build": "232116",
+  "url": "https://desktop.docker.com/mac/main/arm64/232116/Docker.dmg",
+  "sha256": "41d0e5c61327a877f229a1e1158d056d37f003902189fd5e0ba8629619c1819f",
+  "size_bytes": 575775824,
+  "license_url": "https://www.docker.com/legal/docker-subscription-service-agreement/",
+  "team_id": "9BNSXJN65R",
+  "bundle_id": "com.docker.docker",
+  "minimum_macos": "14.0",
+  "minimum_macos_scope": "LSMinimumSystemVersion in the actual existing 4.80.0/232116 arm64 app; binary minimum is not the current Docker support policy.",
+  "audit_date": "2026-10-07",
+  "audit_timezone": "Asia/Shanghai",
+  "release_date": "2026-06-29",
+  "release_notes_url": "https://docs.docker.com/desktop/release-notes/#4800",
+  "checksum_url": "https://desktop.docker.com/mac/main/arm64/232116/checksums.txt",
+  "metadata_verification": {
+    "status": "verified",
+    "scope": "Official release-notes links/version/build, actual checksum text and actual DMG HTTPS HEAD content-length; no inferred latest URL.",
+    "http_status": 200,
+    "official_checksum_size_bytes": 77,
+    "https_verification_disabled": false,
+    "redirect_required": false,
+    "range_probe": {
+      "status": "verified",
+      "scope": "Official HTTP source range behavior only; not a D1Env product download-resume test.",
+      "http_status": 206,
+      "start": 575000000,
+      "end_inclusive": 575775823,
+      "actual_bytes": 775824,
+      "total_size_bytes": 575775824,
+      "curl_exit_code": 0
+    }
+  },
+  "download_verification": {
+    "status": "verified",
+    "actual_sha256": "41d0e5c61327a877f229a1e1158d056d37f003902189fd5e0ba8629619c1819f",
+    "actual_size_bytes": 575775824,
+    "curl_exit_code": 0,
+    "http_status": 200,
+    "dmg_integrity": "verified",
+    "hdiutil_verify_exit_code": 0,
+    "mounted_readonly": true,
+    "nobrowse": true,
+    "noautoopen": true,
+    "mounted_app_signature": "verified",
+    "mounted_app_codesign_exit_code": 0,
+    "mounted_app_gatekeeper": "verified",
+    "mounted_app_gatekeeper_exit_code": 0,
+    "mounted_app_gatekeeper_source": "Notarized Developer ID",
+    "app_version": "4.80.0",
+    "app_build": "232116",
+    "app_bundle_id": "com.docker.docker",
+    "app_team_id": "9BNSXJN65R",
+    "app_architecture": "arm64",
+    "minimum_macos": "14.0",
+    "dmg_stapled_ticket": "verified",
+    "dmg_stapler_exit_code": 0,
+    "stapler_scope": "Development-only source audit; not a user prerequisite.",
+    "owned_mount_detached": true,
+    "detach_exit_code": 0,
+    "installer_run": false,
+    "docker_app_started": false,
+    "containers_created": false,
+    "scope": "Official full DMG source and read-only signature/Gatekeeper checks; no fresh installation, license UI or startup verification."
+  },
+  "existing_app_verification": {
+    "status": "verified",
+    "scope": "Read-only inspection of the already-installed /Applications/Docker.app only; not the downloaded DMG and not a fresh-install test.",
+    "version": "4.80.0",
+    "build": "232116",
+    "architecture": "arm64",
+    "codesign_deep_strict_exit_code": 0,
+    "codesign_explicit_requirement_exit_code": 0,
+    "codesign_requirement": "=identifier \"com.docker.docker\" and anchor apple generic and certificate leaf[subject.OU] = \"9BNSXJN65R\"",
+    "spctl_execute_exit_code": 0,
+    "spctl_source": "Notarized Developer ID",
+    "stapler_exit_code": 65,
+    "stapler_result": "Docker.app does not have a ticket stapled to it; app Gatekeeper assessment succeeded.",
+    "first_codesign_exit_code": 1,
+    "first_codesign_failure": "Inline -R requirement omitted leading equals; codesign treated it as a file. Corrected invocation passed.",
+    "signature_checks_require_developer_tools": false,
+    "stapler_scope": "Development audit only; xcrun/stapler is not a product user prerequisite."
+  },
+  "license_policy": {
+    "status": "user_acceptance_required",
+    "distribution": "official_download_only",
+    "installer_bundled": false,
+    "redistribution_authorization": "not_asserted",
+    "auto_accept_license": false,
+    "system_authorization": "user_controlled",
+    "source": "https://docs.docker.com/desktop/setup/install/mac-install/",
+    "scope": "Docker presents its agreement on first run; D1Env must not accept it or a subscription on the user behalf.",
+    "official_agreement_last_updated": "2026-08-26",
+    "confirmation_scope": "D1Env may record that the user requested preparation, but Docker agreement acceptance remains a direct user action in the Docker-provided interface."
+  },
+  "source_commit": null,
+  "source_commit_status": "blocked",
+  "source_commit_reason": "The publisher binary release is pinned by version/build/SHA; a complete corresponding Docker Desktop proprietary application source commit has not been supplied or verified.",
+  "installation_policy": {
+    "reuse_existing_app": true,
+    "replace_existing_app": false,
+    "run_installer_in_source_audit": false,
+    "run_docker_in_source_audit": false,
+    "accept_license_flag": false,
+    "user_flag": false,
+    "disable_gatekeeper": false,
+    "clear_quarantine": false,
+    "change_system_socket": false,
+    "change_shell_profile": false,
+    "change_docker_preferences": false,
+    "install_scope": "Separate explicit first-run app installation; do not overwrite existing installation or run privileged configuration flags."
+  },
+  "trusted_bundle_paths": {
+    "docker": "Contents/Resources/bin/docker",
+    "compose_plugin": "Contents/Resources/cli-plugins/docker-compose"
+  },
+  "daemon_context_note": "Official non-privileged setup may use desktop-linux and the current user Unix socket instead of /var/run/docker.sock. Resolve a verified local Unix endpoint; do not accept arbitrary DOCKER_HOST or remote contexts.",
+  "newer_release_at_audit": {
+    "version": "4.94.0",
+    "release_date": "2026-10-05",
+    "source": "https://docs.docker.com/desktop/release-notes/#4940",
+    "decision": "This candidate pins the already-tested 4.80.0 source, not the newest release; no automatic upgrade of an existing installation."
+  },
+  "scope": "Mac Apple Silicon first-run software environment preparation candidate; no Linux install, D1 SDK, robot or motion verification.",
+  "evidence": [
+    {
+      "path": "work/setup-evidence/backend-final-mypy.log",
+      "sha256": "e317872697c2cbfdefa321527a6efe73290dff3a390b0fa8723b87092eccba6a",
+      "size_bytes": 43
+    },
+    {
+      "path": "work/setup-evidence/backend-final-python310.log",
+      "sha256": "8cc15382e5874aa57bf4f8b7465a90619c53a67d03d5e9144399ea38e9c7bc1b",
+      "size_bytes": 99
+    },
+    {
+      "path": "work/setup-evidence/backend-final-python312.log",
+      "sha256": "8cc15382e5874aa57bf4f8b7465a90619c53a67d03d5e9144399ea38e9c7bc1b",
+      "size_bytes": 99
+    },
+    {
+      "path": "work/setup-evidence/backend-final-ruff.log",
+      "sha256": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18",
+      "size_bytes": 19
+    },
+    {
+      "path": "work/setup-evidence/core-green.log",
+      "sha256": "9f4f001366722a949cc6a677081dd1118062017e3a7aef915ee4f181a445bd30",
+      "size_bytes": 99
+    },
+    {
+      "path": "work/setup-evidence/docker-4.80.0-arm64-checksums.txt",
+      "sha256": "6dbb607b2d4cb83477b6a9c6d3275d0189deab3b1eeaefd87a599f86cad0cd8e",
+      "size_bytes": 77
+    },
+    {
+      "path": "work/setup-evidence/docker-4.80.0-arm64-download.log",
+      "sha256": "cd88bc0bc019b5f204397d6ec4f469043214e235d10e6259c8a2f8356bad582f",
+      "size_bytes": 89
+    },
+    {
+      "path": "work/setup-evidence/docker-4.80.0-arm64-head.txt",
+      "sha256": "523047872fbddc3fb90a327318ac6b39e8684e230954be135e88b95139002f96",
+      "size_bytes": 499
+    },
+    {
+      "path": "work/setup-evidence/docker-desktop-mac-install.html",
+      "sha256": "0ec60e0ca6b6d097ff8b4c7df27420fa28221a4dfb0011ab5a55a4192c942045",
+      "size_bytes": 547681
+    },
+    {
+      "path": "work/setup-evidence/docker-desktop-mac-permissions.html",
+      "sha256": "c81c9f993d80d4b982eeb2a1d7efb6b9c79f33e530156f8b8c0ed8602694dc83",
+      "size_bytes": 532052
+    },
+    {
+      "path": "work/setup-evidence/docker-desktop-release-notes.html",
+      "sha256": "2e00b06bf20344630e6498af2cf7813cc21eb8294f3a66b836fd732b60dd8fa7",
+      "size_bytes": 1190085
+    },
+    {
+      "path": "work/setup-evidence/docker-dmg-app-codesign-display.stderr",
+      "sha256": "e893638b49c95d461b6287856dd94d500a9117037a23c00469885859292e2e46",
+      "size_bytes": 1185
+    },
+    {
+      "path": "work/setup-evidence/docker-dmg-app-codesign-display.stdout",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size_bytes": 0
+    },
+    {
+      "path": "work/setup-evidence/docker-dmg-app-codesign-verify.stderr",
+      "sha256": "08d532dc6066c5fd650fa9cf62919404cd41391bd54b3f6f73bb2354a8cdba16",
+      "size_bytes": 8864
+    },
+    {
+      "path": "work/setup-evidence/docker-dmg-app-codesign-verify.stdout",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size_bytes": 0
+    },
+    {
+      "path": "work/setup-evidence/docker-dmg-app-spctl.stderr",
+      "sha256": "d742b304187c03c55d2668f1655fabe14ac9bb01d134762dce85e530e21e7623",
+      "size_bytes": 177
+    },
+    {
+      "path": "work/setup-evidence/docker-dmg-app-spctl.stdout",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size_bytes": 0
+    },
+    {
+      "path": "work/setup-evidence/docker-dmg-attach-readonly.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size_bytes": 0
+    },
+    {
+      "path": "work/setup-evidence/docker-dmg-attach-readonly.stdout",
+      "sha256": "e9420261a1506e34758fb2ff791fa21654aa613d87742a283c778b30e683332a",
+      "size_bytes": 1318
+    },
+    {
+      "path": "work/setup-evidence/docker-dmg-detach-owned.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size_bytes": 0
+    },
+    {
+      "path": "work/setup-evidence/docker-dmg-detach-owned.stdout",
+      "sha256": "f381e88f14e433e0ac4d016249b008db54d530626074bbab7dfdd8d4592ab51a",
+      "size_bytes": 17
+    },
+    {
+      "path": "work/setup-evidence/docker-dmg-hdiutil-verify.stderr",
+      "sha256": "20a0677c7de3869ec55df05a3c6deb8586f83b6a38575b87567ed81e1b7df43b",
+      "size_bytes": 168
+    },
+    {
+      "path": "work/setup-evidence/docker-dmg-hdiutil-verify.stdout",
+      "sha256": "53bde72055c7983b92c4f1bcbe730754d9622cf7c6f1d5c306331943b445df21",
+      "size_bytes": 1221
+    },
+    {
+      "path": "work/setup-evidence/docker-dmg-range-tail-head.txt",
+      "sha256": "8f9def59955cc17a3ab749ff65c5727e22ba63be7e8f167e4203ee3c98c04a0d",
+      "size_bytes": 537
+    },
+    {
+      "path": "work/setup-evidence/docker-dmg-range-tail.log",
+      "sha256": "5c847a8fb761898327ffb516eb2d8c683fb733da579cc19ac2478a9ba2b74e4a",
+      "size_bytes": 103
+    },
+    {
+      "path": "work/setup-evidence/docker-dmg-readonly-commands.json",
+      "sha256": "a5d19f53634f66006f3491e029d4a1890109c65e78d9950cf7febe9ba9fc9106",
+      "size_bytes": 2824
+    },
+    {
+      "path": "work/setup-evidence/docker-dmg-readonly-results.json",
+      "sha256": "2703ea6b5b0c4bd86a74e8aa87ede509ebe7bb9485fb9e25b3a277c4874bbf29",
+      "size_bytes": 592
+    },
+    {
+      "path": "work/setup-evidence/docker-dmg-readonly-verification.log",
+      "sha256": "d24196c47158187aad3e215fd46c66d9a90c80d0b9b86621085c79afb83e574c",
+      "size_bytes": 128
+    },
+    {
+      "path": "work/setup-evidence/docker-dmg-stapler.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size_bytes": 0
+    },
+    {
+      "path": "work/setup-evidence/docker-dmg-stapler.stdout",
+      "sha256": "4cccc536b207f7939b7bd009ffbc83753be37182e10c699b5cf943beb887e7f9",
+      "size_bytes": 168
+    },
+    {
+      "path": "work/setup-evidence/docker-existing-app-codesign-verify-fixed.stderr",
+      "sha256": "830f782ba843b95878915a9319e15db96d5ca96ceaf60a345b6f3aaae13ed502",
+      "size_bytes": 4048
+    },
+    {
+      "path": "work/setup-evidence/docker-existing-app-codesign-verify-fixed.stdout",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size_bytes": 0
+    },
+    {
+      "path": "work/setup-evidence/docker-existing-app-codesign-verify.stderr",
+      "sha256": "7f247910af984087159ca0b1d4fe44df98641266c3059bf175b882b8472c6ccf",
+      "size_bytes": 165
+    },
+    {
+      "path": "work/setup-evidence/docker-existing-app-codesign-verify.stdout",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size_bytes": 0
+    },
+    {
+      "path": "work/setup-evidence/docker-existing-app-signature.stderr",
+      "sha256": "d688e62b0b0cdc70b6beb1b8b186c163c864ea3d0f79a1e0adb6748db680fe8f",
+      "size_bytes": 1073
+    },
+    {
+      "path": "work/setup-evidence/docker-existing-app-signature.stdout",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size_bytes": 0
+    },
+    {
+      "path": "work/setup-evidence/docker-existing-app-spctl.stderr",
+      "sha256": "a1b6867e4fc5d8a51d2a18d337c017f513c66b935f541abd1dd219c3d5285256",
+      "size_bytes": 65
+    },
+    {
+      "path": "work/setup-evidence/docker-existing-app-spctl.stdout",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size_bytes": 0
+    },
+    {
+      "path": "work/setup-evidence/docker-existing-app-stapler.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size_bytes": 0
+    },
+    {
+      "path": "work/setup-evidence/docker-existing-app-stapler.stdout",
+      "sha256": "0065ecf95b3291d0dd9ea84a7ef9a5667d1627c761879f5894f94efca02ce1ab",
+      "size_bytes": 86
+    },
+    {
+      "path": "work/setup-evidence/docker-head-bundled-python.json",
+      "sha256": "54c8763004fcab4fde685778da5936dba0f9299cd8fdca422affa2b08336b392",
+      "size_bytes": 294
+    },
+    {
+      "path": "work/setup-evidence/docker-source-metadata-check.json",
+      "sha256": "f4502578953e8c80e8eb5a6a30a0332e39a49bab2491e95570f04739111f1dbc",
+      "size_bytes": 224
+    },
+    {
+      "path": "work/setup-evidence/docker-subscription-service-agreement.html",
+      "sha256": "94d14dd551d645218bad87396adb0ef0fec6fdf447eabae4e7f3a8eabfb7fba8",
+      "size_bytes": 276250
+    },
+    {
+      "path": "work/setup-evidence/download-green.log",
+      "sha256": "74a9f4f9259985abd8c51e87abbd6304e7372b6398fff4673cab10bc05c34141",
+      "size_bytes": 99
+    },
+    {
+      "path": "work/setup-evidence/download-red.log",
+      "sha256": "91eeec2db9b8e1fe2b8b14744b854bfb9178536a70610864c1391e6a21db701e",
+      "size_bytes": 1013
+    },
+    {
+      "path": "work/setup-evidence/endpoint-green.log",
+      "sha256": "48c5696fc05812f4fa3fb6a8c8b8374820243316710b456ba8d038effb5655cf",
+      "size_bytes": 98
+    },
+    {
+      "path": "work/setup-evidence/endpoint-red.log",
+      "sha256": "64a3e05a9ac0266cd653ebdf66fd5163c31a471c1b2cefe85dd072d20ccc9f8b",
+      "size_bytes": 2999
+    },
+    {
+      "path": "work/setup-evidence/endpoint-transport-green.log",
+      "sha256": "56be00ae774c50626cb1808a467dc5b850e6111db4ac19cad90b31575a816441",
+      "size_bytes": 911
+    },
+    {
+      "path": "work/setup-evidence/endpoint-transport-red.log",
+      "sha256": "c34fc743427aad64de742ae359bab93d6566cdfdf249202eb9139f7c5327f2a9",
+      "size_bytes": 667
+    },
+    {
+      "path": "work/setup-evidence/hdiutil-attach-help.txt",
+      "sha256": "a30b388e254233317fdb2d526daf97094cae746cd50a0905a6f2f901038db317",
+      "size_bytes": 1075
+    },
+    {
+      "path": "work/setup-evidence/installer-green.log",
+      "sha256": "3d92a3a8f179e568c4573609c7246adffbf3ff4608374443cc68ff6e4e8bdf3a",
+      "size_bytes": 99
+    },
+    {
+      "path": "work/setup-evidence/installer-red.log",
+      "sha256": "6732e6bf3afbd74adab550bb42b8e84d8d923238e47756b5024c3d1e50bdae39",
+      "size_bytes": 1025
+    },
+    {
+      "path": "work/setup-evidence/manager-green.log",
+      "sha256": "cafda27abcf6306fc19ccfa890e594dd8447fa44a3f2438a6f782807d3e62639",
+      "size_bytes": 609
+    },
+    {
+      "path": "work/setup-evidence/manager-red.log",
+      "sha256": "c267ac8c045f41f59b8df806d99a83b030baa74eb69656aba30d837d6ecf3946",
+      "size_bytes": 1001
+    },
+    {
+      "path": "work/setup-evidence/native-cancellation-green.log",
+      "sha256": "5e0531d5616f17d2bd825f9f2a377d586c20a18eceeef3c5b9ca027168d2169b",
+      "size_bytes": 99
+    },
+    {
+      "path": "work/setup-evidence/recovery-review-green.log",
+      "sha256": "c0454ff5e8b2315284543af1b92e4979a1cc2749edf009d01e72e09a13b314e9",
+      "size_bytes": 99
+    },
+    {
+      "path": "work/setup-evidence/recovery-review-red.log",
+      "sha256": "658ac6740aacf7df5fdaf81111bf325b0b06396a2ec93c3ca62a1556b905906e",
+      "size_bytes": 3735
+    },
+    {
+      "path": "work/setup-evidence/runtime-api-green.log",
+      "sha256": "549382ad279450af426155555f4393fbda60e916b629a27e924475be124aeae4",
+      "size_bytes": 98
+    },
+    {
+      "path": "work/setup-evidence/runtime-api-red.log",
+      "sha256": "789668301ad7b380e491d40c480b00f0a2d26dcf41dd8efcd730c2cc8c26ccef",
+      "size_bytes": 4706
+    },
+    {
+      "path": "work/setup-evidence/status-contract-green.log",
+      "sha256": "66701254ea553a2ac628741e7c6b684d4f510d1e339a51685f5977a58ca0143f",
+      "size_bytes": 99
+    },
+    {
+      "path": "work/setup-evidence/status-contract-red.log",
+      "sha256": "75189db9b1a933e1237fe19e8757473c9abea553130b5c364b15748bbdf9a21b",
+      "size_bytes": 5557
+    }
+  ]
+}

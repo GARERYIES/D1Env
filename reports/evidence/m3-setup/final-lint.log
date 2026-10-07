@@ -1,0 +1,11 @@
+BLE001 Do not catch blind exception: `Exception`
+  --> tests/test_setup_state_races.py:46:16
+   |
+44 |         try:
+45 |             results.append(manager.get(task_id))
+46 |         except Exception as exc:
+   |                ^^^^^^^^^
+47 |             errors.append(exc)
+   |
+
+Found 1 error.

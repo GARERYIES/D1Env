@@ -1,0 +1,13 @@
+
+> d1env-frontend@0.1.0 test
+> vitest --run tests/unit/RuntimeSetup.test.tsx
+
+
+ RUN  v5.0.3 <workspace>/frontend
+
+
+ Test Files  1 passed (1)
+      Tests  23 passed (23)
+   Start at  12:54:38
+   Duration  2.86s (tests 80%, environment 10%, transform 5%, setup 3%, import 2%)
+

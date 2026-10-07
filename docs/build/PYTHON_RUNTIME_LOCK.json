@@ -1,0 +1,31 @@
+{
+  "schema_version": 1,
+  "kind": "d1env_python_runtime_source",
+  "retrieval_status": "verified",
+  "python_version": "3.10.20",
+  "platform": "macos",
+  "architecture": "aarch64",
+  "download_url": "https://github.com/astral-sh/python-build-standalone/releases/download/20260610/cpython-3.10.20%2B20260610-aarch64-apple-darwin-install_only.tar.gz",
+  "download_archive_sha256": "4aa071f9e00ad21576b932c0fc77be9d7766161e7381772d583620336ac05981",
+  "download_archive_size_bytes": 25979957,
+  "runtime_source_tree_sha256": "76f8cd2af2954a92bb3cca0e9b9581ba9f4035220908485e454c607f0a9b9fda",
+  "tree_hash_algorithm": "SHA256 of json.dumps(non-directory records sorted by pathlib.Path components, sort_keys=True).encode(); records contain path, type=file|symlink, size_bytes, sha256, mode. Archive file permissions use tarfile data-filter policy; symbolic link modes exclude group/world writes. Runtime root is python/.",
+  "build_tool_repository": "https://github.com/astral-sh/python-build-standalone",
+  "build_tool_tag": "20260610",
+  "build_tool_commit": "f1d7b92301235781d4de2493578773aaa413c0a5",
+  "cpython_source_commit": null,
+  "commit_scope": "build_tool_commit identifies python-build-standalone; no CPython source commit is inferred",
+  "licenses": {
+    "retrieval_status": "partial_blocked",
+    "included_python_license": "runtime/lib/python3.10/LICENSE.txt",
+    "bundled_library_license_completeness": "blocked",
+    "reason": "The actual Python license is retained; exhaustive license records for bundled dynamic libraries and redistribution legal review have not been completed."
+  },
+  "evidence": [
+    "work/evidence/m3-python-runtime-download.log",
+    "work/evidence/m3-python-runtime-gitref.json",
+    "work/evidence/m3-python-runtime-extract-green.json"
+  ],
+  "release_signature_verified": false,
+  "scope": "native macos aarch64 software-tool candidate; not Linux or robot verification"
+}

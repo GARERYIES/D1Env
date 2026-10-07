@@ -1,0 +1,25 @@
+........FFFF                                                             [100%]
+=================================== FAILURES ===================================
+_________ test_path_cli_without_legacy_socket_uses_desktop_user_socket _________
+tests/test_docker_endpoint.py:118: in test_path_cli_without_legacy_socket_uses_desktop_user_socket
+    connection.bind(str(sock))
+E   OSError: AF_UNIX path too long
+_____________ test_signature_cache_rechecks_directory_permissions ______________
+tests/test_docker_endpoint.py:144: in test_signature_cache_rechecks_directory_permissions
+    with pytest.raises(ValueError, match='DOCKER_APP_UNVERIFIED'):
+E   Failed: DID NOT RAISE ValueError
+____________ test_signature_cache_rechecks_changed_nested_component ____________
+tests/test_docker_endpoint.py:164: in test_signature_cache_rechecks_changed_nested_component
+    assert len(calls) == 4
+E   assert 2 == 4
+E    +  where 2 = len([(('/usr/bin/codesign', '--verify', '--deep', '--strict', '-R', '=identifier "com.docker.docker" and anchor apple gene...rs/n0/ngc5_hb938q3s5cth4c559z80000gn/T/pytest-of-yangwucheng/pytest-214/test_signature_cache_rechecks_1/Docker.app'),)])
+__________________ test_application_outer_symlink_is_rejected __________________
+tests/test_docker_endpoint.py:174: in test_application_outer_symlink_is_rejected
+    with pytest.raises(ValueError, match='DOCKER_APP_UNVERIFIED'):
+E   Failed: DID NOT RAISE ValueError
+=========================== short test summary info ============================
+FAILED tests/test_docker_endpoint.py::test_path_cli_without_legacy_socket_uses_desktop_user_socket
+FAILED tests/test_docker_endpoint.py::test_signature_cache_rechecks_directory_permissions
+FAILED tests/test_docker_endpoint.py::test_signature_cache_rechecks_changed_nested_component
+FAILED tests/test_docker_endpoint.py::test_application_outer_symlink_is_rejected
+4 failed, 8 passed in 0.25s

@@ -1,0 +1,10 @@
+..........................................................F........      [100%]
+=================================== FAILURES ===================================
+_______ test_actual_child_process_output_timeout_and_cancel_are_bounded ________
+tests/test_docker_executor.py:414: in test_actual_child_process_output_timeout_and_cancel_are_bounded
+    assert result.returncode == 0 and not result.timed_out
+E   assert (None == 0)
+E    +  where None = DockerCommand(argv=('docker', '--context', 'default', 'info', '--format', '{"OSType":{{json .OSType}},"Architecture":{...xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\n[TRUNCATED]', stderr='', timed_out=True, cancelled=False).returncode
+=========================== short test summary info ============================
+FAILED tests/test_docker_executor.py::test_actual_child_process_output_timeout_and_cancel_are_bounded
+1 failed, 66 passed in 6.00s

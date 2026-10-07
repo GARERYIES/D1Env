@@ -1,0 +1,43 @@
+--prepared:/Applications/Docker.app/Contents/MacOS/Docker Desktop.app
+--prepared:/Applications/Docker.app/Contents/MacOS/com.docker.socket
+--validated:/Applications/Docker.app/Contents/MacOS/com.docker.socket
+--prepared:/Applications/Docker.app/Contents/MacOS/Docker Desktop.app/Contents/Frameworks/Docker Desktop Helper (Renderer).app
+--validated:/Applications/Docker.app/Contents/MacOS/Docker Desktop.app/Contents/Frameworks/Docker Desktop Helper (Renderer).app
+--prepared:/Applications/Docker.app/Contents/MacOS/Docker Desktop.app/Contents/Frameworks/ReactiveObjC.framework/Versions/Current/.
+--validated:/Applications/Docker.app/Contents/MacOS/Docker Desktop.app/Contents/Frameworks/ReactiveObjC.framework/Versions/Current/.
+--prepared:/Applications/Docker.app/Contents/MacOS/Docker Desktop.app/Contents/Frameworks/Squirrel.framework/Versions/Current/.
+--validated:/Applications/Docker.app/Contents/MacOS/Docker Desktop.app/Contents/Frameworks/Squirrel.framework/Versions/Current/.
+--prepared:/Applications/Docker.app/Contents/MacOS/qemu-img
+--validated:/Applications/Docker.app/Contents/MacOS/qemu-img
+--prepared:/Applications/Docker.app/Contents/MacOS/Docker Desktop.app/Contents/Frameworks/Docker Desktop Helper.app
+--validated:/Applications/Docker.app/Contents/MacOS/Docker Desktop.app/Contents/Frameworks/Docker Desktop Helper.app
+--prepared:/Applications/Docker.app/Contents/MacOS/Docker Desktop.app/Contents/Frameworks/Mantle.framework/Versions/Current/.
+--validated:/Applications/Docker.app/Contents/MacOS/Docker Desktop.app/Contents/Frameworks/Mantle.framework/Versions/Current/.
+--prepared:/Applications/Docker.app/Contents/MacOS/Docker Desktop.app/Contents/Frameworks/Docker Desktop Helper (GPU).app
+--validated:/Applications/Docker.app/Contents/MacOS/Docker Desktop.app/Contents/Frameworks/Docker Desktop Helper (GPU).app
+--prepared:/Applications/Docker.app/Contents/MacOS/Docker Desktop.app/Contents/Frameworks/Docker Desktop Helper (Plugin).app
+--validated:/Applications/Docker.app/Contents/MacOS/Docker Desktop.app/Contents/Frameworks/Docker Desktop Helper (Plugin).app
+--prepared:/Applications/Docker.app/Contents/MacOS/com.docker.sailor
+--validated:/Applications/Docker.app/Contents/MacOS/com.docker.sailor
+--prepared:/Applications/Docker.app/Contents/MacOS/com.docker.krun
+--validated:/Applications/Docker.app/Contents/MacOS/com.docker.krun
+--prepared:/Applications/Docker.app/Contents/MacOS/com.docker.virtualization
+--validated:/Applications/Docker.app/Contents/MacOS/com.docker.virtualization
+--prepared:/Applications/Docker.app/Contents/Library/LoginItems/DockerHelper.app
+--validated:/Applications/Docker.app/Contents/Library/LoginItems/DockerHelper.app
+--prepared:/Applications/Docker.app/Contents/MacOS/install
+--validated:/Applications/Docker.app/Contents/MacOS/install
+--prepared:/Applications/Docker.app/Contents/MacOS/com.docker.diagnose
+--validated:/Applications/Docker.app/Contents/MacOS/com.docker.diagnose
+--prepared:/Applications/Docker.app/Contents/MacOS/com.docker.build
+--validated:/Applications/Docker.app/Contents/MacOS/com.docker.build
+--prepared:/Applications/Docker.app/Contents/MacOS/uninstall
+--validated:/Applications/Docker.app/Contents/MacOS/uninstall
+--prepared:/Applications/Docker.app/Contents/MacOS/Docker Desktop.app/Contents/Frameworks/Electron Framework.framework/Versions/Current/.
+--prepared:/Applications/Docker.app/Contents/MacOS/Docker Desktop.app/Contents/Frameworks/Electron Framework.framework/Versions/Current/Helpers/chrome_crashpad_handler
+--validated:/Applications/Docker.app/Contents/MacOS/Docker Desktop.app/Contents/Frameworks/Electron Framework.framework/Versions/Current/Helpers/chrome_crashpad_handler
+--validated:/Applications/Docker.app/Contents/MacOS/Docker Desktop.app/Contents/Frameworks/Electron Framework.framework/Versions/Current/.
+--validated:/Applications/Docker.app/Contents/MacOS/Docker Desktop.app
+/Applications/Docker.app: valid on disk
+/Applications/Docker.app: satisfies its Designated Requirement
+/Applications/Docker.app: explicit requirement satisfied

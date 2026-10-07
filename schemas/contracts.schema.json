@@ -115,6 +115,7 @@
           "kind": {
             "enum": [
               "mock",
+              "software",
               "hardware"
             ],
             "title": "Kind",
@@ -482,6 +483,7 @@
       "kind": {
         "enum": [
           "mock",
+          "software",
           "hardware"
         ],
         "title": "Kind",
@@ -633,6 +635,7 @@
         "default": "mock",
         "enum": [
           "mock",
+          "software_test",
           "real_readonly"
         ],
         "title": "Mode",
@@ -654,7 +657,8 @@
         "default": "demo",
         "enum": [
           "demo",
-          "diagnostics"
+          "diagnostics",
+          "ros_probe"
         ],
         "title": "Task",
         "type": "string"
@@ -666,6 +670,15 @@
           "verify_failure"
         ],
         "title": "Demo Scenario",
+        "type": "string"
+      },
+      "probe_scenario": {
+        "default": "success",
+        "enum": [
+          "success",
+          "no_publisher"
+        ],
+        "title": "Probe Scenario",
         "type": "string"
       }
     },
@@ -799,6 +812,42 @@
         },
         "title": "Interfaces",
         "type": "array"
+      },
+      "docker_os": {
+        "anyOf": [
+          {
+            "type": "string"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "default": null,
+        "title": "Docker Os"
+      },
+      "docker_architecture": {
+        "anyOf": [
+          {
+            "type": "string"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "default": null,
+        "title": "Docker Architecture"
+      },
+      "docker_version": {
+        "anyOf": [
+          {
+            "type": "string"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "default": null,
+        "title": "Docker Version"
       }
     },
     "required": [
@@ -881,6 +930,61 @@
   },
   "PlanResolution": {
     "$defs": {
+      "ArtifactRef": {
+        "additionalProperties": false,
+        "properties": {
+          "kind": {
+            "enum": [
+              "mock",
+              "registry",
+              "local_build"
+            ],
+            "title": "Kind",
+            "type": "string"
+          },
+          "source": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "title": "Source"
+          },
+          "architecture": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "title": "Architecture"
+          },
+          "immutable_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "title": "Immutable Id"
+          }
+        },
+        "required": [
+          "kind"
+        ],
+        "title": "ArtifactRef",
+        "type": "object"
+      },
       "Blocker": {
         "additionalProperties": false,
         "properties": {
@@ -927,6 +1031,7 @@
           "mode": {
             "enum": [
               "mock",
+              "software_test",
               "real_readonly"
             ],
             "title": "Mode",
@@ -956,7 +1061,10 @@
             "type": "array"
           },
           "verified_scope": {
-            "const": "mock",
+            "enum": [
+              "mock",
+              "software"
+            ],
             "title": "Verified Scope",
             "type": "string"
           },
@@ -1014,8 +1122,11 @@
             "type": "array"
           },
           "network": {
-            "const": "none",
             "default": "none",
+            "enum": [
+              "none",
+              "project_internal"
+            ],
             "title": "Network",
             "type": "string"
           }
@@ -1041,6 +1152,7 @@
             "default": "mock",
             "enum": [
               "mock",
+              "software_test",
               "real_readonly"
             ],
             "title": "Mode",
@@ -1062,7 +1174,8 @@
             "default": "demo",
             "enum": [
               "demo",
-              "diagnostics"
+              "diagnostics",
+              "ros_probe"
             ],
             "title": "Task",
             "type": "string"
@@ -1074,6 +1187,15 @@
               "verify_failure"
             ],
             "title": "Demo Scenario",
+            "type": "string"
+          },
+          "probe_scenario": {
+            "default": "success",
+            "enum": [
+              "success",
+              "no_publisher"
+            ],
+            "title": "Probe Scenario",
             "type": "string"
           }
         },
@@ -1088,8 +1210,11 @@
             "type": "string"
           },
           "kind": {
-            "const": "mock_step",
             "default": "mock_step",
+            "enum": [
+              "mock_step",
+              "docker_step"
+            ],
             "title": "Kind",
             "type": "string"
           },
@@ -1100,7 +1225,7 @@
           "timeout_s": {
             "default": 5.0,
             "exclusiveMinimum": 0,
-            "maximum": 60,
+            "maximum": 600,
             "title": "Timeout S",
             "type": "number"
           },
@@ -1116,6 +1241,26 @@
             },
             "title": "Required Evidence",
             "type": "array"
+          },
+          "artifact": {
+            "anyOf": [
+              {
+                "$ref": "#/$defs/ArtifactRef"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null
+          },
+          "probe_scenario": {
+            "default": "success",
+            "enum": [
+              "success",
+              "no_publisher"
+            ],
+            "title": "Probe Scenario",
+            "type": "string"
           }
         },
         "required": [
@@ -1152,6 +1297,61 @@
   },
   "DeploymentPlan": {
     "$defs": {
+      "ArtifactRef": {
+        "additionalProperties": false,
+        "properties": {
+          "kind": {
+            "enum": [
+              "mock",
+              "registry",
+              "local_build"
+            ],
+            "title": "Kind",
+            "type": "string"
+          },
+          "source": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "title": "Source"
+          },
+          "architecture": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "title": "Architecture"
+          },
+          "immutable_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "title": "Immutable Id"
+          }
+        },
+        "required": [
+          "kind"
+        ],
+        "title": "ArtifactRef",
+        "type": "object"
+      },
       "DeploymentRequest": {
         "additionalProperties": false,
         "properties": {
@@ -1159,6 +1359,7 @@
             "default": "mock",
             "enum": [
               "mock",
+              "software_test",
               "real_readonly"
             ],
             "title": "Mode",
@@ -1180,7 +1381,8 @@
             "default": "demo",
             "enum": [
               "demo",
-              "diagnostics"
+              "diagnostics",
+              "ros_probe"
             ],
             "title": "Task",
             "type": "string"
@@ -1192,6 +1394,15 @@
               "verify_failure"
             ],
             "title": "Demo Scenario",
+            "type": "string"
+          },
+          "probe_scenario": {
+            "default": "success",
+            "enum": [
+              "success",
+              "no_publisher"
+            ],
+            "title": "Probe Scenario",
             "type": "string"
           }
         },
@@ -1206,8 +1417,11 @@
             "type": "string"
           },
           "kind": {
-            "const": "mock_step",
             "default": "mock_step",
+            "enum": [
+              "mock_step",
+              "docker_step"
+            ],
             "title": "Kind",
             "type": "string"
           },
@@ -1218,7 +1432,7 @@
           "timeout_s": {
             "default": 5.0,
             "exclusiveMinimum": 0,
-            "maximum": 60,
+            "maximum": 600,
             "title": "Timeout S",
             "type": "number"
           },
@@ -1234,6 +1448,26 @@
             },
             "title": "Required Evidence",
             "type": "array"
+          },
+          "artifact": {
+            "anyOf": [
+              {
+                "$ref": "#/$defs/ArtifactRef"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null
+          },
+          "probe_scenario": {
+            "default": "success",
+            "enum": [
+              "success",
+              "no_publisher"
+            ],
+            "title": "Probe Scenario",
+            "type": "string"
           }
         },
         "required": [
@@ -1253,6 +1487,7 @@
       "mode": {
         "enum": [
           "mock",
+          "software_test",
           "real_readonly"
         ],
         "title": "Mode",
@@ -1282,7 +1517,10 @@
         "type": "array"
       },
       "verified_scope": {
-        "const": "mock",
+        "enum": [
+          "mock",
+          "software"
+        ],
         "title": "Verified Scope",
         "type": "string"
       },
@@ -1340,8 +1578,11 @@
         "type": "array"
       },
       "network": {
-        "const": "none",
         "default": "none",
+        "enum": [
+          "none",
+          "project_internal"
+        ],
         "title": "Network",
         "type": "string"
       }
@@ -1361,6 +1602,63 @@
     "type": "object"
   },
   "Operation": {
+    "$defs": {
+      "ArtifactRef": {
+        "additionalProperties": false,
+        "properties": {
+          "kind": {
+            "enum": [
+              "mock",
+              "registry",
+              "local_build"
+            ],
+            "title": "Kind",
+            "type": "string"
+          },
+          "source": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "title": "Source"
+          },
+          "architecture": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "title": "Architecture"
+          },
+          "immutable_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "title": "Immutable Id"
+          }
+        },
+        "required": [
+          "kind"
+        ],
+        "title": "ArtifactRef",
+        "type": "object"
+      }
+    },
     "additionalProperties": false,
     "properties": {
       "operation_id": {
@@ -1368,8 +1666,11 @@
         "type": "string"
       },
       "kind": {
-        "const": "mock_step",
         "default": "mock_step",
+        "enum": [
+          "mock_step",
+          "docker_step"
+        ],
         "title": "Kind",
         "type": "string"
       },
@@ -1380,7 +1681,7 @@
       "timeout_s": {
         "default": 5.0,
         "exclusiveMinimum": 0,
-        "maximum": 60,
+        "maximum": 600,
         "title": "Timeout S",
         "type": "number"
       },
@@ -1396,6 +1697,26 @@
         },
         "title": "Required Evidence",
         "type": "array"
+      },
+      "artifact": {
+        "anyOf": [
+          {
+            "$ref": "#/$defs/ArtifactRef"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "default": null
+      },
+      "probe_scenario": {
+        "default": "success",
+        "enum": [
+          "success",
+          "no_publisher"
+        ],
+        "title": "Probe Scenario",
+        "type": "string"
       }
     },
     "required": [
@@ -1425,8 +1746,11 @@
         "type": "string"
       },
       "origin": {
-        "const": "mock",
         "default": "mock",
+        "enum": [
+          "mock",
+          "docker"
+        ],
         "title": "Origin",
         "type": "string"
       },
@@ -1470,6 +1794,9 @@
     "type": "object"
   },
   "JobSnapshot": {
+    "$defs": {
+      "JsonValue": {}
+    },
     "additionalProperties": false,
     "properties": {
       "job_id": {
@@ -1488,6 +1815,7 @@
       "mode": {
         "enum": [
           "mock",
+          "software_test",
           "real_readonly"
         ],
         "title": "Mode",
@@ -1511,7 +1839,10 @@
         "type": "string"
       },
       "verified_scope": {
-        "const": "mock",
+        "enum": [
+          "mock",
+          "software"
+        ],
         "title": "Verified Scope",
         "type": "string"
       },
@@ -1548,6 +1879,25 @@
         ],
         "default": null,
         "title": "Error Code"
+      },
+      "current_software_ready": {
+        "anyOf": [
+          {
+            "type": "boolean"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "default": null,
+        "title": "Current Software Ready"
+      },
+      "current_health_evidence": {
+        "additionalProperties": {
+          "$ref": "#/$defs/JsonValue"
+        },
+        "title": "Current Health Evidence",
+        "type": "object"
       }
     },
     "required": [
@@ -1602,13 +1952,17 @@
       "mode": {
         "enum": [
           "mock",
+          "software_test",
           "real_readonly"
         ],
         "title": "Mode",
         "type": "string"
       },
       "origin": {
-        "const": "mock",
+        "enum": [
+          "mock",
+          "docker"
+        ],
         "title": "Origin",
         "type": "string"
       },
@@ -1701,13 +2055,17 @@
       "mode": {
         "enum": [
           "mock",
+          "software_test",
           "real_readonly"
         ],
         "title": "Mode",
         "type": "string"
       },
       "verified_scope": {
-        "const": "mock",
+        "enum": [
+          "mock",
+          "software"
+        ],
         "title": "Verified Scope",
         "type": "string"
       },

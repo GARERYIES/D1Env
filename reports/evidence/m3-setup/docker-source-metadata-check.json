@@ -1,0 +1,9 @@
+{
+  "exit_code": 0,
+  "status": "verified",
+  "official_release_links_match": true,
+  "official_checksum_matches": true,
+  "official_head_size_matches": true,
+  "installer_run": false,
+  "docker_started_or_stopped": false
+}

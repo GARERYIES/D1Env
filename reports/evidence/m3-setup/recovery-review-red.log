@@ -1,0 +1,60 @@
+F..........................FF...............................FFF...       [100%]
+=================================== FAILURES ===================================
+________ test_download_streams_verifies_and_reuses_only_complete_cache _________
+tests/test_setup_download.py:55: in test_download_streams_verifies_and_reuses_only_complete_cache
+    assert not result.exists()  # Only the invalid private cache is invalidated.
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^
+E   AssertionError: assert not True
+E    +  where True = exists()
+E    +    where exists = PosixPath('<REDACTED_TEMP_DIR>').exists
+__________ test_failed_unmount_is_failure_and_preserves_installed_app __________
+tests/test_setup_installer.py:145: in test_failed_unmount_is_failure_and_preserves_installed_app
+    with pytest.raises(SetupError, match="INSTALLER_UNMOUNT_FAILED"):
+E   Failed: DID NOT RAISE SetupError
+___________ test_group_writable_existing_application_is_not_launched ___________
+tests/test_setup_installer.py:155: in test_group_writable_existing_application_is_not_launched
+    with pytest.raises(SetupError, match="INSTALLER_APP_UNSAFE"):
+E   Failed: DID NOT RAISE SetupError
+_________________ test_repeated_key_race_rechecks_under_lease __________________
+tests/test_setup_manager.py:296: in test_repeated_key_race_rechecks_under_lease
+    assert actual["task_id"] == existing["task_id"]
+E   AssertionError: assert 'a7f13e05efca...a2cd1a139e626' == '06e16a483247...9cfd00df1b249'
+E     
+E     - 06e16a4832474b27ad79cfd00df1b249
+E     + a7f13e05efca48459faa2cd1a139e626
+___ test_malformed_readonly_probe_is_unknown_and_never_raises_success[None] ____
+tests/test_setup_manager.py:304: in test_malformed_readonly_probe_is_unknown_and_never_raises_success
+    assert manager.status()["environment_ready"] is None
+           ^^^^^^^^^^^^^^^^
+src/d1env/setup/manager.py:240: in status
+    current = self._current()
+              ^^^^^^^^^^^^^^^
+src/d1env/setup/manager.py:221: in _current
+    docker = self._docker_ready(host)
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+src/d1env/setup/manager.py:202: in _docker_ready
+    if host.get("docker_accessible") is False:
+       ^^^^^^^^
+E   AttributeError: 'NoneType' object has no attribute 'get'
+_ test_malformed_readonly_probe_is_unknown_and_never_raises_success[invalid1] __
+tests/test_setup_manager.py:304: in test_malformed_readonly_probe_is_unknown_and_never_raises_success
+    assert manager.status()["environment_ready"] is None
+           ^^^^^^^^^^^^^^^^
+src/d1env/setup/manager.py:240: in status
+    current = self._current()
+              ^^^^^^^^^^^^^^^
+src/d1env/setup/manager.py:221: in _current
+    docker = self._docker_ready(host)
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+src/d1env/setup/manager.py:202: in _docker_ready
+    if host.get("docker_accessible") is False:
+       ^^^^^^^^
+E   AttributeError: 'list' object has no attribute 'get'
+=========================== short test summary info ============================
+FAILED tests/test_setup_download.py::test_download_streams_verifies_and_reuses_only_complete_cache
+FAILED tests/test_setup_installer.py::test_failed_unmount_is_failure_and_preserves_installed_app
+FAILED tests/test_setup_installer.py::test_group_writable_existing_application_is_not_launched
+FAILED tests/test_setup_manager.py::test_repeated_key_race_rechecks_under_lease
+FAILED tests/test_setup_manager.py::test_malformed_readonly_probe_is_unknown_and_never_raises_success[None]
+FAILED tests/test_setup_manager.py::test_malformed_readonly_probe_is_unknown_and_never_raises_success[invalid1]
+6 failed, 60 passed in 0.53s

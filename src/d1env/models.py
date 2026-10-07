@@ -6,7 +6,8 @@ from typing import Literal
 
 from pydantic import BaseModel, ConfigDict, Field, JsonValue, field_validator, model_validator
 
-Mode = Literal["mock", "real_readonly"]
+Mode = Literal["mock", "software_test", "real_readonly"]
+VerifiedScope = Literal["mock", "software"]
 CheckStatus = Literal["PASS", "WARN", "FAIL", "UNKNOWN", "SKIPPED"]
 EvidenceOrigin = Literal["mock", "local_probe", "docker", "sdk", "operator"]
 JobState = Literal[
@@ -63,7 +64,7 @@ class Profile(StrictModel):
     schema_version: Literal[1] = 1
     profile_id: str = Field(pattern=r"^[a-z0-9][a-z0-9_-]{0,63}$")
     name: str
-    kind: Literal["mock", "hardware"]
+    kind: Literal["mock", "software", "hardware"]
     profile_revision: str
     vendor: str | None
     sdk_family: Literal["edu_ultra_zsl_1", "edu_ultra_zsl_1w", "maxpro_legacy"] | None
@@ -80,8 +81,8 @@ class Profile(StrictModel):
 
     @model_validator(mode="after")
     def separation(self) -> "Profile":
-        if self.kind == "mock" and self.sdk_family is not None:
-            raise ValueError("mock profile cannot select vendor SDK")
+        if self.kind != "hardware" and self.sdk_family is not None:
+            raise ValueError("non-hardware profile cannot select vendor SDK")
         return self
 
 
@@ -101,8 +102,17 @@ class DeploymentRequest(StrictModel):
     mode: Mode = "mock"
     profile_id: str = Field(default="demo", pattern=r"^[a-z0-9][a-z0-9_-]{0,63}$")
     target_id: Literal["local"] = "local"
-    task: Literal["demo", "diagnostics"] = "demo"
+    task: Literal["demo", "diagnostics", "ros_probe"] = "demo"
     demo_scenario: Literal["success", "verify_failure"] = "success"
+    probe_scenario: Literal["success", "no_publisher"] = "success"
+
+    @model_validator(mode="after")
+    def explicit_scenarios(self) -> "DeploymentRequest":
+        if self.mode != "software_test" and self.probe_scenario != "success":
+            raise ValueError("software fault injection requires software_test mode")
+        if self.mode == "software_test" and (self.task != "ros_probe" or self.demo_scenario != "success"):
+            raise ValueError("software_test only supports explicit ros_probe task")
+        return self
 
 
 class HostFacts(StrictModel):
@@ -118,6 +128,9 @@ class HostFacts(StrictModel):
     checked_at: datetime
     docker_error: Literal["missing", "daemon_stopped", "permission_denied", "timeout", "unknown"] | None = None
     interfaces: list[str] = Field(default_factory=list)
+    docker_os: str | None = None
+    docker_architecture: str | None = None
+    docker_version: str | None = None
 
     @field_validator("checked_at")
     @classmethod
@@ -147,11 +160,23 @@ class Blocker(StrictModel):
 class Operation(StrictModel):
     model_config = ConfigDict(extra="forbid", frozen=True)
     operation_id: str
-    kind: Literal["mock_step"] = "mock_step"
+    kind: Literal["mock_step", "docker_step"] = "mock_step"
     label: str
-    timeout_s: float = Field(default=5.0, gt=0, le=60)
+    timeout_s: float = Field(default=5.0, gt=0, le=600)
     reversible: bool = True
     required_evidence: tuple[str, ...] = ()
+    artifact: ArtifactRef | None = None
+    probe_scenario: Literal["success", "no_publisher"] = "success"
+
+    @model_validator(mode="after")
+    def trusted_operation(self) -> "Operation":
+        if self.kind == "mock_step":
+            if self.artifact is not None or self.timeout_s > 60 or self.probe_scenario != "success":
+                raise ValueError("MOCK operation cannot carry real artifact or software parameters")
+        elif (self.artifact is None or self.artifact.kind != "local_build"
+              or self.artifact.source != "d1env/ros-probe"):
+            raise ValueError("Docker operation requires trusted D1Env ROS probe build")
+        return self
 
 
 class DeploymentPlan(StrictModel):
@@ -162,7 +187,7 @@ class DeploymentPlan(StrictModel):
     profile_id: str
     operations: tuple[Operation, ...]
     required_evidence: tuple[str, ...]
-    verified_scope: Literal["mock"]
+    verified_scope: VerifiedScope
     profile_revision: str
     config_digest: str
     request: DeploymentRequest = Field(default_factory=DeploymentRequest)
@@ -170,7 +195,15 @@ class DeploymentPlan(StrictModel):
     directories: tuple[str, ...] = ("项目内的 MOCK 作业目录",)
     services: tuple[str, ...] = ("MOCK 演示 worker",)
     permissions: tuple[str, ...] = ("仅写项目任务数据库与 MOCK 资源",)
-    network: Literal["none"] = "none"
+    network: Literal["none", "project_internal"] = "none"
+
+    @model_validator(mode="after")
+    def scope_matches_mode(self) -> "DeploymentPlan":
+        if ((self.mode == "mock" and self.verified_scope != "mock")
+                or (self.mode == "software_test" and self.verified_scope != "software")
+                or self.mode == "real_readonly"):
+            raise ValueError("plan scope must match implemented execution mode")
+        return self
 
 
 class PlanResolution(StrictModel):
@@ -181,7 +214,7 @@ class PlanResolution(StrictModel):
 class OperationResult(StrictModel):
     operation_id: str
     status: Literal["succeeded", "failed", "cancelled"]
-    origin: Literal["mock"] = "mock"
+    origin: Literal["mock", "docker"] = "mock"
     evidence: dict[str, JsonValue] = Field(default_factory=dict)
     error_code: str | None = None
     message: str
@@ -194,11 +227,13 @@ class JobSnapshot(StrictModel):
     target_id: Literal["local"]
     mode: Mode
     state: JobState
-    verified_scope: Literal["mock"]
+    verified_scope: VerifiedScope
     current_operation_id: str | None = None
     created_at: datetime
     updated_at: datetime
     error_code: str | None = None
+    current_software_ready: bool | None = None
+    current_health_evidence: dict[str, JsonValue] = Field(default_factory=dict)
 
 
 class JobEvent(StrictModel):
@@ -208,7 +243,7 @@ class JobEvent(StrictModel):
     event_type: str
     operation_id: str | None = None
     mode: Mode
-    origin: Literal["mock"]
+    origin: Literal["mock", "docker"]
     message: str
     evidence: dict[str, JsonValue] = Field(default_factory=dict)
 
@@ -221,6 +256,7 @@ class ExecutionContext(StrictModel):
     work_dir: Path
     is_cancelled: Callable[[], bool]
     emit: Callable[[JobEvent], None]
+    plan_id: str | None = None
 
 
 class ProbeResult(StrictModel):
@@ -256,7 +292,7 @@ class Telemetry(StrictModel):
 class DiagnosticReport(StrictModel):
     schema_version: Literal[1] = 1
     mode: Mode
-    verified_scope: Literal["mock"]
+    verified_scope: VerifiedScope
     job: dict[str, JsonValue]
     checks: list[dict[str, JsonValue]]
     events: list[dict[str, JsonValue]]

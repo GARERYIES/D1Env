@@ -1,0 +1,38 @@
+F                                                                        [100%]
+=================================== FAILURES ===================================
+______ test_concurrent_cold_signature_observations_share_one_verification ______
+
+tmp_path = PosixPath('<REDACTED_TEMP_DIR>')
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x102b7ffb0>
+
+    def test_concurrent_cold_signature_observations_share_one_verification(tmp_path, monkeypatch):
+        import subprocess
+        import threading
+        import time
+    
+        from d1env.docker.endpoint import verify_desktop_app
+        app = signed_fixture(tmp_path)
+        barrier = threading.Barrier(2)
+        calls = []
+        def signature(*args, **kwargs):
+            calls.append(args)
+            time.sleep(0.02)
+            return subprocess.CompletedProcess(args, 0)
+        monkeypatch.setattr(subprocess, 'run', signature)
+        def read():
+            barrier.wait()
+            verify_desktop_app(app)
+        threads = [threading.Thread(target=read) for _ in range(2)]
+        for thread in threads:
+            thread.start()
+        for thread in threads:
+            thread.join(2)
+            assert not thread.is_alive()
+>       assert len(calls) == 2
+E       assert 4 == 2
+E        +  where 4 = len([(('/usr/bin/codesign', '--verify', '--deep', '--strict', '-R', '=identifier "com.docker.docker" and anchor apple gene...rs/n0/ngc5_hb938q3s5cth4c559z80000gn/T/pytest-of-yangwucheng/pytest-232/test_concurrent_cold_signature0/Docker.app'),)])
+
+tests/test_docker_endpoint.py:208: AssertionError
+=========================== short test summary info ============================
+FAILED tests/test_docker_endpoint.py::test_concurrent_cold_signature_observations_share_one_verification
+1 failed in 0.10s

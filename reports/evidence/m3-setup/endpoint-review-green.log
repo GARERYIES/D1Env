@@ -1,0 +1,9 @@
+........F..............................................................  [100%]
+=================================== FAILURES ===================================
+_________ test_path_cli_without_legacy_socket_uses_desktop_user_socket _________
+tests/test_docker_endpoint.py:118: in test_path_cli_without_legacy_socket_uses_desktop_user_socket
+    connection.bind(str(sock))
+E   OSError: AF_UNIX path too long
+=========================== short test summary info ============================
+FAILED tests/test_docker_endpoint.py::test_path_cli_without_legacy_socket_uses_desktop_user_socket
+1 failed, 70 passed in 4.51s

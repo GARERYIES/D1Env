@@ -1,0 +1,14 @@
+HTTP/2 206 
+content-type: application/octet-stream; charset=utf-8
+content-length: 775824
+date: Wed, 07 Oct 2026 04:35:40 GMT
+last-modified: Fri, 26 Jun 2026 17:36:41 GMT
+x-amz-version-id: oQS4HfYPoAMNVSZhUCXOFrrN2NZz.KTU
+etag: "94b718664fdfba01d1697c96bbabb5de"
+server: AmazonS3
+x-cache: Miss from cloudfront
+via: 1.1 0bb55176a80cc491c5bf735d287e8d7e.cloudfront.net (CloudFront)
+x-amz-cf-pop: SIN2-P6
+x-amz-cf-id: U7A1VINHqDJ2lt3ZGgty3kY1uR6naOV1h3R14phxs6rODuzYnueRbA==
+content-range: bytes 575000000-575775823/575775824
+

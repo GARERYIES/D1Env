@@ -1,0 +1,40 @@
+
+> d1env-frontend@0.1.0 test
+> vitest --run
+
+
+ RUN  v5.0.3 [LOCAL_PATH]
+
+ ❯ tests/unit/SoftwareApp.test.tsx (12 tests | 1 failed) 962ms
+   ❯ M3 软件模式的真实范围与生命周期 (12)
+     × 终态作业后更改验证范围会开始新配置，不把旧软件结果混在 MOCK 标识下 58ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  tests/unit/SoftwareApp.test.tsx > M3 软件模式的真实范围与生命周期 > 终态作业后更改验证范围会开始新配置，不把旧软件结果混在 MOCK 标识下
+Error: expect(element).not.toBeInTheDocument()
+
+expected document not to contain element, found <span
+  class="mono"
+  data-testid="job-id"
+>
+  software-job-1
+</span> instead
+ ❯ tests/unit/SoftwareApp.test.tsx:226:48
+    224|     await user.click(screen.getByRole('button', { name: /软件演示体验/ }));
+    225|     await user.click(screen.getByRole('button', { name: '5 运行与结果' }));
+    226|     expect(screen.queryByTestId('job-id')).not.toBeInTheDocument();
+       |                                                ^
+    227|     expect(screen.getByTestId('mode-watermark')).toHaveTextContent('MO…
+    228|     expect(screen.getByTestId('verified-scope')).toHaveTextContent('mo…
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed | 1 passed (2)
+      Tests  1 failed | 23 passed (24)
+   Start at  02:18:24
+   Duration  1.68s (tests 62%, environment 22%, transform 7%, setup 6%, import 3%)
+
+
+EXIT_CODE=1

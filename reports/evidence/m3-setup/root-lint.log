@@ -1,0 +1,102 @@
+I001 [*] Import block is un-sorted or un-formatted
+ --> src/d1env/process.py:1:1
+  |
+1 | / import os
+2 | | import signal
+3 | | import subprocess
+4 | | import tempfile
+5 | |
+6 | | from .models import ProbeResult, utcnow
+7 | | from .docker.endpoint import resolve_endpoint
+  | |_____________________________________________^
+8 |
+9 |   PROBES = frozenset({
+  |
+help: Organize imports
+  |
+5 |
+6 + from .docker.endpoint import resolve_endpoint
+7 | from .models import ProbeResult, utcnow
+  - from .docker.endpoint import resolve_endpoint
+8 |
+  |
+
+I001 [*] Import block is un-sorted or un-formatted
+   --> tests/test_docker_endpoint.py:107:5
+    |
+106 |   def test_path_cli_without_legacy_socket_uses_desktop_user_socket(tmp_path):
+107 | /     import socket
+108 | |     from d1env.docker.endpoint import resolve_endpoint
+    | |______________________________________________________^
+109 |       app = tmp_path / 'Docker.app'
+110 |       cli = app / 'Contents/Resources/bin/docker'
+    |
+help: Organize imports
+    |
+107 |     import socket
+108 +
+109 |     from d1env.docker.endpoint import resolve_endpoint
+    |
+
+I001 [*] Import block is un-sorted or un-formatted
+   --> tests/test_docker_endpoint.py:138:5
+    |
+137 |   def test_signature_cache_rechecks_directory_permissions(tmp_path, monkeypatch):
+138 | /     from d1env.docker.endpoint import verify_desktop_app
+139 | |     import subprocess
+    | |_____________________^
+140 |       app = signed_fixture(tmp_path)
+141 |       monkeypatch.setattr(subprocess, 'run', lambda *args, **kw: subprocess.CompletedProcess(args, 0))
+    |
+help: Organize imports
+    |
+137 | def test_signature_cache_rechecks_directory_permissions(tmp_path, monkeypatch):
+    -     from d1env.docker.endpoint import verify_desktop_app
+138 |     import subprocess
+139 +
+140 +     from d1env.docker.endpoint import verify_desktop_app
+141 |     app = signed_fixture(tmp_path)
+    |
+
+I001 [*] Import block is un-sorted or un-formatted
+   --> tests/test_docker_endpoint.py:149:5
+    |
+148 |   def test_signature_cache_rechecks_changed_nested_component(tmp_path, monkeypatch):
+149 | /     from d1env.docker.endpoint import verify_desktop_app
+150 | |     import subprocess
+    | |_____________________^
+151 |       app = signed_fixture(tmp_path)
+152 |       nested = app / 'Contents/Resources/component'
+    |
+help: Organize imports
+    |
+148 | def test_signature_cache_rechecks_changed_nested_component(tmp_path, monkeypatch):
+    -     from d1env.docker.endpoint import verify_desktop_app
+149 |     import subprocess
+150 +
+151 +     from d1env.docker.endpoint import verify_desktop_app
+152 |     app = signed_fixture(tmp_path)
+    |
+
+I001 [*] Import block is un-sorted or un-formatted
+   --> tests/test_docker_endpoint.py:168:5
+    |
+167 |   def test_application_outer_symlink_is_rejected(tmp_path, monkeypatch):
+168 | /     from d1env.docker.endpoint import verify_desktop_app
+169 | |     import subprocess
+    | |_____________________^
+170 |       app = signed_fixture(tmp_path)
+171 |       linked = tmp_path / 'Linked.app'
+    |
+help: Organize imports
+    |
+167 | def test_application_outer_symlink_is_rejected(tmp_path, monkeypatch):
+    -     from d1env.docker.endpoint import verify_desktop_app
+168 |     import subprocess
+169 +
+170 +     from d1env.docker.endpoint import verify_desktop_app
+171 |     app = signed_fixture(tmp_path)
+    |
+
+Found 5 errors.
+[*] 5 fixable with the `--fix` option.

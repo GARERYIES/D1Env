@@ -1,0 +1,9 @@
+..F.............................................................         [100%]
+=================================== FAILURES ===================================
+____________ test_desktop_wrong_signature_cannot_supply_docker_cli _____________
+tests/test_docker_endpoint.py:35: in test_desktop_wrong_signature_cannot_supply_docker_cli
+    with pytest.raises(ValueError, match="SIGNATURE_REJECTED"):
+E   Failed: DID NOT RAISE ValueError
+=========================== short test summary info ============================
+FAILED tests/test_docker_endpoint.py::test_desktop_wrong_signature_cannot_supply_docker_cli
+1 failed, 63 passed in 4.97s

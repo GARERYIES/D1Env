@@ -1,0 +1,48 @@
+...FFFFF                                                                 [100%]
+=================================== FAILURES ===================================
+___________ test_deleted_sqlite_auxiliary_metadata_is_rechecked_once ___________
+tests/test_state_paths.py:65: in test_deleted_sqlite_auxiliary_metadata_is_rechecked_once
+    assert store.list_jobs() == []
+src/d1env/jobs/store.py:127: in list_jobs
+    with self._connection() as connection:
+work/python/cpython-3.10.20-macos-aarch64-none/lib/python3.10/contextlib.py:135: in __enter__
+    return next(self.gen)
+src/d1env/jobs/store.py:68: in _connection
+    self._validate_files()
+src/d1env/jobs/store.py:64: in _validate_files
+    raise ValueError("STATE_FILE_UNSAFE: 数据库或辅助文件归属/链接异常；保留原文件，请选择安全状态目录。")
+E   ValueError: STATE_FILE_UNSAFE: 数据库或辅助文件归属/链接异常；保留原文件，请选择安全状态目录。
+____ test_sqlite_auxiliary_replacement_keeps_all_ownership_checks[regular] _____
+tests/test_state_paths.py:87: in test_sqlite_auxiliary_replacement_keeps_all_ownership_checks
+    assert store.list_jobs() == []
+src/d1env/jobs/store.py:127: in list_jobs
+    with self._connection() as connection:
+work/python/cpython-3.10.20-macos-aarch64-none/lib/python3.10/contextlib.py:135: in __enter__
+    return next(self.gen)
+src/d1env/jobs/store.py:68: in _connection
+    self._validate_files()
+src/d1env/jobs/store.py:64: in _validate_files
+    raise ValueError("STATE_FILE_UNSAFE: 数据库或辅助文件归属/链接异常；保留原文件，请选择安全状态目录。")
+E   ValueError: STATE_FILE_UNSAFE: 数据库或辅助文件归属/链接异常；保留原文件，请选择安全状态目录。
+____ test_sqlite_auxiliary_replacement_keeps_all_ownership_checks[hardlink] ____
+tests/test_state_paths.py:91: in test_sqlite_auxiliary_replacement_keeps_all_ownership_checks
+    assert len(calls) == 2
+E   AssertionError: assert 1 == 2
+E    +  where 1 = len(['jobs.sqlite-shm'])
+____ test_sqlite_auxiliary_replacement_keeps_all_ownership_checks[symlink] _____
+tests/test_state_paths.py:91: in test_sqlite_auxiliary_replacement_keeps_all_ownership_checks
+    assert len(calls) == 2
+E   AssertionError: assert 1 == 2
+E    +  where 1 = len(['jobs.sqlite-shm'])
+__ test_sqlite_auxiliary_replacement_keeps_all_ownership_checks[group_write] ___
+tests/test_state_paths.py:91: in test_sqlite_auxiliary_replacement_keeps_all_ownership_checks
+    assert len(calls) == 2
+E   AssertionError: assert 1 == 2
+E    +  where 1 = len(['jobs.sqlite-shm'])
+=========================== short test summary info ============================
+FAILED tests/test_state_paths.py::test_deleted_sqlite_auxiliary_metadata_is_rechecked_once
+FAILED tests/test_state_paths.py::test_sqlite_auxiliary_replacement_keeps_all_ownership_checks[regular]
+FAILED tests/test_state_paths.py::test_sqlite_auxiliary_replacement_keeps_all_ownership_checks[hardlink]
+FAILED tests/test_state_paths.py::test_sqlite_auxiliary_replacement_keeps_all_ownership_checks[symlink]
+FAILED tests/test_state_paths.py::test_sqlite_auxiliary_replacement_keeps_all_ownership_checks[group_write]
+5 failed, 3 passed in 0.58s

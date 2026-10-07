@@ -3,10 +3,13 @@ import signal
 import subprocess
 import tempfile
 
+from .docker.endpoint import resolve_endpoint
 from .models import ProbeResult, utcnow
 
 PROBES = frozenset({
     ("docker", "--context", "default", "info", "--format", "{{json .ServerVersion}}"),
+    ("docker", "--context", "default", "info", "--format",
+     '{"version":{{json .ServerVersion}},"os":{{json .OSType}},"architecture":{{json .Architecture}}}'),
     ("docker", "--context", "default", "compose", "version", "--short"),
 })
 OUTPUT_LIMIT = 32768
@@ -29,8 +32,16 @@ class ProbeRunner:
     def run(self, argv: tuple[str, ...], timeout_s: float = 5.0) -> ProbeResult:
         if argv not in PROBES or not 0 < timeout_s <= 5:
             raise ValueError("only known local read-only probes with timeout <=5s")
+        try:
+            endpoint = resolve_endpoint()
+        except ValueError as exc:
+            return ProbeResult(argv=argv, returncode=1, stdout="", stderr=str(exc),
+                               timed_out=False, observed_at=utcnow())
+        argv = (*endpoint.prefix, *argv[3:])
         env = {key: value for key, value in os.environ.items()
-               if key not in {"DOCKER_HOST", "DOCKER_CONTEXT", "DOCKER_TLS_VERIFY", "DOCKER_CERT_PATH"}}
+               if not key.startswith(("DOCKER_", "COMPOSE_"))}
+        if endpoint.plugin_dir is not None:
+            env["DOCKER_CLI_PLUGIN_EXTRA_DIRS"] = str(endpoint.plugin_dir)
         with tempfile.TemporaryFile() as stdout, tempfile.TemporaryFile() as stderr:
             try:
                 process = subprocess.Popen(

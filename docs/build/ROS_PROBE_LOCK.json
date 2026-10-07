@@ -1,0 +1,173 @@
+{
+  "schema_version": 1,
+  "recorded_at_unix": 1791310709.446456,
+  "retrieval_status": "verified",
+  "kind": "local_build",
+  "source": "d1env/ros-probe",
+  "image_id": "sha256:52f259d5fa38acb3fd2018e1601593fc0f6ad1a85c8a968032695f9c15771a2c",
+  "image_id_type": "local OCI image index digest returned by Docker image inspect",
+  "registry_published": false,
+  "tag": "d1env/ros-probe:m3-20261007-aarch64",
+  "architecture": "aarch64",
+  "docker_architecture": "arm64",
+  "os": "linux",
+  "platform_manifest_digest": "sha256:de539eab9fcd31710ad7c0767d63657d1c5a4698fa15a08e0a131bcd27e8c8a5",
+  "config_digest": "sha256:fa6cbf77edea92b3cd7c1513395e5d9bea5fd94ed7a65e2b555b12440d508425",
+  "base": {
+    "official_repository": "docker.io/library/ros",
+    "resolved_tag": "humble-ros-core",
+    "index_digest": "sha256:6892c5a0fec6c3bddc4cea502c7623f88988d7b1442419a23c685757249c7437",
+    "platform": "linux/arm64/v8",
+    "platform_digest": "sha256:5d8bdefcfb553802cca2fff87233f0c0adfbbd50e87e7c64c9af9a098250e6b1",
+    "dockerfile_from": "docker.io/library/ros@sha256:5d8bdefcfb553802cca2fff87233f0c0adfbbd50e87e7c64c9af9a098250e6b1",
+    "source_repository": "https://github.com/osrf/docker_images",
+    "source_commit": "58af41813ba67f611943c35c551387d652fcdbde",
+    "source_path": "ros/humble/ubuntu/jammy/ros-core/Dockerfile",
+    "source_dockerfile_sha256": "474d2c4d43c1b665fe5ef117b1963412fcd8a89e923345ce59acf1f6b393c2e8",
+    "source_attribution_method": "Official registry OCI source/revision annotations and fetched commit file",
+    "upstream_recipe_rebuilt": false,
+    "ubuntu_base_digest_from_registry_annotation": "sha256:30dfd7fe96f97c5f5ddf388ce8d098aa509644ad68fdef67244fb71b8169ffcb",
+    "verification": "registry digest resolved, exact digest pulled, installed dependencies inspected"
+  },
+  "build": {
+    "context": "containers/ros-probe",
+    "argv": [
+      "docker",
+      "--context",
+      "default",
+      "build",
+      "--platform",
+      "linux/arm64",
+      "--tag",
+      "d1env/ros-probe:m3-20261007-aarch64",
+      "--iidfile",
+      "work/evidence/m3-image-id.txt",
+      "containers/ros-probe"
+    ],
+    "exit_code": 0,
+    "dockerfile_sha256": "3aead50c0f705a9fbe494478b82e2727ce0840ffa95467298130fb2b679ddb53",
+    "source_hash": "7d02f984a53bd9cfaf484171633e247c82006dab13aab1be04dc9cd380ba5806",
+    "source_hash_algorithm": "SHA256 over each sorted filename + NUL + bytes + NUL for the five listed build inputs",
+    "source_files": {
+      ".dockerignore": {
+        "sha256": "05cc6ae53cfd6129f1d7010aa874c6cf0a6019b1adfeff3f4fab27f2d04f43ca",
+        "bytes": 18
+      },
+      "Dockerfile": {
+        "sha256": "3aead50c0f705a9fbe494478b82e2727ce0840ffa95467298130fb2b679ddb53",
+        "bytes": 655
+      },
+      "entrypoint.sh": {
+        "sha256": "9e595c205a1a375a7d91ee31e8e65e64b724f1fd75303a8ed475dbfc9ff84fae",
+        "bytes": 380
+      },
+      "probe.py": {
+        "sha256": "b65ca2d9e2db512aab209078cfb3ea809e284563e22a70bfdbc34bec9cdeed74",
+        "bytes": 7833
+      },
+      "read_status.py": {
+        "sha256": "12fe24340327a1266107998a322be270e61e8d142503eb6bcf65d93dd264060f",
+        "bytes": 2415
+      }
+    },
+    "no_apt_or_pip_additions": true,
+    "new_packages": []
+  },
+  "installed_packages": {
+    "manifest": "docs/build/ROS_PROBE_PACKAGES.json",
+    "manifest_sha256": "49685624260f174fbcddb5cfb8ab923e639a29e9257254febb4b8a85d8c73d92",
+    "dpkg_installed_count": 389,
+    "ros_package_xml_count": 147,
+    "base_and_candidate_exactly_equal": true,
+    "version_lock_method": "immutable base platform digest plus exact observed dpkg and ROS package manifests"
+  },
+  "licenses": {
+    "retrieval_status": "partial_blocked",
+    "blocked_reasons": [
+      "python3-rospkg-modules copyright file was unavailable at the standard dpkg path",
+      "D1Env probe source license has not been selected",
+      "redistribution legal review was not run"
+    ],
+    "docker_source_license": "Apache-2.0",
+    "docker_source_license_url": "https://raw.githubusercontent.com/osrf/docker_images/58af41813ba67f611943c35c551387d652fcdbde/LICENSE",
+    "docker_source_license_copy": "docs/build/licenses/OSRF-Docker-Images-APACHE-2.0.txt",
+    "docker_source_license_sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+    "package_license_evidence": "individual copyright paths/hashes and license headers in ROS_PROBE_PACKAGES.json; original copyright texts remain in the inherited image",
+    "standard_copyright_path_missing_packages": [
+      "python3-rospkg-modules"
+    ],
+    "license_header_parse_not_exhaustive": true,
+    "d1env_probe_source_license": null,
+    "d1env_probe_source_license_reason": "The project has not selected an overall source license; no license is inferred or assigned here",
+    "redistribution_legal_review": "not_run"
+  },
+  "runtime": {
+    "user": "10001:10001",
+    "entrypoint": [
+      "/opt/d1env/entrypoint.sh"
+    ],
+    "roles": [
+      "publisher",
+      "subscriber",
+      "idle"
+    ],
+    "status_reader_argv": [
+      "python3",
+      "/opt/d1env/read_status.py"
+    ],
+    "run_id_environment": "D1ENV_RUN_ID=32-lowercase-hex-job-id",
+    "fixed_topic": "/d1env/test/probe",
+    "network": "project-owned internal bridge with fixed pub/sub DNS aliases",
+    "dds": "Fast DDS 2.6.12 UDPv4, fixed RFC1918 unicast peer discovery, built-in transports disabled",
+    "read_only_root": true,
+    "tmp_tmpfs": "rw,nosuid,nodev,noexec,size=64m,uid=10001,gid=10001,mode=1770",
+    "cap_drop": [
+      "ALL"
+    ],
+    "security_opt": [
+      "no-new-privileges"
+    ],
+    "host_network_or_ipc": false,
+    "device_mounts": [],
+    "public_ports": []
+  },
+  "verification": {
+    "scope": "software",
+    "origin": "docker",
+    "host": "macOS Docker Desktop linux aarch64 daemon",
+    "probe_unit_tests": {
+      "passed": 42,
+      "failed": 0,
+      "exit_code": 0
+    },
+    "actual_fresh_ros_pubsub": "PASS",
+    "actual_stale_after_publisher_stop": "PASS",
+    "actual_no_publisher_has_no_samples": "PASS",
+    "owned_resources_cleaned": true,
+    "preexisting_containers_preserved": true,
+    "integration_evidence": "work/evidence/m3-image-integration.json",
+    "integration_evidence_sha256": "59b07ac6d59c042679ab9a7bd7e3938fc3f5494858bc11c406fbd13da04eea53",
+    "commands_evidence": [
+      "work/evidence/m3-image-commands.jsonl",
+      "work/evidence/m3-image-integration-commands.jsonl"
+    ],
+    "initial_real_discovery_failure": "retained as m3-image-failure-*.json; fixed by documented UDP/unicast discovery; original cause was not proven as SHM-only",
+    "not_run": [
+      "Ubuntu x86_64 native daemon integration",
+      "manufacturer SDK",
+      "robot connection or telemetry",
+      "sensors",
+      "motion",
+      "hardware emergency stop"
+    ]
+  },
+  "robot_sdk_invoked": false,
+  "robot_connected": false,
+  "sources": [
+    "https://hub.docker.com/_/ros",
+    "https://github.com/osrf/docker_images/tree/58af41813ba67f611943c35c551387d652fcdbde/ros/humble/ubuntu/jammy/ros-core",
+    "https://fast-dds.docs.eprosima.com/en/v2.6.12/fastdds/transport/udp/udp.html",
+    "https://fast-dds.docs.eprosima.com/en/v2.6.12/fastdds/use_cases/wifi/initial_peers.html",
+    "https://fast-dds.docs.eprosima.com/en/v2.6.12/fastdds/transport/disabling_multicast.html"
+  ]
+}

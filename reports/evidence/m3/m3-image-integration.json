@@ -1,0 +1,66 @@
+{
+  "recorded_at_unix": 1791310473.361608,
+  "image_id": "sha256:52f259d5fa38acb3fd2018e1601593fc0f6ad1a85c8a968032695f9c15771a2c",
+  "platform": "Docker Desktop linux aarch64 on macOS",
+  "scope": "actual ROS software pub/sub; no SDK/robot",
+  "preexisting_containers_preserved": true,
+  "results": [
+    {
+      "job_id": "b555f96b80574449884da2ae4aeb94e2",
+      "plan_id": "b5087ac7d5310cdca5fa8505133fb39495a7b64a0d6aeb7a71af1501d82c0782",
+      "scenario": "publisher",
+      "image_id": "sha256:52f259d5fa38acb3fd2018e1601593fc0f6ad1a85c8a968032695f9c15771a2c",
+      "origin": "docker",
+      "verified_scope": "software",
+      "status": {
+        "run_id": "b555f96b80574449884da2ae4aeb94e2",
+        "publisher_id": "b555f96b80574449884da2ae4aeb94e2",
+        "sample_count": 4,
+        "last_sequence": 4,
+        "last_sent_at": 1791310463.2598276,
+        "last_received_at": 1791310463.2600753
+      },
+      "fresh_ros_pubsub": "PASS",
+      "stale_after_own_publisher_stop": "PASS",
+      "stale_status": {
+        "run_id": "b555f96b80574449884da2ae4aeb94e2",
+        "publisher_id": "b555f96b80574449884da2ae4aeb94e2",
+        "sample_count": 4,
+        "last_sequence": 4,
+        "last_sent_at": 1791310463.2598276,
+        "last_received_at": 1791310463.2600753
+      },
+      "container_ids": [
+        "24c80e7d7f6658f68ff72ba9c762f210a7097e83a38820d19f3a3b0bf66ff585",
+        "4143b5129976e8beb0a4a55757112de28f476cbd6ecb9b6fb6b4976df6a0fba6"
+      ],
+      "network_id": "31b8559b128d95e8099b05640527e5af0bf6acefe49d7a699ebae76a4f0c4d44",
+      "result": "PASS",
+      "owned_resources_cleaned": true
+    },
+    {
+      "job_id": "54ac5e02433945cfa89905027d53e445",
+      "plan_id": "0a51b585535ff0bf92b34ba00943345b9138802eeb2b826dd50e001bf5733d5b",
+      "scenario": "idle",
+      "image_id": "sha256:52f259d5fa38acb3fd2018e1601593fc0f6ad1a85c8a968032695f9c15771a2c",
+      "origin": "docker",
+      "verified_scope": "software",
+      "status": {
+        "run_id": "54ac5e02433945cfa89905027d53e445",
+        "publisher_id": null,
+        "sample_count": 0,
+        "last_sequence": null,
+        "last_sent_at": null,
+        "last_received_at": null
+      },
+      "fault_injection_no_publisher": "PASS",
+      "container_ids": [
+        "2822908d496654e1c9315d84304e68942083008a077b114bc15212b82efa460f",
+        "2c026bb104d80c4d1c93df01bda83eef371a3fe57ed1bdb8e37a9610c1b508a9"
+      ],
+      "network_id": "e30597465dc7de051ecd63c29c71c10ab0f89831ccee377a457468d7057c39fc",
+      "result": "PASS",
+      "owned_resources_cleaned": true
+    }
+  ]
+}

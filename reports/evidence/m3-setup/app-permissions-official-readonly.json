@@ -1,0 +1,193 @@
+{
+  "scope": "readonly_app_metadata",
+  "bundle_id": "com.docker.docker",
+  "executable": "com.docker.backend",
+  "entries": 706,
+  "unsafe_entries": [],
+  "non_single_link_regular_files": [],
+  "resource_symlinks": [
+    {
+      "path": "Contents/MacOS/Docker Desktop.app/Contents/Frameworks/Electron Framework.framework/Electron Framework",
+      "target": "Versions/Current/Electron Framework",
+      "inside": true,
+      "exists": true
+    },
+    {
+      "path": "Contents/MacOS/Docker Desktop.app/Contents/Frameworks/Electron Framework.framework/Resources",
+      "target": "Versions/Current/Resources",
+      "inside": true,
+      "exists": true
+    },
+    {
+      "path": "Contents/MacOS/Docker Desktop.app/Contents/Frameworks/Electron Framework.framework/Libraries",
+      "target": "Versions/Current/Libraries",
+      "inside": true,
+      "exists": true
+    },
+    {
+      "path": "Contents/MacOS/Docker Desktop.app/Contents/Frameworks/Electron Framework.framework/Helpers",
+      "target": "Versions/Current/Helpers",
+      "inside": true,
+      "exists": true
+    },
+    {
+      "path": "Contents/MacOS/Docker Desktop.app/Contents/Frameworks/ReactiveObjC.framework/Resources",
+      "target": "Versions/Current/Resources",
+      "inside": true,
+      "exists": true
+    },
+    {
+      "path": "Contents/MacOS/Docker Desktop.app/Contents/Frameworks/ReactiveObjC.framework/ReactiveObjC",
+      "target": "Versions/Current/ReactiveObjC",
+      "inside": true,
+      "exists": true
+    },
+    {
+      "path": "Contents/MacOS/Docker Desktop.app/Contents/Frameworks/Squirrel.framework/Resources",
+      "target": "Versions/Current/Resources",
+      "inside": true,
+      "exists": true
+    },
+    {
+      "path": "Contents/MacOS/Docker Desktop.app/Contents/Frameworks/Squirrel.framework/Squirrel",
+      "target": "Versions/Current/Squirrel",
+      "inside": true,
+      "exists": true
+    },
+    {
+      "path": "Contents/MacOS/Docker Desktop.app/Contents/Frameworks/Mantle.framework/Mantle",
+      "target": "Versions/Current/Mantle",
+      "inside": true,
+      "exists": true
+    },
+    {
+      "path": "Contents/MacOS/Docker Desktop.app/Contents/Frameworks/Mantle.framework/Resources",
+      "target": "Versions/Current/Resources",
+      "inside": true,
+      "exists": true
+    },
+    {
+      "path": "Contents/MacOS/Docker Desktop.app/Contents/Frameworks/Electron Framework.framework/Versions/Current",
+      "target": "A",
+      "inside": true,
+      "exists": true
+    },
+    {
+      "path": "Contents/MacOS/Docker Desktop.app/Contents/Frameworks/ReactiveObjC.framework/Versions/Current",
+      "target": "A",
+      "inside": true,
+      "exists": true
+    },
+    {
+      "path": "Contents/MacOS/Docker Desktop.app/Contents/Frameworks/Squirrel.framework/Versions/Current",
+      "target": "A",
+      "inside": true,
+      "exists": true
+    },
+    {
+      "path": "Contents/MacOS/Docker Desktop.app/Contents/Frameworks/Mantle.framework/Versions/Current",
+      "target": "A",
+      "inside": true,
+      "exists": true
+    },
+    {
+      "path": "Contents/Resources/model-runner/lib/libllama.0.dylib",
+      "target": "libllama.0.0.1.dylib",
+      "inside": true,
+      "exists": true
+    },
+    {
+      "path": "Contents/Resources/model-runner/lib/libmtmd.0.dylib",
+      "target": "libmtmd.0.0.1.dylib",
+      "inside": true,
+      "exists": true
+    },
+    {
+      "path": "Contents/Resources/model-runner/lib/libggml.dylib",
+      "target": "libggml.0.dylib",
+      "inside": true,
+      "exists": true
+    },
+    {
+      "path": "Contents/Resources/model-runner/lib/libggml.0.dylib",
+      "target": "libggml.0.14.0.dylib",
+      "inside": true,
+      "exists": true
+    },
+    {
+      "path": "Contents/Resources/model-runner/lib/libmtmd.dylib",
+      "target": "libmtmd.0.dylib",
+      "inside": true,
+      "exists": true
+    },
+    {
+      "path": "Contents/Resources/model-runner/lib/libggml-base.dylib",
+      "target": "libggml-base.0.dylib",
+      "inside": true,
+      "exists": true
+    },
+    {
+      "path": "Contents/Resources/model-runner/lib/libggml-blas.dylib",
+      "target": "libggml-blas.0.dylib",
+      "inside": true,
+      "exists": true
+    },
+    {
+      "path": "Contents/Resources/model-runner/lib/libggml-metal.0.dylib",
+      "target": "libggml-metal.0.14.0.dylib",
+      "inside": true,
+      "exists": true
+    },
+    {
+      "path": "Contents/Resources/model-runner/lib/libllama-common.0.dylib",
+      "target": "libllama-common.0.0.1.dylib",
+      "inside": true,
+      "exists": true
+    },
+    {
+      "path": "Contents/Resources/model-runner/lib/libllama.dylib",
+      "target": "libllama.0.dylib",
+      "inside": true,
+      "exists": true
+    },
+    {
+      "path": "Contents/Resources/model-runner/lib/libggml-cpu.dylib",
+      "target": "libggml-cpu.0.dylib",
+      "inside": true,
+      "exists": true
+    },
+    {
+      "path": "Contents/Resources/model-runner/lib/libggml-metal.dylib",
+      "target": "libggml-metal.0.dylib",
+      "inside": true,
+      "exists": true
+    },
+    {
+      "path": "Contents/Resources/model-runner/lib/libllama-common.dylib",
+      "target": "libllama-common.0.dylib",
+      "inside": true,
+      "exists": true
+    },
+    {
+      "path": "Contents/Resources/model-runner/lib/libggml-base.0.dylib",
+      "target": "libggml-base.0.14.0.dylib",
+      "inside": true,
+      "exists": true
+    },
+    {
+      "path": "Contents/Resources/model-runner/lib/libggml-blas.0.dylib",
+      "target": "libggml-blas.0.14.0.dylib",
+      "inside": true,
+      "exists": true
+    },
+    {
+      "path": "Contents/Resources/model-runner/lib/libggml-cpu.0.dylib",
+      "target": "libggml-cpu.0.14.0.dylib",
+      "inside": true,
+      "exists": true
+    }
+  ],
+  "main_binary_executed": false,
+  "docker_started": false,
+  "host_permissions_changed": false
+}

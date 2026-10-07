@@ -1,13 +1,16 @@
 """SQLite state; every write uses a short transaction and its own connection."""
 
 import json
+import os
 import sqlite3
+import stat
 from collections.abc import Callable, Iterator
 from contextlib import contextmanager
 from pathlib import Path
 from uuid import uuid4
 
 from d1env.models import DeploymentPlan, JobEvent, JobSnapshot, JobState, JSONValue, utcnow
+from d1env.runtime import ensure_private_state_dir
 
 TERMINAL_STATES = ("SUCCEEDED", "BLOCKED", "FAILED", "CANCELLED", "INTERRUPTED")
 
@@ -20,8 +23,9 @@ class JobConflict(ValueError):
 
 class Store:
     def __init__(self, path: Path):
-        self.path = Path(path).resolve()
-        self.path.parent.mkdir(parents=True, exist_ok=True)
+        self.path = Path(path).absolute()
+        ensure_private_state_dir(self.path.parent)
+        self._validate_files()
         with self._connection() as connection:
             connection.execute("PRAGMA journal_mode=WAL")
             connection.executescript("""
@@ -49,8 +53,26 @@ class Store:
                 );
             """)
 
+    def _validate_files(self) -> None:
+        for path in (self.path, Path(str(self.path) + "-wal"), Path(str(self.path) + "-shm")):
+            try:
+                observed = path.lstat()
+            except FileNotFoundError:
+                continue
+            if path != self.path and observed.st_nlink == 0:
+                # SQLite deletes WAL/SHM when its last connection closes. A concurrent
+                # lstat can observe the unlinked inode; inspect the current path once.
+                try:
+                    observed = path.lstat()
+                except FileNotFoundError:
+                    continue
+            if (not stat.S_ISREG(observed.st_mode) or observed.st_nlink != 1
+                    or observed.st_uid != os.getuid() or observed.st_mode & 0o022):
+                raise ValueError("STATE_FILE_UNSAFE: 数据库或辅助文件归属/链接异常；保留原文件，请选择安全状态目录。")
+
     @contextmanager
     def _connection(self) -> Iterator[sqlite3.Connection]:
+        self._validate_files()
         connection = sqlite3.connect(self.path, timeout=10, isolation_level=None)
         connection.row_factory = sqlite3.Row
         try:
@@ -133,7 +155,7 @@ class Store:
             event_type=event_type,
             operation_id=operation_id,
             mode=job.mode,
-            origin="mock",
+            origin="docker" if job.mode == "software_test" else "mock",
             message=message,
             evidence=evidence,
         )
@@ -215,9 +237,9 @@ class Store:
                         job_id=uuid4().hex,
                         plan_id=plan.plan_id,
                         target_id=plan.target_id,
-                        mode="mock",
+                        mode=plan.mode,
                         state="PLANNED",
-                        verified_scope="mock",
+                        verified_scope=plan.verified_scope,
                         created_at=now,
                         updated_at=now,
                     )
@@ -229,7 +251,7 @@ class Store:
                         connection,
                         job,
                         "state",
-                        "MOCK 作业已创建，尚未部署真机。",
+                        "软件通信测试作业已创建，未连接真机。" if plan.mode == "software_test" else "MOCK 作业已创建，尚未部署真机。",
                         {"state": "PLANNED"},
                     )
                     connection.execute(
@@ -294,10 +316,28 @@ class Store:
                         connection,
                         job,
                         "cancel_requested",
-                        "已请求取消 MOCK 作业；等待当前步骤停止并清理本作业资源。",
+                        "已请求取消作业；等待当前步骤停止并清理本作业拥有的资源。",
                         {},
                     )
             return job
+
+    def reassess_software(self, job_id: str, state: JobState, message: str, *,
+                          error_code: str | None = None,
+                          evidence: dict[str, JSONValue] | None = None) -> JobSnapshot:
+        """A historical software success is revocable; MOCK history remains immutable."""
+        if state not in {"FAILED", "CANCELLED"}:
+            raise ValueError("reassessment cannot create a new success")
+        with self._transaction() as connection:
+            job = self._get_job(connection, job_id)
+            if job.mode != "software_test" or job.state not in TERMINAL_STATES:
+                raise ValueError("only terminal software jobs may be reassessed")
+            changed = job.model_copy(update={"state": state, "error_code": error_code,
+                                             "updated_at": utcnow(), "current_operation_id": None})
+            connection.execute("UPDATE jobs SET state=?,payload=? WHERE job_id=?",
+                               (state, changed.model_dump_json(), job_id))
+            self._append_event(connection, changed, "software_reassessment", message,
+                               {"state": state, **(evidence or {})})
+            return changed
 
     def is_cancelled(self, job_id: str) -> bool:
         with self._connection() as connection:

@@ -1,0 +1,1062 @@
+{
+  "scope": "software_runtime_candidate",
+  "source_commit": "c4bd2f9094fc7f8340b7e7c7653de25457c20714",
+  "archive_sha256": "e2866d49ff3e795ede21f6350a8edca97987e37fc26320fb542fb8859daff6ad",
+  "files": [
+    {
+      "path": "actual-desktop-entry.json",
+      "size_bytes": 269,
+      "sha256": "f41265e91d17ab25c0248240ef9111cba866fef01f5bfb456732bc006772d2d0",
+      "home_and_workspace_paths_masked": false
+    },
+    {
+      "path": "actual-runtime-observation.json",
+      "size_bytes": 3351,
+      "sha256": "087a8ad03c5e323f4b1c3dafdb6eea105dd428ada25bf405b83a07317a560788",
+      "home_and_workspace_paths_masked": false
+    },
+    {
+      "path": "all-static-mypy.log",
+      "size_bytes": 44,
+      "sha256": "b1e54a4dabc8d720118d6074a4c299c7b40c262f2e4f5d8f801e29a5cdfe35a5",
+      "home_and_workspace_paths_masked": false
+    },
+    {
+      "path": "all-static-ruff.log",
+      "size_bytes": 19,
+      "sha256": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18",
+      "home_and_workspace_paths_masked": false
+    },
+    {
+      "path": "api-format-fix.log",
+      "size_bytes": 38,
+      "sha256": "aac3a0503d8b95052cc85fb9f1717dc82b74aa55853a5aa9749b41e30275d472",
+      "home_and_workspace_paths_masked": false
+    },
+    {
+      "path": "app-permissions-green.log",
+      "size_bytes": 99,
+      "sha256": "7046866309ffe0e5e7a426449c06443f2096f6bf47d95c3dc3bdf1fdf20a9596",
+      "home_and_workspace_paths_masked": false
+    },
+    {
+      "path": "app-permissions-mypy.log",
+      "size_bytes": 42,
+      "sha256": "5d4b6d285b77932e3d08212c3b4974d0a803f98ec60408ac6ccf6a063fa6c19e",
+      "home_and_workspace_paths_masked": false
+    },
+    {
+      "path": "app-permissions-official-function-green.json",
+      "size_bytes": 376,
+      "sha256": "bb73cf3a22d039ae48a75dea4f6c8a80fc604ae1a31e4fc295330b006517c13d",
+      "home_and_workspace_paths_masked": false
+    },
+    {
+      "path": "app-permissions-official-readonly.json",
+      "size_bytes": 5840,
+      "sha256": "d9eb53727a8acfc7302bc02282cc1ef2ad866424e1dd11ba99b65054a9f9d506",
+      "home_and_workspace_paths_masked": false
+    },
+    {
+      "path": "app-permissions-red.log",
+      "size_bytes": 7555,
+      "sha256": "b1aaf88b8163e40e3339f329c22a7cbb77fb26117604a6f9845dabef2e1fee6f",
+      "home_and_workspace_paths_masked": false
+    },
+    {
+      "path": "app-permissions-ruff.log",
+      "size_bytes": 19,
+      "sha256": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18",
+      "home_and_workspace_paths_masked": false
+    },
+    {
+      "path": "app-race-combined-green.log",
+      "size_bytes": 99,
+      "sha256": "12e5331e4520a7082478b46c2e6eb889405d7a5d20130df49f2f7752bf109514",
+      "home_and_workspace_paths_masked": false
+    },
+    {
+      "path": "backend-adjacent-integration.log",
+      "size_bytes": 99,
+      "sha256": "0704d589d3e78a7bf4f79e7dc856f77bbea29f432207b24632fff71b14a0ac5d",
+      "home_and_workspace_paths_masked": false
+    },
+    {
+      "path": "backend-deadline-final-mypy.log",
+      "size_bytes": 43,
+      "sha256": "e317872697c2cbfdefa321527a6efe73290dff3a390b0fa8723b87092eccba6a",
+      "home_and_workspace_paths_masked": false
+    },
+    {
+      "path": "backend-deadline-final-python310.log",
+      "size_bytes": 180,
+      "sha256": "e6642d39ce3b767bf23296a20cc5774aaf5172bb281b5eb9c06613f80facf67b",
+      "home_and_workspace_paths_masked": false
+    },
+    {
+      "path": "backend-deadline-final-python312.log",
+      "size_bytes": 180,
+      "sha256": "e6642d39ce3b767bf23296a20cc5774aaf5172bb281b5eb9c06613f80facf67b",
+      "home_and_workspace_paths_masked": false
+    },
+    {
+      "path": "backend-deadline-final-ruff.log",
+      "size_bytes": 19,
+      "sha256": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18",
+      "home_and_workspace_paths_masked": false
+    },
+    {
+      "path": "backend-download-boundary.md",
+      "size_bytes": 2279,
+      "sha256": "2cfcb353432648d18d8338eadcbcf6b73e08cb21c100304258c707d83cc83e11",
+      "home_and_workspace_paths_masked": false
+    },
+    {
+      "path": "backend-final-mypy.log",
+      "size_bytes": 43,
+      "sha256": "e317872697c2cbfdefa321527a6efe73290dff3a390b0fa8723b87092eccba6a",
+      "home_and_workspace_paths_masked": false
+    },
+    {
+      "path": "backend-final-python310.log",
+      "size_bytes": 99,
+      "sha256": "8cc15382e5874aa57bf4f8b7465a90619c53a67d03d5e9144399ea38e9c7bc1b",
+      "home_and_workspace_paths_masked": false
+    },
+    {
+      "path": "backend-final-python312.log",
+      "size_bytes": 99,
+      "sha256": "8cc15382e5874aa57bf4f8b7465a90619c53a67d03d5e9144399ea38e9c7bc1b",
+      "home_and_workspace_paths_masked": false
+    },
+    {
+      "path": "backend-final-ruff.log",
+      "size_bytes": 19,
+      "sha256": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18",
+      "home_and_workspace_paths_masked": false
+    },
+    {
+      "path": "backend-review-final-mypy.log",
+      "size_bytes": 43,
+      "sha256": "e317872697c2cbfdefa321527a6efe73290dff3a390b0fa8723b87092eccba6a",
+      "home_and_workspace_paths_masked": false
+    },
+    {
+      "path": "backend-review-final-python310.log",
+      "size_bytes": 180,
+      "sha256": "da26ac6c1ad2cecf6618fa49e3823dd5f2b45972facbe0f0df36f4ac5f081b93",
+      "home_and_workspace_paths_masked": false
+    },
+    {
+      "path": "backend-review-final-python312.log",
+      "size_bytes": 180,
+      "sha256": "07071c641dfc765975a94f230f4023acd9ef7de35a99eb40b5ec80e4177db333",
+      "home_and_workspace_paths_masked": false
+    },
+    {
+      "path": "backend-review-final-ruff.log",
+      "size_bytes": 19,
+      "sha256": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18",
+      "home_and_workspace_paths_masked": false
+    },
+    {
+      "path": "backend-review-fixes.md",
+      "size_bytes": 4013,
+      "sha256": "4a72454ec8eb3713074f90e03bc5954198ecd5435ded54bc84f592bff935d37e",
+      "home_and_workspace_paths_masked": false
+    },
+    {
+      "path": "backend-summary.md",
+      "size_bytes": 4600,
+      "sha256": "aef3d6fbb179008867a9870f6a4112752c6efa72d71a1a5e59b35b5584df4784",
+      "home_and_workspace_paths_masked": false
+    },
+    {
+      "path": "cancel-race-green.log",
+      "size_bytes": 99,
+      "sha256": "1377b7660170f1497d1bdf21ce0c9445a155744cd24b19398cd050bb94684027",
+      "home_and_workspace_paths_masked": false
+    },
+    {
+      "path": "cancel-race-red.log",
+      "size_bytes": 6343,
+      "sha256": "533718174d2287cc8081b5559229a3356202739b6263316f2bda1fa0b139bffb",
+      "home_and_workspace_paths_masked": false,
+      "publication_original_sha256": "6082987e112110f2d920173760e33c8cc81f9ebf35f29ab92a431b21582c323a",
+      "publication_redacted": true
+    },
+    {
+      "path": "cancel-signature-green.log",
+      "size_bytes": 99,
+      "sha256": "e383352789cecdc452c36315f725636396a681ecc8e8e11dde43bf48fb768b68",
+      "home_and_workspace_paths_masked": false
+    },
+    {
+      "path": "cleanup-final.json",
+      "size_bytes": 364,
+      "sha256": "6b47a517f693f34c4180fb6da83df3daf7e68a250042a2ed749c708075390a13",
+      "home_and_workspace_paths_masked": false
+    },
+    {
+      "path": "core-green.log",
+      "size_bytes": 99,
+      "sha256": "9f4f001366722a949cc6a677081dd1118062017e3a7aef915ee4f181a445bd30",
+      "home_and_workspace_paths_masked": false
+    },
+    {
+      "path": "desktop-bypass-green.log",
+      "size_bytes": 636,
+      "sha256": "8dea1bf5d4e92371cbaebadb96c057e28201b358b7fd363278ed80edcadb4f88",
+      "home_and_workspace_paths_masked": false
+    },
+    {
+      "path": "desktop-bypass-red.log",
+      "size_bytes": 1495,
+      "sha256": "a7a0eeac871c72e6f4821eaf2b19717a78e005b1f4fec4c8bf4816e3a0560ce5",
+      "home_and_workspace_paths_masked": false,
+      "publication_original_sha256": "cad3a8e7022fa3b1fd47badf61f469281af2f581259edf50f211a2e0654fcb8b",
+      "publication_redacted": true
+    },
+    {
+      "path": "desktop-entry-final-green.log",
+      "size_bytes": 99,
+      "sha256": "67fd6b4e34a697b688896be62818d7753a1495475804b017d366d0a7638af0be",
+      "home_and_workspace_paths_masked": false
+    },
+    {
+      "path": "docker-4.80.0-arm64-checksums.txt",
+      "size_bytes": 77,
+      "sha256": "6dbb607b2d4cb83477b6a9c6d3275d0189deab3b1eeaefd87a599f86cad0cd8e",
+      "home_and_workspace_paths_masked": false
+    },
+    {
+      "path": "docker-4.80.0-arm64-download.log",
+      "size_bytes": 89,
+      "sha256": "cd88bc0bc019b5f204397d6ec4f469043214e235d10e6259c8a2f8356bad582f",
+      "home_and_workspace_paths_masked": false
+    },
+    {
+      "path": "docker-4.80.0-arm64-head.txt",
+      "size_bytes": 499,
+      "sha256": "523047872fbddc3fb90a327318ac6b39e8684e230954be135e88b95139002f96",
+      "home_and_workspace_paths_masked": false
+    },
+    {
+      "path": "docker-dmg-app-codesign-display.stderr",
+      "size_bytes": 1114,
+      "sha256": "2cffa805cebd1cabe676a098993484b67141beb5fe274fef18bf4f3b41df041a",
+      "home_and_workspace_paths_masked": true
+    },
+    {
+      "path": "docker-dmg-app-codesign-display.stdout",
+      "size_bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "home_and_workspace_paths_masked": false
+    },
+    {
+      "path": "docker-dmg-app-codesign-verify.stderr",
+      "size_bytes": 5811,
+      "sha256": "123f58d2e29334dfcc67506a0d409850344932573756ac907fab86838f45fe55",
+      "home_and_workspace_paths_masked": true
+    },
+    {
+      "path": "docker-dmg-app-codesign-verify.stdout",
+      "size_bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "home_and_workspace_paths_masked": false
+    },
+    {
+      "path": "docker-dmg-app-spctl.stderr",
+      "size_bytes": 106,
+      "sha256": "f99076a406c1338d8e09bedb1ad7377979ebd728ac877a1ef23ed366fd0f1f5d",
+      "home_and_workspace_paths_masked": true
+    },
+    {
+      "path": "docker-dmg-app-spctl.stdout",
+      "size_bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "home_and_workspace_paths_masked": false
+    },
+    {
+      "path": "docker-dmg-attach-readonly.stderr",
+      "size_bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "home_and_workspace_paths_masked": false
+    },
+    {
+      "path": "docker-dmg-attach-readonly.stdout",
+      "size_bytes": 1247,
+      "sha256": "41c0730a93abb2ba0a59c417b6cd6f85a0adaa6603b89aeefd907feed06d8c09",
+      "home_and_workspace_paths_masked": true
+    },
+    {
+      "path": "docker-dmg-detach-owned.stderr",
+      "size_bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "home_and_workspace_paths_masked": false
+    },
+    {
+      "path": "docker-dmg-detach-owned.stdout",
+      "size_bytes": 17,
+      "sha256": "f381e88f14e433e0ac4d016249b008db54d530626074bbab7dfdd8d4592ab51a",
+      "home_and_workspace_paths_masked": false
+    },
+    {
+      "path": "docker-dmg-hdiutil-verify.stderr",
+      "size_bytes": 97,
+      "sha256": "ce9c12467a8fd5ee4833c220291b47c26254081337151fd5771fc2058eb52429",
+      "home_and_workspace_paths_masked": true
+    },
+    {
+      "path": "docker-dmg-hdiutil-verify.stdout",
+      "size_bytes": 1221,
+      "sha256": "53bde72055c7983b92c4f1bcbe730754d9622cf7c6f1d5c306331943b445df21",
+      "home_and_workspace_paths_masked": false
+    },
+    {
+      "path": "docker-dmg-range-tail-head.txt",
+      "size_bytes": 537,
+      "sha256": "8f9def59955cc17a3ab749ff65c5727e22ba63be7e8f167e4203ee3c98c04a0d",
+      "home_and_workspace_paths_masked": false
+    },
+    {
+      "path": "docker-dmg-range-tail.log",
+      "size_bytes": 103,
+      "sha256": "5c847a8fb761898327ffb516eb2d8c683fb733da579cc19ac2478a9ba2b74e4a",
+      "home_and_workspace_paths_masked": false
+    },
+    {
+      "path": "docker-dmg-readonly-commands.json",
+      "size_bytes": 2256,
+      "sha256": "f3cfc381b8f776eab0fe521f9581746b21f5e28470980c7df840e7f7adb82353",
+      "home_and_workspace_paths_masked": true
+    },
+    {
+      "path": "docker-dmg-readonly-results.json",
+      "size_bytes": 592,
+      "sha256": "2703ea6b5b0c4bd86a74e8aa87ede509ebe7bb9485fb9e25b3a277c4874bbf29",
+      "home_and_workspace_paths_masked": false
+    },
+    {
+      "path": "docker-dmg-readonly-verification.log",
+      "size_bytes": 128,
+      "sha256": "d24196c47158187aad3e215fd46c66d9a90c80d0b9b86621085c79afb83e574c",
+      "home_and_workspace_paths_masked": false
+    },
+    {
+      "path": "docker-dmg-stapler.stderr",
+      "size_bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "home_and_workspace_paths_masked": false
+    },
+    {
+      "path": "docker-dmg-stapler.stdout",
+      "size_bytes": 97,
+      "sha256": "d16d886bb2cc77c3b85828a290c334f5a665b43190cc25824c29a6df5ac840d6",
+      "home_and_workspace_paths_masked": true
+    },
+    {
+      "path": "docker-existing-app-codesign-verify-fixed.stderr",
+      "size_bytes": 4048,
+      "sha256": "830f782ba843b95878915a9319e15db96d5ca96ceaf60a345b6f3aaae13ed502",
+      "home_and_workspace_paths_masked": false
+    },
+    {
+      "path": "docker-existing-app-codesign-verify-fixed.stdout",
+      "size_bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "home_and_workspace_paths_masked": false
+    },
+    {
+      "path": "docker-existing-app-codesign-verify.stderr",
+      "size_bytes": 165,
+      "sha256": "7f247910af984087159ca0b1d4fe44df98641266c3059bf175b882b8472c6ccf",
+      "home_and_workspace_paths_masked": false
+    },
+    {
+      "path": "docker-existing-app-codesign-verify.stdout",
+      "size_bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "home_and_workspace_paths_masked": false
+    },
+    {
+      "path": "docker-existing-app-signature.stderr",
+      "size_bytes": 1073,
+      "sha256": "d688e62b0b0cdc70b6beb1b8b186c163c864ea3d0f79a1e0adb6748db680fe8f",
+      "home_and_workspace_paths_masked": false
+    },
+    {
+      "path": "docker-existing-app-signature.stdout",
+      "size_bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "home_and_workspace_paths_masked": false
+    },
+    {
+      "path": "docker-existing-app-spctl.stderr",
+      "size_bytes": 65,
+      "sha256": "a1b6867e4fc5d8a51d2a18d337c017f513c66b935f541abd1dd219c3d5285256",
+      "home_and_workspace_paths_masked": false
+    },
+    {
+      "path": "docker-existing-app-spctl.stdout",
+      "size_bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "home_and_workspace_paths_masked": false
+    },
+    {
+      "path": "docker-existing-app-stapler.stderr",
+      "size_bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "home_and_workspace_paths_masked": false
+    },
+    {
+      "path": "docker-existing-app-stapler.stdout",
+      "size_bytes": 86,
+      "sha256": "0065ecf95b3291d0dd9ea84a7ef9a5667d1627c761879f5894f94efca02ce1ab",
+      "home_and_workspace_paths_masked": false
+    },
+    {
+      "path": "docker-head-bundled-python.json",
+      "size_bytes": 294,
+      "sha256": "54c8763004fcab4fde685778da5936dba0f9299cd8fdca422affa2b08336b392",
+      "home_and_workspace_paths_masked": false
+    },
+    {
+      "path": "docker-inventory-after.json",
+      "size_bytes": 2160,
+      "sha256": "b5c1f3576480617cfb21bb2060aa72f484d59747ffb9ce577867bc6bc0b9969e",
+      "home_and_workspace_paths_masked": false
+    },
+    {
+      "path": "docker-inventory-before.json",
+      "size_bytes": 2160,
+      "sha256": "b5c1f3576480617cfb21bb2060aa72f484d59747ffb9ce577867bc6bc0b9969e",
+      "home_and_workspace_paths_masked": false
+    },
+    {
+      "path": "docker-inventory-native-handoff-after.json",
+      "size_bytes": 2160,
+      "sha256": "b5c1f3576480617cfb21bb2060aa72f484d59747ffb9ce577867bc6bc0b9969e",
+      "home_and_workspace_paths_masked": false
+    },
+    {
+      "path": "docker-inventory-native-handoff-before.json",
+      "size_bytes": 2160,
+      "sha256": "b5c1f3576480617cfb21bb2060aa72f484d59747ffb9ce577867bc6bc0b9969e",
+      "home_and_workspace_paths_masked": false
+    },
+    {
+      "path": "docker-inventory-packaged-after.json",
+      "size_bytes": 2160,
+      "sha256": "b5c1f3576480617cfb21bb2060aa72f484d59747ffb9ce577867bc6bc0b9969e",
+      "home_and_workspace_paths_masked": false
+    },
+    {
+      "path": "docker-inventory-source-e2e-comparison.json",
+      "size_bytes": 238,
+      "sha256": "02a4b491efa393f1fa1ba45db5ce83d6d22f0f760185feaf5440bfffd633a06b",
+      "home_and_workspace_paths_masked": false
+    },
+    {
+      "path": "docker-source-metadata-check.json",
+      "size_bytes": 224,
+      "sha256": "f4502578953e8c80e8eb5a6a30a0332e39a49bab2491e95570f04739111f1dbc",
+      "home_and_workspace_paths_masked": false
+    },
+    {
+      "path": "download-deadline-green.log",
+      "size_bytes": 99,
+      "sha256": "987a5d93edc43b312d9783073b939f360ccbbc254a29d88f02b79e6d8f5e2e88",
+      "home_and_workspace_paths_masked": false
+    },
+    {
+      "path": "download-deadline-mypy.log",
+      "size_bytes": 42,
+      "sha256": "5d4b6d285b77932e3d08212c3b4974d0a803f98ec60408ac6ccf6a063fa6c19e",
+      "home_and_workspace_paths_masked": false
+    },
+    {
+      "path": "download-deadline-red.log",
+      "size_bytes": 5243,
+      "sha256": "8f4beef0aea4da0253de749181a1d375573efae98b106dc9dfefcf4671d0c6cd",
+      "home_and_workspace_paths_masked": false
+    },
+    {
+      "path": "download-deadline-ruff.log",
+      "size_bytes": 19,
+      "sha256": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18",
+      "home_and_workspace_paths_masked": false
+    },
+    {
+      "path": "download-green.log",
+      "size_bytes": 99,
+      "sha256": "74a9f4f9259985abd8c51e87abbd6304e7372b6398fff4673cab10bc05c34141",
+      "home_and_workspace_paths_masked": false
+    },
+    {
+      "path": "download-red.log",
+      "size_bytes": 942,
+      "sha256": "3cc1d19e4695fa197334c56659de14f269ef82de76729d79d7cec64aa127f1c1",
+      "home_and_workspace_paths_masked": true
+    },
+    {
+      "path": "endpoint-green.log",
+      "size_bytes": 98,
+      "sha256": "48c5696fc05812f4fa3fb6a8c8b8374820243316710b456ba8d038effb5655cf",
+      "home_and_workspace_paths_masked": false
+    },
+    {
+      "path": "endpoint-red.log",
+      "size_bytes": 2999,
+      "sha256": "64a3e05a9ac0266cd653ebdf66fd5163c31a471c1b2cefe85dd072d20ccc9f8b",
+      "home_and_workspace_paths_masked": false
+    },
+    {
+      "path": "endpoint-review-green.log",
+      "size_bytes": 616,
+      "sha256": "040c0e500aefea4c442c1430ddd946afef451912b86e06134c51ba2c7e33b779",
+      "home_and_workspace_paths_masked": false
+    },
+    {
+      "path": "endpoint-review-red.log",
+      "size_bytes": 1903,
+      "sha256": "41f7ec2b373eae940f31cf503d212ea982e95f2dfea12a0e8ac4a6ccc2ed56a0",
+      "home_and_workspace_paths_masked": false
+    },
+    {
+      "path": "endpoint-timeout-recheck.log",
+      "size_bytes": 98,
+      "sha256": "a39283a1e2647345aacef80a7d853c3414f6f52dd3520c32ca8a7e887a8f13b2",
+      "home_and_workspace_paths_masked": false
+    },
+    {
+      "path": "endpoint-transport-green.log",
+      "size_bytes": 911,
+      "sha256": "56be00ae774c50626cb1808a467dc5b850e6111db4ac19cad90b31575a816441",
+      "home_and_workspace_paths_masked": false
+    },
+    {
+      "path": "endpoint-transport-red.log",
+      "size_bytes": 667,
+      "sha256": "c34fc743427aad64de742ae359bab93d6566cdfdf249202eb9139f7c5327f2a9",
+      "home_and_workspace_paths_masked": false
+    },
+    {
+      "path": "entry-toctou-red.log",
+      "size_bytes": 1176,
+      "sha256": "a8559662ac2efd72768e5c8b6fb89c59d265d8f74ac7d31c36415a1ff20a440c",
+      "home_and_workspace_paths_masked": false,
+      "publication_original_sha256": "ae47cb17174e85acfaf52f6baadd1629aa45d6554ab95a60ac4456cace1ce177",
+      "publication_redacted": true
+    },
+    {
+      "path": "final-diff-check.log",
+      "size_bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "home_and_workspace_paths_masked": false
+    },
+    {
+      "path": "final-lint.log",
+      "size_bytes": 295,
+      "sha256": "4074a0dcb38af131fd3e5d1eff0a3f68ab640e5794e256c7b3552798cf70c2cb",
+      "home_and_workspace_paths_masked": false
+    },
+    {
+      "path": "final-mypy.log",
+      "size_bytes": 44,
+      "sha256": "4c4a1f687213d361065f9094b27b15c087d3754121b66f0e8580a9c699ab6426",
+      "home_and_workspace_paths_masked": false
+    },
+    {
+      "path": "hdiutil-attach-help.txt",
+      "size_bytes": 1075,
+      "sha256": "a30b388e254233317fdb2d526daf97094cae746cd50a0905a6f2f901038db317",
+      "home_and_workspace_paths_masked": false
+    },
+    {
+      "path": "image-cancel-red.log",
+      "size_bytes": 1138,
+      "sha256": "896027dd04237b5601e1a804d61b33bc5d79ec30b0bf18f07470fba204adfa13",
+      "home_and_workspace_paths_masked": false
+    },
+    {
+      "path": "installer-green.log",
+      "size_bytes": 99,
+      "sha256": "3d92a3a8f179e568c4573609c7246adffbf3ff4608374443cc68ff6e4e8bdf3a",
+      "home_and_workspace_paths_masked": false
+    },
+    {
+      "path": "installer-red.log",
+      "size_bytes": 954,
+      "sha256": "bc4ccddb308e84761da9746509b99547b2f4f1a55b0e7336ca3bf4d946e83da8",
+      "home_and_workspace_paths_masked": true
+    },
+    {
+      "path": "manager-green.log",
+      "size_bytes": 609,
+      "sha256": "cafda27abcf6306fc19ccfa890e594dd8447fa44a3f2438a6f782807d3e62639",
+      "home_and_workspace_paths_masked": false
+    },
+    {
+      "path": "manager-red.log",
+      "size_bytes": 930,
+      "sha256": "3f0cba9bd55a7255598d8333f80b5a201f9e7af0c41c46a472a9c6f3ea7d3f4a",
+      "home_and_workspace_paths_masked": true
+    },
+    {
+      "path": "mypy-final.log",
+      "size_bytes": 44,
+      "sha256": "b1e54a4dabc8d720118d6074a4c299c7b40c262f2e4f5d8f801e29a5cdfe35a5",
+      "home_and_workspace_paths_masked": false
+    },
+    {
+      "path": "native-cancellation-green.log",
+      "size_bytes": 99,
+      "sha256": "5e0531d5616f17d2bd825f9f2a377d586c20a18eceeef3c5b9ca027168d2169b",
+      "home_and_workspace_paths_masked": false
+    },
+    {
+      "path": "native-handoff-green.log",
+      "size_bytes": 99,
+      "sha256": "a7db2c81fcca6438cc798b6a69890c3d0964d86b809bd747ecf31b685007d12f",
+      "home_and_workspace_paths_masked": false
+    },
+    {
+      "path": "native-handoff-independent-review.md",
+      "size_bytes": 6421,
+      "sha256": "dc496ba709d2481bee3e80d89f0d1b7d497ca8fba9cbe46f164a8619f45c231a",
+      "home_and_workspace_paths_masked": false
+    },
+    {
+      "path": "native-handoff-mypy.log",
+      "size_bytes": 44,
+      "sha256": "b1e54a4dabc8d720118d6074a4c299c7b40c262f2e4f5d8f801e29a5cdfe35a5",
+      "home_and_workspace_paths_masked": false
+    },
+    {
+      "path": "native-handoff-red.log",
+      "size_bytes": 4291,
+      "sha256": "55c947a2ed0e716ecbed7edb66d514b7228ba9b8e56fe5c066041aa78091f727",
+      "home_and_workspace_paths_masked": false,
+      "publication_original_sha256": "5c0612abdb87aa460ba330d5e6d65902fccfaaebdd0b4468c59737f03f2810de",
+      "publication_redacted": true
+    },
+    {
+      "path": "native-handoff-ruff.log",
+      "size_bytes": 19,
+      "sha256": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18",
+      "home_and_workspace_paths_masked": false
+    },
+    {
+      "path": "platform-bypass-green.log",
+      "size_bytes": 99,
+      "sha256": "38e04e90030a42aeec43be6d78eadee81754cd4b8c92c011e393d7a89082b2db",
+      "home_and_workspace_paths_masked": false
+    },
+    {
+      "path": "platform-bypass-red.log",
+      "size_bytes": 1544,
+      "sha256": "c7309d762e77f1dfb457503ed54fe6f82dd5a738125a0936449eb859c7623af6",
+      "home_and_workspace_paths_masked": false
+    },
+    {
+      "path": "portable-final-smoke.json",
+      "size_bytes": 1569,
+      "sha256": "fe002a560e73e36c0bcfa1c54a91f5c5b273159f8546983dfdd0cc1e928b7966",
+      "home_and_workspace_paths_masked": false
+    },
+    {
+      "path": "portable-full-build.log",
+      "size_bytes": 354,
+      "sha256": "3458ebea35b4303a0fe20af82590ca40bda1f171e8cf30c9880662242bf0f070",
+      "home_and_workspace_paths_masked": false
+    },
+    {
+      "path": "portable-native-handoff-build.log",
+      "size_bytes": 354,
+      "sha256": "58c0675c3512cac0872694a332c09dcd85108d8d9e98d8614a9e3acfad8f5475",
+      "home_and_workspace_paths_masked": false
+    },
+    {
+      "path": "portable-native-handoff-smoke.json",
+      "size_bytes": 1569,
+      "sha256": "5c384e218bcc9a17a331ccd5a53c00bfdbdfee5f2516bc82ecad4d76cd2ae3f7",
+      "home_and_workspace_paths_masked": false
+    },
+    {
+      "path": "portable-release-build.log",
+      "size_bytes": 354,
+      "sha256": "fee9826084cfe90564372cc36f3bc5fad0435caba446d59409f9b8e4a3ea210c",
+      "home_and_workspace_paths_masked": false
+    },
+    {
+      "path": "portable-release-smoke.json",
+      "size_bytes": 1569,
+      "sha256": "d0eb320e3476cd577116485071322078e40b4469ec6517c8f6fbd9eea9929a3d",
+      "home_and_workspace_paths_masked": false
+    },
+    {
+      "path": "python310-final.log",
+      "size_bytes": 591,
+      "sha256": "bf8d3a9cd71c63a11c02a271944c92ebbf86868d9032881198455f138c4a2828",
+      "home_and_workspace_paths_masked": false
+    },
+    {
+      "path": "python310-native-handoff-final.log",
+      "size_bytes": 591,
+      "sha256": "0486c95f31faf01b1f6872e1242fc0bdade633626ee7fdcb6573b5bd344d0e67",
+      "home_and_workspace_paths_masked": false
+    },
+    {
+      "path": "python312-final.log",
+      "size_bytes": 591,
+      "sha256": "015c6e18967b60a18101659be307a43e75a6c3f16d073ee379c605f869a4e082",
+      "home_and_workspace_paths_masked": false
+    },
+    {
+      "path": "python312-native-handoff-final.log",
+      "size_bytes": 591,
+      "sha256": "c05cc7568727d57b43c0ccd048a0da4c95dee73279920e5db7e552103b107b3c",
+      "home_and_workspace_paths_masked": false
+    },
+    {
+      "path": "ready-extract-corrected.json",
+      "size_bytes": 466,
+      "sha256": "ef41ca553e9b07c311e0636669874b5645748dc85cbbba7a35c13dfbd4782f21",
+      "home_and_workspace_paths_masked": false
+    },
+    {
+      "path": "recovery-review-green.log",
+      "size_bytes": 99,
+      "sha256": "c0454ff5e8b2315284543af1b92e4979a1cc2749edf009d01e72e09a13b314e9",
+      "home_and_workspace_paths_masked": false
+    },
+    {
+      "path": "recovery-review-red.log",
+      "size_bytes": 3564,
+      "sha256": "78d05690a612432f02e56fd48d290c7cefbf9a6924ae4fd65f06fa21a58ab903",
+      "home_and_workspace_paths_masked": false,
+      "publication_original_sha256": "658ac6740aacf7df5fdaf81111bf325b0b06396a2ec93c3ca62a1556b905906e",
+      "publication_redacted": true
+    },
+    {
+      "path": "root-contract-green.log",
+      "size_bytes": 99,
+      "sha256": "58b0270147bbf3d301e9540c634a7677102f63e23ce235f9b4cb33d3c6132993",
+      "home_and_workspace_paths_masked": false
+    },
+    {
+      "path": "root-contract-red.log",
+      "size_bytes": 2000,
+      "sha256": "49d293594cb1b77005ea2ad82acc6110fcf2c39ee7b560bbeac260ee7d8c1467",
+      "home_and_workspace_paths_masked": false,
+      "publication_original_sha256": "c258a92b0d00372183c4ff000cfb6635e9ba796afd9c91e987cf29c11e0b7e25",
+      "publication_redacted": true
+    },
+    {
+      "path": "root-format-fix.log",
+      "size_bytes": 39,
+      "sha256": "dfb07b12748aa872177e357c267d123773c61020a9a3de883985df0de5913666",
+      "home_and_workspace_paths_masked": false
+    },
+    {
+      "path": "root-lint-final.log",
+      "size_bytes": 1814,
+      "sha256": "b2667e60b4d7812ecc9b9eac87ffece88c22c79993969d643fde9255de76763a",
+      "home_and_workspace_paths_masked": false
+    },
+    {
+      "path": "root-lint-recheck.log",
+      "size_bytes": 1122,
+      "sha256": "3b1dd83837ca024c7b6e8783215fac1899f9acca7b88376a82407cfed68d3068",
+      "home_and_workspace_paths_masked": false
+    },
+    {
+      "path": "root-lint.log",
+      "size_bytes": 3419,
+      "sha256": "44a2f261d14603531026fd94be2fe6dca5c9b45d12956bc6af826ee84b04df8e",
+      "home_and_workspace_paths_masked": false
+    },
+    {
+      "path": "root-mypy-final.log",
+      "size_bytes": 44,
+      "sha256": "4c4a1f687213d361065f9094b27b15c087d3754121b66f0e8580a9c699ab6426",
+      "home_and_workspace_paths_masked": false
+    },
+    {
+      "path": "root-mypy-recheck.log",
+      "size_bytes": 44,
+      "sha256": "4c4a1f687213d361065f9094b27b15c087d3754121b66f0e8580a9c699ab6426",
+      "home_and_workspace_paths_masked": false
+    },
+    {
+      "path": "root-mypy.log",
+      "size_bytes": 175,
+      "sha256": "2d4ac33d126a1ba0309cc85b84eca6451e8ac6ddbfd826780c11da24a617f8d6",
+      "home_and_workspace_paths_masked": false
+    },
+    {
+      "path": "root-review-format.log",
+      "size_bytes": 19,
+      "sha256": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18",
+      "home_and_workspace_paths_masked": false
+    },
+    {
+      "path": "ruff-final.log",
+      "size_bytes": 19,
+      "sha256": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18",
+      "home_and_workspace_paths_masked": false
+    },
+    {
+      "path": "runtime-api-green.log",
+      "size_bytes": 98,
+      "sha256": "549382ad279450af426155555f4393fbda60e916b629a27e924475be124aeae4",
+      "home_and_workspace_paths_masked": false
+    },
+    {
+      "path": "runtime-api-red.log",
+      "size_bytes": 4591,
+      "sha256": "64ea15aa7ab5167a730de06223cf7c361dadf12d44fcac082b8559ff03972c7f",
+      "home_and_workspace_paths_masked": false,
+      "publication_original_sha256": "789668301ad7b380e491d40c480b00f0a2d26dcf41dd8efcd730c2cc8c26ccef",
+      "publication_redacted": true
+    },
+    {
+      "path": "service-boundary-green.log",
+      "size_bytes": 7499,
+      "sha256": "fc394550d5cabc295ec67b5c02494b99986ebb249cba2c2c9b64cb48f272119f",
+      "home_and_workspace_paths_masked": false
+    },
+    {
+      "path": "service-boundary-recheck.log",
+      "size_bytes": 99,
+      "sha256": "39b0880277e2daa8ac747fb2937a0260c4a25eca9eb13d0ff9b25c3683ea2173",
+      "home_and_workspace_paths_masked": false
+    },
+    {
+      "path": "setup-portable-project-python312.log",
+      "size_bytes": 501,
+      "sha256": "c46900190cd4b40eb0c55b3653cf15d1eb1e6ca58e26c111f413c4763b5c4366",
+      "home_and_workspace_paths_masked": false
+    },
+    {
+      "path": "setup-portable-ros-green.log",
+      "size_bytes": 99,
+      "sha256": "76f17ecfb4b73f6b9c5c132a48f129a5e713e11ec80816852b5eee730d268b2d",
+      "home_and_workspace_paths_masked": false
+    },
+    {
+      "path": "setup-portable-ros-mypy.log",
+      "size_bytes": 43,
+      "sha256": "f9b031e5c45aa702cd4fef028d465551cb20a2c4698e0913c7b00766b20ac4d8",
+      "home_and_workspace_paths_masked": false
+    },
+    {
+      "path": "setup-portable-ros-python310.log",
+      "size_bytes": 99,
+      "sha256": "33ab5521f069d67100385932f9b224cca1a30999519f56b10c81ecd820d8e643",
+      "home_and_workspace_paths_masked": false
+    },
+    {
+      "path": "setup-portable-ros-python312.log",
+      "size_bytes": 99,
+      "sha256": "2606394f581271c89d7d624c73775d84f1580d150fa4d2a1a6043c8c37033dc0",
+      "home_and_workspace_paths_masked": false
+    },
+    {
+      "path": "setup-portable-ros-red.log",
+      "size_bytes": 8599,
+      "sha256": "9f532488e0a9ec7063a8846125c4bb234e2420c5d784b7fde743a8964e64a84f",
+      "home_and_workspace_paths_masked": true
+    },
+    {
+      "path": "setup-portable-ros-ruff-first-failure.log",
+      "size_bytes": 734,
+      "sha256": "9f0ccf3ac7080eac78578e9f377f69478d29f960e6b76b210465ab999910d04e",
+      "home_and_workspace_paths_masked": false
+    },
+    {
+      "path": "setup-portable-ros-ruff-green.log",
+      "size_bytes": 19,
+      "sha256": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18",
+      "home_and_workspace_paths_masked": false
+    },
+    {
+      "path": "setup-portable-ros-state-red.log",
+      "size_bytes": 8599,
+      "sha256": "689f74a4fb75f2dc5a371d38d9877b492ecff61a2071fafe2b19718eddde8634",
+      "home_and_workspace_paths_masked": true
+    },
+    {
+      "path": "signature-concurrent-red.log",
+      "size_bytes": 1789,
+      "sha256": "295f852637be540438067dd47b3d2e82651a3369c6678d012787e5e5ba3fd885",
+      "home_and_workspace_paths_masked": false,
+      "publication_original_sha256": "cd5ad2c5d04c69476c1f3ce3e745e7b5caf72eacc28c2a109a83d25ea3803b91",
+      "publication_redacted": true
+    },
+    {
+      "path": "state-race-green.log",
+      "size_bytes": 99,
+      "sha256": "42790f1f4cee88a8b8ad8e0d2cc06fa49ed803c84fc349d16722dc1aa029fe77",
+      "home_and_workspace_paths_masked": false
+    },
+    {
+      "path": "state-race-mypy.log",
+      "size_bytes": 42,
+      "sha256": "5d4b6d285b77932e3d08212c3b4974d0a803f98ec60408ac6ccf6a063fa6c19e",
+      "home_and_workspace_paths_masked": false
+    },
+    {
+      "path": "state-race-red.log",
+      "size_bytes": 2233,
+      "sha256": "a97bfabd60bd1aa13167606cf34a28e029a6adaf5781ef70429605bc1c26cd15",
+      "home_and_workspace_paths_masked": false
+    },
+    {
+      "path": "state-race-ruff.log",
+      "size_bytes": 19,
+      "sha256": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18",
+      "home_and_workspace_paths_masked": false
+    },
+    {
+      "path": "status-contract-green.log",
+      "size_bytes": 99,
+      "sha256": "66701254ea553a2ac628741e7c6b684d4f510d1e339a51685f5977a58ca0143f",
+      "home_and_workspace_paths_masked": false
+    },
+    {
+      "path": "status-contract-red.log",
+      "size_bytes": 5557,
+      "sha256": "75189db9b1a933e1237fe19e8757473c9abea553130b5c364b15748bbdf9a21b",
+      "home_and_workspace_paths_masked": false
+    },
+    {
+      "path": "ui-actual-final-build.log",
+      "size_bytes": 401,
+      "sha256": "d6fa6ea693c188b71fc5027d3157267cc1f3cd502647b103ce682c0048207752",
+      "home_and_workspace_paths_masked": false
+    },
+    {
+      "path": "ui-all-final.log",
+      "size_bytes": 242,
+      "sha256": "c5431e92000cd123de0c3d11e178db72750bfb1278a6a43f584e1121f061b595",
+      "home_and_workspace_paths_masked": true
+    },
+    {
+      "path": "ui-build-green.log",
+      "size_bytes": 402,
+      "sha256": "93ac0a337e0a6af19a85c5683e1b71bfd0294d0e11339fce2fc95d06df1194b4",
+      "home_and_workspace_paths_masked": false
+    },
+    {
+      "path": "ui-e2e-actual.log",
+      "size_bytes": 495,
+      "sha256": "bf945cd41ad877905a5609ebb58399d32b8a9e3074645f11279fc7dfb25d8501",
+      "home_and_workspace_paths_masked": false
+    },
+    {
+      "path": "ui-e2e-final.log",
+      "size_bytes": 495,
+      "sha256": "798edd493760ca80e792ccd216b52edb9ae69c39c85695064a8464ac2cc0f852",
+      "home_and_workspace_paths_masked": false
+    },
+    {
+      "path": "ui-e2e-native-handoff-packaged.log",
+      "size_bytes": 495,
+      "sha256": "2de076655243ce6283455c827fd5b7c3b5a8b190c29b27cc988784f4c82989d3",
+      "home_and_workspace_paths_masked": false
+    },
+    {
+      "path": "ui-e2e-packaged.log",
+      "size_bytes": 495,
+      "sha256": "5a9f0d729405dbe0945ed08adf8de64ef1c171d42285e7786ed6b16d1ada60f3",
+      "home_and_workspace_paths_masked": false
+    },
+    {
+      "path": "ui-final-build.log",
+      "size_bytes": 402,
+      "sha256": "b460452c418796fdad747ee36f685aa450abfebfd5d68b3ace1e70aef0471693",
+      "home_and_workspace_paths_masked": false
+    },
+    {
+      "path": "ui-final-tests-green.log",
+      "size_bytes": 242,
+      "sha256": "07c2fd22c915f5997f73025c834b51b42e1f9ce4a340a3b6b72d749b9756ce1c",
+      "home_and_workspace_paths_masked": true
+    },
+    {
+      "path": "ui-final-tests.log",
+      "size_bytes": 30527,
+      "sha256": "327fd0ac65ae10e7c80a08123416727b97d39599ec0934b82d091611312984d5",
+      "home_and_workspace_paths_masked": true
+    },
+    {
+      "path": "ui-signature-deadline-red.log",
+      "size_bytes": 1132,
+      "sha256": "eb60e88b58ccebcf20670dd3a898884f89e2f71b7a957d199a65a857ccf0b9fe",
+      "home_and_workspace_paths_masked": true
+    },
+    {
+      "path": "ui-stale-observation-actual-red.log",
+      "size_bytes": 30548,
+      "sha256": "069121409c756d8120ae3c50526ff48c333c449ef241629eab0f550840d43bb5",
+      "home_and_workspace_paths_masked": true
+    },
+    {
+      "path": "ui-stale-observation-red.log",
+      "size_bytes": 275,
+      "sha256": "704d2a9bc6d292e7f4759cbfe403cf07be419d5ad0165863939cecee3cf04714",
+      "home_and_workspace_paths_masked": true
+    },
+    {
+      "path": "wheel-build-final-ui.log",
+      "size_bytes": 85,
+      "sha256": "db2cad170a28bfd9b13bd9234e55d89839f5610e19ec924a00479e2e5d518f2c",
+      "home_and_workspace_paths_masked": false
+    },
+    {
+      "path": "wheel-build.log",
+      "size_bytes": 85,
+      "sha256": "db2cad170a28bfd9b13bd9234e55d89839f5610e19ec924a00479e2e5d518f2c",
+      "home_and_workspace_paths_masked": false
+    },
+    {
+      "path": "wheel-final-build.log",
+      "size_bytes": 85,
+      "sha256": "db2cad170a28bfd9b13bd9234e55d89839f5610e19ec924a00479e2e5d518f2c",
+      "home_and_workspace_paths_masked": false
+    },
+    {
+      "path": "wheel-native-handoff-build.log",
+      "size_bytes": 85,
+      "sha256": "db2cad170a28bfd9b13bd9234e55d89839f5610e19ec924a00479e2e5d518f2c",
+      "home_and_workspace_paths_masked": false
+    },
+    {
+      "path": "wheel-release-build.log",
+      "size_bytes": 85,
+      "sha256": "db2cad170a28bfd9b13bd9234e55d89839f5610e19ec924a00479e2e5d518f2c",
+      "home_and_workspace_paths_masked": false
+    }
+  ],
+  "raw_originals": "ignored work/setup-evidence",
+  "gold_release_evidence": [
+    "portable-native-handoff-build.log",
+    "portable-native-handoff-smoke.json",
+    "python312-native-handoff-final.log",
+    "python310-native-handoff-final.log",
+    "ui-e2e-native-handoff-packaged.log",
+    "native-handoff-independent-review.md",
+    "cleanup-final.json"
+  ],
+  "historical_first_build_backup": "ignored work/m3-setup-first-candidate.tar.gz; historical full-build/smoke records refer to its earlier original output location",
+  "not_run": [
+    "fresh_mac_native_install_license_authorization",
+    "fresh_empty_daemon_automatic_import",
+    "Linux_fresh_install",
+    "Intel_Mac",
+    "D1_SDK_robot_motion"
+  ],
+  "historical_before_handoff_backup": "ignored work/m3-setup-before-native-handoff.tar.gz; earlier portable-release build/smoke and ui-e2e-packaged records describe that previous candidate, not the final archive"
+}

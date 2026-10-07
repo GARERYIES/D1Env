@@ -1,0 +1,33 @@
+FF                                                                       [100%]
+=================================== FAILURES ===================================
+___ test_status_supplies_complete_frontend_contract_even_when_source_blocked ___
+
+tmp_path = PosixPath('<REDACTED_TEMP_DIR>')
+
+    def test_status_supplies_complete_frontend_contract_even_when_source_blocked(tmp_path):
+        manager, *_ = manager_at(tmp_path)
+        status = manager.status()
+>       assert status['evidence'] == {'host': status['host'], 'artifact': status['artifact']}
+               ^^^^^^^^^^^^^^^^^^
+E       KeyError: 'evidence'
+
+tests/test_setup_manager.py:322: KeyError
+_________________ test_cancel_cannot_smuggle_install_arguments _________________
+
+authenticated = (<starlette.testclient.TestClient object at 0x105e6aa20>, {'Origin': 'http://127.0.0.1:8765', 'X-CSRF-Token': '<REDACTED_TEST_CSRF>'})
+preparation = <test_runtime_api.PreparationBoundary object at 0x105af09e0>
+
+    def test_cancel_cannot_smuggle_install_arguments(authenticated, preparation):
+        client, headers = authenticated
+>       assert client.post(f"/api/runtime/tasks/{'a'*32}/cancel", headers=headers,
+                           json={'command': 'sudo install'}).status_code == 422
+E       AssertionError: assert 200 == 422
+E        +  where 200 = <Response [200 OK]>.status_code
+E        +    where <Response [200 OK]> = post('/api/runtime/tasks/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/cancel', headers={'Origin': 'http://127.0.0.1:8765', 'X-CSRF-Token': '<REDACTED_TEST_CSRF>'}, json={'command': 'sudo install'})
+E        +      where post = <starlette.testclient.TestClient object at 0x105e6aa20>.post
+
+tests/test_runtime_api.py:83: AssertionError
+=========================== short test summary info ============================
+FAILED tests/test_setup_manager.py::test_status_supplies_complete_frontend_contract_even_when_source_blocked
+FAILED tests/test_runtime_api.py::test_cancel_cannot_smuggle_install_arguments
+2 failed in 0.20s

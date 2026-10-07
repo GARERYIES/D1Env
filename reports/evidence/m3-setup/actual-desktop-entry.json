@@ -1,0 +1,11 @@
+{
+  "official_entry_verification_seconds": 8.607708875089884,
+  "verified_local_endpoint": true,
+  "entry": "verified Docker.app CLI",
+  "docker_info_exit": 0,
+  "docker_info": {
+    "OSType": "linux",
+    "Architecture": "aarch64",
+    "ServerVersion": "29.6.1"
+  }
+}

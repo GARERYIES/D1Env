@@ -1,0 +1,11 @@
+{
+  "all_image_ids_preserved": true,
+  "existing_container_ids_preserved": true,
+  "existing_network_ids_preserved": true,
+  "counts": {
+    "image": 12,
+    "container": 10,
+    "network": 6
+  },
+  "owned_test_resources_cleaned": true
+}

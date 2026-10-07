@@ -1,0 +1,85 @@
+..........FFFFFFFFF............                                          [100%]
+=================================== FAILURES ===================================
+__________ test_worker_failure_or_nonboolean_artifact_never_succeeds ___________
+tests/test_setup_manager.py:170: in test_worker_failure_or_nonboolean_artifact_never_succeeds
+    assert done["error_code"] == "IMAGE_PREPARATION_UNVERIFIED"
+           ^^^^^^^^^^^^^^^^^^
+E   KeyError: 'error_code'
+_ test_status_interface_declares_candidate_platform_and_observation[platform0-True] _
+tests/test_setup_manager.py:184: in test_status_interface_declares_candidate_platform_and_observation
+    assert status["platform"] == {"os": platform["os_name"], "architecture": platform["architecture"],
+E   AssertionError: assert {'os_name': '...sion': '26.0'} == {'os': 'Darwi...ported': True}
+E     
+E     Omitting 1 identical items, use -vv to show
+E     Left contains 2 more items:
+E     {'os_name': 'Darwin', 'os_version': '26.0'}
+E     Right contains 3 more items:
+E     {'os': 'Darwin', 'supported': True, 'version': '26.0'}
+E     Use -v to get more diff
+_ test_status_interface_declares_candidate_platform_and_observation[platform1-False] _
+tests/test_setup_manager.py:184: in test_status_interface_declares_candidate_platform_and_observation
+    assert status["platform"] == {"os": platform["os_name"], "architecture": platform["architecture"],
+E   AssertionError: assert {'os_name': '...sion': '13.0'} == {'os': 'Darwi...orted': False}
+E     
+E     Omitting 1 identical items, use -vv to show
+E     Left contains 2 more items:
+E     {'os_name': 'Darwin', 'os_version': '13.0'}
+E     Right contains 3 more items:
+E     {'os': 'Darwin', 'supported': False, 'version': '13.0'}
+E     Use -v to get more diff
+_ test_status_interface_declares_candidate_platform_and_observation[platform2-False] _
+tests/test_setup_manager.py:184: in test_status_interface_declares_candidate_platform_and_observation
+    assert status["platform"] == {"os": platform["os_name"], "architecture": platform["architecture"],
+E   AssertionError: assert {'os_name': '...ersion': None} == {'os': 'Darwi...orted': False}
+E     
+E     Omitting 1 identical items, use -vv to show
+E     Left contains 2 more items:
+E     {'os_name': 'Darwin', 'os_version': None}
+E     Right contains 3 more items:
+E     {'os': 'Darwin', 'supported': False, 'version': None}
+E     Use -v to get more diff
+_ test_status_interface_declares_candidate_platform_and_observation[platform3-False] _
+tests/test_setup_manager.py:184: in test_status_interface_declares_candidate_platform_and_observation
+    assert status["platform"] == {"os": platform["os_name"], "architecture": platform["architecture"],
+E   AssertionError: assert {'os_name': '...sion': '26.0'} == {'os': 'Darwi...orted': False}
+E     
+E     Omitting 1 identical items, use -vv to show
+E     Left contains 2 more items:
+E     {'os_name': 'Darwin', 'os_version': '26.0'}
+E     Right contains 3 more items:
+E     {'os': 'Darwin', 'supported': False, 'version': '26.0'}
+E     Use -v to get more diff
+_ test_status_interface_declares_candidate_platform_and_observation[platform4-False] _
+tests/test_setup_manager.py:184: in test_status_interface_declares_candidate_platform_and_observation
+    assert status["platform"] == {"os": platform["os_name"], "architecture": platform["architecture"],
+E   AssertionError: assert {'os_name': '...ion': '22.04'} == {'os': 'Linux...orted': False}
+E     
+E     Omitting 1 identical items, use -vv to show
+E     Left contains 2 more items:
+E     {'os_name': 'Linux', 'os_version': '22.04'}
+E     Right contains 3 more items:
+E     {'os': 'Linux', 'supported': False, 'version': '22.04'}
+E     Use -v to get more diff
+_________ test_missing_or_conflicting_docker_evidence_is_unknown[None] _________
+tests/test_setup_manager.py:193: in test_missing_or_conflicting_docker_evidence_is_unknown
+    assert manager.status()["environment_ready"] is None
+E   assert True is None
+________ test_missing_or_conflicting_docker_evidence_is_unknown[False] _________
+tests/test_setup_manager.py:193: in test_missing_or_conflicting_docker_evidence_is_unknown
+    assert manager.status()["environment_ready"] is None
+E   assert True is None
+__________ test_missing_or_conflicting_docker_evidence_is_unknown[1] ___________
+tests/test_setup_manager.py:193: in test_missing_or_conflicting_docker_evidence_is_unknown
+    assert manager.status()["environment_ready"] is None
+E   assert True is None
+=========================== short test summary info ============================
+FAILED tests/test_setup_manager.py::test_worker_failure_or_nonboolean_artifact_never_succeeds
+FAILED tests/test_setup_manager.py::test_status_interface_declares_candidate_platform_and_observation[platform0-True]
+FAILED tests/test_setup_manager.py::test_status_interface_declares_candidate_platform_and_observation[platform1-False]
+FAILED tests/test_setup_manager.py::test_status_interface_declares_candidate_platform_and_observation[platform2-False]
+FAILED tests/test_setup_manager.py::test_status_interface_declares_candidate_platform_and_observation[platform3-False]
+FAILED tests/test_setup_manager.py::test_status_interface_declares_candidate_platform_and_observation[platform4-False]
+FAILED tests/test_setup_manager.py::test_missing_or_conflicting_docker_evidence_is_unknown[None]
+FAILED tests/test_setup_manager.py::test_missing_or_conflicting_docker_evidence_is_unknown[False]
+FAILED tests/test_setup_manager.py::test_missing_or_conflicting_docker_evidence_is_unknown[1]
+9 failed, 22 passed in 0.41s

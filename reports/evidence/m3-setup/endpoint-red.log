@@ -1,0 +1,39 @@
+FFFFFFF                                                                  [100%]
+=================================== FAILURES ===================================
+________ test_existing_local_cli_keeps_default_without_changing_context ________
+tests/test_docker_endpoint.py:9: in test_existing_local_cli_keeps_default_without_changing_context
+    from d1env.docker.endpoint import resolve_endpoint
+E   ModuleNotFoundError: No module named 'd1env.docker.endpoint'
+__________ test_desktop_cli_without_path_uses_only_fixed_user_socket ___________
+tests/test_docker_endpoint.py:19: in test_desktop_cli_without_path_uses_only_fixed_user_socket
+    from d1env.docker.endpoint import resolve_endpoint
+E   ModuleNotFoundError: No module named 'd1env.docker.endpoint'
+____________ test_desktop_wrong_signature_cannot_supply_docker_cli _____________
+tests/test_docker_endpoint.py:34: in test_desktop_wrong_signature_cannot_supply_docker_cli
+    from d1env.docker.endpoint import resolve_endpoint
+E   ModuleNotFoundError: No module named 'd1env.docker.endpoint'
+________ test_local_socket_cannot_be_redirected_or_fabricated[regular] _________
+tests/test_docker_endpoint.py:45: in test_local_socket_cannot_be_redirected_or_fabricated
+    from d1env.docker.endpoint import resolve_endpoint
+E   ModuleNotFoundError: No module named 'd1env.docker.endpoint'
+________ test_local_socket_cannot_be_redirected_or_fabricated[symlink] _________
+tests/test_docker_endpoint.py:45: in test_local_socket_cannot_be_redirected_or_fabricated
+    from d1env.docker.endpoint import resolve_endpoint
+E   ModuleNotFoundError: No module named 'd1env.docker.endpoint'
+_____ test_local_socket_cannot_be_redirected_or_fabricated[foreign_owner] ______
+tests/test_docker_endpoint.py:45: in test_local_socket_cannot_be_redirected_or_fabricated
+    from d1env.docker.endpoint import resolve_endpoint
+E   ModuleNotFoundError: No module named 'd1env.docker.endpoint'
+_____________ test_endpoint_has_no_web_supplied_remote_parameters ______________
+tests/test_docker_endpoint.py:76: in test_endpoint_has_no_web_supplied_remote_parameters
+    from d1env.docker.endpoint import LocalDockerEndpoint
+E   ModuleNotFoundError: No module named 'd1env.docker.endpoint'
+=========================== short test summary info ============================
+FAILED tests/test_docker_endpoint.py::test_existing_local_cli_keeps_default_without_changing_context
+FAILED tests/test_docker_endpoint.py::test_desktop_cli_without_path_uses_only_fixed_user_socket
+FAILED tests/test_docker_endpoint.py::test_desktop_wrong_signature_cannot_supply_docker_cli
+FAILED tests/test_docker_endpoint.py::test_local_socket_cannot_be_redirected_or_fabricated[regular]
+FAILED tests/test_docker_endpoint.py::test_local_socket_cannot_be_redirected_or_fabricated[symlink]
+FAILED tests/test_docker_endpoint.py::test_local_socket_cannot_be_redirected_or_fabricated[foreign_owner]
+FAILED tests/test_docker_endpoint.py::test_endpoint_has_no_web_supplied_remote_parameters
+7 failed in 0.05s

@@ -7,6 +7,17 @@ from d1env.models import HostFacts, utcnow
 ROOT = Path(__file__).resolve().parents[1]
 
 
+@pytest.fixture(autouse=True)
+def explicit_fake_process_entry(request, monkeypatch):
+    # Subprocess-boundary tests intentionally use fixture CLIs/Processes.
+    # Never let the machine's newly verified Desktop entry replace those fakes.
+    if request.node.path.name in {"test_process.py", "test_docker_executor.py"}:
+        from d1env.docker.endpoint import LocalDockerEndpoint
+        endpoint = LocalDockerEndpoint(("docker", "--context", "default"), None, True)
+        monkeypatch.setattr("d1env.docker.client.resolve_endpoint", lambda: endpoint)
+        monkeypatch.setattr("d1env.process.resolve_endpoint", lambda: endpoint)
+
+
 @pytest.fixture
 def service(tmp_path, monkeypatch):
     from d1env.service import ApplicationService

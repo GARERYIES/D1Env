@@ -1,0 +1,94 @@
+[
+  {
+    "name": "docker-dmg-hdiutil-verify",
+    "argv": [
+      "/usr/bin/hdiutil",
+      "verify",
+      "<workspace>/work/setup-downloads/Docker-4.80.0-arm64.dmg"
+    ],
+    "exit_code": 0,
+    "seconds": 16.588,
+    "expected_exit_code": 0
+  },
+  {
+    "name": "docker-dmg-attach-readonly",
+    "argv": [
+      "/usr/bin/hdiutil",
+      "attach",
+      "-readonly",
+      "-nobrowse",
+      "-noautoopen",
+      "-mountpoint",
+      "<workspace>/work/setup-downloads/mounted-docker-4.80.0",
+      "-plist",
+      "<workspace>/work/setup-downloads/Docker-4.80.0-arm64.dmg"
+    ],
+    "exit_code": 0,
+    "seconds": 0.451,
+    "expected_exit_code": 0
+  },
+  {
+    "name": "docker-dmg-app-codesign-verify",
+    "argv": [
+      "/usr/bin/codesign",
+      "--verify",
+      "--deep",
+      "--strict",
+      "--verbose=2",
+      "-R",
+      "=identifier \"com.docker.docker\" and anchor apple generic and certificate leaf[subject.OU] = \"9BNSXJN65R\"",
+      "<workspace>/work/setup-downloads/mounted-docker-4.80.0/Docker.app"
+    ],
+    "exit_code": 0,
+    "seconds": 24.52,
+    "expected_exit_code": 0
+  },
+  {
+    "name": "docker-dmg-app-codesign-display",
+    "argv": [
+      "/usr/bin/codesign",
+      "--display",
+      "--verbose=4",
+      "<workspace>/work/setup-downloads/mounted-docker-4.80.0/Docker.app"
+    ],
+    "exit_code": 0,
+    "seconds": 0.063,
+    "expected_exit_code": 0
+  },
+  {
+    "name": "docker-dmg-app-spctl",
+    "argv": [
+      "/usr/sbin/spctl",
+      "--assess",
+      "--type",
+      "execute",
+      "--verbose=4",
+      "<workspace>/work/setup-downloads/mounted-docker-4.80.0/Docker.app"
+    ],
+    "exit_code": 0,
+    "seconds": 25.684,
+    "expected_exit_code": 0
+  },
+  {
+    "name": "docker-dmg-stapler",
+    "argv": [
+      "/usr/bin/xcrun",
+      "stapler",
+      "validate",
+      "<workspace>/work/setup-downloads/Docker-4.80.0-arm64.dmg"
+    ],
+    "exit_code": 0,
+    "scope": "Development-only audit; not a user prerequisite and not the Gatekeeper decision."
+  },
+  {
+    "name": "docker-dmg-detach-owned",
+    "argv": [
+      "/usr/bin/hdiutil",
+      "detach",
+      "<workspace>/work/setup-downloads/mounted-docker-4.80.0"
+    ],
+    "exit_code": 0,
+    "seconds": 10.804,
+    "expected_exit_code": 0
+  }
+]

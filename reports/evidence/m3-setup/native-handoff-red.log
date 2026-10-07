@@ -1,0 +1,69 @@
+......FF....F....                                                        [100%]
+=================================== FAILURES ===================================
+______ test_unwritable_applications_opens_only_verified_native_installer _______
+
+tmp_path = PosixPath('<REDACTED_TEMP_DIR>')
+
+    def test_unwritable_applications_opens_only_verified_native_installer(tmp_path):
+        installer, native, dmg, applications, lock = fixture_installer(tmp_path, writable=False)
+        result = installer.install(dmg, lock, "a" * 32, threading.Event())
+        assert result["native_setup_required"] is True
+        assert not (applications / "Docker.app").exists()
+        assert ("/usr/bin/open", str(dmg)) in native.calls
+        assert not any(call[0] == "/usr/bin/ditto" for call in native.calls)
+        # Finder must receive the DMG only after our verification mount is gone.
+        detach_index = next(index for index, call in enumerate(native.calls)
+                            if call[:2] == ("/usr/bin/hdiutil", "detach"))
+>       assert detach_index < native.calls.index(("/usr/bin/open", str(dmg)))
+E       AssertionError: assert 4 < 3
+E        +  where 3 = <built-in method index of list object at 0x1037e9780>(('/usr/bin/open', '<REDACTED_TEMP_DIR>'))
+E        +    where <built-in method index of list object at 0x1037e9780> = [('/usr/bin/hdiutil', 'attach', '-readonly', '-nobrowse', '-mountpoint', '<REDACTED_TEMP_DIR>')].index
+E        +      where [('/usr/bin/hdiutil', 'attach', '-readonly', '-nobrowse', '-mountpoint', '<REDACTED_TEMP_DIR>')] = <test_setup_installer.NativeFake object at 0x1037da8d0>.calls
+
+tests/test_setup_installer.py:108: AssertionError
+_______ test_cancel_after_verification_unmount_never_opens_native_window _______
+
+tmp_path = PosixPath('<REDACTED_TEMP_DIR>')
+
+    def test_cancel_after_verification_unmount_never_opens_native_window(tmp_path):
+        cancelled = threading.Event()
+    
+        class CancelAfterDetach(NativeFake):
+            def run(self, argv, cancel, timeout_s=60):
+                result = super().run(argv, cancel, timeout_s)
+                if argv[:2] == ("/usr/bin/hdiutil", "detach"):
+                    cancelled.set()
+                return result
+    
+        installer, native, dmg, _applications, lock = fixture_installer(tmp_path, CancelAfterDetach(), writable=False)
+>       with pytest.raises(SetupError, match="SETUP_CANCELLED"):
+E       Failed: DID NOT RAISE SetupError
+
+tests/test_setup_installer.py:123: Failed
+______ test_failed_unmount_is_failure_and_preserves_installed_app[False] _______
+
+tmp_path = PosixPath('<REDACTED_TEMP_DIR>')
+writable = False
+
+    @pytest.mark.parametrize("writable", [True, False])
+    def test_failed_unmount_is_failure_and_preserves_installed_app(tmp_path, writable):
+        class FailedUnmount(NativeFake):
+            def run(self, argv, cancel, timeout_s=60):
+                result = super().run(argv, cancel, timeout_s)
+                return NativeResult(1, False) if argv[:2] == ("/usr/bin/hdiutil", "detach") else result
+        installer, native, dmg, applications, lock = fixture_installer(tmp_path, FailedUnmount(),
+                                                                    writable=writable, renamer=lambda src, dst: src.rename(dst))
+        with pytest.raises(SetupError, match="INSTALLER_UNMOUNT_FAILED"):
+            installer.install(dmg, lock, "a" * 32, threading.Event())
+        assert (applications / "Docker.app").exists() is writable
+        assert list(applications.iterdir()) == ([applications / "Docker.app"] if writable else [])
+>       assert not any(call[0] == "/usr/bin/open" for call in native.calls)
+E       assert not True
+E        +  where True = any(<generator object test_failed_unmount_is_failure_and_preserves_installed_app.<locals>.<genexpr> at 0x1037b8c70>)
+
+tests/test_setup_installer.py:176: AssertionError
+=========================== short test summary info ============================
+FAILED tests/test_setup_installer.py::test_unwritable_applications_opens_only_verified_native_installer
+FAILED tests/test_setup_installer.py::test_cancel_after_verification_unmount_never_opens_native_window
+FAILED tests/test_setup_installer.py::test_failed_unmount_is_failure_and_preserves_installed_app[False]
+3 failed, 14 passed in 0.58s

@@ -1,0 +1,57 @@
+FFFFFFFFFF                                                               [100%]
+=================================== FAILURES ===================================
+_____________ test_official_http_adapter_uses_single_receive_read1 _____________
+tests/test_setup_download_deadline.py:33: in test_official_http_adapter_uses_single_receive_read1
+    assert adapter.read(1024**2) == b"one received fragment"
+           ^^^^^^^^^^^^^^^^^^^^^
+tests/test_setup_download_deadline.py:20: in read
+    raise AssertionError("HTTPResponse.read can fill a megabyte indefinitely")
+E   AssertionError: HTTPResponse.read can fill a megabyte indefinitely
+__ test_download_deadline_is_constructor_bounded_and_not_http_configurable[0] __
+tests/test_setup_download_deadline.py:42: in test_download_deadline_is_constructor_bounded_and_not_http_configurable
+    InstallerDownloader(tmp_path, download_timeout_s=timeout)
+E   TypeError: InstallerDownloader.__init__() got an unexpected keyword argument 'download_timeout_s'
+_ test_download_deadline_is_constructor_bounded_and_not_http_configurable[-1] __
+tests/test_setup_download_deadline.py:42: in test_download_deadline_is_constructor_bounded_and_not_http_configurable
+    InstallerDownloader(tmp_path, download_timeout_s=timeout)
+E   TypeError: InstallerDownloader.__init__() got an unexpected keyword argument 'download_timeout_s'
+_ test_download_deadline_is_constructor_bounded_and_not_http_configurable[3600.01] _
+tests/test_setup_download_deadline.py:42: in test_download_deadline_is_constructor_bounded_and_not_http_configurable
+    InstallerDownloader(tmp_path, download_timeout_s=timeout)
+E   TypeError: InstallerDownloader.__init__() got an unexpected keyword argument 'download_timeout_s'
+_ test_download_deadline_is_constructor_bounded_and_not_http_configurable[inf] _
+tests/test_setup_download_deadline.py:42: in test_download_deadline_is_constructor_bounded_and_not_http_configurable
+    InstallerDownloader(tmp_path, download_timeout_s=timeout)
+E   TypeError: InstallerDownloader.__init__() got an unexpected keyword argument 'download_timeout_s'
+_ test_download_deadline_is_constructor_bounded_and_not_http_configurable[nan] _
+tests/test_setup_download_deadline.py:42: in test_download_deadline_is_constructor_bounded_and_not_http_configurable
+    InstallerDownloader(tmp_path, download_timeout_s=timeout)
+E   TypeError: InstallerDownloader.__init__() got an unexpected keyword argument 'download_timeout_s'
+_ test_download_deadline_is_constructor_bounded_and_not_http_configurable[True] _
+tests/test_setup_download_deadline.py:42: in test_download_deadline_is_constructor_bounded_and_not_http_configurable
+    InstallerDownloader(tmp_path, download_timeout_s=timeout)
+E   TypeError: InstallerDownloader.__init__() got an unexpected keyword argument 'download_timeout_s'
+_ test_expired_overall_deadline_does_not_promote_partial_even_if_fragments_arrive _
+tests/test_setup_download_deadline.py:53: in test_expired_overall_deadline_does_not_promote_partial_even_if_fragments_arrive
+    downloader = InstallerDownloader(tmp_path, opener=lambda url: SlowFragments(data, url),
+E   TypeError: InstallerDownloader.__init__() got an unexpected keyword argument 'clock'
+_ test_progress_persistence_is_throttled_for_byte_drip_but_reports_completion __
+tests/test_setup_download_deadline.py:72: in test_progress_persistence_is_throttled_for_byte_drip_but_reports_completion
+    downloader = InstallerDownloader(tmp_path, opener=lambda url: TinyFragments(data, url),
+E   TypeError: InstallerDownloader.__init__() got an unexpected keyword argument 'clock'
+________ test_progress_reports_each_megabyte_without_waiting_for_clock _________
+tests/test_setup_download_deadline.py:84: in test_progress_reports_each_megabyte_without_waiting_for_clock
+    downloader = InstallerDownloader(tmp_path, opener=lambda url: Response(data, url),
+E   TypeError: InstallerDownloader.__init__() got an unexpected keyword argument 'clock'
+=========================== short test summary info ============================
+FAILED tests/test_setup_download_deadline.py::test_official_http_adapter_uses_single_receive_read1
+FAILED tests/test_setup_download_deadline.py::test_download_deadline_is_constructor_bounded_and_not_http_configurable[0]
+FAILED tests/test_setup_download_deadline.py::test_download_deadline_is_constructor_bounded_and_not_http_configurable[-1]
+FAILED tests/test_setup_download_deadline.py::test_download_deadline_is_constructor_bounded_and_not_http_configurable[3600.01]
+FAILED tests/test_setup_download_deadline.py::test_download_deadline_is_constructor_bounded_and_not_http_configurable[inf]
+FAILED tests/test_setup_download_deadline.py::test_download_deadline_is_constructor_bounded_and_not_http_configurable[nan]
+FAILED tests/test_setup_download_deadline.py::test_download_deadline_is_constructor_bounded_and_not_http_configurable[True]
+FAILED tests/test_setup_download_deadline.py::test_expired_overall_deadline_does_not_promote_partial_even_if_fragments_arrive
+FAILED tests/test_setup_download_deadline.py::test_progress_persistence_is_throttled_for_byte_drip_but_reports_completion
+FAILED tests/test_setup_download_deadline.py::test_progress_reports_each_megabyte_without_waiting_for_clock
+10 failed in 0.09s

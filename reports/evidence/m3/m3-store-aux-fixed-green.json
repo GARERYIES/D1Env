@@ -1,0 +1,1885 @@
+{
+  "compiled_validation_lstat_sites": 2,
+  "source_modified": false,
+  "docker_or_sdk_invoked": false,
+  "python_version": "3.12.0",
+  "phases": [
+    {
+      "name": "store_short_connection_close",
+      "duration_s": 8,
+      "threads": 4,
+      "thread_results": [
+        {
+          "attempts": 9166,
+          "failures": 0,
+          "error_counts": {}
+        },
+        {
+          "attempts": 9442,
+          "failures": 0,
+          "error_counts": {}
+        },
+        {
+          "attempts": 9297,
+          "failures": 0,
+          "error_counts": {}
+        },
+        {
+          "attempts": 9150,
+          "failures": 0,
+          "error_counts": {}
+        }
+      ],
+      "attempts": 37055,
+      "failures": 0
+    },
+    {
+      "name": "raw_writer_close_and_original_validation",
+      "duration_s": 2,
+      "threads": 3,
+      "thread_results": [
+        {
+          "attempts": 1100,
+          "failures": 0,
+          "error_counts": {}
+        },
+        {
+          "attempts": 34731,
+          "failures": 0,
+          "error_counts": {}
+        },
+        {
+          "attempts": 33786,
+          "failures": 0,
+          "error_counts": {}
+        }
+      ],
+      "attempts": 69617,
+      "failures": 0
+    },
+    {
+      "name": "real_mock_worker_and_original_store_readers",
+      "duration_s": 8,
+      "threads": 2,
+      "thread_results": [
+        {
+          "attempts": 13569,
+          "failures": 0,
+          "error_counts": {}
+        },
+        {
+          "attempts": 10234,
+          "failures": 0,
+          "error_counts": {}
+        }
+      ],
+      "attempts": 23803,
+      "failures": 0
+    }
+  ],
+  "unsafe_observations": [
+    {
+      "phase": "store_short_connection_close",
+      "basename": "jobs.sqlite3-wal",
+      "observed": {
+        "uid": 501,
+        "running_uid": 501,
+        "mode": "0o100644",
+        "permissions": "0o644",
+        "nlink": 0,
+        "regular": true,
+        "inode": 13806520
+      },
+      "immediate_recheck": "missing"
+    },
+    {
+      "phase": "store_short_connection_close",
+      "basename": "jobs.sqlite3-shm",
+      "observed": {
+        "uid": 501,
+        "running_uid": 501,
+        "mode": "0o100644",
+        "permissions": "0o644",
+        "nlink": 0,
+        "regular": true,
+        "inode": 13806555
+      },
+      "immediate_recheck": "missing"
+    },
+    {
+      "phase": "store_short_connection_close",
+      "basename": "jobs.sqlite3-shm",
+      "observed": {
+        "uid": 501,
+        "running_uid": 501,
+        "mode": "0o100644",
+        "permissions": "0o644",
+        "nlink": 0,
+        "regular": true,
+        "inode": 13806605
+      },
+      "immediate_recheck": "missing"
+    },
+    {
+      "phase": "store_short_connection_close",
+      "basename": "jobs.sqlite3-shm",
+      "observed": {
+        "uid": 501,
+        "running_uid": 501,
+        "mode": "0o100644",
+        "permissions": "0o644",
+        "nlink": 0,
+        "regular": true,
+        "inode": 13806711
+      },
+      "immediate_recheck": "missing"
+    },
+    {
+      "phase": "store_short_connection_close",
+      "basename": "jobs.sqlite3-shm",
+      "observed": {
+        "uid": 501,
+        "running_uid": 501,
+        "mode": "0o100644",
+        "permissions": "0o644",
+        "nlink": 0,
+        "regular": true,
+        "inode": 13807238
+      },
+      "immediate_recheck": "missing"
+    },
+    {
+      "phase": "store_short_connection_close",
+      "basename": "jobs.sqlite3-shm",
+      "observed": {
+        "uid": 501,
+        "running_uid": 501,
+        "mode": "0o100644",
+        "permissions": "0o644",
+        "nlink": 0,
+        "regular": true,
+        "inode": 13807318
+      },
+      "immediate_recheck": "missing"
+    },
+    {
+      "phase": "store_short_connection_close",
+      "basename": "jobs.sqlite3-shm",
+      "observed": {
+        "uid": 501,
+        "running_uid": 501,
+        "mode": "0o100644",
+        "permissions": "0o644",
+        "nlink": 0,
+        "regular": true,
+        "inode": 13807398
+      },
+      "immediate_recheck": "missing"
+    },
+    {
+      "phase": "store_short_connection_close",
+      "basename": "jobs.sqlite3-wal",
+      "observed": {
+        "uid": 501,
+        "running_uid": 501,
+        "mode": "0o100644",
+        "permissions": "0o644",
+        "nlink": 0,
+        "regular": true,
+        "inode": 13807407
+      },
+      "immediate_recheck": "missing"
+    },
+    {
+      "phase": "store_short_connection_close",
+      "basename": "jobs.sqlite3-wal",
+      "observed": {
+        "uid": 501,
+        "running_uid": 501,
+        "mode": "0o100644",
+        "permissions": "0o644",
+        "nlink": 0,
+        "regular": true,
+        "inode": 13807707
+      },
+      "immediate_recheck": "missing"
+    },
+    {
+      "phase": "store_short_connection_close",
+      "basename": "jobs.sqlite3-shm",
+      "observed": {
+        "uid": 501,
+        "running_uid": 501,
+        "mode": "0o100644",
+        "permissions": "0o644",
+        "nlink": 0,
+        "regular": true,
+        "inode": 13807800
+      },
+      "immediate_recheck": "missing"
+    },
+    {
+      "phase": "store_short_connection_close",
+      "basename": "jobs.sqlite3-wal",
+      "observed": {
+        "uid": 501,
+        "running_uid": 501,
+        "mode": "0o100644",
+        "permissions": "0o644",
+        "nlink": 0,
+        "regular": true,
+        "inode": 13807953
+      },
+      "immediate_recheck": "missing"
+    },
+    {
+      "phase": "store_short_connection_close",
+      "basename": "jobs.sqlite3-wal",
+      "observed": {
+        "uid": 501,
+        "running_uid": 501,
+        "mode": "0o100644",
+        "permissions": "0o644",
+        "nlink": 0,
+        "regular": true,
+        "inode": 13808199
+      },
+      "immediate_recheck": "missing"
+    },
+    {
+      "phase": "store_short_connection_close",
+      "basename": "jobs.sqlite3-wal",
+      "observed": {
+        "uid": 501,
+        "running_uid": 501,
+        "mode": "0o100644",
+        "permissions": "0o644",
+        "nlink": 0,
+        "regular": true,
+        "inode": 13808269
+      },
+      "immediate_recheck": "missing"
+    },
+    {
+      "phase": "store_short_connection_close",
+      "basename": "jobs.sqlite3-shm",
+      "observed": {
+        "uid": 501,
+        "running_uid": 501,
+        "mode": "0o100644",
+        "permissions": "0o644",
+        "nlink": 0,
+        "regular": true,
+        "inode": 13808298
+      },
+      "immediate_recheck": "missing"
+    },
+    {
+      "phase": "store_short_connection_close",
+      "basename": "jobs.sqlite3-shm",
+      "observed": {
+        "uid": 501,
+        "running_uid": 501,
+        "mode": "0o100644",
+        "permissions": "0o644",
+        "nlink": 0,
+        "regular": true,
+        "inode": 13808464
+      },
+      "immediate_recheck": "missing"
+    },
+    {
+      "phase": "store_short_connection_close",
+      "basename": "jobs.sqlite3-shm",
+      "observed": {
+        "uid": 501,
+        "running_uid": 501,
+        "mode": "0o100644",
+        "permissions": "0o644",
+        "nlink": 0,
+        "regular": true,
+        "inode": 13808522
+      },
+      "immediate_recheck": "missing"
+    },
+    {
+      "phase": "store_short_connection_close",
+      "basename": "jobs.sqlite3-shm",
+      "observed": {
+        "uid": 501,
+        "running_uid": 501,
+        "mode": "0o100644",
+        "permissions": "0o644",
+        "nlink": 0,
+        "regular": true,
+        "inode": 13808526
+      },
+      "immediate_recheck": "missing"
+    },
+    {
+      "phase": "store_short_connection_close",
+      "basename": "jobs.sqlite3-shm",
+      "observed": {
+        "uid": 501,
+        "running_uid": 501,
+        "mode": "0o100644",
+        "permissions": "0o644",
+        "nlink": 0,
+        "regular": true,
+        "inode": 13808538
+      },
+      "immediate_recheck": "missing"
+    },
+    {
+      "phase": "store_short_connection_close",
+      "basename": "jobs.sqlite3-wal",
+      "observed": {
+        "uid": 501,
+        "running_uid": 501,
+        "mode": "0o100644",
+        "permissions": "0o644",
+        "nlink": 0,
+        "regular": true,
+        "inode": 13808676
+      },
+      "immediate_recheck": "missing"
+    },
+    {
+      "phase": "store_short_connection_close",
+      "basename": "jobs.sqlite3-shm",
+      "observed": {
+        "uid": 501,
+        "running_uid": 501,
+        "mode": "0o100644",
+        "permissions": "0o644",
+        "nlink": 0,
+        "regular": true,
+        "inode": 13808929
+      },
+      "immediate_recheck": "missing"
+    },
+    {
+      "phase": "store_short_connection_close",
+      "basename": "jobs.sqlite3-wal",
+      "observed": {
+        "uid": 501,
+        "running_uid": 501,
+        "mode": "0o100644",
+        "permissions": "0o644",
+        "nlink": 0,
+        "regular": true,
+        "inode": 13808940
+      },
+      "immediate_recheck": "missing"
+    },
+    {
+      "phase": "store_short_connection_close",
+      "basename": "jobs.sqlite3-shm",
+      "observed": {
+        "uid": 501,
+        "running_uid": 501,
+        "mode": "0o100644",
+        "permissions": "0o644",
+        "nlink": 0,
+        "regular": true,
+        "inode": 13808947
+      },
+      "immediate_recheck": "missing"
+    },
+    {
+      "phase": "store_short_connection_close",
+      "basename": "jobs.sqlite3-shm",
+      "observed": {
+        "uid": 501,
+        "running_uid": 501,
+        "mode": "0o100644",
+        "permissions": "0o644",
+        "nlink": 0,
+        "regular": true,
+        "inode": 13809049
+      },
+      "immediate_recheck": "missing"
+    },
+    {
+      "phase": "store_short_connection_close",
+      "basename": "jobs.sqlite3-wal",
+      "observed": {
+        "uid": 501,
+        "running_uid": 501,
+        "mode": "0o100644",
+        "permissions": "0o644",
+        "nlink": 0,
+        "regular": true,
+        "inode": 13809186
+      },
+      "immediate_recheck": "missing"
+    },
+    {
+      "phase": "store_short_connection_close",
+      "basename": "jobs.sqlite3-shm",
+      "observed": {
+        "uid": 501,
+        "running_uid": 501,
+        "mode": "0o100644",
+        "permissions": "0o644",
+        "nlink": 0,
+        "regular": true,
+        "inode": 13809405
+      },
+      "immediate_recheck": "missing"
+    },
+    {
+      "phase": "store_short_connection_close",
+      "basename": "jobs.sqlite3-wal",
+      "observed": {
+        "uid": 501,
+        "running_uid": 501,
+        "mode": "0o100644",
+        "permissions": "0o644",
+        "nlink": 0,
+        "regular": true,
+        "inode": 13809524
+      },
+      "immediate_recheck": "missing"
+    },
+    {
+      "phase": "store_short_connection_close",
+      "basename": "jobs.sqlite3-shm",
+      "observed": {
+        "uid": 501,
+        "running_uid": 501,
+        "mode": "0o100644",
+        "permissions": "0o644",
+        "nlink": 0,
+        "regular": true,
+        "inode": 13809693
+      },
+      "immediate_recheck": "missing"
+    },
+    {
+      "phase": "store_short_connection_close",
+      "basename": "jobs.sqlite3-shm",
+      "observed": {
+        "uid": 501,
+        "running_uid": 501,
+        "mode": "0o100644",
+        "permissions": "0o644",
+        "nlink": 0,
+        "regular": true,
+        "inode": 13809825
+      },
+      "immediate_recheck": "missing"
+    },
+    {
+      "phase": "store_short_connection_close",
+      "basename": "jobs.sqlite3-shm",
+      "observed": {
+        "uid": 501,
+        "running_uid": 501,
+        "mode": "0o100644",
+        "permissions": "0o644",
+        "nlink": 0,
+        "regular": true,
+        "inode": 13809883
+      },
+      "immediate_recheck": "missing"
+    },
+    {
+      "phase": "store_short_connection_close",
+      "basename": "jobs.sqlite3-wal",
+      "observed": {
+        "uid": 501,
+        "running_uid": 501,
+        "mode": "0o100644",
+        "permissions": "0o644",
+        "nlink": 0,
+        "regular": true,
+        "inode": 13809938
+      },
+      "immediate_recheck": "missing"
+    },
+    {
+      "phase": "store_short_connection_close",
+      "basename": "jobs.sqlite3-wal",
+      "observed": {
+        "uid": 501,
+        "running_uid": 501,
+        "mode": "0o100644",
+        "permissions": "0o644",
+        "nlink": 0,
+        "regular": true,
+        "inode": 13810090
+      },
+      "immediate_recheck": "missing"
+    },
+    {
+      "phase": "store_short_connection_close",
+      "basename": "jobs.sqlite3-shm",
+      "observed": {
+        "uid": 501,
+        "running_uid": 501,
+        "mode": "0o100644",
+        "permissions": "0o644",
+        "nlink": 0,
+        "regular": true,
+        "inode": 13810169
+      },
+      "immediate_recheck": "missing"
+    },
+    {
+      "phase": "store_short_connection_close",
+      "basename": "jobs.sqlite3-wal",
+      "observed": {
+        "uid": 501,
+        "running_uid": 501,
+        "mode": "0o100644",
+        "permissions": "0o644",
+        "nlink": 0,
+        "regular": true,
+        "inode": 13810186
+      },
+      "immediate_recheck": "missing"
+    },
+    {
+      "phase": "store_short_connection_close",
+      "basename": "jobs.sqlite3-shm",
+      "observed": {
+        "uid": 501,
+        "running_uid": 501,
+        "mode": "0o100644",
+        "permissions": "0o644",
+        "nlink": 0,
+        "regular": true,
+        "inode": 13810375
+      },
+      "immediate_recheck": "missing"
+    },
+    {
+      "phase": "store_short_connection_close",
+      "basename": "jobs.sqlite3-shm",
+      "observed": {
+        "uid": 501,
+        "running_uid": 501,
+        "mode": "0o100644",
+        "permissions": "0o644",
+        "nlink": 0,
+        "regular": true,
+        "inode": 13810571
+      },
+      "immediate_recheck": "missing"
+    },
+    {
+      "phase": "store_short_connection_close",
+      "basename": "jobs.sqlite3-shm",
+      "observed": {
+        "uid": 501,
+        "running_uid": 501,
+        "mode": "0o100644",
+        "permissions": "0o644",
+        "nlink": 0,
+        "regular": true,
+        "inode": 13810825
+      },
+      "immediate_recheck": "missing"
+    },
+    {
+      "phase": "store_short_connection_close",
+      "basename": "jobs.sqlite3-shm",
+      "observed": {
+        "uid": 501,
+        "running_uid": 501,
+        "mode": "0o100644",
+        "permissions": "0o644",
+        "nlink": 0,
+        "regular": true,
+        "inode": 13810873
+      },
+      "immediate_recheck": "missing"
+    },
+    {
+      "phase": "store_short_connection_close",
+      "basename": "jobs.sqlite3-shm",
+      "observed": {
+        "uid": 501,
+        "running_uid": 501,
+        "mode": "0o100644",
+        "permissions": "0o644",
+        "nlink": 0,
+        "regular": true,
+        "inode": 13810949
+      },
+      "immediate_recheck": "missing"
+    },
+    {
+      "phase": "store_short_connection_close",
+      "basename": "jobs.sqlite3-wal",
+      "observed": {
+        "uid": 501,
+        "running_uid": 501,
+        "mode": "0o100644",
+        "permissions": "0o644",
+        "nlink": 0,
+        "regular": true,
+        "inode": 13811332
+      },
+      "immediate_recheck": "missing"
+    },
+    {
+      "phase": "store_short_connection_close",
+      "basename": "jobs.sqlite3-shm",
+      "observed": {
+        "uid": 501,
+        "running_uid": 501,
+        "mode": "0o100644",
+        "permissions": "0o644",
+        "nlink": 0,
+        "regular": true,
+        "inode": 13811347
+      },
+      "immediate_recheck": "missing"
+    },
+    {
+      "phase": "store_short_connection_close",
+      "basename": "jobs.sqlite3-shm",
+      "observed": {
+        "uid": 501,
+        "running_uid": 501,
+        "mode": "0o100644",
+        "permissions": "0o644",
+        "nlink": 0,
+        "regular": true,
+        "inode": 13811505
+      },
+      "immediate_recheck": "missing"
+    },
+    {
+      "phase": "store_short_connection_close",
+      "basename": "jobs.sqlite3-wal",
+      "observed": {
+        "uid": 501,
+        "running_uid": 501,
+        "mode": "0o100644",
+        "permissions": "0o644",
+        "nlink": 0,
+        "regular": true,
+        "inode": 13811694
+      },
+      "immediate_recheck": "missing"
+    },
+    {
+      "phase": "store_short_connection_close",
+      "basename": "jobs.sqlite3-wal",
+      "observed": {
+        "uid": 501,
+        "running_uid": 501,
+        "mode": "0o100644",
+        "permissions": "0o644",
+        "nlink": 0,
+        "regular": true,
+        "inode": 13811718
+      },
+      "immediate_recheck": "missing"
+    },
+    {
+      "phase": "store_short_connection_close",
+      "basename": "jobs.sqlite3-shm",
+      "observed": {
+        "uid": 501,
+        "running_uid": 501,
+        "mode": "0o100644",
+        "permissions": "0o644",
+        "nlink": 0,
+        "regular": true,
+        "inode": 13811761
+      },
+      "immediate_recheck": "missing"
+    },
+    {
+      "phase": "store_short_connection_close",
+      "basename": "jobs.sqlite3-shm",
+      "observed": {
+        "uid": 501,
+        "running_uid": 501,
+        "mode": "0o100644",
+        "permissions": "0o644",
+        "nlink": 0,
+        "regular": true,
+        "inode": 13812074
+      },
+      "immediate_recheck": "missing"
+    },
+    {
+      "phase": "store_short_connection_close",
+      "basename": "jobs.sqlite3-wal",
+      "observed": {
+        "uid": 501,
+        "running_uid": 501,
+        "mode": "0o100644",
+        "permissions": "0o644",
+        "nlink": 0,
+        "regular": true,
+        "inode": 13812141
+      },
+      "immediate_recheck": "missing"
+    },
+    {
+      "phase": "store_short_connection_close",
+      "basename": "jobs.sqlite3-shm",
+      "observed": {
+        "uid": 501,
+        "running_uid": 501,
+        "mode": "0o100644",
+        "permissions": "0o644",
+        "nlink": 0,
+        "regular": true,
+        "inode": 13812497
+      },
+      "immediate_recheck": "missing"
+    },
+    {
+      "phase": "store_short_connection_close",
+      "basename": "jobs.sqlite3-shm",
+      "observed": {
+        "uid": 501,
+        "running_uid": 501,
+        "mode": "0o100644",
+        "permissions": "0o644",
+        "nlink": 0,
+        "regular": true,
+        "inode": 13812635
+      },
+      "immediate_recheck": "missing"
+    },
+    {
+      "phase": "store_short_connection_close",
+      "basename": "jobs.sqlite3-wal",
+      "observed": {
+        "uid": 501,
+        "running_uid": 501,
+        "mode": "0o100644",
+        "permissions": "0o644",
+        "nlink": 0,
+        "regular": true,
+        "inode": 13812648
+      },
+      "immediate_recheck": "missing"
+    },
+    {
+      "phase": "store_short_connection_close",
+      "basename": "jobs.sqlite3-shm",
+      "observed": {
+        "uid": 501,
+        "running_uid": 501,
+        "mode": "0o100644",
+        "permissions": "0o644",
+        "nlink": 0,
+        "regular": true,
+        "inode": 13813438
+      },
+      "immediate_recheck": "missing"
+    },
+    {
+      "phase": "raw_writer_close_and_original_validation",
+      "basename": "jobs.sqlite3-shm",
+      "observed": {
+        "uid": 501,
+        "running_uid": 501,
+        "mode": "0o100644",
+        "permissions": "0o644",
+        "nlink": 0,
+        "regular": true,
+        "inode": 13822208
+      },
+      "immediate_recheck": "missing"
+    },
+    {
+      "phase": "raw_writer_close_and_original_validation",
+      "basename": "jobs.sqlite3-wal",
+      "observed": {
+        "uid": 501,
+        "running_uid": 501,
+        "mode": "0o100644",
+        "permissions": "0o644",
+        "nlink": 0,
+        "regular": true,
+        "inode": 13822211
+      },
+      "immediate_recheck": "missing"
+    },
+    {
+      "phase": "raw_writer_close_and_original_validation",
+      "basename": "jobs.sqlite3-shm",
+      "observed": {
+        "uid": 501,
+        "running_uid": 501,
+        "mode": "0o100644",
+        "permissions": "0o644",
+        "nlink": 0,
+        "regular": true,
+        "inode": 13822224
+      },
+      "immediate_recheck": "missing"
+    },
+    {
+      "phase": "raw_writer_close_and_original_validation",
+      "basename": "jobs.sqlite3-shm",
+      "observed": {
+        "uid": 501,
+        "running_uid": 501,
+        "mode": "0o100644",
+        "permissions": "0o644",
+        "nlink": 0,
+        "regular": true,
+        "inode": 13822234
+      },
+      "immediate_recheck": "missing"
+    },
+    {
+      "phase": "raw_writer_close_and_original_validation",
+      "basename": "jobs.sqlite3-shm",
+      "observed": {
+        "uid": 501,
+        "running_uid": 501,
+        "mode": "0o100644",
+        "permissions": "0o644",
+        "nlink": 0,
+        "regular": true,
+        "inode": 13822236
+      },
+      "immediate_recheck": "missing"
+    },
+    {
+      "phase": "raw_writer_close_and_original_validation",
+      "basename": "jobs.sqlite3-shm",
+      "observed": {
+        "uid": 501,
+        "running_uid": 501,
+        "mode": "0o100644",
+        "permissions": "0o644",
+        "nlink": 0,
+        "regular": true,
+        "inode": 13822308
+      },
+      "immediate_recheck": "missing"
+    },
+    {
+      "phase": "raw_writer_close_and_original_validation",
+      "basename": "jobs.sqlite3-shm",
+      "observed": {
+        "uid": 501,
+        "running_uid": 501,
+        "mode": "0o100644",
+        "permissions": "0o644",
+        "nlink": 0,
+        "regular": true,
+        "inode": 13822316
+      },
+      "immediate_recheck": "missing"
+    },
+    {
+      "phase": "raw_writer_close_and_original_validation",
+      "basename": "jobs.sqlite3-shm",
+      "observed": {
+        "uid": 501,
+        "running_uid": 501,
+        "mode": "0o100644",
+        "permissions": "0o644",
+        "nlink": 0,
+        "regular": true,
+        "inode": 13822356
+      },
+      "immediate_recheck": "missing"
+    },
+    {
+      "phase": "raw_writer_close_and_original_validation",
+      "basename": "jobs.sqlite3-wal",
+      "observed": {
+        "uid": 501,
+        "running_uid": 501,
+        "mode": "0o100644",
+        "permissions": "0o644",
+        "nlink": 0,
+        "regular": true,
+        "inode": 13822371
+      },
+      "immediate_recheck": {
+        "uid": 501,
+        "running_uid": 501,
+        "mode": "0o100644",
+        "permissions": "0o644",
+        "nlink": 1,
+        "regular": true,
+        "inode": 13822373
+      }
+    },
+    {
+      "phase": "raw_writer_close_and_original_validation",
+      "basename": "jobs.sqlite3-shm",
+      "observed": {
+        "uid": 501,
+        "running_uid": 501,
+        "mode": "0o100644",
+        "permissions": "0o644",
+        "nlink": 0,
+        "regular": true,
+        "inode": 13822384
+      },
+      "immediate_recheck": "missing"
+    },
+    {
+      "phase": "raw_writer_close_and_original_validation",
+      "basename": "jobs.sqlite3-shm",
+      "observed": {
+        "uid": 501,
+        "running_uid": 501,
+        "mode": "0o100644",
+        "permissions": "0o644",
+        "nlink": 0,
+        "regular": true,
+        "inode": 13822394
+      },
+      "immediate_recheck": "missing"
+    },
+    {
+      "phase": "raw_writer_close_and_original_validation",
+      "basename": "jobs.sqlite3-wal",
+      "observed": {
+        "uid": 501,
+        "running_uid": 501,
+        "mode": "0o100644",
+        "permissions": "0o644",
+        "nlink": 0,
+        "regular": true,
+        "inode": 13822405
+      },
+      "immediate_recheck": "missing"
+    },
+    {
+      "phase": "raw_writer_close_and_original_validation",
+      "basename": "jobs.sqlite3-wal",
+      "observed": {
+        "uid": 501,
+        "running_uid": 501,
+        "mode": "0o100644",
+        "permissions": "0o644",
+        "nlink": 0,
+        "regular": true,
+        "inode": 13822409
+      },
+      "immediate_recheck": "missing"
+    },
+    {
+      "phase": "raw_writer_close_and_original_validation",
+      "basename": "jobs.sqlite3-wal",
+      "observed": {
+        "uid": 501,
+        "running_uid": 501,
+        "mode": "0o100644",
+        "permissions": "0o644",
+        "nlink": 0,
+        "regular": true,
+        "inode": 13822431
+      },
+      "immediate_recheck": "missing"
+    },
+    {
+      "phase": "raw_writer_close_and_original_validation",
+      "basename": "jobs.sqlite3-wal",
+      "observed": {
+        "uid": 501,
+        "running_uid": 501,
+        "mode": "0o100644",
+        "permissions": "0o644",
+        "nlink": 0,
+        "regular": true,
+        "inode": 13822435
+      },
+      "immediate_recheck": "missing"
+    },
+    {
+      "phase": "raw_writer_close_and_original_validation",
+      "basename": "jobs.sqlite3-shm",
+      "observed": {
+        "uid": 501,
+        "running_uid": 501,
+        "mode": "0o100644",
+        "permissions": "0o644",
+        "nlink": 0,
+        "regular": true,
+        "inode": 13822456
+      },
+      "immediate_recheck": "missing"
+    },
+    {
+      "phase": "raw_writer_close_and_original_validation",
+      "basename": "jobs.sqlite3-shm",
+      "observed": {
+        "uid": 501,
+        "running_uid": 501,
+        "mode": "0o100644",
+        "permissions": "0o644",
+        "nlink": 0,
+        "regular": true,
+        "inode": 13822496
+      },
+      "immediate_recheck": "missing"
+    },
+    {
+      "phase": "raw_writer_close_and_original_validation",
+      "basename": "jobs.sqlite3-wal",
+      "observed": {
+        "uid": 501,
+        "running_uid": 501,
+        "mode": "0o100644",
+        "permissions": "0o644",
+        "nlink": 0,
+        "regular": true,
+        "inode": 13822537
+      },
+      "immediate_recheck": "missing"
+    },
+    {
+      "phase": "raw_writer_close_and_original_validation",
+      "basename": "jobs.sqlite3-wal",
+      "observed": {
+        "uid": 501,
+        "running_uid": 501,
+        "mode": "0o100644",
+        "permissions": "0o644",
+        "nlink": 0,
+        "regular": true,
+        "inode": 13822539
+      },
+      "immediate_recheck": "missing"
+    },
+    {
+      "phase": "raw_writer_close_and_original_validation",
+      "basename": "jobs.sqlite3-shm",
+      "observed": {
+        "uid": 501,
+        "running_uid": 501,
+        "mode": "0o100644",
+        "permissions": "0o644",
+        "nlink": 0,
+        "regular": true,
+        "inode": 13822554
+      },
+      "immediate_recheck": "missing"
+    },
+    {
+      "phase": "raw_writer_close_and_original_validation",
+      "basename": "jobs.sqlite3-wal",
+      "observed": {
+        "uid": 501,
+        "running_uid": 501,
+        "mode": "0o100644",
+        "permissions": "0o644",
+        "nlink": 0,
+        "regular": true,
+        "inode": 13822557
+      },
+      "immediate_recheck": "missing"
+    },
+    {
+      "phase": "raw_writer_close_and_original_validation",
+      "basename": "jobs.sqlite3-wal",
+      "observed": {
+        "uid": 501,
+        "running_uid": 501,
+        "mode": "0o100644",
+        "permissions": "0o644",
+        "nlink": 0,
+        "regular": true,
+        "inode": 13822559
+      },
+      "immediate_recheck": "missing"
+    },
+    {
+      "phase": "raw_writer_close_and_original_validation",
+      "basename": "jobs.sqlite3-shm",
+      "observed": {
+        "uid": 501,
+        "running_uid": 501,
+        "mode": "0o100644",
+        "permissions": "0o644",
+        "nlink": 0,
+        "regular": true,
+        "inode": 13822566
+      },
+      "immediate_recheck": "missing"
+    },
+    {
+      "phase": "raw_writer_close_and_original_validation",
+      "basename": "jobs.sqlite3-shm",
+      "observed": {
+        "uid": 501,
+        "running_uid": 501,
+        "mode": "0o100644",
+        "permissions": "0o644",
+        "nlink": 0,
+        "regular": true,
+        "inode": 13822572
+      },
+      "immediate_recheck": "missing"
+    },
+    {
+      "phase": "raw_writer_close_and_original_validation",
+      "basename": "jobs.sqlite3-shm",
+      "observed": {
+        "uid": 501,
+        "running_uid": 501,
+        "mode": "0o100644",
+        "permissions": "0o644",
+        "nlink": 0,
+        "regular": true,
+        "inode": 13822590
+      },
+      "immediate_recheck": "missing"
+    },
+    {
+      "phase": "raw_writer_close_and_original_validation",
+      "basename": "jobs.sqlite3-shm",
+      "observed": {
+        "uid": 501,
+        "running_uid": 501,
+        "mode": "0o100644",
+        "permissions": "0o644",
+        "nlink": 0,
+        "regular": true,
+        "inode": 13822600
+      },
+      "immediate_recheck": "missing"
+    },
+    {
+      "phase": "raw_writer_close_and_original_validation",
+      "basename": "jobs.sqlite3-shm",
+      "observed": {
+        "uid": 501,
+        "running_uid": 501,
+        "mode": "0o100644",
+        "permissions": "0o644",
+        "nlink": 0,
+        "regular": true,
+        "inode": 13822624
+      },
+      "immediate_recheck": "missing"
+    },
+    {
+      "phase": "raw_writer_close_and_original_validation",
+      "basename": "jobs.sqlite3-shm",
+      "observed": {
+        "uid": 501,
+        "running_uid": 501,
+        "mode": "0o100644",
+        "permissions": "0o644",
+        "nlink": 0,
+        "regular": true,
+        "inode": 13822646
+      },
+      "immediate_recheck": "missing"
+    },
+    {
+      "phase": "raw_writer_close_and_original_validation",
+      "basename": "jobs.sqlite3-shm",
+      "observed": {
+        "uid": 501,
+        "running_uid": 501,
+        "mode": "0o100644",
+        "permissions": "0o644",
+        "nlink": 0,
+        "regular": true,
+        "inode": 13822660
+      },
+      "immediate_recheck": "missing"
+    },
+    {
+      "phase": "raw_writer_close_and_original_validation",
+      "basename": "jobs.sqlite3-wal",
+      "observed": {
+        "uid": 501,
+        "running_uid": 501,
+        "mode": "0o100644",
+        "permissions": "0o644",
+        "nlink": 0,
+        "regular": true,
+        "inode": 13822669
+      },
+      "immediate_recheck": "missing"
+    },
+    {
+      "phase": "raw_writer_close_and_original_validation",
+      "basename": "jobs.sqlite3-wal",
+      "observed": {
+        "uid": 501,
+        "running_uid": 501,
+        "mode": "0o100644",
+        "permissions": "0o644",
+        "nlink": 0,
+        "regular": true,
+        "inode": 13822691
+      },
+      "immediate_recheck": "missing"
+    },
+    {
+      "phase": "raw_writer_close_and_original_validation",
+      "basename": "jobs.sqlite3-shm",
+      "observed": {
+        "uid": 501,
+        "running_uid": 501,
+        "mode": "0o100644",
+        "permissions": "0o644",
+        "nlink": 0,
+        "regular": true,
+        "inode": 13822696
+      },
+      "immediate_recheck": "missing"
+    },
+    {
+      "phase": "raw_writer_close_and_original_validation",
+      "basename": "jobs.sqlite3-shm",
+      "observed": {
+        "uid": 501,
+        "running_uid": 501,
+        "mode": "0o100644",
+        "permissions": "0o644",
+        "nlink": 0,
+        "regular": true,
+        "inode": 13822700
+      },
+      "immediate_recheck": "missing"
+    },
+    {
+      "phase": "raw_writer_close_and_original_validation",
+      "basename": "jobs.sqlite3-shm",
+      "observed": {
+        "uid": 501,
+        "running_uid": 501,
+        "mode": "0o100644",
+        "permissions": "0o644",
+        "nlink": 0,
+        "regular": true,
+        "inode": 13822702
+      },
+      "immediate_recheck": "missing"
+    },
+    {
+      "phase": "raw_writer_close_and_original_validation",
+      "basename": "jobs.sqlite3-wal",
+      "observed": {
+        "uid": 501,
+        "running_uid": 501,
+        "mode": "0o100644",
+        "permissions": "0o644",
+        "nlink": 0,
+        "regular": true,
+        "inode": 13822711
+      },
+      "immediate_recheck": "missing"
+    },
+    {
+      "phase": "raw_writer_close_and_original_validation",
+      "basename": "jobs.sqlite3-wal",
+      "observed": {
+        "uid": 501,
+        "running_uid": 501,
+        "mode": "0o100644",
+        "permissions": "0o644",
+        "nlink": 0,
+        "regular": true,
+        "inode": 13822717
+      },
+      "immediate_recheck": "missing"
+    },
+    {
+      "phase": "raw_writer_close_and_original_validation",
+      "basename": "jobs.sqlite3-wal",
+      "observed": {
+        "uid": 501,
+        "running_uid": 501,
+        "mode": "0o100644",
+        "permissions": "0o644",
+        "nlink": 0,
+        "regular": true,
+        "inode": 13822721
+      },
+      "immediate_recheck": "missing"
+    },
+    {
+      "phase": "raw_writer_close_and_original_validation",
+      "basename": "jobs.sqlite3-shm",
+      "observed": {
+        "uid": 501,
+        "running_uid": 501,
+        "mode": "0o100644",
+        "permissions": "0o644",
+        "nlink": 0,
+        "regular": true,
+        "inode": 13822740
+      },
+      "immediate_recheck": "missing"
+    },
+    {
+      "phase": "raw_writer_close_and_original_validation",
+      "basename": "jobs.sqlite3-wal",
+      "observed": {
+        "uid": 501,
+        "running_uid": 501,
+        "mode": "0o100644",
+        "permissions": "0o644",
+        "nlink": 0,
+        "regular": true,
+        "inode": 13822741
+      },
+      "immediate_recheck": "missing"
+    },
+    {
+      "phase": "raw_writer_close_and_original_validation",
+      "basename": "jobs.sqlite3-shm",
+      "observed": {
+        "uid": 501,
+        "running_uid": 501,
+        "mode": "0o100644",
+        "permissions": "0o644",
+        "nlink": 0,
+        "regular": true,
+        "inode": 13822760
+      },
+      "immediate_recheck": "missing"
+    },
+    {
+      "phase": "raw_writer_close_and_original_validation",
+      "basename": "jobs.sqlite3-shm",
+      "observed": {
+        "uid": 501,
+        "running_uid": 501,
+        "mode": "0o100644",
+        "permissions": "0o644",
+        "nlink": 0,
+        "regular": true,
+        "inode": 13822774
+      },
+      "immediate_recheck": "missing"
+    },
+    {
+      "phase": "raw_writer_close_and_original_validation",
+      "basename": "jobs.sqlite3-shm",
+      "observed": {
+        "uid": 501,
+        "running_uid": 501,
+        "mode": "0o100644",
+        "permissions": "0o644",
+        "nlink": 0,
+        "regular": true,
+        "inode": 13822790
+      },
+      "immediate_recheck": "missing"
+    },
+    {
+      "phase": "raw_writer_close_and_original_validation",
+      "basename": "jobs.sqlite3-shm",
+      "observed": {
+        "uid": 501,
+        "running_uid": 501,
+        "mode": "0o100644",
+        "permissions": "0o644",
+        "nlink": 0,
+        "regular": true,
+        "inode": 13822814
+      },
+      "immediate_recheck": "missing"
+    },
+    {
+      "phase": "raw_writer_close_and_original_validation",
+      "basename": "jobs.sqlite3-shm",
+      "observed": {
+        "uid": 501,
+        "running_uid": 501,
+        "mode": "0o100644",
+        "permissions": "0o644",
+        "nlink": 0,
+        "regular": true,
+        "inode": 13822832
+      },
+      "immediate_recheck": "missing"
+    },
+    {
+      "phase": "raw_writer_close_and_original_validation",
+      "basename": "jobs.sqlite3-wal",
+      "observed": {
+        "uid": 501,
+        "running_uid": 501,
+        "mode": "0o100644",
+        "permissions": "0o644",
+        "nlink": 0,
+        "regular": true,
+        "inode": 13822865
+      },
+      "immediate_recheck": "missing"
+    },
+    {
+      "phase": "raw_writer_close_and_original_validation",
+      "basename": "jobs.sqlite3-wal",
+      "observed": {
+        "uid": 501,
+        "running_uid": 501,
+        "mode": "0o100644",
+        "permissions": "0o644",
+        "nlink": 0,
+        "regular": true,
+        "inode": 13822881
+      },
+      "immediate_recheck": "missing"
+    },
+    {
+      "phase": "raw_writer_close_and_original_validation",
+      "basename": "jobs.sqlite3-wal",
+      "observed": {
+        "uid": 501,
+        "running_uid": 501,
+        "mode": "0o100644",
+        "permissions": "0o644",
+        "nlink": 0,
+        "regular": true,
+        "inode": 13822887
+      },
+      "immediate_recheck": "missing"
+    },
+    {
+      "phase": "raw_writer_close_and_original_validation",
+      "basename": "jobs.sqlite3-shm",
+      "observed": {
+        "uid": 501,
+        "running_uid": 501,
+        "mode": "0o100644",
+        "permissions": "0o644",
+        "nlink": 0,
+        "regular": true,
+        "inode": 13822890
+      },
+      "immediate_recheck": "missing"
+    },
+    {
+      "phase": "raw_writer_close_and_original_validation",
+      "basename": "jobs.sqlite3-shm",
+      "observed": {
+        "uid": 501,
+        "running_uid": 501,
+        "mode": "0o100644",
+        "permissions": "0o644",
+        "nlink": 0,
+        "regular": true,
+        "inode": 13822910
+      },
+      "immediate_recheck": "missing"
+    },
+    {
+      "phase": "raw_writer_close_and_original_validation",
+      "basename": "jobs.sqlite3-wal",
+      "observed": {
+        "uid": 501,
+        "running_uid": 501,
+        "mode": "0o100644",
+        "permissions": "0o644",
+        "nlink": 0,
+        "regular": true,
+        "inode": 13822913
+      },
+      "immediate_recheck": "missing"
+    },
+    {
+      "phase": "real_mock_worker_and_original_store_readers",
+      "basename": "jobs.sqlite3-shm",
+      "observed": {
+        "uid": 501,
+        "running_uid": 501,
+        "mode": "0o100644",
+        "permissions": "0o644",
+        "nlink": 0,
+        "regular": true,
+        "inode": 13824668
+      },
+      "immediate_recheck": "missing"
+    },
+    {
+      "phase": "real_mock_worker_and_original_store_readers",
+      "basename": "jobs.sqlite3-shm",
+      "observed": {
+        "uid": 501,
+        "running_uid": 501,
+        "mode": "0o100644",
+        "permissions": "0o644",
+        "nlink": 0,
+        "regular": true,
+        "inode": 13826617
+      },
+      "immediate_recheck": "missing"
+    },
+    {
+      "phase": "real_mock_worker_and_original_store_readers",
+      "basename": "jobs.sqlite3-shm",
+      "observed": {
+        "uid": 501,
+        "running_uid": 501,
+        "mode": "0o100644",
+        "permissions": "0o644",
+        "nlink": 0,
+        "regular": true,
+        "inode": 13826807
+      },
+      "immediate_recheck": "missing"
+    },
+    {
+      "phase": "real_mock_worker_and_original_store_readers",
+      "basename": "jobs.sqlite3-shm",
+      "observed": {
+        "uid": 501,
+        "running_uid": 501,
+        "mode": "0o100644",
+        "permissions": "0o644",
+        "nlink": 0,
+        "regular": true,
+        "inode": 13828837
+      },
+      "immediate_recheck": "missing"
+    },
+    {
+      "phase": "real_mock_worker_and_original_store_readers",
+      "basename": "jobs.sqlite3-shm",
+      "observed": {
+        "uid": 501,
+        "running_uid": 501,
+        "mode": "0o100644",
+        "permissions": "0o644",
+        "nlink": 0,
+        "regular": true,
+        "inode": 13829765
+      },
+      "immediate_recheck": "missing"
+    },
+    {
+      "phase": "real_mock_worker_and_original_store_readers",
+      "basename": "jobs.sqlite3-shm",
+      "observed": {
+        "uid": 501,
+        "running_uid": 501,
+        "mode": "0o100644",
+        "permissions": "0o644",
+        "nlink": 0,
+        "regular": true,
+        "inode": 13829995
+      },
+      "immediate_recheck": "missing"
+    },
+    {
+      "phase": "real_mock_worker_and_original_store_readers",
+      "basename": "jobs.sqlite3-shm",
+      "observed": {
+        "uid": 501,
+        "running_uid": 501,
+        "mode": "0o100644",
+        "permissions": "0o644",
+        "nlink": 0,
+        "regular": true,
+        "inode": 13829997
+      },
+      "immediate_recheck": "missing"
+    },
+    {
+      "phase": "real_mock_worker_and_original_store_readers",
+      "basename": "jobs.sqlite3-shm",
+      "observed": {
+        "uid": 501,
+        "running_uid": 501,
+        "mode": "0o100644",
+        "permissions": "0o644",
+        "nlink": 0,
+        "regular": true,
+        "inode": 13830051
+      },
+      "immediate_recheck": "missing"
+    },
+    {
+      "phase": "real_mock_worker_and_original_store_readers",
+      "basename": "jobs.sqlite3-shm",
+      "observed": {
+        "uid": 501,
+        "running_uid": 501,
+        "mode": "0o100644",
+        "permissions": "0o644",
+        "nlink": 0,
+        "regular": true,
+        "inode": 13830235
+      },
+      "immediate_recheck": "missing"
+    },
+    {
+      "phase": "real_mock_worker_and_original_store_readers",
+      "basename": "jobs.sqlite3-shm",
+      "observed": {
+        "uid": 501,
+        "running_uid": 501,
+        "mode": "0o100644",
+        "permissions": "0o644",
+        "nlink": 0,
+        "regular": true,
+        "inode": 13830525
+      },
+      "immediate_recheck": "missing"
+    },
+    {
+      "phase": "real_mock_worker_and_original_store_readers",
+      "basename": "jobs.sqlite3-shm",
+      "observed": {
+        "uid": 501,
+        "running_uid": 501,
+        "mode": "0o100644",
+        "permissions": "0o644",
+        "nlink": 0,
+        "regular": true,
+        "inode": 13830839
+      },
+      "immediate_recheck": "missing"
+    },
+    {
+      "phase": "real_mock_worker_and_original_store_readers",
+      "basename": "jobs.sqlite3-shm",
+      "observed": {
+        "uid": 501,
+        "running_uid": 501,
+        "mode": "0o100644",
+        "permissions": "0o644",
+        "nlink": 0,
+        "regular": true,
+        "inode": 13831003
+      },
+      "immediate_recheck": "missing"
+    },
+    {
+      "phase": "real_mock_worker_and_original_store_readers",
+      "basename": "jobs.sqlite3-shm",
+      "observed": {
+        "uid": 501,
+        "running_uid": 501,
+        "mode": "0o100644",
+        "permissions": "0o644",
+        "nlink": 0,
+        "regular": true,
+        "inode": 13831661
+      },
+      "immediate_recheck": "missing"
+    },
+    {
+      "phase": "real_mock_worker_and_original_store_readers",
+      "basename": "jobs.sqlite3-shm",
+      "observed": {
+        "uid": 501,
+        "running_uid": 501,
+        "mode": "0o100644",
+        "permissions": "0o644",
+        "nlink": 0,
+        "regular": true,
+        "inode": 13833189
+      },
+      "immediate_recheck": "missing"
+    },
+    {
+      "phase": "real_mock_worker_and_original_store_readers",
+      "basename": "jobs.sqlite3-shm",
+      "observed": {
+        "uid": 501,
+        "running_uid": 501,
+        "mode": "0o100644",
+        "permissions": "0o644",
+        "nlink": 0,
+        "regular": true,
+        "inode": 13833779
+      },
+      "immediate_recheck": "missing"
+    },
+    {
+      "phase": "real_mock_worker_and_original_store_readers",
+      "basename": "jobs.sqlite3-shm",
+      "observed": {
+        "uid": 501,
+        "running_uid": 501,
+        "mode": "0o100644",
+        "permissions": "0o644",
+        "nlink": 0,
+        "regular": true,
+        "inode": 13833991
+      },
+      "immediate_recheck": "missing"
+    },
+    {
+      "phase": "real_mock_worker_and_original_store_readers",
+      "basename": "jobs.sqlite3-shm",
+      "observed": {
+        "uid": 501,
+        "running_uid": 501,
+        "mode": "0o100644",
+        "permissions": "0o644",
+        "nlink": 0,
+        "regular": true,
+        "inode": 13834369
+      },
+      "immediate_recheck": "missing"
+    },
+    {
+      "phase": "real_mock_worker_and_original_store_readers",
+      "basename": "jobs.sqlite3-shm",
+      "observed": {
+        "uid": 501,
+        "running_uid": 501,
+        "mode": "0o100644",
+        "permissions": "0o644",
+        "nlink": 0,
+        "regular": true,
+        "inode": 13834515
+      },
+      "immediate_recheck": "missing"
+    },
+    {
+      "phase": "real_mock_worker_and_original_store_readers",
+      "basename": "jobs.sqlite3-shm",
+      "observed": {
+        "uid": 501,
+        "running_uid": 501,
+        "mode": "0o100644",
+        "permissions": "0o644",
+        "nlink": 0,
+        "regular": true,
+        "inode": 13834693
+      },
+      "immediate_recheck": "missing"
+    },
+    {
+      "phase": "real_mock_worker_and_original_store_readers",
+      "basename": "jobs.sqlite3-shm",
+      "observed": {
+        "uid": 501,
+        "running_uid": 501,
+        "mode": "0o100644",
+        "permissions": "0o644",
+        "nlink": 0,
+        "regular": true,
+        "inode": 13835443
+      },
+      "immediate_recheck": "missing"
+    },
+    {
+      "phase": "real_mock_worker_and_original_store_readers",
+      "basename": "jobs.sqlite3-shm",
+      "observed": {
+        "uid": 501,
+        "running_uid": 501,
+        "mode": "0o100644",
+        "permissions": "0o644",
+        "nlink": 0,
+        "regular": true,
+        "inode": 13836313
+      },
+      "immediate_recheck": "missing"
+    },
+    {
+      "phase": "real_mock_worker_and_original_store_readers",
+      "basename": "jobs.sqlite3-wal",
+      "observed": {
+        "uid": 501,
+        "running_uid": 501,
+        "mode": "0o100644",
+        "permissions": "0o644",
+        "nlink": 0,
+        "regular": true,
+        "inode": 13837173
+      },
+      "immediate_recheck": "missing"
+    },
+    {
+      "phase": "real_mock_worker_and_original_store_readers",
+      "basename": "jobs.sqlite3-wal",
+      "observed": {
+        "uid": 501,
+        "running_uid": 501,
+        "mode": "0o100644",
+        "permissions": "0o644",
+        "nlink": 0,
+        "regular": true,
+        "inode": 13837651
+      },
+      "immediate_recheck": "missing"
+    },
+    {
+      "phase": "real_mock_worker_and_original_store_readers",
+      "basename": "jobs.sqlite3-shm",
+      "observed": {
+        "uid": 501,
+        "running_uid": 501,
+        "mode": "0o100644",
+        "permissions": "0o644",
+        "nlink": 0,
+        "regular": true,
+        "inode": 13838830
+      },
+      "immediate_recheck": "missing"
+    },
+    {
+      "phase": "real_mock_worker_and_original_store_readers",
+      "basename": "jobs.sqlite3-wal",
+      "observed": {
+        "uid": 501,
+        "running_uid": 501,
+        "mode": "0o100644",
+        "permissions": "0o644",
+        "nlink": 0,
+        "regular": true,
+        "inode": 13839405
+      },
+      "immediate_recheck": "missing"
+    },
+    {
+      "phase": "real_mock_worker_and_original_store_readers",
+      "basename": "jobs.sqlite3-shm",
+      "observed": {
+        "uid": 501,
+        "running_uid": 501,
+        "mode": "0o100644",
+        "permissions": "0o644",
+        "nlink": 0,
+        "regular": true,
+        "inode": 13841122
+      },
+      "immediate_recheck": "missing"
+    },
+    {
+      "phase": "real_mock_worker_and_original_store_readers",
+      "basename": "jobs.sqlite3-wal",
+      "observed": {
+        "uid": 501,
+        "running_uid": 501,
+        "mode": "0o100644",
+        "permissions": "0o644",
+        "nlink": 0,
+        "regular": true,
+        "inode": 13841273
+      },
+      "immediate_recheck": "missing"
+    },
+    {
+      "phase": "real_mock_worker_and_original_store_readers",
+      "basename": "jobs.sqlite3-shm",
+      "observed": {
+        "uid": 501,
+        "running_uid": 501,
+        "mode": "0o100644",
+        "permissions": "0o644",
+        "nlink": 0,
+        "regular": true,
+        "inode": 13844549
+      },
+      "immediate_recheck": "missing"
+    }
+  ],
+  "real_mock_final_state": "FAILED",
+  "real_mock_error_code": "READINESS_EVIDENCE_MISSING",
+  "diagnostic_exit_code": 0
+}

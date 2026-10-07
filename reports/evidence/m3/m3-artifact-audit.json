@@ -1,0 +1,236 @@
+{
+  "file": "D1Env-0.2.0-macos-aarch64.tar.gz",
+  "sha256": "d5befe4ba377dd4cf4708e1f1297aa5d23624b14d82f1e57588795f0f2ce84f4",
+  "manifest_file_count": 2347,
+  "credential_findings": [],
+  "private_findings": [],
+  "problems": [],
+  "source_mismatches": [],
+  "reviewed_upstream_matches": [
+    {
+      "path": "runtime/lib/itcl4.3.5/itclConfig.sh",
+      "line": 24,
+      "classification": "unchanged-public-official-runtime-build-config"
+    },
+    {
+      "path": "runtime/lib/itcl4.3.5/itclConfig.sh",
+      "line": 25,
+      "classification": "unchanged-public-official-runtime-build-config"
+    },
+    {
+      "path": "runtime/lib/itcl4.3.5/itclConfig.sh",
+      "line": 38,
+      "classification": "unchanged-public-official-runtime-build-config"
+    },
+    {
+      "path": "runtime/lib/itcl4.3.5/itclConfig.sh",
+      "line": 39,
+      "classification": "unchanged-public-official-runtime-build-config"
+    },
+    {
+      "path": "runtime/lib/itcl4.3.5/itclConfig.sh",
+      "line": 48,
+      "classification": "unchanged-public-official-runtime-build-config"
+    },
+    {
+      "path": "runtime/lib/itcl4.3.5/itclConfig.sh",
+      "line": 49,
+      "classification": "unchanged-public-official-runtime-build-config"
+    },
+    {
+      "path": "runtime/lib/itcl4.3.5/itclConfig.sh",
+      "line": 61,
+      "classification": "unchanged-public-official-runtime-build-config"
+    },
+    {
+      "path": "runtime/lib/itcl4.3.5/itclConfig.sh",
+      "line": 62,
+      "classification": "unchanged-public-official-runtime-build-config"
+    },
+    {
+      "path": "runtime/lib/itcl4.3.5/itclConfig.sh",
+      "line": 66,
+      "classification": "unchanged-public-official-runtime-build-config"
+    },
+    {
+      "path": "runtime/lib/itcl4.3.5/itclConfig.sh",
+      "line": 67,
+      "classification": "unchanged-public-official-runtime-build-config"
+    },
+    {
+      "path": "runtime/lib/python3.10/_sysconfigdata__darwin_darwin.py",
+      "line": 11,
+      "classification": "unchanged-public-official-runtime-build-config"
+    },
+    {
+      "path": "runtime/lib/python3.10/_sysconfigdata__darwin_darwin.py",
+      "line": 35,
+      "classification": "unchanged-public-official-runtime-build-config"
+    },
+    {
+      "path": "runtime/lib/python3.10/_sysconfigdata__darwin_darwin.py",
+      "line": 39,
+      "classification": "unchanged-public-official-runtime-build-config"
+    },
+    {
+      "path": "runtime/lib/python3.10/_sysconfigdata__darwin_darwin.py",
+      "line": 40,
+      "classification": "unchanged-public-official-runtime-build-config"
+    },
+    {
+      "path": "runtime/lib/python3.10/_sysconfigdata__darwin_darwin.py",
+      "line": 553,
+      "classification": "unchanged-public-official-runtime-build-config"
+    },
+    {
+      "path": "runtime/lib/python3.10/_sysconfigdata__darwin_darwin.py",
+      "line": 556,
+      "classification": "unchanged-public-official-runtime-build-config"
+    },
+    {
+      "path": "runtime/lib/python3.10/_sysconfigdata__darwin_darwin.py",
+      "line": 639,
+      "classification": "unchanged-public-official-runtime-build-config"
+    },
+    {
+      "path": "runtime/lib/python3.10/_sysconfigdata__darwin_darwin.py",
+      "line": 682,
+      "classification": "unchanged-public-official-runtime-build-config"
+    },
+    {
+      "path": "runtime/lib/python3.10/_sysconfigdata__darwin_darwin.py",
+      "line": 684,
+      "classification": "unchanged-public-official-runtime-build-config"
+    },
+    {
+      "path": "runtime/lib/python3.10/_sysconfigdata__darwin_darwin.py",
+      "line": 711,
+      "classification": "unchanged-public-official-runtime-build-config"
+    },
+    {
+      "path": "runtime/lib/python3.10/_sysconfigdata__darwin_darwin.py",
+      "line": 712,
+      "classification": "unchanged-public-official-runtime-build-config"
+    },
+    {
+      "path": "runtime/lib/python3.10/config-3.10-darwin/Makefile",
+      "line": 33,
+      "classification": "unchanged-public-official-runtime-build-config"
+    },
+    {
+      "path": "runtime/lib/python3.10/config-3.10-darwin/Makefile",
+      "line": 34,
+      "classification": "unchanged-public-official-runtime-build-config"
+    },
+    {
+      "path": "runtime/lib/python3.10/config-3.10-darwin/Makefile",
+      "line": 41,
+      "classification": "unchanged-public-official-runtime-build-config"
+    },
+    {
+      "path": "runtime/lib/python3.10/config-3.10-darwin/Makefile",
+      "line": 51,
+      "classification": "unchanged-public-official-runtime-build-config"
+    },
+    {
+      "path": "runtime/lib/python3.10/config-3.10-darwin/Makefile",
+      "line": 52,
+      "classification": "unchanged-public-official-runtime-build-config"
+    },
+    {
+      "path": "runtime/lib/python3.10/config-3.10-darwin/Makefile",
+      "line": 201,
+      "classification": "unchanged-public-official-runtime-build-config"
+    },
+    {
+      "path": "runtime/lib/python3.10/config-3.10-darwin/Makefile",
+      "line": 222,
+      "classification": "unchanged-public-official-runtime-build-config"
+    },
+    {
+      "path": "runtime/lib/python3.10/site-packages/fastapi-0.142.2.dist-info/METADATA",
+      "line": 302,
+      "classification": "upstream-fastapi-documentation-example"
+    },
+    {
+      "path": "runtime/lib/python3.10/site-packages/pydantic/networks.py",
+      "line": 137,
+      "classification": "upstream-url-userinfo-documentation-example"
+    },
+    {
+      "path": "runtime/lib/python3.10/site-packages/pydantic/networks.py",
+      "line": 145,
+      "classification": "upstream-url-userinfo-documentation-example"
+    },
+    {
+      "path": "runtime/lib/python3.10/site-packages/pydantic/networks.py",
+      "line": 153,
+      "classification": "upstream-url-userinfo-documentation-example"
+    },
+    {
+      "path": "runtime/lib/python3.10/site-packages/pydantic/networks.py",
+      "line": 169,
+      "classification": "upstream-url-userinfo-documentation-example"
+    },
+    {
+      "path": "runtime/lib/python3.10/site-packages/pydantic/networks.py",
+      "line": 180,
+      "classification": "upstream-url-userinfo-documentation-example"
+    },
+    {
+      "path": "runtime/lib/python3.10/site-packages/pydantic/networks.py",
+      "line": 188,
+      "classification": "upstream-url-userinfo-documentation-example"
+    },
+    {
+      "path": "runtime/lib/python3.10/site-packages/pydantic/networks.py",
+      "line": 196,
+      "classification": "upstream-url-userinfo-documentation-example"
+    },
+    {
+      "path": "runtime/lib/python3.10/site-packages/pydantic/networks.py",
+      "line": 203,
+      "classification": "upstream-url-userinfo-documentation-example"
+    },
+    {
+      "path": "runtime/lib/python3.10/site-packages/pydantic/networks.py",
+      "line": 211,
+      "classification": "upstream-url-userinfo-documentation-example"
+    },
+    {
+      "path": "runtime/lib/python3.10/site-packages/pydantic/networks.py",
+      "line": 398,
+      "classification": "upstream-url-userinfo-documentation-example"
+    },
+    {
+      "path": "runtime/lib/python3.10/site-packages/pydantic/networks.py",
+      "line": 544,
+      "classification": "upstream-url-userinfo-documentation-example"
+    },
+    {
+      "path": "runtime/lib/python3.10/site-packages/pydantic_core-2.46.5.dist-info/sboms/pydantic-core.cyclonedx.json",
+      "line": 17,
+      "classification": "upstream-public-wheel-sbom-build-reference"
+    },
+    {
+      "path": "runtime/lib/python3.10/site-packages/pydantic_core-2.46.5.dist-info/sboms/pydantic-core.cyclonedx.json",
+      "line": 40,
+      "classification": "upstream-public-wheel-sbom-build-reference"
+    },
+    {
+      "path": "runtime/lib/python3.10/site-packages/pydantic_core-2.46.5.dist-info/sboms/pydantic-core.cyclonedx.json",
+      "line": 3292,
+      "classification": "upstream-public-wheel-sbom-build-reference"
+    },
+    {
+      "path": "runtime/lib/tcl9/9.0/http-2.10.1.tm",
+      "line": 1170,
+      "classification": "upstream-http-documentation-comment"
+    }
+  ],
+  "runtime_provenance_status": "verified",
+  "library_license_completeness": "blocked",
+  "signed_release": false,
+  "linux_fresh_vm_verified": false,
+  "robot_verified": false
+}

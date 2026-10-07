@@ -1,0 +1,2 @@
+src/d1env/service.py:89: error: Argument 1 to "get" of "dict" has incompatible type "Any | None"; expected "str"  [arg-type]
+Found 1 error in 1 file (checked 29 source files)

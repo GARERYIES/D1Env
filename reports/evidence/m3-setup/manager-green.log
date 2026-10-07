@@ -1,0 +1,9 @@
+..........F............                                                  [100%]
+=================================== FAILURES ===================================
+__________ test_worker_failure_or_nonboolean_artifact_never_succeeds ___________
+tests/test_setup_manager.py:171: in test_worker_failure_or_nonboolean_artifact_never_succeeds
+    assert done["environment_ready"] is None
+E   assert True is None
+=========================== short test summary info ============================
+FAILED tests/test_setup_manager.py::test_worker_failure_or_nonboolean_artifact_never_succeeds
+1 failed, 22 passed in 0.35s

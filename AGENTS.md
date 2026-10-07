@@ -4,6 +4,8 @@
 
 先读 `README.md`、`docs/research/SOURCE_AUDIT.md`、`docs/superpowers/specs/2026-10-06-d1env-design.md`、当前轮次实施计划和 `docs/ACCEPTANCE.md`。用户选择在 Codex 执行，按轮次交付，不要把完整路线一次实现。
 
+后续实施遵循用户确认的 `docs/IOENV_BLUEPRINT.md`：参考 IOENV 的环境定义、容器生命周期和独立业务启动分层，独立实现部署引擎。计划逐项标明上游机制、D1Env 对应模块、改造理由与验收证据；容器运行或 CPU ROS 探针通过不能当作 D1 功能就绪。
+
 当前文件夹是研发交接包，不是已有可运行产品。保留原始设计文档，新增代码前检查工作区，不能覆盖用户已有修改。可以使用已安装的 superpowers 规划、TDD、调试和审查工作流；缺少子代理时顺序执行，不虚构审查者。
 
 ## 硬边界

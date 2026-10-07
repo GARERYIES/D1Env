@@ -1,0 +1,12 @@
+{
+  "verified_entry_count": 2356,
+  "launcher": "outputs/D1Env-M3-Setup/ready/D1Env-0.3.0-macos-aarch64/D1Env.command",
+  "bundled_ros_image": {
+    "architecture": "aarch64",
+    "filename": "d1env-ros-probe-m3-aarch64.tar",
+    "image_id": "sha256:52f259d5fa38acb3fd2018e1601593fc0f6ad1a85c8a968032695f9c15771a2c",
+    "sha256": "8da67f547b7885be741f8fbf0b2fd06f989cec0e2b7ed41d4a24c2adaf2414df",
+    "size_bytes": 140574720,
+    "source": "d1env/ros-probe"
+  }
+}

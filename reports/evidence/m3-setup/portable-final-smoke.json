@@ -1,0 +1,43 @@
+{
+  "actual_loopback_html_and_js": "PASS",
+  "architecture": "aarch64",
+  "archive_sha256": "0a55c0c92637306f4d454cbc204e8f9082a4eb5bd6bc0b3c6044c9e646a98439",
+  "archive_size_bytes": 167626122,
+  "artifact": "outputs/D1Env-M3-Setup/D1Env-0.3.0-macos-aarch64.tar.gz",
+  "blocked": [
+    "exhaustive bundled dynamic-library licenses"
+  ],
+  "bundled_ros_image": {
+    "architecture": "aarch64",
+    "filename": "d1env-ros-probe-m3-aarch64.tar",
+    "image_id": "sha256:52f259d5fa38acb3fd2018e1601593fc0f6ad1a85c8a968032695f9c15771a2c",
+    "sha256": "8da67f547b7885be741f8fbf0b2fd06f989cec0e2b7ed41d4a24c2adaf2414df",
+    "size_bytes": 140574720,
+    "source": "d1env/ros-probe"
+  },
+  "cli_help_without_development_path": "PASS",
+  "copied_build_lock_bytes_match": true,
+  "doctor_unknown_robot_and_telemetry": "PASS",
+  "exit_code": 0,
+  "mac_command_help_after_move": "PASS",
+  "not_run": [
+    "Mac downloaded-file quarantine/Gatekeeper",
+    "Mac signing/notarization",
+    "older Mac versions",
+    "Intel Mac",
+    "fresh Ubuntu desktop installation",
+    "Ubuntu x86_64 runtime",
+    "manufacturer SDK",
+    "robot connection or motion"
+  ],
+  "platform": "macos",
+  "python_version": "3.10.20",
+  "runtime_source_provenance": "verified",
+  "scope": "software_tool_candidate",
+  "signed_release": false,
+  "unauthenticated_api_http_status": 401,
+  "untrusted_host_http_status": 403,
+  "verified_file_or_link_count": 2356,
+  "wheel_python_sources_match_current_source": true,
+  "wheel_sha256": "9e037e3da09a2e7a745d1c8303ac160615f2602ff0427c3cd87dccf935de5895"
+}

@@ -1,0 +1,7 @@
+{
+  "scope": "Read-only official HEAD using the exact bundled Python runtime; not installer/download service execution.",
+  "http_status": 200,
+  "content_length": "575775824",
+  "final_url": "https://desktop.docker.com/mac/main/arm64/232116/Docker.dmg",
+  "tls_verification_disabled": false
+}

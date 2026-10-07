@@ -23,6 +23,7 @@ beforeEach(() => {
       : path === '/api/catalog' ? catalog
       : path === '/api/doctor' ? doctor
       : path === '/api/plans' ? blocked ? { plan: null, blockers: [{ code: 'ARTIFACT_UNAVAILABLE', message: '没有可执行工件', remediation: '等待来源与实现验证', field: 'artifact_requirements' }] } : { plan, blockers: [] }
+      : path.endsWith('/plan') ? { ...plan, plan_id: jobResponse.plan_id }
       : path.endsWith('/events') ? eventsResponse
       : path === '/api/reports' ? { report: { schema_version: 1, mode: 'mock', verified_scope: 'mock', job: jobResponse, checks: doctor.checks, events: eventsResponse, source_locks: {}, unverified_items: ['真机未验证'], redactions: ['标识已遮盖'] }, markdown: '# MOCK 诊断报告' }
       : jobResponse;

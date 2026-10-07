@@ -1,0 +1,36 @@
+F.....F....                                                              [100%]
+=================================== FAILURES ===================================
+_____ test_owned_atomic_replace_during_open_rereads_the_new_private_inode ______
+tests/test_setup_state_races.py:60: in test_owned_atomic_replace_during_open_rereads_the_new_private_inode
+    assert errors == []
+E   AssertionError: assert [SetupError('...次准备持久状态无法校验')] == []
+E     
+E     Left contains one more item: SetupError('SETUP_STATE_INVALID: 首次准备持久状态无法校验')
+E     Use -v to get more diff
+______ test_repeated_valid_atomic_replacements_stop_after_three_attempts _______
+src/d1env/setup/manager.py:139: in _read
+    validate_descriptor(descriptor)
+src/d1env/setup/models.py:102: in validate_descriptor
+    raise SetupError("SETUP_FILE_UNSAFE", "首次准备文件在打开时校验失败",
+E   d1env.setup.models.SetupError: SETUP_FILE_UNSAFE: 首次准备文件在打开时校验失败
+
+The above exception was the direct cause of the following exception:
+tests/test_setup_state_races.py:109: in test_repeated_valid_atomic_replacements_stop_after_three_attempts
+    manager, task_id = waiting_manager(tmp_path)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^
+tests/test_setup_state_races.py:17: in waiting_manager
+    task = manager.prepare("atomic-read-key-0001")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+src/d1env/setup/manager.py:313: in prepare
+    return self.get(task.task_id)
+           ^^^^^^^^^^^^^^^^^^^^^^
+src/d1env/setup/manager.py:273: in get
+    return self._view(self._get_task(self._read(), task_id))
+                                     ^^^^^^^^^^^^
+src/d1env/setup/manager.py:151: in _read
+    raise SetupError("SETUP_STATE_INVALID", "首次准备持久状态无法校验",
+E   d1env.setup.models.SetupError: SETUP_STATE_INVALID: 首次准备持久状态无法校验
+=========================== short test summary info ============================
+FAILED tests/test_setup_state_races.py::test_owned_atomic_replace_during_open_rereads_the_new_private_inode
+FAILED tests/test_setup_state_races.py::test_repeated_valid_atomic_replacements_stop_after_three_attempts
+2 failed, 9 passed in 0.99s

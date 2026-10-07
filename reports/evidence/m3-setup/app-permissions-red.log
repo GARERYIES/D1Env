@@ -1,0 +1,95 @@
+FFFFFFFFFF.FFFFFFFF                                                      [100%]
+=================================== FAILURES ===================================
+___ test_writable_nested_directory_never_reaches_signature_or_open[Contents] ___
+tests/test_setup_app_permissions.py:22: in test_writable_nested_directory_never_reaches_signature_or_open
+    with pytest.raises(SetupError, match="INSTALLER_APP_UNSAFE"):
+E   Failed: DID NOT RAISE SetupError
+_ test_writable_nested_directory_never_reaches_signature_or_open[Contents/MacOS] _
+tests/test_setup_app_permissions.py:22: in test_writable_nested_directory_never_reaches_signature_or_open
+    with pytest.raises(SetupError, match="INSTALLER_APP_UNSAFE"):
+E   Failed: DID NOT RAISE SetupError
+_ test_writable_nested_directory_never_reaches_signature_or_open[Contents/Resources/nested] _
+tests/test_setup_app_permissions.py:22: in test_writable_nested_directory_never_reaches_signature_or_open
+    with pytest.raises(SetupError, match="INSTALLER_APP_UNSAFE"):
+E   Failed: DID NOT RAISE SetupError
+_______ test_writable_internal_file_never_launches[Contents/Info.plist] ________
+tests/test_setup_app_permissions.py:37: in test_writable_internal_file_never_launches
+    with pytest.raises(SetupError, match="INSTALLER_APP_UNSAFE"):
+E   Failed: DID NOT RAISE SetupError
+_ test_writable_internal_file_never_launches[Contents/MacOS/com.docker.backend] _
+tests/test_setup_app_permissions.py:37: in test_writable_internal_file_never_launches
+    with pytest.raises(SetupError, match="INSTALLER_APP_UNSAFE"):
+E   Failed: DID NOT RAISE SetupError
+_ test_writable_internal_file_never_launches[Contents/Resources/settings.json] _
+tests/test_setup_app_permissions.py:37: in test_writable_internal_file_never_launches
+    with pytest.raises(SetupError, match="INSTALLER_APP_UNSAFE"):
+E   Failed: DID NOT RAISE SetupError
+_______________ test_foreign_owned_internal_file_never_launches ________________
+tests/test_setup_app_permissions.py:56: in test_foreign_owned_internal_file_never_launches
+    with pytest.raises(SetupError, match="INSTALLER_APP_UNSAFE"):
+E   Failed: DID NOT RAISE SetupError
+__ test_resource_symlink_must_resolve_to_owned_internal_bundle_tree[outside] ___
+tests/test_setup_app_permissions.py:76: in test_resource_symlink_must_resolve_to_owned_internal_bundle_tree
+    with pytest.raises(SetupError, match="INSTALLER_APP_UNSAFE"):
+E   Failed: DID NOT RAISE SetupError
+___ test_resource_symlink_must_resolve_to_owned_internal_bundle_tree[broken] ___
+tests/test_setup_app_permissions.py:76: in test_resource_symlink_must_resolve_to_owned_internal_bundle_tree
+    with pytest.raises(SetupError, match="INSTALLER_APP_UNSAFE"):
+E   Failed: DID NOT RAISE SetupError
+___ test_resource_symlink_must_resolve_to_owned_internal_bundle_tree[cycle] ____
+tests/test_setup_app_permissions.py:76: in test_resource_symlink_must_resolve_to_owned_internal_bundle_tree
+    with pytest.raises(SetupError, match="INSTALLER_APP_UNSAFE"):
+E   Failed: DID NOT RAISE SetupError
+__ test_bundle_main_executable_identity_and_permissions_are_checked[missing] ___
+tests/test_setup_app_permissions.py:121: in test_bundle_main_executable_identity_and_permissions_are_checked
+    with pytest.raises(SetupError, match="INSTALLER_APP_UNSAFE"):
+E   Failed: DID NOT RAISE SetupError
+_ test_bundle_main_executable_identity_and_permissions_are_checked[wrong_identity] _
+tests/test_setup_app_permissions.py:121: in test_bundle_main_executable_identity_and_permissions_are_checked
+    with pytest.raises(SetupError, match="INSTALLER_APP_UNSAFE"):
+E   Failed: DID NOT RAISE SetupError
+_ test_bundle_main_executable_identity_and_permissions_are_checked[traversal] __
+tests/test_setup_app_permissions.py:121: in test_bundle_main_executable_identity_and_permissions_are_checked
+    with pytest.raises(SetupError, match="INSTALLER_APP_UNSAFE"):
+E   Failed: DID NOT RAISE SetupError
+_ test_bundle_main_executable_identity_and_permissions_are_checked[not_executable] _
+tests/test_setup_app_permissions.py:121: in test_bundle_main_executable_identity_and_permissions_are_checked
+    with pytest.raises(SetupError, match="INSTALLER_APP_UNSAFE"):
+E   Failed: DID NOT RAISE SetupError
+__ test_bundle_main_executable_identity_and_permissions_are_checked[symlink] ___
+tests/test_setup_app_permissions.py:121: in test_bundle_main_executable_identity_and_permissions_are_checked
+    with pytest.raises(SetupError, match="INSTALLER_APP_UNSAFE"):
+E   Failed: DID NOT RAISE SetupError
+_________ test_native_security_checks_do_not_cache_bundle_permissions __________
+tests/test_setup_app_permissions.py:133: in test_native_security_checks_do_not_cache_bundle_permissions
+    with pytest.raises(SetupError, match="INSTALLER_APP_UNSAFE"):
+E   Failed: DID NOT RAISE SetupError
+__________ test_permission_change_during_signature_check_blocks_open ___________
+tests/test_setup_app_permissions.py:149: in test_permission_change_during_signature_check_blocks_open
+    with pytest.raises(SetupError, match="INSTALLER_APP_UNSAFE"):
+E   Failed: DID NOT RAISE SetupError
+_________ test_official_installed_app_permissions_are_checked_readonly _________
+tests/test_setup_app_permissions.py:159: in test_official_installed_app_permissions_are_checked_readonly
+    assert evidence["executable"] == "com.docker.backend"
+           ^^^^^^^^^^^^^^^^^^^^^^
+E   KeyError: 'executable'
+=========================== short test summary info ============================
+FAILED tests/test_setup_app_permissions.py::test_writable_nested_directory_never_reaches_signature_or_open[Contents]
+FAILED tests/test_setup_app_permissions.py::test_writable_nested_directory_never_reaches_signature_or_open[Contents/MacOS]
+FAILED tests/test_setup_app_permissions.py::test_writable_nested_directory_never_reaches_signature_or_open[Contents/Resources/nested]
+FAILED tests/test_setup_app_permissions.py::test_writable_internal_file_never_launches[Contents/Info.plist]
+FAILED tests/test_setup_app_permissions.py::test_writable_internal_file_never_launches[Contents/MacOS/com.docker.backend]
+FAILED tests/test_setup_app_permissions.py::test_writable_internal_file_never_launches[Contents/Resources/settings.json]
+FAILED tests/test_setup_app_permissions.py::test_foreign_owned_internal_file_never_launches
+FAILED tests/test_setup_app_permissions.py::test_resource_symlink_must_resolve_to_owned_internal_bundle_tree[outside]
+FAILED tests/test_setup_app_permissions.py::test_resource_symlink_must_resolve_to_owned_internal_bundle_tree[broken]
+FAILED tests/test_setup_app_permissions.py::test_resource_symlink_must_resolve_to_owned_internal_bundle_tree[cycle]
+FAILED tests/test_setup_app_permissions.py::test_bundle_main_executable_identity_and_permissions_are_checked[missing]
+FAILED tests/test_setup_app_permissions.py::test_bundle_main_executable_identity_and_permissions_are_checked[wrong_identity]
+FAILED tests/test_setup_app_permissions.py::test_bundle_main_executable_identity_and_permissions_are_checked[traversal]
+FAILED tests/test_setup_app_permissions.py::test_bundle_main_executable_identity_and_permissions_are_checked[not_executable]
+FAILED tests/test_setup_app_permissions.py::test_bundle_main_executable_identity_and_permissions_are_checked[symlink]
+FAILED tests/test_setup_app_permissions.py::test_native_security_checks_do_not_cache_bundle_permissions
+FAILED tests/test_setup_app_permissions.py::test_permission_change_during_signature_check_blocks_open
+FAILED tests/test_setup_app_permissions.py::test_official_installed_app_permissions_are_checked_readonly
+18 failed, 1 passed in 0.10s

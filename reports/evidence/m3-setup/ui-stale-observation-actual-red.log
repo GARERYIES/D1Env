@@ -1,0 +1,792 @@
+
+> d1env-frontend@0.1.0 test
+> vitest --run tests/unit/RuntimeSetup.test.tsx
+
+
+ RUN  v5.0.3 <workspace>/frontend
+
+ ❯ tests/unit/RuntimeSetup.test.tsx (25 tests | 2 failed) 3869ms
+   × 当前任务新观测 false 不能被较旧的状态 true 覆盖 1021ms
+   × 当前任务新观测 null 不能被较旧的状态 true 覆盖 1015ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  tests/unit/RuntimeSetup.test.tsx > 当前任务新观测 false 不能被较旧的状态 true 覆盖
+ FAIL  tests/unit/RuntimeSetup.test.tsx > 当前任务新观测 null 不能被较旧的状态 true 覆盖
+Error: expect(element).toHaveTextContent()
+
+Expected element to have text content:
+  UNKNOWN
+Received:
+  仅运行环境已准备
+
+Ignored nodes: comments, script, style
+[36m<html>[39m
+  [36m<head />[39m
+  [36m<body>[39m
+    [36m<div>[39m
+      [36m<div[39m
+        [33mclass[39m=[32m"app-shell"[39m
+      [36m>[39m
+        [36m<header[39m
+          [33mclass[39m=[32m"app-header"[39m
+        [36m>[39m
+          [36m<a[39m
+            [33maria-label[39m=[32m"D1Env 首页"[39m
+            [33mclass[39m=[32m"brand"[39m
+            [33mhref[39m=[32m"/"[39m
+          [36m>[39m
+            [36m<span[39m
+              [33maria-hidden[39m=[32m"true"[39m
+              [33mclass[39m=[32m"brand-mark"[39m
+            [36m>[39m
+              [0mD1[0m
+            [36m</span>[39m
+            [36m<span>[39m
+              [0mD1Env[0m
+              [36m<small>[39m
+                [0m机器人环境工作台[0m
+              [36m</small>[39m
+            [36m</span>[39m
+          [36m</a>[39m
+          [36m<div[39m
+            [33mclass[39m=[32m"header-right"[39m
+          [36m>[39m
+            [36m<button[39m
+              [33mclass[39m=[32m"history-entry"[39m
+              [33mtype[39m=[32m"button"[39m
+            [36m>[39m
+              [0m查看历史软件作业[0m
+            [36m</button>[39m
+            [36m<span[39m
+              [33mclass[39m=[32m"local-label"[39m
+            [36m>[39m
+              [36m<i />[39m
+              [0m 本地工作台[0m
+            [36m</span>[39m
+            [36m<span[39m
+              [33mclass[39m=[32m"release-tag"[39m
+            [36m>[39m
+              [0mM3 · 软件部署与检查[0m
+            [36m</span>[39m
+          [36m</div>[39m
+        [36m</header>[39m
+        [36m<div[39m
+          [33mclass[39m=[32m"mock-banner software-banner"[39m
+          [33mdata-testid[39m=[32m"mode-watermark"[39m
+        [36m>[39m
+          [36m<span>[39m
+            [0m真实软件测试 · Docker/ROS[0m
+          [36m</span>[39m
+          [36m<p>[39m
+            [0m仅验证 CPU ROS 软件通信，未连接真机，未验证 D1 功能。[0m
+          [36m</p>[39m
+          [36m<strong>[39m
+            [0m运动权限：未启用[0m
+          [36m</strong>[39m
+        [36m</div>[39m
+        [36m<div[39m
+          [33mclass[39m=[32m"workspace-title"[39m
+        [36m>[39m
+          [36m<div>[39m
+            [36m<span[39m
+              [33mclass[39m=[32m"eyebrow"[39m
+            [36m>[39m
+              [0mD1 ENVIRONMENT / FOUNDATION[0m
+            [36m</span>[39m
+            [36m<h2>[39m
+              [0m把每一步，部署得明白。[0m
+            [36m</h2>[39m
+          [36m</div>[39m
+          [36m<span[39m
+            [33mclass[39m=[32m"workspace-version"[39m
+          [36m>[39m
+            [0m中文向导 [0m
+            [36m<b>[39m
+              [0m01[0m
+            [36m</b>[39m
+          [36m</span>[39m
+        [36m</div>[39m
+        [36m<nav[39m
+          [33maria-label[39m=[32m"部署向导步骤"[39m
+          [33mclass[39m=[32m"wizard-steps"[39m
+        [36m>[39m
+          [36m<button[39m
+            [33maria-label[39m=[32m"1 使用方式"[39m
+            [33mtype[39m=[32m"button"[39m
+          [36m>[39m
+            [36m<span[39m
+              [33mclass[39m=[32m"step-number"[39m
+            [36m>[39m
+              [0m01[0m
+            [36m</span>[39m
+            [36m<span>[39m
+              [0m使用方式[0m
+            [36m</span>[39m
+          [36m</button>[39m
+          [36m<button[39m
+            [33maria-label[39m=[32m"2 机器人配置"[39m
+            [33mtype[39m=[32m"button"[39m
+          [36m>[39m
+            [36m<span[39m
+              [33mclass[39m=[32m"step-number"[39m
+            [36m>[39m
+              [0m02[0m
+            [36m</span>[39m
+            [36m<span>[39m
+              [0m机器人配置[0m
+            [36m</span>[39m
+          [36m</button>[39m
+          [36m<button[39m
+            [33maria-current[39m=[32m"step"[39m
+            [33maria-label[39m=[32m"3 执行电脑"[39m
+            [33mtype[39m=[32m"button"[39m
+          [36m>[39m
+            [36m<span[39m
+              [33mclass[39m=[32m"step-number"[39m
+            [36m>[39m
+              [0m03[0m
+            [36m</span>[39m
+            [36m<span>[39m
+              [0m执行电脑[0m
+            [36m</span>[39m
+          [36m</button>[39m
+          [36m<button[39m
+            [33maria-label[39m=[32m"4 部署预览"[39m
+            [33mtype[39m=[32m"button"[39m
+          [36m>[39m
+            [36m<span[39m
+              [33mclass[39m=[32m"step-number"[39m
+            [36m>[39m
+              [0m04[0m
+            [36m</span>[39m
+            [36m<span>[39m
+              [0m部署预览[0m
+            [36m</span>[39m
+          [36m</button>[39m
+          [36m<button[39m
+            [33maria-label[39m=[32m"5 运行与结果"[39m
+            [33mtype[39m=[32m"button"[39m
+          [36m>[39m
+            [36m<span[39m
+              [33mclass[39m=[32m"step-number"[39m
+            [36m>[39m
+              [0m05[0m
+            [36m</span>[39m
+            [36m<span>[39m
+              [0m运行与结果[0m
+            [36m</span>[39m
+          [36m</button>[39m
+        [36m</nav>[39m
+        [36m<div[39m
+          [33mclass[39m=[32m"workspace-grid"[39m
+        [36m>[39m
+          [36m<main[39m
+            [33mclass[39m=[32m"main-panel"[39m
+          [36m>[39m
+            [36m<div[39m
+              [33mclass[39m=[32m"page-heading"[39m
+            [36m>[39m
+              [36m<span[39m
+                [33mclass[39m=[32m"eyebrow"[39m
+              [36m>[39m
+                [0m03 / 执行电脑[0m
+              [36m</span>[39m
+              [36m<h1>[39m
+                [0m先了解执行电脑。[0m
+              [36m</h1>[39m
+              [36m<p>[39m
+                [0m检测来自本地后端所在的电脑，浏览器访问端与执行端明确区分。电脑检查只读；软件模式可点击准备运行环境，再部署指定的软件测试。[0m
+              [36m</p>[39m
+            [36m</div>[39m
+            [36m<div[39m
+              [33mclass[39m=[32m"host-card"[39m
+            [36m>[39m
+              [36m<div[39m
+                [33mclass[39m=[32m"host-title"[39m
+              [36m>[39m
+                [36m<span[39m
+                  [33maria-hidden[39m=[32m"true"[39m
+                  [33mclass[39m=[32m"computer-icon"[39m
+                [36m>[39m
+                  [0m▣[0m
+                [36m</span>[39m
+                [36m<div>[39m
+                  [36m<h2>[39m
+                    [0m本地执行电脑[0m
+                  [36m</h2>[39m
+                  [36m<p>[39m
+                    [0m目标 local · 后端本机[0m
+                  [36m</p>[39m
+                [36m</div>[39m
+                [36m<span[39m
+                  [33mclass[39m=[32m"tag neutral-tag"[39m
+                [36m>[39m
+                  [0m检测已返回[0m
+                [36m</span>[39m
+              [36m</div>[39m
+              [36m<dl[39m
+                [33mclass[39m=[32m"host-facts"[39m
+              [36m>[39m
+                [36m<div>[39m
+                  [36m<dt>[39m
+                    [0m操作系统[0m
+                  [36m</dt>[39m
+                  [36m<dd>[39m
+                    [0mDarwin 26.0[0m
+                  [36m</dd>[39m
+                [36m</div>[39m
+                [36m<div>[39m
+                  [36m<dt>[39m
+                    [0mCPU 架构[0m
+                  [36m</dt>[39m
+                  [36m<dd>[39m
+                    [0maarch64[0m
+                  [36m</dd>[39m
+                [36m</div>[39m
+                [36m<div>[39m
+                  [36m<dt>[39m
+                    [0m可用磁盘[0m
+                  [36m</dt>[39m
+                  [36m<dd>[39m
+                    [0m18.6 GB[0m
+                  [36m</dd>[39m
+                [36m</div>[39m
+                [36m<div>[39m
+                  [36m<dt>[39m
+                    [0mDocker[0m
+                  [36m</dt>[39m
+                  [36m<dd>[39m
+                    [0m未检测到[0m
+                  [36m</dd>[39m
+                [36m</div>[39m
+                [36m<div>[39m
+                  [36m<dt>[39m
+                    [0mDocker 访问[0m
+                  [36m</dt>[39m
+                  [36m<dd>[39m
+                    [0m未检测到[0m
+                  [36m</dd>[39m
+                [36m</div>[39m
+                [36m<div>[39m
+                  [36m<dt>[39m
+                    [0mCompose[0m
+                  [36m</dt>[39m
+                  [36m<dd>[39m
+                    [0m未检测到[0m
+                  [36m</dd>[39m
+                [36m</div>[39m
+              [36m</dl>[39m
+              [36m<p[39m
+                [33mclass[39m=[32m"muted"[39m
+              [36m>[39m
+                [0m浏览器访问端：当前浏览器；其系统信息不参与后端兼容判定。[0m
+              [36m</p>[39m
+              [36m<dl[39m
+                [33mclass[39m=[32m"host-facts"[39m
+              [36m>[39m
+                [36m<div>[39m
+                  [36m<dt>[39m
+                    [0mDocker 执行环境[0m
+                  [36m</dt>[39m
+                  [36m<dd>[39m
+                    [0m未知[0m
+                  [36m</dd>[39m
+                [36m</div>[39m
+                [36m<div>[39m
+                  [36m<dt>[39m
+                    [0mDocker CPU 架构[0m
+                  [36m</dt>[39m
+                  [36m<dd>[39m
+                    [0m未知[0m
+                  [36m</dd>[39m
+                [36m</div>[39m
+                [36m<div>[39m
+                  [36m<dt>[39m
+                    [0mDocker 版本[0m
+                  [36m</dt>[39m
+                  [36m<dd>[39m
+                    [0m未知[0m
+                  [36m</dd>[39m
+                [36m</div>[39m
+              [36m</dl>[39m
+              [36m<details>[39m
+                [36m<summary>[39m
+                  [0m网卡、GPU 与观测时间[0m
+                [36m</summary>[39m
+                [36m<dl>[39m
+                  [36m<dt>[39m
+                    [0m本机网卡名称[0m
+                  [36m</dt>[39m
+                  [36m<dd>[39m
+                    [0mlo0[0m
+                  [36m</dd>[39m
+                  [36m<dt>[39m
+                    [0mGPU 观测[0m
+                  [36m</dt>[39m
+                  [36m<dd>[39m
+                    [0m未知[0m
+                    [0m · 当前 CPU 测试不需要 GPU[0m
+                  [36m</dd>[39m
+                  [36m<dt>[39m
+                    [0m观测时间[0m
+                  [36m</dt>[39m
+                  [36m<dd>[39m
+                    [0m2026-10-06T08:00:00Z[0m
+                  [36m</dd>[39m
+                [36m</dl>[39m
+              [36m</details>[39m
+            [36m</div>[39m
+            [36m<section[39m
+              [33maria-label[39m=[32m"准备运行环境"[39m
+              [33mclass[39m=[32m"runtime-setup-card"[39m
+            [36m>[39m
+              [36m<div[39m
+                [33mclass[39m=[32m"section-row"[39m
+              [36m>[39m
+                [36m<h2>[39m
+                  [0m准备运行环境[0m
+                [36m</h2>[39m
+                [36m<span[39m
+                  [33mclass[39m=[32m"tag neutral-tag"[39m
+                  [33mdata-testid[39m=[32m"runtime-current-state"[39m
+                [36m>[39m
+                  [0m仅运行环境已准备[0m
+                [36m</span>[39m
+              [36m</div>[39m
+              [36m<p>[39m
+                [0m点击一次，由 D1Env 检测和复用已有环境；需要时下载、校验并打开 Docker 原生安装过程，再准备配套软件镜像。MOCK 演示不需要这一步。[0m
+              [36m</p>[39m
+              [36m<p[39m
+                [33mclass[39m=[32m"muted"[39m
+              [36m>[39m
+                [0mDocker 拥有本机高权限操作能力。许可适用性与系统授权由你在明确提示中确认；本页不收集系统密码。[0m
+              [36m</p>[39m
+              [36m<dl[39m
+                [33mclass[39m=[32m"import-facts"[39m
+              [36m>[39m
+                [36m<div>[39m
+                  [36m<dt>[39m
+                    [0m执行平台[0m
+                  [36m</dt>[39m
+                  [36m<dd>[39m
+                    [0mDarwin[0m
+                    [0m / [0m
+                    [0maarch64[0m
+                  [36m</dd>[39m
+                [36m</div>[39m
+                [36m<div>[39m
+                  [36m<dt>[39m
+                    [0m安装包版本 / 大小[0m
+                  [36m</dt>[39m
+                  [36m<dd>[39m
+                    [0munit-version[0m
+                    [0m / [0m
+                    [0m100 字节[0m
+                  [36m</dd>[39m
+                [36m</div>[39m
+                [36m<div>[39m
+                  [36m<dt>[39m
+                    [0m安装包 SHA-256[0m
+                  [36m</dt>[39m
+                  [36m<dd[39m
+                    [33mclass[39m=[32m"mono"[39m
+                  [36m>[39m
+                    [0maaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa[0m
+                  [36m</dd>[39m
+                [36m</div>[39m
+              [36m</dl>[39m
+              [36m<a[39m
+                [33mclass[39m=[32m"runtime-license-link"[39m
+                [33mhref[39m=[32m"https://www.docker.com/legal/docker-subscription-service-agreement/"[39m
+                [33mrel[39m=[32m"noopener noreferrer"[39m
+                [33mtarget[39m=[32m"_blank"[39m
+              [36m>[39m
+                [0m阅读 Docker 许可条件[0m
+              [36m</a>[39m
+              [36m<div[39m
+                [33mclass[39m=[32m"runtime-task-status"[39m
+              [36m>[39m
+                [36m<div[39m
+                  [33mclass[39m=[32m"section-row"[39m
+                [36m>[39m
+                  [36m<strong[39m
+                    [33mdata-testid[39m=[32m"runtime-stage"[39m
+                  [36m>[39m
+                    [0m准备流程结束[0m
+                  [36m</strong>[39m
+                  [36m<span[39m
+                    [33mclass[39m=[32m"tag neutral-tag"[39m
+                  [36m>[39m
+                    [0mSUCCEEDED[0m
+                  [36m</span>[39m
+                [36m</div>[39m
+                [36m<p>[39m
+                  [0m下载前请阅读 Docker 许可条件并确认适用性。[0m
+                [36m</p>[39m
+                [36m<p[39m
+                  [33mclass[39m=[32m"muted"[39m
+                [36m>[39m
+                  [0m下一步：[0m
+                  [0m阅读许可后点击明确确认按钮。[0m
+                [36m</p>[39m
+                [36m<details>[39m
+                  [36m<summary>[39m
+                    [0m准备任务与实际阶段证据[0m
+                  [36m</summary>[39m
+                  [36m<dl>[39m
+                    [36m<dt>[39m
+                      [0m任务范围[0m
+                    [36m</dt>[39m
+                    [36m<dd>[39m
+                      [0mruntime_environment · 不包含 ROS 通信与 D1 功能检查[0m
+                    [36m</dd>[39m
+                    [36m<dt>[39m
+                      [0m任务 ID[0m
+                    [36m</dt>[39m
+                    [36m<dd[39m
+                      [33mclass[39m=[32m"mono"[39m
+                    [36m>[39m
+                      [0mruntime-task-1[0m
+                    [36m</dd>[39m
+                    [36m<dt>[39m
+                      [0m记录时间[0m
+                    [36m</dt>[39m
+                    [36m<dd>[39m
+                      [0m2026-10-07T04:00:00Z[0m
+                    [36m</dd>[39m
+                  [36m</dl>[39m
+                  [36m<pre>[39m
+                    [0m{
+  "installer_verified": true,
+  "source": "unit-fixture"
+}[0m
+                  [36m</pre>[39m
+                [36m</details>[39m
+              [36m</div>[39m
+              [36m<div[39m
+                [33mclass[39m=[32m"notice neutral"[39m
+              [36m>[39m
+                [0m运行环境已准备；尚未启动 ROS 通信检查。[0m
+              [36m</div>[39m
+              [36m<div[39m
+                [33mclass[39m=[32m"runtime-actions"[39m
+              [36m>[39m
+                [36m<button[39m
+                  [33mclass[39m=[32m"primary"[39m
+                  [33mtype[39m=[32m"button"[39m
+                [36m>[39m
+                  [0m准备运行环境[0m
+                [36m</button>[39m
+                [36m<button[39m
+                  [33mclass[39m=[32m"secondary"[39m
+                  [33mtype[39m=[32m"button"[39m
+                [36m>[39m
+                  [0m重新读取准备状态[0m
+                [36m</button>[39m
+              [36m</div>[39m
+              [36m<p[39m
+                [33mclass[39m=[32m"muted"[39m
+              [36m>[39m
+                [0m环境和镜像准备完成后，继续部署预览与 ROS 软件测试；真机数据仍为 UNKNOWN，运动未启用。手动镜像导入保留在下方作为备用。[0m
+              [36m</p>[39m
+            [36m</section>[39m
+            [36m<div[39m
+              [33mclass[39m=[32m"check-details"[39m
+            [36m>[39m
+              [36m<article>[39m
+                [36m<div[39m
+                  [33mclass[39m=[32m"section-row"[39m
+                [36m>[39m
+                  [36m<strong>[39m
+                    [0mDOCKER_MISSING[0m
+                  [36m</strong>[39m
+                  [36m<span[39m
+                    [33mclass[39m=[32m"tiny-status status-warn"[39m
+                  [36m>[39m
+                    [0mWARN[0m
+                  [36m</span>[39m
+                [36m</div>[39m
+                [36m<p>[39m
+                  [0m未找到 Docker；MOCK 不需要 Docker[0m
+                [36m</p>[39m
+                [36m<p[39m
+                  [33mclass[39m=[32m"muted"[39m
+                [36m>[39m
+                  [0m下一步：[0m
+                  [0m本轮可继续演示[0m
+                [36m</p>[39m
+                [36m<details>[39m
+                  [36m<summary>[39m
+                    [0m检测证据 · [0m
+                    [0mlocal_probe[0m
+                  [36m</summary>[39m
+                  [36m<pre>[39m
+                    [0m{
+  "docker_available": false
+}[0m
+                  [36m</pre>[39m
+                  [36m<small>[39m
+                    [0m观测时间：[0m
+                    [0m2026-10-06T08:00:00Z[0m
+                  [36m</small>[39m
+                [36m</details>[39m
+              [36m</article>[39m
+            [36m</div>[39m
+            [36m<section[39m
+              [33mclass[39m=[32m"ros-import-card"[39m
+            [36m>[39m
+              [36m<div[39m
+                [33mclass[39m=[32m"section-row"[39m
+              [36m>[39m
+                [36m<h2>[39m
+                  [0m随包软件镜像[0m
+                [36m</h2>[39m
+                [36m<span[39m
+                  [33mclass[39m=[32m"tag software-tag"[39m
+                [36m>[39m
+                  [0m仅 Docker / ROS 软件[0m
+                [36m</span>[39m
+              [36m</div>[39m
+              [36m<p>[39m
+                [0m选择发行包内的镜像文件，导入后再运行软件测试。镜像身份、完整性与架构由本地服务核验。[0m
+              [36m</p>[39m
+              [36m<div[39m
+                [33mclass[39m=[32m"notice warning"[39m
+              [36m>[39m
+                [0munit fixture without image bundle[0m
+              [36m</div>[39m
+              [36m<label[39m
+                [33mclass[39m=[32m"import-file-label"[39m
+              [36m>[39m
+                [0m随包 ROS 镜像文件[0m
+                [36m<input[39m
+                  [33maccept[39m=[32m".bundle,.tar,.gz"[39m
+                  [33mdisabled[39m=[32m""[39m
+                  [33mtype[39m=[32m"file"[39m
+                [36m/>[39m
+              [36m</label>[39m
+              [36m<button[39m
+                [33mclass[39m=[32m"secondary"[39m
+                [33mdisabled[39m=[32m""[39m
+                [33mtype[39m=[32m"button"[39m
+              [36m>[39m
+                [0m导入随发行包提供的 ROS 软件镜像[0m
+              [36m</button>[39m
+              [36m<p[39m
+                [33mclass[39m=[32m"muted"[39m
+              [36m>[39m
+                [0m导入使用 Docker 的高权限操作权，可能需要几分钟。请保持工作台开启；导入完成不会记为真机连接或通信检查通过。[0m
+              [36m</p>[39m
+            [36m</section>[39m
+            [36m<div[39m
+              [33mclass[39m=[32m"notice neutral"[39m
+            [36m>[39m
+              [0mMac 本机系统与 Docker 中的 Linux 执行环境分开记录；缺少 Docker、权限或正确架构时，真实软件计划会被阻塞。[0m
+            [36m</div>[39m
+            [36m<div[39m
+              [33mclass[39m=[32m"page-actions"[39m
+            [36m>[39m
+              [36m<button[39m
+                [33mclass[39m=[32m"secondary"[39m
+                [33mtype[39m=[32m"button"[39m
+              [36m>[39m
+                [0m重新检测电脑[0m
+              [36m</button>[39m
+              [36m<button[39m
+                [33mclass[39m=[32m"primary"[39m
+                [33mtype[39m=[32m"button"[39m
+              [36m>[39m
+                [0m下一步：部署预览 [0m
+                [36m<span[39m
+                  [33maria-hidden[39m=[32m"true"[39m
+                [36m>[39m
+                  [0m→[0m
+                [36m</span>[39m
+              [36m</button>[39m
+            [36m</div>[39m
+          [36m</main>[39m
+          [36m<aside[39m
+            [33maria-label[39m=[32m"状态与证据"[39m
+            [33mclass[39m=[32m"evidence-panel"[39m
+          [36m>[39m
+            [36m<div[39m
+              [33mclass[39m=[32m"aside-heading"[39m
+            [36m>[39m
+              [36m<span[39m
+                [33mclass[39m=[32m"eyebrow"[39m
+              [36m>[39m
+                [0mSTATUS & EVIDENCE[0m
+              [36m</span>[39m
+              [36m<h2>[39m
+                [0m每一步，都有依据[0m
+              [36m</h2>[39m
+            [36m</div>[39m
+            [36m<div[39m
+              [33mclass[39m=[32m"scope-card"[39m
+            [36m>[39m
+              [36m<span[39m
+                [33mclass[39m=[32m"tag software-tag"[39m
+              [36m>[39m
+                [0m软件测试[0m
+              [36m</span>[39m
+              [36m<p>[39m
+                [0m计划验证范围[0m
+              [36m</p>[39m
+              [36m<strong[39m
+                [33mdata-testid[39m=[32m"verified-scope"[39m
+              [36m>[39m
+                [0msoftware / 待验证[0m
+              [36m</strong>[39m
+              [36m<small>[39m
+                [0m仅检查 Docker/ROS 软件服务，不代表 D1 驱动、数据或运动已验证。[0m
+              [36m</small>[39m
+            [36m</div>[39m
+            [36m<section[39m
+              [33mclass[39m=[32m"evidence-section"[39m
+            [36m>[39m
+              [36m<div[39m
+                [33mclass[39m=[32m"section-row"[39m
+              [36m>[39m
+                [36m<h3>[39m
+                  [0m真机遥测[0m
+                [36m</h3>[39m
+                [36m<span[39m
+                  [33mclass[39m=[32m"tag unknown-tag"[39m
+                  [33mdata-testid[39m=[32m"telemetry-state"[39m
+                [36m>[39m
+                  [0mUNKNOWN[0m
+                [36m</span>[39m
+              [36m</div>[39m
+              [36m<div[39m
+                [33mclass[39m=[32m"telemetry-grid"[39m
+              [36m>[39m
+                [36m<div>[39m
+                  [36m<span>[39m
+                    [0m电量[0m
+                  [36m</span>[39m
+                  [36m<strong[39m
+                    [33mdata-testid[39m=[32m"battery-value"[39m
+                  [36m>[39m
+                    [0m未知 [0m
+                    [36m<small>[39m
+                      [0mnull[0m
+                    [36m</small>[39m
+                  [36m</strong>[39m
+                [36m</div>[39m
+                [36m<div>[39m
+                  [36m<span>[39m
+                    [0m姿态[0m
+                  [36m</span>[39m
+                  [36m<strong[39m
+                    [33mdata-testid[39m=[32m"pose-value"[39m
+                  [36m>[39m
+                    [0m未知 [0m
+                    [36m<small>[39m
+                      [0mnull[0m
+                    [36m</small>[39m
+                  [36m</strong>[39m
+                [36m</div>[39m
+              [36m</div>[39m
+              [36m<p[39m
+                [33mclass[39m=[32m"muted"[39m
+              [36m>[39m
+                [0m未连接机器人。缺失观测保持 null，不判断为正常。[0m
+              [36m</p>[39m
+              [36m<button[39m
+                [33mclass[39m=[32m"motion-disabled"[39m
+                [33mdisabled[39m=[32m""[39m
+                [33mtype[39m=[32m"button"[39m
+              [36m>[39m
+                [0m运动控制未启用[0m
+              [36m</button>[39m
+            [36m</section>[39m
+            [36m<section[39m
+              [33mclass[39m=[32m"evidence-section"[39m
+            [36m>[39m
+              [36m<div[39m
+                [33mclass[39m=[32m"section-row"[39m
+              [36m>[39m
+                [36m<h3>[39m
+                  [0m电脑检测[0m
+                [36m</h3>[39m
+                [36m<span[39m
+                  [33mclass[39m=[32m"tag neutral-tag"[39m
+                [36m>[39m
+                  [0m真实只读[0m
+                [36m</span>[39m
+              [36m</div>[39m
+              [36m<p[39m
+                [33mclass[39m=[32m"muted"[39m
+              [36m>[39m
+                [0m来源：local_probe · 后端本机观测[0m
+              [36m</p>[39m
+              [36m<ul[39m
+                [33mclass[39m=[32m"evidence-checks"[39m
+              [36m>[39m
+                [36m<li>[39m
+                  [36m<span[39m
+                    [33mclass[39m=[32m"tiny-status status-warn"[39m
+                  [36m>[39m
+                    [0mWARN[0m
+                  [36m</span>[39m
+                  [36m<span>[39m
+                    [0m未找到 Docker；MOCK 不需要 Docker[0m
+                  [36m</span>[39m
+                [36m</li>[39m
+              [36m</ul>[39m
+            [36m</section>[39m
+            [36m<div[39m
+              [33mclass[39m=[32m"boundary-note"[39m
+            [36m>[39m
+              [36m<span[39m
+                [33maria-hidden[39m=[32m"true"[39m
+              [36m>[39m
+                [0m↳[0m
+              [36m</span>[39m
+              [36m<p>[39m
+                [0m真实 CPU ROS 软件测试[0m
+                [36m<br />[39m
+                [36m<small>[39m
+                  [0m未接 SDK、未接真机、无运动指令[0m
+                [36m</small>[39m
+              [36m</p>[39m
+            [36m</div>[39m
+          [36m</aside>[39m
+        [36m</div>[39m
+        [36m<footer[39m
+          [33mclass[39m=[32m"app-footer"[39m
+        [36m>[39m
+          [36m<span>[39m
+            [0mD1Env / Foundation[0m
+          [36m</span>[39m
+          [36m<span>[39m
+            [0m依据可查 · 范围明确 · 默认只读[0m
+          [36m</span>[39m
+          [36m<span>[39m
+            [0m软件检查 ≠ D1 真机验证[0m
+          [36m</span>[39m
+        [36m</footer>[39m
+      [36m</div>[39m
+    [36m</div>[39m
+  [36m</body>[39m
+[36m</html>[39m
+ ❯ tests/unit/RuntimeSetup.test.tsx:316:75
+    314|   render(<App />);
+    315|   await waitFor(() => expect(calls.some((call) => call.path === '/api/…
+    316|   await waitFor(() => expect(screen.getByTestId('runtime-current-state…
+       |                                                                           ^
+    317|   expect(screen.queryByText('运行环境已准备；尚未启动 ROS 通信检查。')).not.toBeInTheDo…
+    318| });
+ ❯ runWithExpensiveErrorDiagnosticsDisabled node_modules/@testing-library/dom/dist/config.js:47:12
+ ❯ checkCallback node_modules/@testing-library/dom/dist/wait-for.js:124:77
+ ❯ Timeout.checkRealTimersCallback node_modules/@testing-library/dom/dist/wait-for.js:118:16
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/2]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  2 failed | 23 passed (25)
+   Start at  12:54:59
+   Duration  4.50s (tests 88%, environment 6%, transform 3%, setup 2%, import 1%)
+

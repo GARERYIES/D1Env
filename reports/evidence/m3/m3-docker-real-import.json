@@ -1,0 +1,130 @@
+{
+  "origin": "docker",
+  "mode": "software_test",
+  "verified_scope": "software",
+  "bundle_sha256": "8da67f547b7885be741f8fbf0b2fd06f989cec0e2b7ed41d4a24c2adaf2414df",
+  "image_id": "sha256:52f259d5fa38acb3fd2018e1601593fc0f6ad1a85c8a968032695f9c15771a2c",
+  "results": [
+    {
+      "status": "imported",
+      "software_scope_only": true,
+      "image_id": "sha256:52f259d5fa38acb3fd2018e1601593fc0f6ad1a85c8a968032695f9c15771a2c",
+      "architecture": "aarch64",
+      "source": "d1env/ros-probe",
+      "bundle_sha256": "8da67f547b7885be741f8fbf0b2fd06f989cec0e2b7ed41d4a24c2adaf2414df",
+      "load_exit_code": 0
+    },
+    {
+      "status": "reused",
+      "software_scope_only": true,
+      "image_id": "sha256:52f259d5fa38acb3fd2018e1601593fc0f6ad1a85c8a968032695f9c15771a2c",
+      "architecture": "aarch64",
+      "source": "d1env/ros-probe",
+      "bundle_sha256": "8da67f547b7885be741f8fbf0b2fd06f989cec0e2b7ed41d4a24c2adaf2414df",
+      "load_exit_code": null
+    }
+  ],
+  "all_preexisting_image_bindings_preserved": true,
+  "private_staging_cleaned": true,
+  "exit_code": 0,
+  "commands": [
+    {
+      "argv": [
+        "docker",
+        "--context",
+        "default",
+        "image",
+        "ls",
+        "--all",
+        "--no-trunc",
+        "--format",
+        "{{.Repository}}:{{.Tag}}={{.ID}}"
+      ],
+      "exit_code": 0,
+      "stderr": "",
+      "output_sha256": "6c02d7442d8e81281bc7d9b82f412946dfc237c494122982fd050c81e5aa4f1e",
+      "bindings_count": 12
+    },
+    {
+      "argv": [
+        "docker",
+        "--context",
+        "default",
+        "image",
+        "inspect",
+        "sha256:52f259d5fa38acb3fd2018e1601593fc0f6ad1a85c8a968032695f9c15771a2c"
+      ],
+      "exit_code": 0,
+      "timed_out": false,
+      "cancelled": false,
+      "stdout": "[\n    {\n        \"Id\": \"sha256:52f259d5fa38acb3fd2018e1601593fc0f6ad1a85c8a968032695f9c15771a2c\",\n        \"RepoTags\": [\n            \"d1env/ros-probe:m3-20261007-aarch64\"\n        ],\n        \"RepoDigests\": [\n            \"d1env/ros-probe@sha256:52f259d5fa38acb3fd2018e1601593fc0f6ad1a85c8a968032695f9c15771a2c\"\n        ],\n        \"Comment\": \"buildkit.dockerfile.v0\",\n        \"Created\": \"2026-10-06T18:14:06.309478959Z\",\n        \"Config\": {\n            \"User\": \"10001:10001\",\n            \"Env\": [\n                \"PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin\",\n                \"LANG=C.UTF-8\",\n                \"LC_ALL=C.UTF-8\",\n                \"ROS_DISTRO=humble\",\n                \"HOME=/tmp\",\n                \"ROS_LOG_DIR=/tmp/roslogs\",\n                \"PYTHONDONTWRITEBYTECODE=1\",\n                \"PYTHONUNBUFFERED=1\"\n            ],\n            \"Entrypoint\": [\n                \"/opt/d1env/entrypoint.sh\"\n            ],\n            \"Cmd\": [\n                \"idle\"\n            ],\n            \"Labels\": {\n                \"io.d1env.kind\": \"ros-probe\",\n                \"io.d1env.project\": \"d1env\",\n                \"io.d1env.source\": \"d1env/ros-probe\",\n                \"org.opencontainers.image.description\": \"D1Env CPU ROS communication software probe; no robot interface\",\n                \"org.opencontainers.image.version\": \"22.04\"\n            },\n            \"ArgsEscaped\": true\n        },\n        \"Architecture\": \"arm64\",\n        \"Os\": \"linux\",\n        \"Size\": 140544227,\n        \"RootFS\": {\n            \"Type\": \"layers\",\n            \"Layers\": [\n                \"sha256:244b24abb260690ae90ebdff115f11f95949aba6794a095c369c95b0dffebbea\",\n                \"sha256:9fe0667d7446883175a90ad9d8f9afe55b95de7518da59e1e37f2eb9f7a1ac47\",\n                \"sha256:d28c44bbd18ca4fed7abfd16d67637490e5b63eccfc4f680b51585e1f92fce2d\",\n                \"sha256:c587b6093c9be1dc630ede9e5796e4cd6b62bcce2b77fd0d5058cf23e0301591\",\n                \"sha256:fb4775f51fcbc0815a96f8c0516bfd44203c756e8b34b2244aba6a1596b0fa6e\",\n                \"sha256:9b28b503a5ee4d9f881cf05cc265edf93ccab45b533aaa4819fe39f4017244b5\",\n                \"sha256:66cc4b3e4aff755c2c82ef20a1094358f75b5487ce051d2f321c32b91561e2d6\"\n            ]\n        },\n        \"Metadata\": {\n            \"LastTagTime\": \"2026-10-06T18:14:06.360968751Z\"\n        },\n        \"Descriptor\": {\n            \"mediaType\": \"application/vnd.oci.image.index.v1+json\",\n            \"digest\": \"sha256:52f259d5fa38acb3fd2018e1601593fc0f6ad1a85c8a968032695f9c15771a2c\",\n            \"size\": 856\n        },\n        \"Identity\": {\n            \"Build\": [\n                {\n                    \"Ref\": \"elkob44xrxcj4yhdqrkhpvi2y\",\n                    \"CreatedAt\": \"2026-10-06T18:14:06.376254668Z\"\n                }\n            ]\n        }\n    }\n]\n",
+      "stderr": "",
+      "duration_s": 0.044802790973335505
+    },
+    {
+      "argv": [
+        "docker",
+        "--context",
+        "default",
+        "load",
+        "--input",
+        "work/evidence/m3-docker-real-import-private/.d1env-image-import-77axnecd/unpacked/payload/image.tar"
+      ],
+      "exit_code": 0,
+      "timed_out": false,
+      "cancelled": false,
+      "stdout": "Loaded image ID: sha256:52f259d5fa38acb3fd2018e1601593fc0f6ad1a85c8a968032695f9c15771a2c\n",
+      "stderr": "",
+      "duration_s": 1.5883714170195162
+    },
+    {
+      "argv": [
+        "docker",
+        "--context",
+        "default",
+        "image",
+        "inspect",
+        "sha256:52f259d5fa38acb3fd2018e1601593fc0f6ad1a85c8a968032695f9c15771a2c"
+      ],
+      "exit_code": 0,
+      "timed_out": false,
+      "cancelled": false,
+      "stdout": "[\n    {\n        \"Id\": \"sha256:52f259d5fa38acb3fd2018e1601593fc0f6ad1a85c8a968032695f9c15771a2c\",\n        \"RepoTags\": [\n            \"d1env/ros-probe:m3-20261007-aarch64\"\n        ],\n        \"RepoDigests\": [\n            \"d1env/ros-probe@sha256:52f259d5fa38acb3fd2018e1601593fc0f6ad1a85c8a968032695f9c15771a2c\"\n        ],\n        \"Comment\": \"buildkit.dockerfile.v0\",\n        \"Created\": \"2026-10-06T18:14:06.309478959Z\",\n        \"Config\": {\n            \"User\": \"10001:10001\",\n            \"Env\": [\n                \"PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin\",\n                \"LANG=C.UTF-8\",\n                \"LC_ALL=C.UTF-8\",\n                \"ROS_DISTRO=humble\",\n                \"HOME=/tmp\",\n                \"ROS_LOG_DIR=/tmp/roslogs\",\n                \"PYTHONDONTWRITEBYTECODE=1\",\n                \"PYTHONUNBUFFERED=1\"\n            ],\n            \"Entrypoint\": [\n                \"/opt/d1env/entrypoint.sh\"\n            ],\n            \"Cmd\": [\n                \"idle\"\n            ],\n            \"Labels\": {\n                \"io.d1env.kind\": \"ros-probe\",\n                \"io.d1env.project\": \"d1env\",\n                \"io.d1env.source\": \"d1env/ros-probe\",\n                \"org.opencontainers.image.description\": \"D1Env CPU ROS communication software probe; no robot interface\",\n                \"org.opencontainers.image.version\": \"22.04\"\n            },\n            \"ArgsEscaped\": true\n        },\n        \"Architecture\": \"arm64\",\n        \"Os\": \"linux\",\n        \"Size\": 140544227,\n        \"RootFS\": {\n            \"Type\": \"layers\",\n            \"Layers\": [\n                \"sha256:244b24abb260690ae90ebdff115f11f95949aba6794a095c369c95b0dffebbea\",\n                \"sha256:9fe0667d7446883175a90ad9d8f9afe55b95de7518da59e1e37f2eb9f7a1ac47\",\n                \"sha256:d28c44bbd18ca4fed7abfd16d67637490e5b63eccfc4f680b51585e1f92fce2d\",\n                \"sha256:c587b6093c9be1dc630ede9e5796e4cd6b62bcce2b77fd0d5058cf23e0301591\",\n                \"sha256:fb4775f51fcbc0815a96f8c0516bfd44203c756e8b34b2244aba6a1596b0fa6e\",\n                \"sha256:9b28b503a5ee4d9f881cf05cc265edf93ccab45b533aaa4819fe39f4017244b5\",\n                \"sha256:66cc4b3e4aff755c2c82ef20a1094358f75b5487ce051d2f321c32b91561e2d6\"\n            ]\n        },\n        \"Metadata\": {\n            \"LastTagTime\": \"2026-10-06T18:22:29.303696429Z\"\n        },\n        \"Descriptor\": {\n            \"mediaType\": \"application/vnd.oci.image.index.v1+json\",\n            \"digest\": \"sha256:52f259d5fa38acb3fd2018e1601593fc0f6ad1a85c8a968032695f9c15771a2c\",\n            \"size\": 856\n        },\n        \"Identity\": {\n            \"Build\": [\n                {\n                    \"Ref\": \"elkob44xrxcj4yhdqrkhpvi2y\",\n                    \"CreatedAt\": \"2026-10-06T18:14:06.376254668Z\"\n                }\n            ]\n        }\n    }\n]\n",
+      "stderr": "",
+      "duration_s": 0.06284745782613754
+    },
+    {
+      "argv": [
+        "docker",
+        "--context",
+        "default",
+        "image",
+        "inspect",
+        "sha256:52f259d5fa38acb3fd2018e1601593fc0f6ad1a85c8a968032695f9c15771a2c"
+      ],
+      "exit_code": 0,
+      "timed_out": false,
+      "cancelled": false,
+      "stdout": "[\n    {\n        \"Id\": \"sha256:52f259d5fa38acb3fd2018e1601593fc0f6ad1a85c8a968032695f9c15771a2c\",\n        \"RepoTags\": [\n            \"d1env/ros-probe:m3-20261007-aarch64\"\n        ],\n        \"RepoDigests\": [\n            \"d1env/ros-probe@sha256:52f259d5fa38acb3fd2018e1601593fc0f6ad1a85c8a968032695f9c15771a2c\"\n        ],\n        \"Comment\": \"buildkit.dockerfile.v0\",\n        \"Created\": \"2026-10-06T18:14:06.309478959Z\",\n        \"Config\": {\n            \"User\": \"10001:10001\",\n            \"Env\": [\n                \"PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin\",\n                \"LANG=C.UTF-8\",\n                \"LC_ALL=C.UTF-8\",\n                \"ROS_DISTRO=humble\",\n                \"HOME=/tmp\",\n                \"ROS_LOG_DIR=/tmp/roslogs\",\n                \"PYTHONDONTWRITEBYTECODE=1\",\n                \"PYTHONUNBUFFERED=1\"\n            ],\n            \"Entrypoint\": [\n                \"/opt/d1env/entrypoint.sh\"\n            ],\n            \"Cmd\": [\n                \"idle\"\n            ],\n            \"Labels\": {\n                \"io.d1env.kind\": \"ros-probe\",\n                \"io.d1env.project\": \"d1env\",\n                \"io.d1env.source\": \"d1env/ros-probe\",\n                \"org.opencontainers.image.description\": \"D1Env CPU ROS communication software probe; no robot interface\",\n                \"org.opencontainers.image.version\": \"22.04\"\n            },\n            \"ArgsEscaped\": true\n        },\n        \"Architecture\": \"arm64\",\n        \"Os\": \"linux\",\n        \"Size\": 140544227,\n        \"RootFS\": {\n            \"Type\": \"layers\",\n            \"Layers\": [\n                \"sha256:244b24abb260690ae90ebdff115f11f95949aba6794a095c369c95b0dffebbea\",\n                \"sha256:9fe0667d7446883175a90ad9d8f9afe55b95de7518da59e1e37f2eb9f7a1ac47\",\n                \"sha256:d28c44bbd18ca4fed7abfd16d67637490e5b63eccfc4f680b51585e1f92fce2d\",\n                \"sha256:c587b6093c9be1dc630ede9e5796e4cd6b62bcce2b77fd0d5058cf23e0301591\",\n                \"sha256:fb4775f51fcbc0815a96f8c0516bfd44203c756e8b34b2244aba6a1596b0fa6e\",\n                \"sha256:9b28b503a5ee4d9f881cf05cc265edf93ccab45b533aaa4819fe39f4017244b5\",\n                \"sha256:66cc4b3e4aff755c2c82ef20a1094358f75b5487ce051d2f321c32b91561e2d6\"\n            ]\n        },\n        \"Metadata\": {\n            \"LastTagTime\": \"2026-10-06T18:22:29.303696429Z\"\n        },\n        \"Descriptor\": {\n            \"mediaType\": \"application/vnd.oci.image.index.v1+json\",\n            \"digest\": \"sha256:52f259d5fa38acb3fd2018e1601593fc0f6ad1a85c8a968032695f9c15771a2c\",\n            \"size\": 856\n        },\n        \"Identity\": {\n            \"Build\": [\n                {\n                    \"Ref\": \"elkob44xrxcj4yhdqrkhpvi2y\",\n                    \"CreatedAt\": \"2026-10-06T18:14:06.376254668Z\"\n                }\n            ]\n        }\n    }\n]\n",
+      "stderr": "",
+      "duration_s": 0.0932225410360843
+    },
+    {
+      "argv": [
+        "docker",
+        "--context",
+        "default",
+        "image",
+        "ls",
+        "--all",
+        "--no-trunc",
+        "--format",
+        "{{.Repository}}:{{.Tag}}={{.ID}}"
+      ],
+      "exit_code": 0,
+      "stderr": "",
+      "output_sha256": "6c02d7442d8e81281bc7d9b82f412946dfc237c494122982fd050c81e5aa4f1e",
+      "bindings_count": 12
+    }
+  ]
+}

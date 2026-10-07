@@ -1,0 +1,34 @@
+{
+  "actual_loopback_html_and_js": "PASS",
+  "architecture": "aarch64",
+  "archive_sha256": "d5befe4ba377dd4cf4708e1f1297aa5d23624b14d82f1e57588795f0f2ce84f4",
+  "archive_size_bytes": 27787744,
+  "artifact": "outputs/D1Env-M3/D1Env-0.2.0-macos-aarch64.tar.gz",
+  "blocked": [
+    "exhaustive bundled dynamic-library licenses"
+  ],
+  "cli_help_without_development_path": "PASS",
+  "copied_build_lock_bytes_match": true,
+  "doctor_unknown_robot_and_telemetry": "PASS",
+  "exit_code": 0,
+  "mac_command_help_after_move": "PASS",
+  "not_run": [
+    "Mac downloaded-file quarantine/Gatekeeper",
+    "Mac signing/notarization",
+    "older Mac versions",
+    "Intel Mac",
+    "fresh Ubuntu desktop installation",
+    "Ubuntu x86_64 runtime",
+    "manufacturer SDK",
+    "robot connection or motion"
+  ],
+  "platform": "macos",
+  "python_version": "3.10.20",
+  "runtime_source_provenance": "verified",
+  "scope": "software_tool_candidate",
+  "signed_release": false,
+  "unauthenticated_api_http_status": 401,
+  "untrusted_host_http_status": 403,
+  "verified_file_or_link_count": 2347,
+  "wheel_sha256": "efc0464d4bd7bbaa28281ec37d6ce4f1e1a2eee4de0b46914ce7b82c72a0bb5d"
+}

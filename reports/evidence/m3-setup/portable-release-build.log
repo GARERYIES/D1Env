@@ -1,0 +1,1 @@
+{"architecture": "aarch64", "bundle_directory": "D1Env-0.3.0-macos-aarch64", "kind": "d1env_portable_runtime", "linux_fresh_vm_verified": false, "platform": "macos", "project_version": "0.3.0", "robot_verified": false, "self_contained_runtime": true, "sha256": "8744523246537c1d1fdf2822e69c11ccb34a22f43c12f9ec0d84d5ee00268290", "size_bytes": 167626131}

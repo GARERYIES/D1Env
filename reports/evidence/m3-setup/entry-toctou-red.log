@@ -1,0 +1,23 @@
+F                                                                        [100%]
+=================================== FAILURES ===================================
+___________ test_app_change_during_signature_verification_blocks_cli ___________
+
+tmp_path = PosixPath('<REDACTED_TEMP_DIR>')
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x1031abaa0>
+
+    def test_app_change_during_signature_verification_blocks_cli(tmp_path, monkeypatch):
+        import subprocess
+    
+        from d1env.docker.endpoint import verify_desktop_app
+        app = signed_fixture(tmp_path)
+        def changed(*args, **kwargs):
+            (app/'Contents/Resources/changed-component').write_text('changed during verification')
+            return subprocess.CompletedProcess(args, 0)
+        monkeypatch.setattr(subprocess, 'run', changed)
+>       with pytest.raises(ValueError, match='DOCKER_APP_UNVERIFIED'):
+E       Failed: DID NOT RAISE ValueError
+
+tests/test_docker_endpoint.py:230: Failed
+=========================== short test summary info ============================
+FAILED tests/test_docker_endpoint.py::test_app_change_during_signature_verification_blocks_cli
+1 failed in 0.04s

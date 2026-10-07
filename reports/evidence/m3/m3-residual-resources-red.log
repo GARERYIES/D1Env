@@ -1,0 +1,24 @@
+...........FFFF                                                          [100%]
+=================================== FAILURES ===================================
+_ test_new_task_is_blocked_until_previous_software_resources_are_cleaned[stale] _
+tests/test_software_jobs.py:203: in test_new_task_is_blocked_until_previous_software_resources_are_cleaned
+    with pytest.raises(JobConflict, match="遗留") as error:
+E   Failed: DID NOT RAISE JobConflict
+_ test_new_task_is_blocked_until_previous_software_resources_are_cleaned[interrupted] _
+tests/test_software_jobs.py:203: in test_new_task_is_blocked_until_previous_software_resources_are_cleaned
+    with pytest.raises(JobConflict, match="遗留") as error:
+E   Failed: DID NOT RAISE JobConflict
+_ test_new_task_is_blocked_until_previous_software_resources_are_cleaned[unknown_inventory] _
+tests/test_software_jobs.py:203: in test_new_task_is_blocked_until_previous_software_resources_are_cleaned
+    with pytest.raises(JobConflict, match="遗留") as error:
+E   Failed: DID NOT RAISE JobConflict
+____ test_interrupted_real_inventory_prevents_duplicate_recovery_deployment ____
+tests/test_software_jobs.py:223: in test_interrupted_real_inventory_prevents_duplicate_recovery_deployment
+    with pytest.raises(JobConflict) as error:
+E   Failed: DID NOT RAISE JobConflict
+=========================== short test summary info ============================
+FAILED tests/test_software_jobs.py::test_new_task_is_blocked_until_previous_software_resources_are_cleaned[stale]
+FAILED tests/test_software_jobs.py::test_new_task_is_blocked_until_previous_software_resources_are_cleaned[interrupted]
+FAILED tests/test_software_jobs.py::test_new_task_is_blocked_until_previous_software_resources_are_cleaned[unknown_inventory]
+FAILED tests/test_software_jobs.py::test_interrupted_real_inventory_prevents_duplicate_recovery_deployment
+4 failed, 11 passed in 0.81s

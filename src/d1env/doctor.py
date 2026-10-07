@@ -1,3 +1,4 @@
+import json
 import platform
 import shutil
 import socket
@@ -7,7 +8,8 @@ from typing import Literal
 from .models import CheckResult, CheckStatus, DeploymentRequest, HostFacts, utcnow
 from .process import ProbeRunner
 
-DOCKER_INFO = ("docker", "--context", "default", "info", "--format", "{{json .ServerVersion}}")
+DOCKER_INFO = ("docker", "--context", "default", "info", "--format",
+               '{"version":{{json .ServerVersion}},"os":{{json .OSType}},"architecture":{{json .Architecture}}}')
 COMPOSE_VERSION = ("docker", "--context", "default", "compose", "version", "--short")
 
 
@@ -42,6 +44,15 @@ def inspect_host(target_id: str, runner: ProbeRunner) -> HostFacts:
         interfaces = [name for _, name in socket.if_nameindex()]
     except OSError:
         interfaces = []
+    metadata: dict[str, str] = {}
+    if error is None:
+        try:
+            decoded = json.loads(docker.stdout)
+            if isinstance(decoded, dict):
+                metadata = {key: value for key, value in decoded.items()
+                            if key in {"version", "os", "architecture"} and isinstance(value, str)}
+        except (ValueError, TypeError):
+            pass  # Missing metadata blocks real software plans; it never becomes a guessed platform.
     return HostFacts(
         os_name=os_name, os_version=os_version, architecture=arch,
         docker_available=error != "missing", docker_accessible=None if error == "timeout" else error is None,
@@ -49,6 +60,9 @@ def inspect_host(target_id: str, runner: ProbeRunner) -> HostFacts:
         disk_free_bytes=free,
         gpu_available=Path("/dev/nvidia0").exists() if os_name == "Linux" else None,
         checked_at=utcnow(), docker_error=error, interfaces=interfaces,
+        docker_os=metadata.get("os"), docker_version=metadata.get("version"),
+        docker_architecture={"amd64": "x86_64", "arm64": "aarch64"}.get(
+            metadata.get("architecture", ""), metadata.get("architecture")),
     )
 
 
@@ -62,15 +76,22 @@ def diagnose(request: DeploymentRequest, facts: HostFacts) -> list[CheckResult]:
                                   evidence=TypeAdapter(dict[str, JsonValue]).validate_python(evidence)))
 
     supported = facts.os_name == "Linux" and facts.os_version == "22.04" and facts.architecture == "x86_64"
-    add("PLATFORM", "PASS" if supported else "WARN" if request.mode == "mock" else "FAIL",
-        "首版真实运行平台匹配" if supported else "当前平台仅用于界面、计划与 MOCK 开发",
-        "真实部署后续需经验证的 Ubuntu 22.04 x86_64；本轮只运行演示",
-        os=facts.os_name, version=facts.os_version, architecture=facts.architecture)
+    if request.mode == "software_test":
+        software_platform = facts.docker_os == "linux" and facts.docker_architecture in {"x86_64", "aarch64"}
+        add("PLATFORM", "PASS" if software_platform else "UNKNOWN",
+            "Linux Docker 软件测试平台已取得（未接真机）" if software_platform else "Docker 执行平台未取得，禁止真实软件部署",
+            "检查本地 Docker Desktop/Engine；Mac 软件测试不替代全新 Ubuntu 安装验收",
+            host_os=facts.os_name, docker_os=facts.docker_os, architecture=facts.docker_architecture)
+    else:
+        add("PLATFORM", "PASS" if supported else "WARN" if request.mode == "mock" else "FAIL",
+            "首版真实运行平台匹配" if supported else "当前平台仅用于界面、计划与 MOCK 开发",
+            "真实部署后续需经验证的 Ubuntu 22.04 x86_64；本轮只运行演示",
+            os=facts.os_name, version=facts.os_version, architecture=facts.architecture)
     docker_status: CheckStatus = "PASS" if facts.docker_accessible else "UNKNOWN" if facts.docker_accessible is None else "WARN" if request.mode == "mock" else "FAIL"
-    add("DOCKER", docker_status, "本地默认上下文只读检测通过" if facts.docker_accessible else f"Docker 未就绪：{facts.docker_error or 'unknown'}",
+    add("DOCKER", docker_status, "本机 Docker 入口只读检测通过" if facts.docker_accessible else f"Docker 未就绪：{facts.docker_error or 'unknown'}",
         "检查本地 Docker 安装、服务及权限；本工具不会改权限或启动 daemon",
         available=facts.docker_available, accessible=facts.docker_accessible, error=facts.docker_error,
-        context="default (local only)")
+        context="fixed local Unix entry")
     compose_status: CheckStatus = "PASS" if facts.compose_available else "UNKNOWN" if facts.compose_available is None else "WARN" if request.mode == "mock" else "FAIL"
     add("COMPOSE", compose_status, "Compose 版本只读检测通过" if facts.compose_available else "Compose 未取得或不可用",
         "MOCK 不需要 Compose；真实容器验证在 M3", available=facts.compose_available)

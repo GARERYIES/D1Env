@@ -1,0 +1,108 @@
+FFFFFFFFFFFFFFFFFF                                                       [100%]
+=================================== FAILURES ===================================
+____ test_matching_ros_payload_is_copied_under_the_installed_lock_filename _____
+tests/test_release_ros_bundle.py:52: in test_matching_ros_payload_is_copied_under_the_installed_lock_filename
+    metadata = builder.copy_ros_bundle(source, assets, "aarch64")
+               ^^^^^^^^^^^^^^^^^^^^^^^
+E   AttributeError: module 'd1env_release_ros_test' has no attribute 'copy_ros_bundle'
+_ test_ros_payload_rejects_wrong_lock_or_bytes_before_creating_assets[digest] __
+tests/test_release_ros_bundle.py:82: in test_ros_payload_rejects_wrong_lock_or_bytes_before_creating_assets
+    builder.copy_ros_bundle(source, assets, "aarch64")
+    ^^^^^^^^^^^^^^^^^^^^^^^
+E   AttributeError: module 'd1env_release_ros_test' has no attribute 'copy_ros_bundle'
+__ test_ros_payload_rejects_wrong_lock_or_bytes_before_creating_assets[size] ___
+tests/test_release_ros_bundle.py:82: in test_ros_payload_rejects_wrong_lock_or_bytes_before_creating_assets
+    builder.copy_ros_bundle(source, assets, "aarch64")
+    ^^^^^^^^^^^^^^^^^^^^^^^
+E   AttributeError: module 'd1env_release_ros_test' has no attribute 'copy_ros_bundle'
+_ test_ros_payload_rejects_wrong_lock_or_bytes_before_creating_assets[architecture] _
+tests/test_release_ros_bundle.py:82: in test_ros_payload_rejects_wrong_lock_or_bytes_before_creating_assets
+    builder.copy_ros_bundle(source, assets, "aarch64")
+    ^^^^^^^^^^^^^^^^^^^^^^^
+E   AttributeError: module 'd1env_release_ros_test' has no attribute 'copy_ros_bundle'
+_ test_ros_payload_rejects_wrong_lock_or_bytes_before_creating_assets[source] __
+tests/test_release_ros_bundle.py:82: in test_ros_payload_rejects_wrong_lock_or_bytes_before_creating_assets
+    builder.copy_ros_bundle(source, assets, "aarch64")
+    ^^^^^^^^^^^^^^^^^^^^^^^
+E   AttributeError: module 'd1env_release_ros_test' has no attribute 'copy_ros_bundle'
+_ test_ros_payload_rejects_wrong_lock_or_bytes_before_creating_assets[filename] _
+tests/test_release_ros_bundle.py:82: in test_ros_payload_rejects_wrong_lock_or_bytes_before_creating_assets
+    builder.copy_ros_bundle(source, assets, "aarch64")
+    ^^^^^^^^^^^^^^^^^^^^^^^
+E   AttributeError: module 'd1env_release_ros_test' has no attribute 'copy_ros_bundle'
+_ test_ros_payload_rejects_wrong_lock_or_bytes_before_creating_assets[image_id] _
+tests/test_release_ros_bundle.py:82: in test_ros_payload_rejects_wrong_lock_or_bytes_before_creating_assets
+    builder.copy_ros_bundle(source, assets, "aarch64")
+    ^^^^^^^^^^^^^^^^^^^^^^^
+E   AttributeError: module 'd1env_release_ros_test' has no attribute 'copy_ros_bundle'
+___________ test_ros_payload_rejects_untrusted_input_files[symlink] ____________
+tests/test_release_ros_bundle.py:102: in test_ros_payload_rejects_untrusted_input_files
+    builder.copy_ros_bundle(source, assets, "aarch64")
+    ^^^^^^^^^^^^^^^^^^^^^^^
+E   AttributeError: module 'd1env_release_ros_test' has no attribute 'copy_ros_bundle'
+___________ test_ros_payload_rejects_untrusted_input_files[hardlink] ___________
+tests/test_release_ros_bundle.py:102: in test_ros_payload_rejects_untrusted_input_files
+    builder.copy_ros_bundle(source, assets, "aarch64")
+    ^^^^^^^^^^^^^^^^^^^^^^^
+E   AttributeError: module 'd1env_release_ros_test' has no attribute 'copy_ros_bundle'
+________ test_ros_payload_rejects_untrusted_input_files[group_writable] ________
+tests/test_release_ros_bundle.py:102: in test_ros_payload_rejects_untrusted_input_files
+    builder.copy_ros_bundle(source, assets, "aarch64")
+    ^^^^^^^^^^^^^^^^^^^^^^^
+E   AttributeError: module 'd1env_release_ros_test' has no attribute 'copy_ros_bundle'
+_____________ test_ros_payload_rejects_untrusted_input_files[fifo] _____________
+tests/test_release_ros_bundle.py:102: in test_ros_payload_rejects_untrusted_input_files
+    builder.copy_ros_bundle(source, assets, "aarch64")
+    ^^^^^^^^^^^^^^^^^^^^^^^
+E   AttributeError: module 'd1env_release_ros_test' has no attribute 'copy_ros_bundle'
+________ test_ros_payload_does_not_replace_a_previous_destination[file] ________
+tests/test_release_ros_bundle.py:119: in test_ros_payload_does_not_replace_a_previous_destination
+    builder.copy_ros_bundle(source, assets, "aarch64")
+    ^^^^^^^^^^^^^^^^^^^^^^^
+E   AttributeError: module 'd1env_release_ros_test' has no attribute 'copy_ros_bundle'
+________ test_ros_payload_does_not_replace_a_previous_destination[link] ________
+tests/test_release_ros_bundle.py:119: in test_ros_payload_does_not_replace_a_previous_destination
+    builder.copy_ros_bundle(source, assets, "aarch64")
+    ^^^^^^^^^^^^^^^^^^^^^^^
+E   AttributeError: module 'd1env_release_ros_test' has no attribute 'copy_ros_bundle'
+____ test_ros_bundle_argument_cannot_be_ignored_by_the_assets_only_command _____
+tests/test_release_ros_bundle.py:130: in test_ros_bundle_argument_cannot_be_ignored_by_the_assets_only_command
+    assert result.returncode == 1
+E   AssertionError: assert 2 == 1
+E    +  where 2 = CompletedProcess(args=['<workspace>/.venv/bin/p...s/n0/ngc5_hb938q3s5cth4c559z80000gn/T/pytest-of-yangwucheng/pytest-219/test_ros_bundle_argument_canno0/provided.tar\n').returncode
+_ test_runtime_rejects_untrusted_bundled_payload_assets_before_state_creation[directory_link] _
+tests/test_release_ros_bundle.py:154: in test_runtime_rejects_untrusted_bundled_payload_assets_before_state_creation
+    with pytest.raises(ValueError, match="ASSETS_INVALID"):
+E   Failed: DID NOT RAISE ValueError
+_ test_runtime_rejects_untrusted_bundled_payload_assets_before_state_creation[file_link] _
+tests/test_release_ros_bundle.py:154: in test_runtime_rejects_untrusted_bundled_payload_assets_before_state_creation
+    with pytest.raises(ValueError, match="ASSETS_INVALID"):
+E   Failed: DID NOT RAISE ValueError
+_ test_runtime_rejects_untrusted_bundled_payload_assets_before_state_creation[group_writable] _
+tests/test_release_ros_bundle.py:154: in test_runtime_rejects_untrusted_bundled_payload_assets_before_state_creation
+    with pytest.raises(ValueError, match="ASSETS_INVALID"):
+E   Failed: DID NOT RAISE ValueError
+_ test_runtime_rejects_untrusted_bundled_payload_assets_before_state_creation[special] _
+tests/test_release_ros_bundle.py:154: in test_runtime_rejects_untrusted_bundled_payload_assets_before_state_creation
+    with pytest.raises(ValueError, match="ASSETS_INVALID"):
+E   Failed: DID NOT RAISE ValueError
+=========================== short test summary info ============================
+FAILED tests/test_release_ros_bundle.py::test_matching_ros_payload_is_copied_under_the_installed_lock_filename
+FAILED tests/test_release_ros_bundle.py::test_ros_payload_rejects_wrong_lock_or_bytes_before_creating_assets[digest]
+FAILED tests/test_release_ros_bundle.py::test_ros_payload_rejects_wrong_lock_or_bytes_before_creating_assets[size]
+FAILED tests/test_release_ros_bundle.py::test_ros_payload_rejects_wrong_lock_or_bytes_before_creating_assets[architecture]
+FAILED tests/test_release_ros_bundle.py::test_ros_payload_rejects_wrong_lock_or_bytes_before_creating_assets[source]
+FAILED tests/test_release_ros_bundle.py::test_ros_payload_rejects_wrong_lock_or_bytes_before_creating_assets[filename]
+FAILED tests/test_release_ros_bundle.py::test_ros_payload_rejects_wrong_lock_or_bytes_before_creating_assets[image_id]
+FAILED tests/test_release_ros_bundle.py::test_ros_payload_rejects_untrusted_input_files[symlink]
+FAILED tests/test_release_ros_bundle.py::test_ros_payload_rejects_untrusted_input_files[hardlink]
+FAILED tests/test_release_ros_bundle.py::test_ros_payload_rejects_untrusted_input_files[group_writable]
+FAILED tests/test_release_ros_bundle.py::test_ros_payload_rejects_untrusted_input_files[fifo]
+FAILED tests/test_release_ros_bundle.py::test_ros_payload_does_not_replace_a_previous_destination[file]
+FAILED tests/test_release_ros_bundle.py::test_ros_payload_does_not_replace_a_previous_destination[link]
+FAILED tests/test_release_ros_bundle.py::test_ros_bundle_argument_cannot_be_ignored_by_the_assets_only_command
+FAILED tests/test_release_ros_bundle.py::test_runtime_rejects_untrusted_bundled_payload_assets_before_state_creation[directory_link]
+FAILED tests/test_release_ros_bundle.py::test_runtime_rejects_untrusted_bundled_payload_assets_before_state_creation[file_link]
+FAILED tests/test_release_ros_bundle.py::test_runtime_rejects_untrusted_bundled_payload_assets_before_state_creation[group_writable]
+FAILED tests/test_release_ros_bundle.py::test_runtime_rejects_untrusted_bundled_payload_assets_before_state_creation[special]
+18 failed in 0.20s
